@@ -1,0 +1,68 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+TimeTraxDLL_Common
+</name>
+</assembly>
+<members>
+<member name="T:TimeTraxDLL_Common.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:TimeTraxDLL_Common.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:TimeTraxDLL_Common.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:TimeTraxDLL_Common.BO_PricingList.tblDetailPricingListDataTable.GetPriceListIDByItemInTable_Old(System.Data.DataTable,System.String)">
+ <summary>
+ Not in use. Garbage
+ </summary>
+ <param name="tblData"></param>
+ <param name="bonus_prefix"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_Common.BO_PricingList.tblDetailPricingListDataTable.GetLatestPriceListIDAndRateCodeByItem">
+ <summary>
+ This function is used only where Latest PricingListID with RateCode are required against ItemID
+ (where only ItemID is given - Reference: LiteSpiderTransactions.aspx)
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_Common.BO_PricingList.tblDetailPricingListDataTable.GetItemRatesFromMultiplePricingListInTable(System.String)">
+ <summary>
+ To get all TP, PP, RP with their PricingListID
+ </summary>
+ <param name="_query"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_Common.BO_PricingList.tblDetailPricingListDataTable.GetItemRatesFromMultiplePricingListInTable(System.String,System.Data.OleDb.OleDbCommand@)">
+ <summary>
+ To get all TP, PP, RP with their PricingListID
+ </summary>
+ <param name="_query"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_Common.BO_PricingList.tblDetailPricingListDataTable.GetItemRatesFromPricingListInTable(System.Data.DataTable,System.String)">
+ <summary>
+ To get Latest TP, PP, RP with their PricingListID
+ </summary>
+ <param name="tblData"></param>
+ <param name="bonus_prefix"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+</members>
+</doc>

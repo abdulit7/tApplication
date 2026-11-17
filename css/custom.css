@@ -1,0 +1,173 @@
+body, html, div, p, span, a, h1, h2, h3, h4, h5{
+	margin 				: 0;
+	padding 			: 0;
+}
+
+body, html{	
+	width 				: 100%;
+}
+
+body{
+	background 			: url('../images/bkgd.png') repeat top left;
+	color 				: white;
+	font-family 		: tahoma;
+	font-weight 		: lighter;
+	padding-top 		: 40px;
+}
+
+	body p{
+		font-size 		: 14px;
+	}
+	
+		body p a{
+			font-size	: 16px;
+		}
+
+h1 {
+	color 				: #E05E00;	
+	font-style 			: italic;
+}
+
+a{
+	color 				: #E05E00;	
+	text-decoration		: none;
+}
+
+a:hover{
+	text-decoration		: underline;
+}
+
+/* general */
+.clear {
+	clear: both;
+}
+
+/* Header */
+.brand{
+	color 				: #E05E00 !important;	
+	font-family 		: georgia;
+	font-style 			: italic;
+}
+
+/* list stuff */
+#org{
+	background-color 	: white;
+	margin 				: 10px;
+	padding 			: 10px;
+}
+
+#show-list{
+	cursor 				: pointer;
+}
+
+/* bootstrap overrides */
+.alert-message{
+	margin: 2px 0;
+}
+
+.topbar{
+	position 			: absolute;
+}
+
+/* Custom chart styling */
+.jOrgChart {
+  margin                : 10px;
+  padding               : 20px;
+}
+
+/* Custom node styling */
+.jOrgChart .node {
+	font-size 			: 10px;
+	background-color 	: #35363B;
+	border-radius 		: 8px;
+	border 				: 5px solid white;
+	color 				: #F38630;
+	-moz-border-radius 	: 8px;
+}
+	.node p{
+		font-family 	: tahoma;
+		font-size 		: 10px;
+		line-height 	: 11px;
+		padding 		: 2px;
+	}
+	
+	
+	
+	
+.cleditorMain {border:1px solid #999; padding:0 1px 1px; background-color:white}
+.cleditorMain iframe {border:none; margin:0; padding:0}
+.cleditorMain textarea {border:none; margin:0; padding:0; overflow-y:scroll; font:10pt Arial,Verdana; resize:none; outline:none /* webkit grip focus */}
+.cleditorToolbar {background: url('graphics/toolbar.gif') repeat}
+.cleditorGroup {float:left; height:26px}
+.cleditorButton {float:left; width:24px; height:24px; margin:1px 0 1px 0; background: url('graphics/buttons.gif')}
+.cleditorDisabled {opacity:0.3; filter:alpha(opacity=30)}
+.cleditorDivider {float:left; width:1px; height:23px; margin:1px 0 1px 0; background:#CCC}
+.cleditorPopup {border:solid 1px #999; background-color:white; position:absolute; font:10pt Arial,Verdana; cursor:default; z-index:10000}
+.cleditorList div {padding:2px 4px 2px 4px}
+.cleditorList p,
+.cleditorList h1,
+.cleditorList h2,
+.cleditorList h3,
+.cleditorList h4,
+.cleditorList h5,
+.cleditorList h6,
+.cleditorList font {padding:0; margin:0; background-color:Transparent}
+.cleditorColor {width:150px; padding:1px 0 0 1px}
+.cleditorColor div {float:left; width:14px; height:14px; margin:0 1px 1px 0}
+.cleditorPrompt {background-color:#F6F7F9; padding:4px; font-size:8.5pt}
+.cleditorPrompt input,
+.cleditorPrompt textarea {font:8.5pt Arial,Verdana;}
+.cleditorMsg {background-color:#FDFCEE; width:150px; padding:4px; font-size:8.5pt}
+
+
+/* Basic styling */
+/* Draw the lines */
+.jOrgChart .line {
+  height                : 20px;
+  width                 : 4px;
+}
+
+.jOrgChart .down {
+  background-color 		: black;	
+  margin 				: 0px auto;
+}
+
+.jOrgChart .top {
+  border-top          : 3px solid black;
+}
+
+.jOrgChart .left {
+  border-right          : 2px solid black;
+}
+
+.jOrgChart .right {
+  border-left           : 2px solid black;
+}
+
+/* node cell */
+.jOrgChart td {
+  text-align            : center;
+  vertical-align        : top;
+  padding               : 0;
+}
+
+/* The node */
+.jOrgChart .node {
+  background-color 		: #35363B;
+  display               : inline-block;
+  width                 : 96px;
+  height                : 60px;
+  z-index 				: 10;
+  margin               : 0 2px;
+}
+
+/* jQuery drag 'n drop */
+
+.drag-active {
+  border-style			: dotted !important;
+}
+
+.drop-hover {
+  border-style			: solid !important;
+  border-color 			: #E05E00 !important;
+}

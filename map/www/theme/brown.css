@@ -1,0 +1,114 @@
+.skin-blue .main-header .navbar {
+    background-color: #795548;
+}
+
+.skin-blue .main-header .logo {
+    background-color: #795548;
+}
+
+.skin-blue .main-header .logo:hover {
+    background-color: #795548;
+}
+
+.skin-blue footer {
+    background-color: #795548;
+    color: #fff;
+}
+
+.skin-blue .main-header .navbar .sidebar-toggle:hover {
+    background-color: #795548;
+}
+
+.objectivebox {  
+    border-bottom: 2px solid #795548;    
+}
+
+.objectiveboxapproval{
+    border-color: #795548  ;  
+}
+
+.btn-primary {
+    background-color: #795548;
+}
+
+.btn-primary:hover {
+    background-color: #795548;
+}
+
+.btn-primary:target {
+    background-color: #795548;
+}
+.btn-primary:focus {
+    background-color: #795548;
+}
+
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+    color: #fff;
+    background-color: #795548;
+    border-color: #795548;
+}
+
+.btn-primary.disabled, .btn-primary.disabled.active, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled:focus, .btn-primary.disabled:hover, .btn-primary[disabled], .btn-primary[disabled].active, .btn-primary[disabled].focus, .btn-primary[disabled]:active, .btn-primary[disabled]:focus, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary.active, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:hover {
+    background-color: #795548;
+    border-color: #795548;
+}
+
+.surveytitle2 {
+    border-color: #795548;
+}
+.performancetitle {
+    background-color: #795548;
+}
+.questionTemplate {  
+    border-left: 2px solid #795548;
+}
+
+.EmployeeTitle {
+    color: #795548;    
+}
+
+.skin-blue .treeview-menu > li > a {
+    color: #fff;    
+}
+
+.sidebar{
+    background-color: #795548;    
+}
+.skin-blue .sidebar a {
+    color: #fff;
+}
+label{
+    color: #795548;
+}
+
+.login-page, .register-page {
+    background: #795548;
+}
+
+#wait{
+    color: #795548;
+}
+
+a{
+    color:#795548;
+}
+
+.form-control:focus{
+    border-color: #795548;
+}
+
+.addonbordertxt{
+    color:#795548;;
+}
+
+.helpdeskicons{
+    color:#795548;
+}
+
+.fixedinput {
+    background: #7955871c;  
+}
+
+.direct-chat-text {    
+    border-color: #795548;    
+}

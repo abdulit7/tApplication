@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome to TimeTrax - Mobile App</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <!-- Timeline CSS -->
+    <link href="css/timeline.css" rel="stylesheet">
+    <!-- datetime -->
+    <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="css/AdminLTE.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="css/skin-blue.css">
+    <link href="css/chosen.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="js/select2/select2.css">
+    <link rel="stylesheet" href="js/noti/toastr.css">
+    <link rel="stylesheet" href="js/select2/select2.css">
+    <style>
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .panelshadow{
+            box-shadow: 0px 0px 10px #ccc;
+            border-radius: 10px;
+            border:1px solid rgba(245, 120, 11, 0.295);
+            position: relative; 
+                           
+        }
+
+
+
+        .surveytitle{
+            padding: 4px;
+            border-bottom:1px solid #ddd;
+            display: block;
+            font-weight:bold;   
+            color: #777;  
+            margin-bottom: 1%;  
+            font-size: 18px;      
+        }
+        .surveyinfo{
+            margin-top: 0%;
+            padding: 2px;
+            
+        }
+        .suveryfield{
+            margin-top: 1%;
+        }
+        .surveylbl{
+            color: rgb(165, 165, 165);
+        }
+        .surveytxt{
+            color: #333;
+        }
+       .suverybtn{
+           margin-top: 10px;
+           border-radius: 0px;
+           
+       }
+
+        .field-icon {
+            float: right;
+            margin-right: 20px;
+            margin-top: -21px;
+            position: relative;
+            z-index: 2;
+        }
+       
+        .form-control[disabled] {
+                    cursor: not-allowed;
+                    background: #eee;                   
+                    border: none;
+                    border-radius: 10px;                  
+                    font-size: 14px;    
+                    padding-left: 10px;
+                    
+                }
+               
+                .myselect {
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    text-indent: 1px;
+                    text-overflow: '';
+                }
+
+                .strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap; 
+    margin-bottom: 18px;
+}
+
+.strike > span {
+    position: relative;
+    display: inline-block;
+    color: #999;
+}
+
+.strike > span:before,
+.strike > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background: #ddd;
+}
+
+.strike > span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.strike > span:after {
+    left: 100%;
+    margin-left: 15px;
+}
+.scheduleday{
+    padding: 10px 10px 10px 25px;
+    background: #ffffffee;
+    box-shadow: 1px 1px 10px #999;     
+    text-shadow: 0px 0px 20px #fff; 
+}
+.sticky {
+  position: fixed;  
+  width: 100%;
+  z-index: 99999;    
+}
+
+    </style>
+
+</head>
+
+<body class="hold-transition skin-blue fixed sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header trigger">
+            <!-- Logo -->
+            <a href="main.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><img src="img/logo-sml.png" /></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><img src="img/logo.png" /></span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav" id="pageDropdowns">
+                        <!-- Messages: style can be found in dropdown.less-->
+
+                        <!-- Notifications: style can be found in dropdown.less -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user"></i>
+                                <script type="text/javascript" src="js/UserName.js"></script>
+
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" id="btnlogout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <!-- Tasks: style can be found in dropdown.less -->
+
+                        <!-- User Account: style can be found in dropdown.less -->
+
+
+                    </ul>
+
+
+                </div>
+            </nav>
+        </header>
+        <!-- =============================================== -->
+        <!-- Left side column. contains the sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <!--  <script type="text/javascript" src="js/mainmenu.js"></script>
+                <script type="text/javascript">
+                    $(function(){ var element = document.getElementById("mnuAppraisal");
+                    element.className += " active"; });
+                </script>-->
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- =============================================== -->
+        <!-- Content Wrapper. Contains page content -->
+
+        <div class="content-wrapper">
+            <div id="fixeddiv"></div>
+            <!-- Main content -->
+
+            <section class="content" id="pulltorefresh">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span class="page-heading">Attendance Schedule</span>
+                        <!-- <a id="btnRefresh" class="btn btn-default btn-xs pull-right" onclick="populateScheduleDetailsList()">
+                        <i class="fa fa-refresh"></i> &nbsp; Refresh
+                    </a> -->
+                        <span id="wait" style="display: none;color:orange;font-size: 18px;" class="fa fa-spinner fa-spin pull-right btn"></span>
+                    </div>
+                    <div class="panel-body">
+
+                        <form id="form1">
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="input-group">
+                                        <!-- <div class="input-group-btn search-panel">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                <span id="search_concept">Schedule</span> <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                              <li><a href="#1">Contains</a></li>
+                                              <li><a href="#2">It's equal</a></li>                                              
+                                            </ul>                                            
+                                        </div> -->
+                                        <span class="input-group-btn" id="prev">
+                                            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-triangle-left"></span></button>
+                                        </span>
+                                        <input readonly style="padding:14px;" type="text" class="form-control" id='txtScheduleDate'>
+                                        <span class="input-group-btn" id="next">
+                                            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-triangle-right"></span></button>
+                                        </span>
+                                        <span class="input-group-btn">
+                                            <button id="btnSearch" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+
+                        <div id="ScheduleList" class="list-group">
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+            <!-- /.content -->
+        </div>
+    </div>
+
+
+
+    <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+
+    <script type="text/javascript" src="js/footer.js"></script>
+
+    <footer class="navbar-fixed-bottom">
+
+        <!--<div class="pull-right hidden-xs">
+                <b>Version</b> 5.1.0
+            </div>
+            <strong>Copyright &copy; <script>document.write(getYear());</script> 
+                <a href="http://EfroTech.com">EfroTech</a>.</strong> All rights reserved.-->
+        <script>                document.write(getShortCuts());</script>
+    </footer>
+    <!-- Control Sidebar -->
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+           immediately after the control sidebar -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+
+    <!-- Ajax Request Spinner -->
+    <!-- <div id="wait" style="display: none;position: fixed;top:50%;left:50%">
+        <div style="text-align:center;color:#F5770B;"><i class="fa fa-gear fa-spin" style="font-size:24px;text-align:center;"></i>
+            <div></div>
+        </div>
+    </div> -->
+
+    <script src="js/polyfill.js"></script>
+
+    <script src="js/jquery.js"></script>
+
+    <script src="js/jquery.signalR-2.4.1.js"></script>
+    <script src="js/SignalRHub.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+
+    <script src="js/bootstrap.js"></script>
+
+    <!-- SlimScroll -->
+
+    <script src="js/jquery.slimscroll.js"></script>
+
+    <!-- FastClick -->
+
+    <script src="js/fastclick.js"></script>
+
+    <!-- AdminLTE App -->
+    <script src="js/noti/toastr.js"></script>
+    <script src="js/app.js"></script>
+    <script type="text/javascript" src="js/mainmenu.js"></script>
+    <script src="js/moment-with-locales.js"></script>
+    <script src="js/bootstrap-datetimepicker.js"></script>
+    <script src="js/chosen.jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/pulltorefresh.js"></script>
+    <script src="js/select2/select2.js"></script>
+    <script src="js/ViewEditSchedule.js" type="text/javascript" charset="utf-8"></script>
+
+    <style>
+        .select2-container--default .select2-selection--single,
+        .select2-selection .select2-selection--single {
+            border: 1px solid #d2d6de;
+            border-radius: 0;
+            padding: 3px 3px;
+            height: 34px;
+            font-size: 11px;
+        }
+
+        .select2-container .select2-selection--single {
+            box-sizing: border-box;
+            cursor: pointer;
+            display: block;
+            height: 28px;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+    </style>
+
+
+    <script> $(function () { var element = document.getElementById("mnuAttendance"); element.className += " active"; }); </script>
+</body>
+
+</html>

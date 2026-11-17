@@ -1,0 +1,16 @@
+SelectedTheme=Default:#f5821f
+Default:#f5821f,
+Blue:#003960,
+LightBlue:#03A9F4,
+Green:#008746,
+Purple:#5e2568,
+Magenta:#FF00FF,
+Teal:#009688,
+Brown:#795548,
+Yellow:#ffcd00,
+Red:#FF5722,
+Indigo:#3F51B5,
+Amber:#FFC107,
+Lime:#CDDC39,
+Light Green:#8BC34A,
+Dark:#212121

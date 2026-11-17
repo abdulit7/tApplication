@@ -1,0 +1,51 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+
+	<SubReport>
+		<ObjectID>1147</ObjectID>
+		<RowNo>1</RowNo>
+		<ColumnNo>50</ColumnNo>
+		<ReportObjectID>1120</ReportObjectID>
+		<UserID>15</UserID>
+		<RefereshTime>10</RefereshTime>
+		<HeaderColor>#1e7145</HeaderColor>
+	</SubReport>
+	<SubReport>
+		<ObjectID>1147</ObjectID>
+		<RowNo>2</RowNo>
+		<ColumnNo>50</ColumnNo>
+		<ReportObjectID>1122</ReportObjectID>
+		<UserID>17</UserID>
+		<RefereshTime>0</RefereshTime>
+		<HeaderColor>#da532c</HeaderColor>
+	</SubReport>
+	<SubReport>
+		<ObjectID>1147</ObjectID>
+		<RowNo>3</RowNo>
+		<ColumnNo>50</ColumnNo>
+		<ReportObjectID>1125</ReportObjectID>
+		<UserID>17</UserID>
+		<RefereshTime>0</RefereshTime>
+		<HeaderColor>#e3a21a</HeaderColor>
+	</SubReport>
+	<SubReport>
+		<ObjectID>1147</ObjectID>
+		<RowNo>5</RowNo>
+		<ColumnNo>50</ColumnNo>
+		<ReportObjectID>1123</ReportObjectID>
+		<UserID>17</UserID>
+		<RefereshTime>0</RefereshTime>
+		<HeaderColor>#2d89ef</HeaderColor>
+	</SubReport>
+	<SubReport>
+		<ObjectID>1147</ObjectID>
+		<RowNo>4</RowNo>
+		<ColumnNo>50</ColumnNo>
+		<ReportObjectID>1124</ReportObjectID>
+		<UserID>17</UserID>
+		<RefereshTime>0</RefereshTime>
+		<HeaderColor>#da532c</HeaderColor>
+	</SubReport>
+
+
+</NewDataSet>

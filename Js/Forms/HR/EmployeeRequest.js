@@ -1,0 +1,88 @@
+﻿function PerformAddRowCourses() {
+    var msg = "", ddlInstitute, txtCourseName, txtCategory, txtType, txtCourseAddress, txtMajorSubject, txtDateOfcompletion, txtDurationInHourse;
+
+    ddlInstitute = document.getElementById('ctl00_ContentPlaceHolder1_ddlInstitute');
+    txtCourseName = document.getElementById('ctl00_ContentPlaceHolder1_txtCourseName');
+    txtCategory = document.getElementById('ctl00_ContentPlaceHolder1_txtCategory');
+    txtType = document.getElementById('ctl00_ContentPlaceHolder1_txtType');
+    txtCourseAddress = document.getElementById('ctl00_ContentPlaceHolder1_txtAddress');
+    txtMajorSubject = document.getElementById('ctl00_ContentPlaceHolder1_txtMajorSubject');
+    txtDateOfcompletion = document.getElementById('ctl00_ContentPlaceHolder1_txtDateOfcompletion');
+    txtDurationInHourse = document.getElementById('ctl00_ContentPlaceHolder1_txtDurationInHourse');
+
+    msg += txtCourseName.value === "" ? "Enter Course Name \n" : "";
+    msg += txtCategory.value === "" ? "Enter Category \n" : "";
+    msg += ddlInstitute.value === "0" ? "Select Institution \n" : "";
+    msg += txtType.value === "" ? "Enter Type \n" : "";
+    msg += txtMajorSubject.value === "" ? "Enter Discipline \n" : "";
+    msg += txtCourseAddress.value === "" ? "Enter Address \n" : "";
+    msg += txtDateOfcompletion.value === "" ? "Enter Completion Date \n" : "";
+    msg += txtDurationInHourse.value === "" ? "Enter Duration Hours \n" : "";
+
+    if (msg.trim() === "") {
+        addSNoGeneral(getClientID("txtSno6"), getClientID("hidSno6"), getClientID("gvwCoursesList"), 8)
+        gvwCoursesList_AddRow();
+        
+        //addSNo6();
+    }
+    else {
+        //msg = "Please fill follwing values \n " + msg;
+        alert(msg);
+    }
+}
+
+function addSNo6() {
+
+    var txtSNo = document.getElementById('ctl00_ContentPlaceHolder1_txtSnoCourses');
+    //ctl00_ContentPlaceHolder1_txtSnoCourses
+    var hidSNo = document.getElementById('ctl00_ContentPlaceHolder1_hidSnoCourses');
+    var hidmaxSno = 1;
+    var rows = document.getElementById('ctl00_ContentPlaceHolder1_gvwCoursesList').rows;
+
+
+    for (i = 1; i < rows.length; i++) {
+        var CellsCount = rows[i].cells.length - 2;
+        var hidhrSNo = rows[i].cells[9].childNodes[0].data;
+        if (hidhrSNo == null) {
+            hidhrSNo = rows[i].cells[9].childNodes[0].value;
+        }
+        else {
+            hidmaxSno = hidhrSNo;
+        }
+    }
+    if (hidmaxSno > 0) {
+        hidmaxSno = hidmaxSno * (-1);
+    }
+    txtSNo.value = parseFloat(hidmaxSno) - 1;
+    hidSNo.value = txtSNo.value;
+}
+
+function ddlPosition_change(e) {
+    var value, hidDdlPositionValue;
+    value = e.target.value;
+    $ = jQuery.noConflict();
+    hidDddlPositionValue = $('#ctl00_ContentPlaceHolder1_hidDdlPositionValue');
+    hidDddlPositionValue.val(value);
+}
+
+function ddlPFProfit_change(s,e) {
+    var value, isPFProfit, ddlPFProfit, ddlPFInvestmentType, rfv_PFInvestmentType, hidData, obj;
+    
+    ddlPFProfit = document.getElementById(getClientID('ddlPFProfit'));
+    ddlPFInvestmentType = document.getElementById(getClientID('ddlPFInvestmentType'));
+    rfv_PFInvestmentType = document.getElementById(getClientID('rfv_PFInvestmentType'));
+    hidData = document.getElementById(getClientID('hidData'));
+
+    value = ddlPFProfit.value;
+
+    isPFProfit = value.toLowerCase() === 'y';
+    
+    obj = JSON.parse(hidData.value);
+
+    ddlPFInvestmentType.value = isPFProfit ? ddlPFInvestmentType.value : 'any';
+    ddlPFInvestmentType.disabled = !isPFProfit;
+
+    if(obj.hasOwnProperty('IsRfv_PFInvestmentTypeEnabled') && obj.IsRfv_PFInvestmentTypeEnabled === true) {
+        ValidatorEnable(rfv_PFInvestmentType, isPFProfit);
+    }
+}

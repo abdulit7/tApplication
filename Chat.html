@@ -1,0 +1,510 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+
+    <link href="App_Themes/TimeTrax/bootstrap.min.css" rel="stylesheet" />
+    <script src="Js/jqueryhomepage.js"></script>
+    <script type="text/javascript" src="Js/jquery.datatables.min.js"></script>
+    <!--Reference the SignalR library. -->
+    <script src="Js/jquery.signalR-1.0.0.min.js" type="text/javascript"></script>
+    <script src="Js/jquery.signalR-1.1.4.min.js" type="text/javascript"></script>
+    <script src="signalr/hubs"></script>
+    <script type="text/javascript" src="Js/Efro.js"></script>
+
+     <style>
+        body{
+            background: #fff !important;            
+        }
+        .panel{
+            border-radius: 0;
+            border: 1px solid #fafafa;
+        }
+        .panel-heading{
+            border:none;
+        }
+        .listUserTitle {
+            font-size: 12px;
+        }
+        .lblSenderName{
+            font-size: 14px;            
+        }
+        .txtSearch{
+            border:none;
+            border-bottom: 2px solid #ddd;
+            box-shadow:0 !important;
+        }
+        .Receiver
+        {
+            padding: 10px;
+            color: #696969;
+            background: #dcf8c6;
+            border-radius:20px;
+            border-bottom-right-radius:0;            
+            display: table;
+            margin-left:auto; 
+            margin-right:2%;
+            text-align: left;
+            box-shadow: -2px 2px 5px #ddd;
+            border: none;
+            
+        }
+         .Sender , .SenderUnRead
+        {
+            color: #696969;
+            background: #f5f5f5;
+            border-radius:20px;
+            border-bottom-left-radius:0;
+            padding: 10px;            
+            margin-bottom:2%;
+            margin-right:auto; 
+            margin-left:1%;
+            text-align: left;
+            box-shadow: 2px 2px 5px #ddd;
+            display: table;
+            border: none;
+        
+        }
+       
+        .SenderUnRead
+        {
+             color: #000000;
+            font-style : italic;
+            
+        }
+
+        .itemdate{
+            color: #999;
+        }
+
+        .usritm{
+            border: none;
+            cursor: pointer;
+            border-top: 1px solid #f1f1f1 !important;
+        }
+
+        .usritm:hover{
+            background: #f5f5f5;
+        }
+        .myinput{
+            width: 100%;
+            padding: 10px;
+            padding-left: 50px;
+            border-radius: 23px;
+            border: none;
+            outline: none;
+            z-index: -1;
+            background: #eee;
+            
+        }
+        .btnSend{
+            position: absolute;
+            border: none;
+            padding: 10px;
+            border-radius: 100%;
+            right: 2.4%;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .btnRichText{
+            position: absolute;
+            border: none;
+            padding: 10px;
+            border-radius: 100%;
+            left: 2.4%;
+            z-index: 1;
+            cursor: pointer;
+        }
+        .btnSend .i{
+            font-size: 14px;
+        }
+
+        #mainarea{
+            background: #fff;
+        }
+        
+
+
+        .scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .scroll::-webkit-scrollbar-track {
+            border-radius: 0px;
+        }
+
+        .scroll::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: grey;
+        }
+
+        .userListInMob{
+            padding: 0;
+    position: fixed;
+    z-index: 9999;
+    left: -100%;
+        }
+
+             @media only screen and (max-width: 768px) {
+              
+            }
+
+            .txtarea{
+                position: absolute;
+                width: 100%;
+                bottom: 4%;
+                left: 0%;
+            }
+
+            .selectedUser{
+                background: #ddd;
+            }
+    </style>
+</head>
+<body>
+    <input type="hidden" id="hidUserID" />
+    <input type="text" id="txtName" />
+    <button id="btnSend">Send</button>
+    <p id="area"></p>
+
+    
+    <div id="listUsedr" class="col-md-3">
+
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3" style="padding: 0;" id="pnlUserList">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" style="height: 60px;">
+
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <img width="80%" class="img img-circle img-respnsive" style="width: 34px; border-radius: 100%;"
+                                        src="images/avataruser.png" alt="" srcset="">
+                                </div>
+                                <div class="col-xs-10">
+                                    <span class="listUserTitle lblSenderName" id="lblSender" runat="server"></span>
+                                    <span class="pull-right"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></span>
+                                    <div id="lblRefType"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="panel-body pnllistncontent" style="height: 500px; overflow: auto;">
+
+                           <!-- <asp:listbox id="lstReceiver" runat="server" font-names="Arial" font-size="Smaller" height="326px"
+                                visible="false" onclick="$('#result').text('');chat_getData(true);" rows="30" width="100%">
+                            </asp:listbox>-->
+
+                            <div class='list-group-item' style='border: none;'>
+                                <div class='row'>
+                                    <input type='text' class='txtSearch' placeholder="Search User ..." style='width: 100%; padding: 10px;'
+                                        onkeyup="searchUser(this.value);">
+                                </div>
+                            </div>
+
+                            <ul class="list-group scroll" id="listUser">                               
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9" style="padding: 0;">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" style="height: 60px;">
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <i class="fa fa-bars hide" id="iconBars" style="font-size: 16px;" onclick="toggleUserList();"></i>
+                                            <img width="80%" class="img img-circle img-respnsive currentUserImg" style="width: 34px; border-radius: 100%;"
+                                                src="images/avataruser.png" alt="" srcset="">
+                                        </div>
+                                        <div class="col-xs-9">
+
+                                            <h5><span class="lblSenderName" id="curentActiveUserTitle"></span>
+                                                <input type="hidden" id="currentEmpID" value="0">
+                                            </h5>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <script>
+                                //function toggleUserList() {
+                                //    jQuery('#pnlUserList').css('left', '0');
+                                //}
+                            </script>
+
+                        </div>
+                        <div class="panel-body pnllistncontent" id="mainarea">
+                            <div id="result" style="overflow: auto;">
+                            </div>
+                            <div class="col-md-12 txtarea">
+                                <div class="row">
+
+
+                                    <div class="col-md-12">
+                                        <!-- <textarea id="txtMsg"></textarea> -->
+                                        <input type="text" class="myinput" id="txtinput">
+                                        <span class="btnSend"><i class="fa fa-paper-plane" style="font-size: 16px;" id="btnSendMsg"
+                                            onclick="sendMsg();"></i></span>
+                                        <span class="btnRichText" onclick="openRichEditor();"><i class="fa fa-text-width" style="font-size: 16px;"
+                                            id=""></i></span>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        var _ReferenceType = 'Communication';
+        $(document).ready(init);
+
+        var startTime, endTime;
+        //var prm = Sys.WebForms.PageRequestManager.getInstance();
+        //prm.add_endRequest(init);
+
+        function init() {
+
+            var _winheight = jQuery(window).height();
+            jQuery('.pnllistncontent').css('height', _winheight - 100 + 'px');
+            jQuery('#result').css('height', _winheight - 180 + 'px');
+
+            // Declare a proxy to reference the hub. 
+            var communicationHub = $.connection.communicationHub;
+            $.connection.hub.start().done(function () {
+                if (isNull($)) { $ = jQuery.noConflict(); }
+
+                //registerEvents(acHub, $)
+                //registerClientMethods(communicationHub);
+                communicationHub.server.onConnecte('');
+
+                $('#listUser').html('<ul>hi</ul>');
+                var res = communicationHub.server.getUserList('Communication');
+                //res = JSON.parse(res);
+                //console.log({res});
+
+                $('#btnSend').click(function (e) {
+                    communicationHub.server.send($('#txtName').val());
+                });
+
+            });
+
+            //console.log('typeof $.connection.hub.stop : ', typeof $.connection.hub.stop);
+
+            //$('#btnCancelProcess').click(function () {
+            //    $.connection.hub.stop();
+            //});
+
+            registerClientMethods(communicationHub);
+        }
+
+        function getChating(pEid, pEname) {
+
+            jQuery('.usritm').removeClass('selectedUser');
+            jQuery('.usritm' + pEid).addClass('selectedUser');
+
+            jQuery('#curentActiveUserTitle').html(pEname);
+            jQuery('#currentEmpID').val(pEid);
+            getUserChat(0, 0, 0, pEid, true, _ReferenceType, 0);
+
+            if (jQuery(window).width() <= 786) {
+                jQuery('#pnlUserList').css('left', '-100%');
+                //var _winheight = jQuery(window).height();
+                //jQuery('.pnllistncontent').css('height', _winheight - 90 + 'px');
+                //jQuery('.currentUserImg').css('display', 'none');
+
+            }
+
+            //alert(pEname);
+        }
+
+        function getUserChat(pConversationID, pLastTranID, pLastUpdateID, pReciverID, pIsNewChat, pReferenceType, pReferenceID) {
+            var data =
+            {
+                ConversationId: pConversationID,
+                LastUpdateId: pLastUpdateID,
+                ReceiverID: pReciverID,
+                IsNewChat: pIsNewChat,
+                LastTranID: pLastTranID,
+                ReferenceType: pReferenceType,
+                ReferenceID: pReferenceID
+            }
+
+            // if (chatInterval) {
+            //     chatInterval = clearInterval(chatInterval);
+            // }
+
+
+            postRequest('WSCommunication.asmx/GetUpdates', JSON.stringify(data), function (r) {
+                ////console.log(r.d);
+
+                if (r.d.length <= 0) {
+                    if (pIsNewChat) {
+                        jQuery('#result').html('<center>Chat not start yet!</center>');
+                    } else {
+                        jQuery('#result').append('');
+                    }
+                    return;
+                }
+
+                if (r.d.length > 0) {
+                    var template = '';
+                    jQuery.each(r.d, function (i, item) {
+                        var isRead = '';
+                        if (item.IsRead === true) {
+                            isRead = ' &nbsp;<i class="fa fa-check" style="color:#80D8FF;"></i>';
+                        } else {
+                            isRead = ' &nbsp;<i class="fa fa-check" style="color:#ddd;"></i>';
+                        }
+
+
+                        var senderDiv = '';
+                        //var reciverDiv = '';
+                        if (item.CssClass.indexOf('Sender') > -1) {
+                            isRead = '';
+                        }
+                        senderDiv = '<div style="text-align:right;" ><div class="panel ' + item.CssClass + '"><p>' + item.MessageText + '</p> <span class="pull-right itemdate">' + item.TranDate + isRead + '</span> </div></div>';
+                        //} else {
+                        //senderDiv = '<div style="text-align:left;"><div class="panel ' + item.CssClass + '"><p>' + item.MessageText + '</p> <span class="pull-right itemdate">' + item.TranDate + '</span> </div></div>';
+                        //}
+                        template += senderDiv;
+                        //$("#contentarea").scrollTop($("#contentarea")[0].scrollHeight);
+                        scrollToBottom('result');
+
+                        if (i === r.d.length - 1) {
+                            //alert(item.TranID);
+                            //jQuery('#ctl00_ContentPlaceHolder1_hidLastTranID').val(item.TranID);
+                        }
+
+                    });
+
+                    if (pIsNewChat) {
+                        jQuery('#result').html(template);
+                    } else {
+                        jQuery('#result').append(template);
+                    }
+                    scrollToBottom('result');
+
+                } else {
+                    template = '';
+                    jQuery('#result').html('');
+                }
+
+            });
+
+        }
+
+        function scrollToBottom(pstrID) {
+            var objDiv = document.getElementById(pstrID);
+            objDiv.scrollTop = objDiv.scrollHeight;
+        }
+
+        function registerClientMethods(communicationHub) {
+
+            var userID = $('#hidUserID');
+            
+            communicationHub.client.connected = function (pID) {
+                userID.val(pID);
+            }
+
+            communicationHub.client.getUserList = function (res) {
+                
+                res = JSON.parse(res);
+                //console.table(res);
+                var template = '';
+                $.each(res,function(i,item){
+                    var para = item.EmployeeID + '^' + item.EmployeeName;
+                    var unRead = item.UnreadMsg > 0 ? '<span class="badge pull-right">' + item.UnreadMsg + '</span>' : '';
+                    var lastMsg = item.LastMessage !== '' ? item.LastMessage.split('^')[0] : '';  //.length > 0 ? item.LastMessage : '';
+                    var lastMsgDate = item.LastMessage !== '' ? item.LastMessage.split('^')[1] : '';
+                    var tdate = item.LastMessage !== '' ? new Date(item.LastMessage.split('^')[1]) : '';
+                    var today = new Date();
+                    if (tdate !== '') {
+
+                        if (tdate.getDay() === today.getDay() && tdate.getMonth() === today.getMonth() && tdate.getFullYear() === today.getFullYear()) {
+                            //tdate = tdate.getHours() + ':' + tdate.getMinutes();
+                            tdate = formatAMPM(tdate);
+                        } else {
+                            tdate = tdate.getDay() + '/' + tdate.getMonth() + '/' + tdate.getFullYear();
+                        }
+                    }
+
+                    if (isHTML(lastMsg)) {
+                        lastMsg = 'can\'t preview this message.';
+                    }
+
+
+                    template += '<li class="list-group-item usritm usritm' + item.EmployeeID + '" onclick="getChating(' + item.EmployeeID + ' ,\'' + item.EmployeeName + '\')">' +
+                        '<div class="row">' +
+                        '<div class="col-xs-2">' +
+                        '<img width="30px" class="img imgListUser" src="images/avataruser.png" alt="" srcset="">' +
+                        '</div>' +
+                        '<div class="col-xs-10">' +
+                        '<span class="listUserTitle">' + item.EmployeeName + '</span> <span class="pull-right">' + tdate + '</span>' +
+                        '<br>' +
+                        '<span style="color:#999;">' + lastMsg.substr(0, 30) + ' ...</span>' +
+                        unRead +
+                        '</div>' +
+                        '</div>' +
+                        '</li>';
+                });
+                $('#listUser').html(template);
+            }
+
+            communicationHub.client.sendResponse = function (pResult) {
+                //alert(pResult);
+                //$('#area').append('<br>' + pResult);
+                var id = pResult.split(':')[0].trim();
+                //alert(userID.val());
+                if (id == userID.val()) {
+                    $('#area').append('<br><span style="background:#999;">' + pResult + '</span>');
+                } else {
+                    $('#area').append('<br>' + pResult);
+                }
+
+            }
+
+        }
+
+        function formatAMPM(date) {
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var ampm = hours >= 12 ? 'pm' : 'am';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            var strTime = hours + ':' + minutes + ' ' + ampm;
+            return strTime;
+        }
+
+        function isHTML(str) {
+            var a = document.createElement('div');
+            a.innerHTML = str;
+
+            for (var c = a.childNodes, i = c.length; i--;) {
+                if (c[i].nodeType == 1) return true;
+            }
+
+            return false;
+        }
+
+    </script>
+
+</body>
+</html>

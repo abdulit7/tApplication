@@ -1,0 +1,426 @@
+﻿
+function extractNumber(obj, decimalPlaces, allowNegative, DecimalPlacesControlID) {
+
+    if ((DecimalPlacesControlID != '') && (DecimalPlacesControlID != undefined)) {
+        var DPControl = document.getElementById(DecimalPlacesControlID);
+        decimalPlaces = DPControl.value;
+    }
+
+    var temp = obj.value;
+
+    // avoid changing things if already formatted correctly
+    var reg0Str = '[0-9]*';
+    if (decimalPlaces > 0) {
+        reg0Str += '\\.?[0-9]{0,' + decimalPlaces + '}';
+    } else if (decimalPlaces < 0) {
+        reg0Str += '\\.?[0-9]*';
+    }
+    reg0Str = allowNegative ? '^-?' + reg0Str : '^' + reg0Str;
+    reg0Str = reg0Str + '$';
+    var reg0 = new RegExp(reg0Str);
+    if (reg0.test(temp)) return true;
+
+    // first replace all non numbers
+    var reg1Str = '[^0-9' + (decimalPlaces != 0 ? '.' : '') + (allowNegative ? '-' : '') + ']';
+    var reg1 = new RegExp(reg1Str, 'g');
+    temp = temp.replace(reg1, '');
+
+    if (allowNegative) {
+        // replace extra negative
+        var hasNegative = temp.length > 0 && temp.charAt(0) == '-';
+        var reg2 = /-/g;
+        temp = temp.replace(reg2, '');
+        if (hasNegative) temp = '-' + temp;
+    }
+
+    if (decimalPlaces != 0) {
+        var reg3 = /\./g;
+        var reg3Array = reg3.exec(temp);
+        if (reg3Array != null) {
+            // keep only first occurrence of . 
+            //  and the number of places specified by decimalPlaces or the entire string if decimalPlaces < 0
+            var reg3Right = temp.substring(reg3Array.index + reg3Array[0].length);
+            reg3Right = reg3Right.replace(reg3, '');
+            reg3Right = decimalPlaces > 0 ? reg3Right.substring(0, decimalPlaces) : reg3Right;
+            temp = temp.substring(0, reg3Array.index) + '.' + reg3Right;
+        }
+    }
+
+    obj.value = temp;
+}
+
+function blockNonNumbers(obj, e, allowDecimal, allowNegative, DecimalPlacesControlID) {
+    var key;
+    var isCtrl = false;
+    var keychar;
+    var reg;
+
+    if ((DecimalPlacesControlID != '') && (DecimalPlacesControlID != undefined)) {
+        var DPControl = document.getElementById(DecimalPlacesControlID);
+        if (DPControl.value > 0) {
+            allowDecimal = true;
+        }
+        else {
+            allowDecimal = false;
+        }
+    }
+
+    if (window.event) {
+        key = e.keyCode;
+        isCtrl = window.event.ctrlKey
+    }
+    else if (e.which) {
+        key = e.which;
+        isCtrl = e.ctrlKey;
+    }
+
+    if (isNaN(key)) return true;
+
+    keychar = String.fromCharCode(key);
+
+    // check for backspace or delete, or if Ctrl was pressed
+    if (key == 8 || isCtrl) {
+        return true;
+    }
+    reg = /\d/;
+    var isFirstN = allowNegative ? keychar == '-' && obj.value.indexOf('-') == -1 : false;
+    var isFirstD = allowDecimal ? keychar == '.' && obj.value.indexOf('.') == -1 : false;
+
+    return isFirstN || isFirstD || reg.test(keychar);
+}
+
+function blockNonNumbers(obj, e, allowDecimal, allowNegative,allowColon, DecimalPlacesControlID) {
+    var key;
+    var isCtrl = false;
+    var keychar;
+    var reg;
+
+    if ((DecimalPlacesControlID != '') && (DecimalPlacesControlID != undefined)) {
+        var DPControl = document.getElementById(DecimalPlacesControlID);
+        if (DPControl.value > 0) {
+            allowDecimal = true;
+        }
+        else {
+            allowDecimal = false;
+        }
+    }
+
+    //Added by AbdulMoiz 2016-11-04
+    if (allowColon) {allowDecimal = false;}
+    //End
+
+    if (window.event) {
+        key = e.keyCode;
+        isCtrl = window.event.ctrlKey
+    }
+    else if (e.which) {
+        key = e.which;
+        isCtrl = e.ctrlKey;
+    }
+
+    if (isNaN(key)) return true;
+
+    keychar = String.fromCharCode(key);
+
+    // check for backspace or delete, or if Ctrl was pressed
+    if (key == 8 || isCtrl) {
+        return true;
+    }
+    reg = /\d/;
+    var isFirstN = allowNegative ? keychar == '-' && obj.value.indexOf('-') == -1 : false;
+    var isFirstD = allowDecimal ? keychar == '.' && obj.value.indexOf('.') == -1 : false;
+    var IsColonFirst = allowColon ? keychar == ':' && obj.value.indexOf(':') == -1 : false;
+
+    return isFirstN || isFirstD || IsColonFirst || reg.test(keychar);
+}
+
+var Efro = {};
+
+Efro.Round = function(number, precision) {
+    var factor = Math.pow(10, precision);
+    var tempNumber = number * factor;
+    var roundedTempNumber = Math.round(tempNumber);
+    return roundedTempNumber / factor;
+};
+
+Efro.printDiv = function(divPrint) {
+    //console.log('1');
+    var printContents = document.getElementById(divPrint).innerHTML;
+    //console.log('printContents : ', printContents);
+    var originalContents = document.body.innerHTML;
+    //console.log('originalContents : ', originalContents);
+    
+    document.body.innerHTML = printContents;
+    
+    window.print();
+
+    //console.log('3');
+    document.body.innerHTML = originalContents;
+}
+
+//Added by AbdulMoiz 2017-01-16
+function CloseModalWindow() {
+    function funcCloseWindow() {
+        try {
+            if (typeof parent.closeDialog === 'function') {
+                parent.closeDialog();
+            }
+            else {
+                window.close();
+            }   
+        }
+        catch (e) {
+            throw e;
+        }
+    }
+
+    funcCloseWindow();
+}
+
+var DTHelper = {};
+
+DTHelper.GetFormattedDate = function(date, format) {
+    var dd, mm, yyyy, result = date;
+    dd = date.getDate();
+    mm = date.getMonth() + 1;   //January is 0
+    yyyy = date.getFullYear();
+
+    dd = dd < 10 ? '0' + dd.toString() : dd.toString();
+    mm = mm < 10 ? '0' + mm.toString() : mm.toString();
+
+    if (format.toLowerCase() == 'dd/mm/yyyy') {
+        result = dd + '/' + mm + '/' + yyyy;
+    }
+    else if (format.toLowerCase() == 'mm/dd/yyyy') {
+        result = mm + '/' + dd + '/' + yyyy;
+    }
+
+    return result;
+}
+
+DTHelper.GetFormattedTime = function (date, format) {
+    var hours, mins, secs, result = date;
+    hours = date.getHours();
+    mins = date.getMinutes();
+    secs = date.getSeconds();
+
+    hours = hours < 10 ? "0" + hours.toString() : hours.toString();
+    mins = mins < 10 ? "0" + mins.toString() : mins.toString();
+    secs = secs < 10 ? "0" + secs.toString() : secs.toString();
+
+    if (format.toLowerCase() === "hh:mm:ss") {
+        result = hours + ":" + mins + ":" + secs;
+    }
+    else if (format.toLowerCase() === "hh:mm") {
+        result = hours + ":" + mins;
+    }
+
+    return result;
+}
+
+function ViewModal(url, width, height) {
+    var config = 'dialogHeight:' + height + 'px;dialogWidth:' + width + 'px;center:yes;help:no;resizable:no;status:no';
+    window.showModalDialog(url, window, config);
+
+    /*
+    Commented by AbdulMoiz - 2019-01-26 - causing error' Illegal return statement at HTMLDialogElement.<anonymous>' at Dialog close event, 
+    also there is no need to return false at the show of modals, it should be done in plain html anchor<a> tag, they won't cause any postback
+    */
+    //return false;
+    if (isNull($)) {$ = jQuery.noConflict();}
+}
+
+function ShowModal(url, width, height) {
+    ViewModal(url, width, height);
+}
+
+function ShowDialog(url, width, height) {
+    var config = "height="+ height +"px,width="+ width +"px,toolbar=no, menubar=no, scrollbars=yes,resizable=no,location=center, status=no,top=120,left=320";
+    window.open(url, '_blank', config);
+    return false;
+}
+
+function openListWindow(pageurl, pagetitle) {
+    var tabtitle = pagetitle;
+    pagetitle = pagetitle.replace(/ /g, "_");
+    var str = pagetitle;
+    str = str.replace(/[(]/g, "_");
+    pagetitle = str;
+    str = pagetitle;
+    str = str.replace(/[)]/g, "");
+    pagetitle = str;
+    parent.add_tab(pageurl, pagetitle, pagetitle);
+}
+
+
+function openListWindowOld(pageurl, pagetitle) {
+    var node = {
+        attributes: {
+            href: pageurl
+        },
+        text: pagetitle,
+        id: pagetitle
+    };
+    parent.addExampleTab.apply(parent, [node]);
+}
+
+function openTab(pUrl, pTitle) {
+    //var node = {
+    //    attributes: {
+    //        href: pUrl
+    //    },
+    //    text: pTitle,
+    //    id: pTitle
+    //};    
+    //parent.addExampleTab.apply(parent, [node]);
+    openListWindow(pUrl, pTitle);
+}
+
+function isNull (obj) {
+    return typeof obj === 'undefined' || obj === null;
+}
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function postRequest(pUrl, params, pSuccessCallback, pAdditionalParams) {
+    var $ = jQuery.noConflict();
+    var Type, Url, ContentType, DataType, ProcessData;
+    
+    Type = "POST";
+    ContentType = "application/json; charset=utf-8";
+    DataType = "json";
+    ProcessData = true;    
+    Url = pUrl;
+    
+    //var newparams = Object.assign({},params,data)
+    //newparams = JSON.stringify(newparams);    
+    
+    $.ajax({        
+        type: Type, //GET or POST or PUT or DELETE verb
+        url: Url, // Location of the service
+        data: params, //Data sent to server
+        contentType: ContentType, // content type sent to server
+        dataType: DataType, //Expected data format from server
+        processdata: ProcessData, //True or False                    
+        success : function(res){
+            if(pAdditionalParams){
+                pSuccessCallback(res,pAdditionalParams);
+            }
+            else{
+                pSuccessCallback(res);
+            }            
+        },
+        error: function(result){alert(result.responseJSON.Message);}
+    });
+}
+
+/**
+ * Added by AbdulMoiz 2019-04-02
+ * Source : https://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript 
+ * */
+function numberWithCommas(x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+}
+
+
+/**
+ * Added by Jameel
+ * Source : https://stackoverflow.com/questions/51259830/exporting-image-element-to-word-document-using-javascript
+ * */
+function Export2Doc(element, filename) {
+    //  _html_ will be replace with custom html
+    var meta = "Mime-Version: 1.0\nContent-Base: " + location.href + "\nContent-Type: Multipart/related; boundary=\"NEXT.ITEM-BOUNDARY\";type=\"text/html\"\n\n--NEXT.ITEM-BOUNDARY\nContent-Type: text/html; charset=\"utf-8\"\nContent-Location: " + location.href + "\n\n<!DOCTYPE html>\n<html>\n_html_</html>";
+    //  _styles_ will be replaced with custome css
+    var head = "<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n<style>\n_styles_\n</style>\n</head>\n";
+    //  _body_ will be replaced with custome body html
+    var body = "<body>_body_</body>";
+    //var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+    //var postHtml = "</body></html>";
+
+    //var html = preHtml + document.getElementById(element).innerHTML + postHtml;
+    var html = document.getElementById(element).innerHTML;
+
+    var blob = new Blob(['\ufeff', html], {
+        type: 'application/msword'
+    });
+
+    var css = (
+           '<style>' +
+           'img{width:100%;height:100%}' +
+           '</style>'
+          );
+    //  Image Area %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    var options = { maxWidth: 624 };
+    var images = Array();
+    var img = jQuery("#" + element).find("img");
+    for (var i = 0; i < img.length; i++) {
+        // Calculate dimensions of output image
+        var w = Math.min(img[i].width, options.maxWidth);
+        var h = img[i].height * (w / img[i].width);
+        // Create canvas for converting image to data URL
+        var canvas = document.createElement("CANVAS");
+        canvas.width = w;
+        canvas.height = h;
+        // Draw image to canvas
+        var context = canvas.getContext('2d');
+        context.drawImage(img[i], 0, 0, w, h);
+        // Get data URL encoding of image
+        var uri = canvas.toDataURL("image/png");
+        jQuery(img[i]).attr("src", img[i].src);
+        img[i].width = w;
+        img[i].height = h;
+        // Save encoded image to array
+        images[i] = {
+            type: uri.substring(uri.indexOf(":") + 1, uri.indexOf(";")),
+            encoding: uri.substring(uri.indexOf(";") + 1, uri.indexOf(",")),
+            location: jQuery(img[i]).attr("src"),
+            data: uri.substring(uri.indexOf(",") + 1)
+        };
+    }
+
+    // Prepare bottom of mhtml file with image data
+    var imgMetaData = "\n";
+    for (var i = 0; i < images.length; i++) {
+        imgMetaData += "--NEXT.ITEM-BOUNDARY\n";
+        imgMetaData += "Content-Location: " + images[i].location + "\n";
+        imgMetaData += "Content-Type: " + images[i].type + "\n";
+        imgMetaData += "Content-Transfer-Encoding: " + images[i].encoding + "\n\n";
+        imgMetaData += images[i].data + "\n\n";
+
+    }
+    imgMetaData += "--NEXT.ITEM-BOUNDARY--";
+    // end Image Area %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    var output = meta.replace("_html_", head.replace("_styles_", css) + body.replace("_body_", html)) + imgMetaData;
+
+    var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(output);
+
+
+    filename = filename ? filename + '.doc' : 'document.doc';
+
+
+    var downloadLink = document.createElement("a");
+
+    document.body.appendChild(downloadLink);
+
+    if (navigator.msSaveOrOpenBlob) {
+        navigator.msSaveOrOpenBlob(blob, filename);
+    } else {
+
+        downloadLink.href = url;
+        downloadLink.download = filename;
+        downloadLink.click();
+    }
+
+    document.body.removeChild(downloadLink);
+}

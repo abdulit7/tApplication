@@ -1,0 +1,531 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #eee;
+}
+
+canvas{
+    /* border-radius: 20px;
+    box-shadow: 2px 2px 4px #999; */
+}
+
+.divcount{
+    font-size: 20px;    
+    color: #999;
+    font-weight: 600;
+}
+
+.divper{
+    font-size: 18px;    
+    padding: 2px;
+    color: #999;
+    font-weight: 600;
+}
+
+#joiners,#leavers{
+    text-align: center;    
+}
+
+.divicon{
+    font-size: 40px;  
+    padding: 10px;
+    color: #888;
+}
+.divyear{
+    font-size: 20px;   
+    display: block;
+    /* border-top: 1px solid #ddd; */
+    padding: 1px;
+    color: #999;
+    background: #fafafa;
+    border-radius: 100px;
+    border:1px solid #f5821f;
+}
+
+#joinerarea{
+    
+}
+
+.divbox{
+    border-left:1px solid #f1f1f1;
+    
+}
+.divbox:hover{
+    background: #fafafa;
+    
+    
+}
+
+.orangecount{
+    color: #f5821f;
+}
+
+.panelcustom{
+    margin-bottom: 0px;
+}
+
+.filtericon{
+    width: 40px;
+    height: 40px;    
+    position: fixed;
+    bottom: 5%;
+    border-radius: 100%;
+    right: 2%;
+    text-align: center;
+    vertical-align: text-bottom;
+    padding: 6px;
+}
+
+.filtericon span{
+    font-size: 26px;
+}
+
+.customfilterheading{
+    padding: 4px;
+    border-left: 2px solid #f5821f !important;
+    background: #fafafa !important;
+}
+
+
+.panelcustom > .panel-body{
+    padding: 2px !important;
+}
+.panel-heading{
+    background: rgb(255,194,36);
+    background: linear-gradient(0deg, rgba(255,194,36,1) 0%, rgba(255,254,250,1) 100%, rgba(255,194,36,1) 0%);
+    font-weight: bold;
+    color: #555 !important;
+}
+.cardheading{
+    font-size: 18px;
+    
+    font-weight: 600;
+    color: #666;
+    text-align: left;    
+    border-left: 4px solid #f5821f;
+    padding: 3px;
+    padding-left: 12px;
+    background: #fafafa;
+}
+
+.absbox1{
+    background: #fafafa;
+    border-radius: 10px;
+    padding: 10px;
+    border:5px solid #fff;
+}
+
+padding5{
+    padding: 5px;
+}
+padding10{
+    padding: 10px;
+}
+
+@media only screen and (max-width: 768px) {    
+       
+  }
+
+/*==================================================
+ * Effect 2
+ * ===============================================*/
+ .effect2
+ {
+   position: relative;
+ }
+ .effect2:before, .effect2:after
+ {
+   z-index: -1;
+   position: absolute;
+   content: "";
+   bottom: 15px;
+   left: 10px;
+   width: 50%;
+   top: 80%;
+   max-width:300px;
+   background: #777;
+   -webkit-box-shadow: 0 15px 10px #777;
+   -moz-box-shadow: 0 15px 10px #777;
+   box-shadow: 0 15px 10px #777;
+   -webkit-transform: rotate(-3deg);
+   -moz-transform: rotate(-3deg);
+   -o-transform: rotate(-3deg);
+   -ms-transform: rotate(-3deg);
+   transform: rotate(-3deg);
+ }
+ .effect2:after
+ {
+   -webkit-transform: rotate(3deg);
+   -moz-transform: rotate(3deg);
+   -o-transform: rotate(3deg);
+   -ms-transform: rotate(3deg);
+   transform: rotate(3deg);
+   right: 10px;
+   left: auto;
+ }
+
+/*==================================================
+ * Effect 3
+ * ===============================================*/
+ .effect3
+ {
+   position: relative;
+ }
+ .effect3:before
+ {
+   z-index: -1;
+   position: absolute;
+   content: "";
+   bottom: 15px;
+   left: 10px;
+   width: 50%;
+   top: 80%;
+   max-width:300px;
+   background: #777;
+   -webkit-box-shadow: 0 15px 10px #777;
+   -moz-box-shadow: 0 15px 10px #777;
+   box-shadow: 0 15px 10px #777;
+   -webkit-transform: rotate(-3deg);
+   -moz-transform: rotate(-3deg);
+   -o-transform: rotate(-3deg);
+   -ms-transform: rotate(-3deg);
+   transform: rotate(-3deg);
+ }
+
+
+
+ .tab-content>.tab-pane {
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+.tab-content>.tab-pane.active {
+    height: auto;
+}
+ 
+.chartScrollContainer{
+    width: 100%; 
+    overflow-x: auto;
+    overflow-y:hidden
+}
+.chartScrollWidth{
+    
+}
+
+
+
+/* .select2-selection__rendered {
+    line-height: 10px !important;
+}
+.select2-container .select2-selection--single {
+    height: 10px !important;
+}
+.select2-selection__arrow {
+    height: 10px !important;
+} */
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered li {
+    color: #444;
+        padding: 0px 10px 0px 3px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    font-size: 16px;
+    margin: 0px 6px 0px 4px;	
+}
+
+
+.FilterDiv{
+    padding: 5px;
+    background: #fafafa;
+}
+
+.FilterDiv label{
+    color: #555;
+    padding: 2px;
+    margin: 2px;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.payrollFitlerDivider{
+    border-left:1px solid #999;
+    padding: 5px;
+}
+
+label input {
+    display: none; /* Hide the default checkbox */    
+  }
+  
+  /* Style the artificial checkbox */
+  label span {
+    height: 10px;
+    width: 10px;
+    border: 1px solid grey;
+    display: inline-block;
+    position: relative;
+    
+  }
+  
+  /* Style its checked state...with a ticked icon */
+  [type=checkbox]:checked + span:before {
+    content: '\2714';
+    position: absolute;
+    top: -5px;
+    left: 0;   
+    color: red; 
+  }
+
+
+  /* Perforamce Matrix */
+
+  .mbox{
+    background: #fafafa;
+    padding: 10px;
+    border:3px solid #fafafa;
+    height: 125px;
+    cursor: pointer;    
+    box-shadow: 0px 0px 20px #fafafa;
+   min-width:100%;
+   max-width:100%;
+    
+}
+.mbox:hover{
+    border:3px solid #333;
+}
+.dbox{
+    background: #fafafa;
+    padding: 10px;
+    border:5px solid #fff;
+    height: 120px;
+}
+.area{
+    width: 30%;
+    margin: 0 auto;
+}
+.byellow{
+    background: linear-gradient(to right,#FFEB3B,yellow);
+}
+.borange{
+    background: #FF9800;
+    background: linear-gradient(to right,#FF9800,orange);
+}
+
+.bgreen{
+    background: #4CAF50;
+    background: linear-gradient(to right,#4CAF50,green);
+}
+
+.bblue{
+    background: #2196F3;
+    background: linear-gradient(to right,#2196F3,blue);
+}
+
+.bred{
+    background: #f44336;
+    background: linear-gradient(to right,#f44336,red);
+}
+
+.arrowup{
+    transform: rotate(-90deg);
+    margin-top: 80%;
+    margin-left: -18px;
+    width: 204%;
+}
+.arrowleft{
+    margin-left: 80px;
+}
+.middlediv{
+    display:flex;
+    align-items:center;
+}
+.vertical-align-content {    
+    height:120px;
+    display:flex;
+    align-items:center;     
+  }
+  .employeecount{
+      text-align: center;      
+  }
+  .employeecount span{
+    font-size: 34px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0px 0px 5px #333;
+
+}
+.blabel{
+    color: #fff;   
+    font-weight: bold; 
+    text-shadow: 0px 0px 5px #333;
+    text-align:center;
+   font-family : 'Segoe UI';
+   word-wrap:break-word;
+}
+#gvList{
+    height: 400px;
+    overflow: auto;
+}
+.kpiLabels{
+    font-weight: bold;
+    text-align: center;
+    color: #333;   
+    font-size: 14px;
+    font-family : 'Segoe UI'; 
+}
+
+.fullwidthmodal{
+    width:1250px;
+}
+
+#listcontainer{
+    width: 190%;
+}
+
+#listcontainer table tr td{
+    vertical-align: middle;
+}
+
+
+.userpic{
+    width: 50px;
+    transition: .5s;
+}
+
+.userpic:hover{
+    transform: scale(1.5);
+    transition: .5s;
+}
+
+@media screen and (max-width: 600px) {
+    .blabel{
+        font-size: 10px;
+    }
+    .fullwidthmodal{
+        width:auto;
+    }
+  }
+  .carousel-control {
+      width:6%;
+  }
+
+  /* .dataTables_filter
+{
+	float: left;
+    position: absolute;
+    margin-left: 15%;
+} */
+
+.drillTable{
+    font-size: 12px;
+}
+
+.progressdiv{
+    left: 0 !important;
+    position: absolute;
+    background: rgba(225,225,225,.6);
+    width: 100%;
+    height: 100%;
+    top: 0 !important;
+    
+}
+
+.progressdiv::before{
+    content: 'Please wait a moment ...';
+    top: 50%;
+    text-align: center;
+    position: absolute;
+    color: #333;
+    font-weight:bold;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.progress-description, .info-box-text {    
+    font-size: 18px;    
+    font-weight: bold;
+    cursor: pointer;    
+}
+
+.attsummarynum{
+    font-size:36px;
+    text-shadow: 0px 0px 10px #333;
+    cursor: pointer;
+}
+
+.bottom-bar{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #ddd;
+    padding: 2px;
+}
+
+.bottom-bar a{
+    cursor: pointer;
+    color: #333;
+    font-size: 13px;
+}
+
+
+/* Helpdesk Dashboard */
+
+.line{
+    border-bottom: 1px dashed #ddd;
+}
+
+.fastar{
+     color: orange;
+ }
+ .lst .fa-user,.fa-circle{
+     color: #666;
+ }
+.starcontainer{
+   padding: 6px;
+   /* border: 1px dashed orange;
+   background: rgb(255, 248, 235); */
+   border-radius: 50px;
+   margin-top: 1%;
+   box-shadow: 2px 2px 4px #333;
+}
+.strike{
+   margin: 10px !important;
+}
+.cplaceholder{
+ width: 1000px;
+ width: auto;
+ overflow: auto;
+}
+
+.helpDeskDatePicker .form-control{
+    padding:4px !important;
+}
+
+#listhelpdeskstatussummary li{
+    padding: 5px !important;
+}
+
+/* Helpdesk Dashboard End*/
+
+
+
+/* Training Dashboard Start */
+
+.training-count{
+    font-weight: bold;
+    font-size: 32px;
+    color: #666;
+    text-shadow: 2px 2px 4px #ddd;
+}
+
+.training-title{        
+    color: #555;
+    font-size: 12px;
+    padding: 4px;
+    border:1px solid #dddd;
+    border-radius: 100px;
+}
+.training-summarybox .panel-body{
+    height: 115px !important;
+}
+
+/* Training Dashboard End */

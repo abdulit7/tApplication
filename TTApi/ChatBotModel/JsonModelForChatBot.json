@@ -1,0 +1,481 @@
+{
+  "Reponses": [
+    {
+      "Vocab": [
+        "hello",
+        "hi",
+        "hey"
+      ],
+      "CallAction": "",
+      "Reply": "Hey. Your TimeTrax Assistant is here."
+    },
+    {
+      "Vocab": [
+        "how are you doing",
+        "how are you",
+        "how are you feeling"
+      ],
+      "CallAction": "",
+      "Reply": "I am feeling fantastic."
+    },
+    {
+      "Vocab": [
+        "suggest me a song",
+        "suggest a song",
+        "suggest song",
+        "give suggestion of a song"
+      ],
+      "CallAction": "",
+      "Reply": "I love listening to Crazy Frog - Axel <br>  <a style='color:Black' href='https://www.youtube.com/watch?v=k85mRPqvMbE' target='_blank'>Here is the Link</a>"
+    },
+    {
+      "Vocab": [
+        "suggest me a game",
+        "suggest a game",
+        "suggest game",
+        "give suggestion of a game",
+        "what game should i play"
+      ],
+      "CallAction": "",
+      "Reply": "You should play IQ games."
+    },
+    {
+      "Vocab": [
+        "nickname",
+        "nick name",
+        "good name",
+        "what is your nick name",
+        "your nickname",
+        "your nick name",
+        "your good name",
+        "your name"
+      ],
+      "CallAction": "",
+      "Reply": "You can call me Mr. TimeTrax."
+    },
+    {
+      "Vocab": [
+        "thank you",
+        "thankyou",
+        "good",
+        "thank you for help",
+        "thank you for helping"
+      ],
+      "CallAction": "",
+      "Reply": "Its my pleasure to serve you."
+    },
+    {
+      "Vocab": [
+        "leave balance",
+        "leave balance summary",
+        "my leave balance",
+        "my remaining leaves",
+        "remainging leave",
+        "remaining leave balance",
+        "leaves left"
+      ],
+      "CallAction": "GetLeaveData",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "check in",
+        "check in time",
+        "today in time",
+        "in time",
+        "in time today",
+        "my check in",
+        "my check in time"
+      ],
+      "CallAction": "GetCheckInTime",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "check out",
+        "check out time",
+        "today out time",
+        "out time",
+        "out time today"
+      ],
+      "CallAction": "GetCheckOutTime",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "company bank position",
+        "bank position",
+        "banking position",
+        "banks balance",
+        "companys bank balance"
+      ],
+      "CallAction": "GetBankingPosition",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "my salary",
+        "my earning",
+        "my earning per month",
+        "my salary per month",
+        "what is my salary",
+        "how much is my salary"
+      ],
+      "CallAction": "GetEmployeeSalary",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "date of birth",
+        "dob",
+        "birth day",
+        "birthday"
+      ],
+      "CallAction": "GetEmployeeDOB",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "my zodiac",
+        "my star",
+        "my birth star"
+      ],
+      "CallAction": "GetEmployeeZodiacSign",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "phone no",
+        "mobile no",
+        "mobile number",
+        "phone number",
+        "mobile num",
+        "phone num",
+        "contact num"
+      ],
+      "CallAction": "GetEmployeePhoneNumber",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "my name",
+        "my good name",
+        "what is my name",
+        "what am i called"
+      ],
+      "CallAction": "GetEmployeeName",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "my username",
+        "username",
+        "what is my user name",
+        "what is my username"
+      ],
+      "CallAction": "GetUsername",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "my taxable income",
+        "my taxable salary",
+        "what is taxable income",
+        "how much is my taxable income",
+        "how much is my taxable salary"
+      ],
+      "CallAction": "GetEmployeeTaxableSalary",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "my tax deduction",
+        "what is my tax deduction",
+        "how much my tax is deducted",
+        "how much my tax is deducted from salary"
+      ],
+      "CallAction": "GetEmployeeTaxDeduction",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "sales today",
+        "sale today",
+        "today sales",
+        "today's sales",
+        "today's sale",
+        "show me sales today",
+        "show me today sales",
+        "show me sales record",
+        "show sales today",
+        "show sales record",
+        "show me sale today",
+        "show me sale record",
+        "show sale today",
+        "show sale record"
+      ],
+      "CallAction": "GetCompanySales",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "mtd sales",
+        "mtd sale",
+        "show me mtd sales",
+        "show me mtd sale",
+        "show me mtd sales record",
+        "show me mtd sale record",
+        "show mtd sales",
+        "show mtd sale",
+        "show mtd sales record",
+        "show mtd sale",
+        "show mtd sale record",
+        "show mtd sale record"
+      ],
+      "CallAction": "GetCompanyMTDSales",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "today recovery",
+        "recovery today",
+        "show me recovery today",
+        "show me recovery record",
+        "show recovery today",
+        "show recovery record"
+      ],
+      "CallAction": "GetCompanyRecovery",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "mtd recovery",
+        "show me mtd recovery",
+        "show me mtd recovery record",
+        "show mtd recovery",
+        "show mtd recovery record"
+      ],
+      "CallAction": "GetCompanyMTDRecovery",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "today's invoices",
+        "today invoices",
+        "today invoice",
+        "invoices today",
+        "invoice today",
+        "show today's invoices",
+        "show today invoices",
+        "show today invoice",
+        "show invoices today",
+        "show invoice today"
+      ],
+      "CallAction": "CallSalesData?TI",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "yesterday's invoices",
+        "yesterday invoices",
+        "yesterday invoice",
+        "invoices yesterday",
+        "invoice yesterday",
+        "show yesterday's invoices",
+        "show yesterday invoices",
+        "show yesterday invoice",
+        "show invoices yesterday",
+        "show invoice yesterday"
+      ],
+      "CallAction": "CallSalesData?YI",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "last week invoices",
+        "last week's invoices",
+        "last week invoice",
+        "invoices last week",
+        "invoice last week",
+        "show last week invoices",
+        "show last week's invoices",
+        "show last week invoice",
+        "show invoices last week",
+        "show invoice last week"
+      ],
+      "CallAction": "CallSalesData?LWI",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "today's receipts",
+        "today receipts",
+        "today receipt",
+        "receipts today",
+        "receipt today",
+        "show today's receipts",
+        "show today receipts",
+        "show today receipt",
+        "show receipts today",
+        "show receipt today"
+      ],
+      "CallAction": "CallSalesData?TR",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "yesterday's receipts",
+        "yesterday receipts",
+        "yesterday receipt",
+        "receipts yesterday",
+        "receipt yesterday",
+        "show yesterday's receipts",
+        "show yesterday receipts",
+        "show yesterday receipt",
+        "show receipts yesterday",
+        "show receipt yesterday"
+      ],
+      "CallAction": "CallSalesData/YR",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "last week receipts",
+        "last week's receipts",
+        "last week receipt",
+        "receipt last week",
+        "receipts last week",
+        "show last week receipts",
+        "show last week's receipts",
+        "show last week receipt",
+        "show receipt last week",
+        "show receipts last week"
+      ],
+      "CallAction": "CallSalesData?LWR",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "recent bank transactions",
+        "recent bank transaction",
+        "recent banks transactions",
+        "banks balances",
+        "companys bank balances",
+        "show recent bank transactions",
+        "show recent bank transaction",
+        "show recent banks transactions",
+        "show banks balances",
+        "show companys bank balances"
+      ],
+      "CallAction": "CallSalesData?RBT",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "current stock",
+        "show current stock",
+        "current stock values",
+        "current stock position",
+        "current stock quantities",
+        "stock values",
+        "show current stock",
+        "show show current stock",
+        "show current stock values",
+        "show current stock position",
+        "show current stock quantities",
+        "show stock values"
+      ],
+      "CallAction": "CallSalesData?CRSV",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "ytd revenue",
+        "show ytd revenue",
+        "show me ytd revenue",
+        "please show ytd revenue",
+        "ytd revenue"
+      ],
+      "CallAction": "CallSalesData?YTDR",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "current receivable",
+        "current receivables",
+        "current receivables values",
+        "current receivables position",
+        "current receivables amount",
+        "receivables",
+        "show current receivables",
+        "show current receivables values",
+        "show current receivables position",
+        "show current receivables amount",
+        "show receivables"
+      ],
+      "CallAction": "CallSalesData?CRV",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "current payable",
+        "current payables",
+        "current payables values",
+        "current payables position",
+        "current payables amount",
+        "payables",
+        "show current payables",
+        "show current payables values",
+        "show current payables position",
+        "show current payables amount",
+        "show payables"
+      ],
+      "CallAction": "CallSalesData?CPAY",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "compare business of current fy with last fy",
+        "show business of current fy with last fy",
+        "compare business of current fiscal year with last fiscal year",
+        "compare business according to fiscal year",
+        "compare business with current fiscal year to last year",
+        "compare business with cfy to lfy",
+        "compare business cfy to lfy",
+        "compare business lfy to cfy",
+        "compare business cfy vs lfy",
+        "compare business lfy vs cfy",
+        "compare business cfy with lfy",
+        "compare business lfy with cfy",
+        "show business comparsion with lfy vs cfy",
+        "show business comparsion with cfy vs lfy",
+        "show business comparsion with last year vs current year",
+        "show business comparsion with current year vs current year",
+        "show business comparsion with current fiscal year vs current fiscal year"
+      ],
+      "CallAction": "CallSalesData?CBCFWLF",
+      "Reply": ""
+    },
+    {
+      "Vocab": [
+        "compare business of current month with last month",
+        "compare business of last month with current month",
+        "show business of current month with last month",
+        "compare business of current fiscal month with last fiscal month",
+        "compare business according to fiscal month",
+        "compare business with fiscal month to last month",
+        "compare business cm vs lm",
+        "compare business cm with lm",
+        "compare business lm with cm",
+        "compare business lm vs cm",
+        "show business comparsion with lm vs cm",
+        "show business comparsion with cm vs lm",
+        "show business comparsion with last month vs current month",
+        "show business comparsion with current month vs last month"
+      ],
+      "CallAction": "CallSalesData?CBCMWLM",
+      "Reply": ""
+    }
+
+  ]
+}

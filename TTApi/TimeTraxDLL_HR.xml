@@ -1,0 +1,988 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+TimeTraxDLL_HR
+</name>
+</assembly>
+<members>
+<member name="T:TimeTraxDLL_HR.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:TimeTraxDLL_HR.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:TimeTraxDLL_HR.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_CompanyFlag.tblCompanyFlagDataTable.GetFlagValue_DataTable_Boolean(System.String,System.Boolean,System.Data.DataTable)">
+ <summary>
+ 
+ </summary>
+ <param name="pFlagName"></param>
+ <param name="pdt"></param>
+ <returns></returns>
+ <remarks>Can be used with GetDatabyCompanyID. Ad - AbdulMoiz 2019-06-03 </remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_EmployeeContractDetail.tblEmployeeContractDetailDataTable.CheckIfRecordExists(System.Int64,System.Int64,System.DateTime,System.DateTime,System.Int32)">
+ <summary>
+ Returns true if record exists, false if not
+ </summary>
+ <param name="pTranID"></param>
+ <param name="pEmployeeID"></param>
+ <param name="pContractStartDate"></param>
+ <param name="pContractEndDate"></param>
+ <param name="pCompanyID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Employee.tblEmployeeDataTable.GetDataByEmployeeListFordevexpress_Approver(System.Int32,System.Int64,System.Int64,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.Boolean,System.Int32,System.Int64,System.Int32)">
+ <summary>
+ Duplicate of GetDataByEmployeeListFordevexpress having a union with tblApprover with a join tblEmployee
+ </summary>
+ <param name="pWhereCompanyID"></param>
+ <param name="StartIndex"></param>
+ <param name="EndIndex"></param>
+ <param name="pFilter"></param>
+ <param name="pstrBranchList"></param>
+ <param name="pstrGradeList"></param>
+ <param name="pstrDepartmentList"></param>
+ <param name="pstrDivisionList"></param>
+ <param name="pIsLeavedEmployeeRequired"></param>
+ <param name="pEmployeeList"></param>
+ <param name="pIsLeaveApprover"></param>
+ <param name="pEmployeeGradeID"></param>
+ <param name="pEmployeeID"></param>
+ <param name="pEmployeeCategoryID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Employee.tblEmployeeDataTable.GetDataByEmployeeListFordevexpressID_Approver(System.Int32,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.Boolean,System.Int32,System.Int32,System.Int32,System.String)">
+ <summary>
+ Duplicate of GetDataByEmployeeListFordevexpressID having a union with tblApprover with a join to tblEmployee
+ </summary>
+ <param name="pWhereCompanyID"></param>
+ <param name="pFilter"></param>
+ <param name="pstrBranchList"></param>
+ <param name="pstrGradeList"></param>
+ <param name="pstrDepartmentList"></param>
+ <param name="pstrDivisionList"></param>
+ <param name="pIsLeavedEmployeeRequired"></param>
+ <param name="pEmployeeList"></param>
+ <param name="pIsLeaveApprover"></param>
+ <param name="pEmployeeGradeID"></param>
+ <param name="pEmployeeID"></param>
+ <param name="pEmployeeCategoryID"></param>
+ <param name="pEmployeeName"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_FormEditorCompany.tblFormEditorCompanyDataTable.GetDatabyFormName(System.Int32,System.String)">
+ <summary>
+ get data to hide unused controls requested by company,and to fill grid data
+ </summary>
+ <param name="pWhereCompanyID"></param>
+ <returns></returns>
+ <remarks>'Below method is used in RequisitionCreateNew.aspx.vb,TACCreateNew.aspx.vb,FormEditor.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_FormEditorCompany.tblFormEditorCompanyDataTable.GetDatabyFormName_Required(System.Int32,System.String)">
+ <summary>
+ get data to hide unused controls requested by company,and to fill grid data
+ </summary>
+ <param name="pWhereCompanyID"></param>
+ <returns></returns>
+ <remarks>'Below method is used in RequisitionCreateNew.aspx.vb,TACCreateNew.aspx.vb,FormEditor.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_FormEditorCompany.tblFormEditorCompanyDataTable.GetDatabyFormAndFieldName(System.String,System.String,System.Int32)">
+ <summary>
+ get data to hide unused controls requested by company,and to fill grid data
+ </summary>
+ <param name="pWhereCompanyID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_FormEditorCompany.tblFormEditorCompanyDataTable.DeleteRowByFormName(System.Int32,System.String)">
+ <summary>
+ delete previous records by company before saving new data
+ </summary>
+ <param name="pWhereCompanyID"></param>
+ <remarks>'Below method is used in FormEditor.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_JobRequisition.tblJobRequisitionDataTable.GetNoOfPositionsInRequests_ByManagementKey(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+ <summary>
+ Takes the sum of Requested Head Counts of InProcess or Approved Requests and sum of Hired Employees against 
+ In-Process OR Approved Requests and returns the diff of Requested - Hired Head Counts
+ </summary>
+ <param name="pPositionID"></param>
+ <param name="pBranchID"></param>
+ <param name="pDivisionID"></param>
+ <param name="pDepartmentID"></param>
+ <param name="pSubDepartmentID"></param>
+ <param name="pEmployeeGradeID"></param>
+ <param name="pEmployeeCategoryID"></param>
+ <param name="pCompanyID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_LeaveEncashmentRequest.tblLeaveEncashmentRequestDataTable.GetDataForPayroll(System.Int64,System.DateTime,System.String,System.Int32)">
+ <summary>
+ Gets data by EmployeeID,RequestDate,Comments
+ </summary>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_LeaveEntitlement.tblLeaveEntitlementDataTable.GetDataForPayroll(System.String,System.Int64,System.Int32,System.DateTime,System.String,System.Int32)">
+ <summary>
+ Gets data by TranRefNo,EmployeeID,LeaveID,EFfectiveDate and EntitlementType
+ </summary>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_LoanInstallmentDetail.tblLoanInstallmentDetailDataTable.GetNonDeductedInstallments(System.Int32,System.Int32,System.String,System.Int32)">
+ <summary>
+ Used to fetch remaining installments of approved Loans which are not Processed(Exempted)
+ </summary>
+ <param name="pMonth"></param>
+ <param name="pYear"></param>
+ <param name="pCompanyID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_LoanInstallmentDetail.tblLoanInstallmentDetailDataTable.GetAutoExemptedInstallments(System.Int32,System.Int32,System.String,System.String,System.Int32)">
+ <summary>
+ Used to fetch auto Exempted records for Month Close Roll Back(Exempted)
+ </summary>
+ <param name="pMonth"></param>
+ <param name="pYear"></param>
+ <param name="pCompanyID"></param>
+ <param name="pAutoExemptionRemarks"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_LoanInstallmentDetail.tblLoanInstallmentDetailDataTable.GetPendingForPaymentInstallments(System.Int32,System.Int32,System.String,System.Int64)">
+ <summary>
+ Used to fetch records to update in Month Close(Paid and Pending)
+ </summary>
+ <param name="pMonth"></param>
+ <param name="pYear"></param>
+ <param name="pBaseType"></param>
+ <param name="pBaseTypeValue"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_LoanInstallmentDetail.tblLoanInstallmentDetailDataTable.GetAllPendingInstallments(System.DateTime,System.Int32,System.Boolean,System.String)">
+ <summary>
+ Used to fetch all remaining installments which are not Processed(Exempted and Paid)
+ </summary>
+ <param name="pAsOnDate"></param>
+ <param name="pCompanyID"></param>
+ <param name="IsDeductedRequired"></param>
+ <returns>Returns those Pending installments which are not deducted IF 'IsDeductedRequired' param is false,
+ Returns those Pending installments which are deducted IF 'IsDeductedRequired' param is true </returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_LoanInstallmentDetail.tblLoanInstallmentDetailDataTable.UpdateInstallmentProcessStatus(System.Int64,System.Boolean,System.String,System.Int32)">
+ <summary>
+ Used to Update 'IsProcess' column in tblLoanInstallmentDetail
+ </summary>
+ <param name="pTranDtlID"></param>
+ <param name="pIsProcess"></param>
+ <param name="pBaseType"></param>
+ <param name="pBaseTypeValue"></param>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_LoanInstallmentDetail.tblLoanInstallmentDetailDataTable.UpdateInstallmentStatus(System.Int64,System.String,System.String,System.Int32)">
+ <summary>
+ Used to Update 'Status' column in tblLoanInstallmentDetail
+ </summary>
+ <param name="pTranDtlID"></param>
+ <param name="pIsProcess"></param>
+ <param name="pBaseType"></param>
+ <param name="pBaseTypeValue"></param>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_LoanInstallmentDetail.tblLoanInstallmentDetailDataTable.GetInfectedLoans(System.Int32)">
+ <summary>
+ Gets those loans who have installments pending before paid installments
+ </summary>
+ <param name="pCompanyID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_LoanInstallmentDetail.tblLoanInstallmentDetailDataTable.GetLoanIDsHavingMarkupInstallments(System.Int64)">
+ <summary>
+ Returns LoanIDs of Loans having Markup installments in comma separated order
+ </summary>
+ <param name="pCompanyID">CompanyID</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Object.ST_tblObjectMstDataTable.GetDatabyObjectName(System.String)">
+ <summary>
+ get data by object name 
+ </summary>
+ <param name="pWhereObjectName"></param>
+ <returns></returns>
+ <remarks>below method used in UCDMyApproval.ascx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Object.ST_tblObjectMstDataTable.GetDatabyCompanyForMapping(System.Int64,System.Int64)">
+ <summary>
+ get data to fill role rights grid if data exists
+ </summary>
+ <param name="pRoleID"></param>
+ <param name="pParentObjectID"></param>
+ <returns></returns>
+ <remarks> below method used in RoleRights.aspx.vb </remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Object.ST_tblObjectMstDataTable.GetDatabyCompanyForMappingDetail(System.Int64,System.Int64)">
+ <summary>
+ get data to fill role rights grid if data exists
+ </summary>
+ <param name="pRoleID"></param>
+ <param name="pObjectID"></param>
+ <returns></returns>
+ <remarks>below method used in RoleRights.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_PerformanceObjective.tblPerformanceObjectiveHeadDataTable.CheckDelete_PerformanceReview(System.Int64,System.Int32)">
+ <summary>
+ Returns True if record exists, False if not
+ </summary>
+ <param name="pRequestID"></param>
+ <param name="pCompanyID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Company.tblCompanyDataTable.GetLanguageByCompanyID(System.Int32)">
+ <summary>
+ get language by company
+ </summary>
+ <param name="pWhereCompanyID"></param>
+ <returns></returns>
+ <remarks> 'Below method is used in WorkFlowHelper.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_EmployeeLeaveOpening.tblEmployeeLeaveOpeningDataTable.CheckIfExists(System.Int64,System.Int32,System.Int32)">
+ <summary>
+ Checks if the supplief record already exists.
+ </summary>
+ <param name="pEmployeeID"></param>
+ <param name="pCompanyID"></param>
+ <param name="pLeaveYear"></param>
+ <returns>True if record exists, false if record not exists.</returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_EmployeeLeaveOpening.tblEmployeeLeaveOpeningDataTable.DeleteByLeaveYear(System.Int32,System.Int32)">
+ <summary>
+ Deletes on the basis of LeaveYear and CompanyID
+ </summary>
+ <param name="pLeaveYear">Supplied LeaveYear</param>
+ <param name="pCompanyID">Supplied CompanyID</param>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_EmployeeLeaveOpening.tblEmployeeLeaveOpeningDetailDataTable.DeleteByLeaveYear(System.Int32,System.Int32)">
+ <summary>
+ Deletes on the basis of LeaveYear and CompanyID
+ </summary>
+ <param name="pLeaveYear">Supplied LeaveYear</param>
+ <param name="pCompanyID">Supplied CompanyID</param>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_FieldLanguage.tblFieldLanguageDataTable.GetDatabyLanguageID(System.Int32)">
+ <summary>
+ Get Data by LanguageID for download existing data 
+ </summary>
+ <param name="pWhereLanguageID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Form.tblFormDataTable.GetDataByCompany(System.Int32)">
+ <summary>
+ get data to fill dropdowns 
+ </summary>
+ <param name="pWhereCompanyID"></param>
+ <returns></returns>
+ <remarks>'Below method is used in ProcessDuplication.aspx.vb,ProcessMst.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Form.tblFormDataTable.GetDataByCompanyIds(System.String)">
+ <summary>
+ get data to fill dropdowns 
+ </summary>
+ <param name="strCompanyId"></param>
+ <returns></returns>
+ <remarks>'Below method is used in FormMst.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Form.tblFormDataTable.GetDataByCompanyAndFormName(System.Int32,System.String)">
+ <summary>
+ check isexists form name before saving new record
+ </summary>
+ <param name="pWhereCompanyID"></param>
+ <param name="pWhereFormName"></param>
+ <returns></returns>
+ <remarks>'Below method is used in FormMst.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Form.tblFormDataTable.CheckDelete(System.Int64,System.Int32,System.String@)">
+ <summary>
+ check form is used in any transaction form before deletion
+ </summary>
+ <param name="pID"></param>
+ <param name="pCompanyID"></param>
+ <param name="pErrorMsg"></param>
+ <returns></returns>
+ <remarks>'Below method is used in FormMst.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Language.tblLanguageDataTable.GetDatabyCompany(System.Int32)">
+ <summary>
+ returns records of provided companyid or having companyid 0
+ </summary>
+ <param name="pCompanyID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_LeaveTransaction.tblLeaveAttachmentDataTable.UpdateRowbyLeaveTranID(System.Int64,System.Int64)">
+ <summary>
+ update LeaveTranID in requistion attachment table
+ </summary>
+ <param name="pLeaveTranID"></param>
+ <param name="pWhereLeaveTranID"></param>
+ <remarks>below method is used in LeaveRequest.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_LoanDeductionDetail.tblLoanDeductionDetailDataTable.GetReturnBeforeInstallmentStartDate(System.Int64,System.Int64)">
+ <summary>
+ Gets return amount of loan which is entered before installment start date of head
+ </summary>
+ <param name="pReferenceTranIDID">TranID of Loan</param>
+ <param name="pCompanyID">CompanyID</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_LoanTransaction.tblLoanTransactionHeadDataTable.FixInstallmentStartDate(System.Int32,System.Int32)">
+ <summary>
+ Updates InstallmentStartDate equal to the first paid or exempted installment
+ </summary>
+ <param name="pInstallmentAmount"></param>
+ <param name="pInstallmentDate"></param>
+ <param name="pWhereRequestID"></param>
+ <remarks></remarks>
+ 
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Notice.tblNoticeDataTable.GetDataGridForCompanies(System.String,System.String)">
+ <summary>
+ get data to fill grid
+ </summary>
+ <param name="pWhereStrCompanyID"></param>
+ <returns></returns>
+ <remarks>below method is used in Notice.ascx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Notice.tblNoticeDataTable.GetValidData(System.String)">
+ <summary>
+ get data to fill grid for dashboard
+ </summary>
+ <param name="pWhereStrCompanyID"></param>
+ <returns></returns>
+ <remarks>below method is used in UCNotice.ascx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Notice.tblNoticeDetailDataTable.GetDataByNoticeID(System.Int64,System.Int32)">
+ <summary>
+ get data for grid to view list of attachments
+ </summary>
+ <param name="intNoticeid"></param>
+ <returns></returns>
+ <remarks>below method is used in NoticeAttachment.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_PayrollRecord.tblPayrollRecordHeadDataTable.GetSequeceIndexOfPayrollMonth(System.Int64,System.Int32,System.Int32,System.String,System.Int32)">
+ <summary>
+ Returns index of supplied payroll month. 0 if month is first and 1 if month is second
+ </summary>        
+</member>
+<member name="M:TimeTraxDLL_HR.BO_PerformanceReview.tblPerformanceReviewHeadDataTable.GetRecommendationTypes">
+ <summary>
+ Returns RecommendationTypes
+ </summary>
+ <returns>RecommendationTypes</returns>
+ <remarks>This function will serve as central datasource for Recommendation Types until there is a permanent master setup for RecommendationTypes. AbdulMoiz 2019-04-06</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_PerformanceReview.tblPerformanceReviewHeadDataTable.GetRecommendedForOptions(System.Boolean)">
+ <summary>
+ Returns RecommendedFor Options with values
+ </summary>
+ <returns>RecommendedFor</returns>
+ <remarks>This function will serve as central datasource for RecommendedFor Options until there is a permanent master setup for RecommendedFor Options. AbdulMoiz 2019-04-06</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Question.tblQuestionDataTable.GetCalculationTypes">
+ <summary>
+ Temproray Data Source for Question Calculation Types. Returns Question Calculation Types
+ </summary>
+ <returns></returns>
+ <remarks>Ad - AbdulMoiz 2019-04-08</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Religion.tblReligionDataTable.GetDatabyCompanyLanguage(System.Int32,System.Int32)">
+ <summary>
+ returns records of provided companyid or having companyid 0
+ </summary>
+ <param name="pCompanyID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Resume.tblResumeDataTable.SearchCandidates(System.String,System.Int32)">
+ <summary>
+ Gets Resume Data for SearchCandidates_WF
+ </summary>
+ <param name="pCriteria"></param>
+ <param name="pCompanyID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Resume.tblResumeDataTable.SearchCandidatesResume(System.String,System.Int32)">
+ <summary>
+ Gets Candidate Data for SearchCandidates_WF
+ </summary>
+ <param name="pCriteria"></param>
+ <param name="pCompanyID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Role.ST_tblRoleDataTable.GetDatabyTitle(System.String)">
+ <summary>
+ check is exist role title before saving new record
+ </summary>
+ <param name="pRoleTitle"></param>
+ <returns></returns>
+ <remarks>below method is used in Role.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Role.ST_tblRoleDataTable.GetParentDataForRoleView(System.Int32)">
+ <summary>
+ get data to fill role rights grid
+ </summary>
+ <param name="pRoleID"></param>
+ <returns></returns>
+ <remarks>below method is used in ViewRights.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_Role.ST_tblRoleDataTable.GetDataForMatrixByRoleAndParentObjectID(System.Int32,System.Int32)">
+ <summary>
+ get data to view role rights
+ </summary>
+ <param name="pRoleID"></param>
+ <param name="pParentObjectID"></param>
+ <returns></returns>
+ <remarks>below method is used in ViewRights.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_SurveyHead.tblSurveyHeadDataTable.GetDataForDropDownBySurveyTypeAndCompany(System.String,System.Int32)">
+ <summary>
+ Gets data for dropdown by CompanyID and SurveyType
+ </summary>
+ <param name="pCompanyID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_UserCompany.tblUserCompanyDataTable.GetDatabyUserID(System.Int32,System.String)">
+ <summary>
+ get data to fill branches for create admin in admin mode
+ </summary>
+ <param name="pWhereUserID"></param>
+ <param name="pWhereStrCompanyIDs"></param>
+ <returns></returns>
+ <remarks>below method is used in CreateAdmin.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_UserCompany.tblUserCompanyDataTable.GetDataforDropDownbyUserID(System.Int32,System.String)">
+ <summary>
+ get data to fill company combo
+ </summary>
+ <param name="pWhereUserID"></param>
+ <returns></returns>
+ <remarks> </remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_UserCompany.tblUserCompanyDataTable.GetUserByCompanies(System.String,System.String,System.Boolean)">
+ <summary>
+ get data to fill user combo
+ </summary>
+ <param name="pWhereStrCompanyIDs"></param>
+ <returns></returns>
+ <remarks>below method is used in ucTACCriteria.ascx.vb,Deputy.aspx.vb,UserProfile.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_UserCompany.tblUserCompanyDataTable.GetCompanyListByUser(System.Int64)">
+ <summary>
+ To get company IDs
+ </summary>
+ <param name="pWhereUserID"></param>
+ <returns></returns>
+ <remarks>below method is used in </remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_UserCompany.tblUserCompanyDataTable.DeleteRowbyUserID(System.Int32)">
+ <summary>
+ delete data before new record save
+ </summary>
+ <param name="pWhereUserID"></param>
+ <remarks>below method is used in CreateAdmin.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_UserCompany.tblUserCompanyDataTable.DeleteRowbyCompanyID(System.Int32)">
+ <summary>
+ delete entries from user company if company deleted
+ </summary>
+ <param name="pWhereCompanyID"></param>
+ <remarks>below method is used in CompanySetup.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_UserDeputy.tblUserDeputyDataTable.GetDataAll(System.Int64)">
+ <summary>
+ get data to fill deputy grid list 
+ </summary>
+ <param name="puserid"></param>
+ <returns></returns>
+ <remarks>below method is used in UserProfile.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_UserDeputy.tblUserDeputyDataTable.GetDatabyUserID(System.Int64)">
+ <summary>
+ get deputy detail for front tree menu to create tree.
+ </summary>
+ <param name="pUserID"></param>
+ <returns></returns>
+ <remarks>below method is used in MainMenuCtl.ascx.vb,Default.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_UserDeputy.tblUserDeputyDataTable.GetDatabyCompanyIDs(System.String)">
+ <summary>
+ get data to fill deputy grid list
+ </summary>
+ <param name="pstrCompanyID"></param>
+ <returns></returns>
+ <remarks>below method is used in Deputy.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_UserDeputy.tblUserDeputyDataTable.GetDatabyUserAndDeputyAndCompany(System.Int64,System.Int64,System.Int64,System.DateTime,System.DateTime)">
+ <summary>
+ get data for edit mode in deputy form
+ </summary>
+ <param name="pWhereUserDeputyID"></param>
+ <param name="pWhereUserID"></param>
+ <param name="pWhereCompanyID"></param>
+ <param name="pWhereFromDate"></param>
+ <param name="pWhereTODate"></param>
+ <returns></returns>
+ <remarks>below method is used in UserProfile.aspx.vb,Deputy.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_UserDeputy.tblUserDeputyDataTable.UpdateRowbyUserAndDeputyAndCompany(System.Int64,System.Int64,System.Int32,System.DateTime,System.DateTime,System.Int64,System.Int64,System.Int64,System.DateTime,System.DateTime)">
+ <summary>
+ update row deputy
+ </summary>
+ <param name="pUserID"></param>
+ <param name="pUserDeputyID"></param>
+ <param name="pCompanyID"></param>
+ <param name="pFromDate"></param>
+ <param name="pToDate"></param>
+ <param name="pWhereUserDeputyID"></param>
+ <param name="pWhereUserID"></param>
+ <param name="pWhereCompanyID"></param>
+ <param name="pWhereFromDate"></param>
+ <param name="pWhereTODate"></param>
+ <remarks>below method is used in UserProfile.aspx.vb,Deputy.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_UserDeputy.tblUserDeputyDataTable.DeleteRowbyIds(System.Int64,System.Int64,System.Int32,System.DateTime,System.DateTime)">
+ <summary>
+ delete row 
+ </summary>
+ <param name="pWhereUserDeputyID"></param>
+ <param name="pWhereUserID"></param>
+ <param name="pWhereCompanyID"></param>
+ <param name="pWhereFromDate"></param>
+ <param name="pWhereTODate"></param>
+ <remarks>below method is used in UserProfile.aspx.vb,Deputy.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_UserRights.ST_tblUserRightsDataTable.DeleteRowbyRoleID(System.Int64,System.Data.OleDb.OleDbConnection,System.Data.OleDb.OleDbTransaction)">
+ <summary>
+ delete all record if role is deleted
+ </summary>
+ <param name="pRoleID"></param>
+ <remarks>below method used in Role.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_UserToUserGroup.tblUserToUserGroupDataTable.DeleteRowByUserID(System.Int32)">
+ <summary>
+ delete user groups if user deleted
+ </summary>
+ <param name="pUserID"></param>
+ <remarks>below method is used in CreateAdmin.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_UserToUserGroup.tblUserToUserGroupDataTable.DeleteRowByUser(System.Int32,System.Int32,System.Int32)">
+ <summary>
+ delete row
+ </summary>
+ <param name="pUserGroupID"></param>
+ <param name="pUserID"></param>
+ <param name="pCompanyID"></param>
+ <remarks>below method is used in UserGroupPopup.aspx.vb,UserPopup.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_UserToUserGroup.tblUserToUserGroupDataTable.GetUserGroupListbyUser(System.Int32,System.String)">
+ <summary>
+ get user list for request routine
+ </summary>
+ <param name="pWhereUserID"></param>
+ <param name="pWhereCompanyID"></param>
+ <returns></returns>
+ <remarks>below method is used in BO_RequestRouting_Ext.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_UserToUserGroup.tblUserToUserGroupDataTable.GetUserGroupListbyUser(System.Int32)">
+ <summary>
+ get user list for request routine
+ </summary>
+ <param name="pWhereUserID"></param>
+ <returns></returns>
+ <remarks>below method is used in BO_RequestRouting_Ext.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_UserToUserGroup.tblUserToUserGroupDataTable.GetUserGroupTitleListbyUser(System.Int64)">
+ <summary>
+ get data for workflow
+ </summary>
+ <param name="pWhereUserID"></param>
+ <returns></returns>
+ <remarks>below method is used in WorkFlowHelper.vb,RequisitionCreateNew.aspx.vb,RequisitionListApprover.aspx.vb,TACCreateNew.aspx.vb,TACApproval.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.BO_User.tblUserDataTable.GetDataByCompanyIDs(System.String,System.String)">
+ <summary>
+ get data for users grid list 
+ </summary>
+ <param name="pstrCompanyID"></param>
+ <returns></returns>
+ <remarks>below method is used in CreateUserMC.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.clsCookie.GetCookieValueString(System.String)">
+ Gets cookie String value.
+</member>
+<member name="M:TimeTraxDLL_HR.clsCookie.SetCookieValueString(System.String,System.String)">
+ Sets cookie string value.
+</member>
+<member name="M:TimeTraxDLL_HR.clsCookie.GetCookieValueInt(System.String)">
+ Gets cookie Int value.
+</member>
+<member name="M:TimeTraxDLL_HR.clsCookie.SetCookieValueInt(System.String,System.Int64)">
+ Sets cookie string value.
+</member>
+<member name="M:TimeTraxDLL_HR.clsDataHelper.GetPivotDataTable(System.Data.DataTable,System.String,System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Type)">
+ <summary>
+ 
+ </summary>
+ <param name="table"></param>
+ <param name="columnX"></param>
+ <param name="columnY"></param>
+ <param name="columnZ"></param>
+ <param name="nullValue"></param>
+ <param name="sumValues"></param>
+ <param name="IsConcatenateValues"></param>
+ <param name="IsConcatenateAndlinkValues"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.clsFilter.GetSingleEntityFromFilter(System.String,System.Int64,System.String,System.Int64,System.String)">
+ <summary>
+ Returns the Filter of specified ReferencType for TranType and TranID
+ </summary>
+ <param name="pTranType"></param>
+ <param name="pTranID"></param>
+ <param name="pReferenceType">eg "Branch"</param>
+ <param name="pCompanyID"></param>
+ <param name="pAuthRightsList">eg clsCookie.BranchList</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.clsFilter.GetIsCustomerEligibleForSurvey(System.Int32,System.Int32,System.Int32)">
+ <summary>
+ ' Survey - Custome Filter Working
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.clsFilter.GetFilterEmployees(System.String,System.Int64,System.Int32,TimeTraxDLL_HR.clsFilter.FilterDefaultValue)">
+ <summary>
+ Returns Employees who fall in the filter
+ </summary>
+ <param name="pReferenceType"></param>
+ <param name="pReferenceTranID"></param>
+ <param name="pCompanyID"></param>
+ <param name="pDefaultValue">Default Value if there is no filter</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:TimeTraxDLL_HR.UserManager.IsGatePassAdmin">
+Added by Waiz For Pepsi GatePass Module on 02-09-2022
+</member>
+<member name="M:TimeTraxDLL_HR.UserManager.CheckAndThrow(System.Boolean)">
+ <summary>
+ Checks and Throws Exception
+ Can be used as UM.CheckRights(UM.IsProcess)
+ </summary>
+ <param name="pIsAllowed"></param>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.EfroTech.clsGeneralFunctions.CheckIfRecordExists(System.String,System.String,System.String,System.String[])">
+ <summary>
+ Checks if an identical record already exists in the supplied table.
+ Returns True if record exists, false if not exists
+ </summary>
+ <param name="tableName">Name of the table</param>
+ <param name="keyColumn">Name of the Primary key column</param>
+ <param name="keyValue">Value for the primary key column</param>
+ <param name="OtherColumnsAndValues">Array of other column and thier values e.g, "CompanyID","1","IsActive","1"</param>
+ <returns>Returns True if record exists, returns False if not exists</returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.EfroTech.clsGeneralFunctions.CheckIfRecordExistsDateRange(System.String,System.String,System.String,System.String,System.DateTime,System.String,System.DateTime,System.String[])">
+ <summary>
+ (Incomplete)Checks if an identical record already exists in the supplied table.
+ Returns True if record exists, false if not exists
+ </summary>
+ <param name="tableName">Name of the table</param>
+ <param name="keyColumn">Name of the Primary key column</param>
+ <param name="keyValue">Value for the primary key column</param>
+ <param name="OtherColumnsAndValues">Array of other column and thier values e.g, "CompanyID","1","IsActive","1"</param>
+ <returns>Returns True if record exists, returns False if not exists</returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.EfroTech.clsGeneralFunctions.GetUserRights(System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+ <summary>
+ Return a List of ESS user Rights which contains Boolean values IsAdmin,IsLeaveApprover and IsSimpleUser
+ </summary>
+ <param name="isAdmin"></param>
+ <param name="IsBAdmin"></param>
+ <param name="IsLeaveApprover"></param>
+ <param name="IsSimpleUser"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.EfroTech.clsGeneralFunctions.GetAuthBranchDivDepttGrades(System.Boolean,System.String,System.String,System.String,System.String,System.String,System.Int64,System.Int32)">
+ <summary>
+ Returns IDs of Branches,Divisions,Departments and Grades that are authorized to this user
+ </summary>
+ <param name="pIsAdmin"></param>
+ <param name="pBranchList"></param>
+ <param name="pDepartmentList"></param>
+ <param name="pDivisionlist"></param>
+ <param name="pGradeList"></param>
+ <param name="pUserID"></param>
+ <param name="pCompanyID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.EfroTech.clsGeneralFunctions.GetAuthCredentials(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String,System.String,System.String,System.Int64,System.Int64,System.Int32,System.String)">
+ <summary>
+ Returns all the credentails related to authorization rights. Includes IsAdmin,IsLeaveApprorver and IsSimpleUser for User and BranchList,
+ DivisionList,DepartmentList and GradeList for User. Also includes EmployeeHierarchy.
+ </summary>
+</member>
+<member name="M:TimeTraxDLL_HR.EfroTech.clsGeneralFunctions.GetAuthCredentials_ByUserCompany(System.Int64,System.Int32)">
+ <summary>
+ Returns all the credentails related to authorization rights By UserID and CompanyID. Includes IsAdmin,IsLeaveApprorver and IsSimpleUser for User and BranchList,
+ DivisionList,DepartmentList and GradeList for User. Also includes EmployeeHierarchy.
+ </summary>
+</member>
+<member name="M:TimeTraxDLL_HR.EfroTech.clsGeneralFunctions.RemoveIDFromString(System.String,System.String)">
+ <summary>
+ Removes pItemToBeRemoved from comma separated string
+ </summary>
+ <param name="pList">Comma Separated String</param>
+ <param name="pItemToBeRemoved">Item to be removed from comma separated string</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.EfroTech.clsGeneralFunctions.GetCriteriaString(System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+ <summary>
+ Creates the where clause string auth rights, which can be used in methods getting data based on auth rights
+ </summary>
+ <param name="ptblEmployeePrefix"></param>
+ <param name="pEmployeeID"></param>
+ <param name="pBranchList"></param>
+ <param name="pGradeList"></param>
+ <param name="pDivisionList"></param>
+ <param name="pDepartmentList"></param>
+ <param name="pEmployeeHierarchy"></param>
+ <param name="pOperator">Operator to be applied in where clause</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.EfroTech.clsGeneralFunctions.GetIDofControlThatDidAsyncPostBack(System.Web.UI.Page)">
+ <summary>
+ Returns the ID of the control that did the async postback
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.EfroTech.clsGeneralFunctions.GetOleDBType(System.Type)">
+ <summary>
+ Gives OleDBType by give System.Type Type
+ </summary>
+ <param name="pType"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.EfroTech.clsGeneralFunctions.GetLocalDateTime(System.DateTime)">
+ <summary>
+ Converts UTC Date to local date
+ </summary>
+ <param name="_Date"></param>
+ <returns></returns>
+ <remarks>Ad - AbdulMoiz 2019-05-24</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.EfroTech.DateTimeHelper.GetYearAndMonthRange(System.DateTime,System.DateTime)">
+ <summary>
+ Return a list of YearAndMonth objects, starting from 'FromDate's Month and Year and to 'toDate's Month and Year.
+ </summary>
+ <param name="fromDate"></param>
+ <param name="toDAte"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.EfroTech.DateTimeHelper.GetDurationByDate(System.DateTime,System.DateTime)">
+ <summary>
+ Moved by AbdulMoiz from PersonalInformation.aspx
+ </summary>
+ <param name="pStartDate">Start Date of the duration</param>
+ <param name="pEndDate">End Date of the duration</param>
+ <returns>Duration between Start and End Date in 0 Years(s) 0 Month(s) format</returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.EfroTech.Anonymous.GetUserRights(System.Boolean,System.Boolean,System.Boolean)">
+ <summary>
+ Gets User rights on the basis of Business Logic.
+ </summary>
+ <param name="pIsAdmin"></param>
+ <param name="pIsBAdmin"></param>
+ <param name="pIsLeaveApprover"></param>
+ <returns>SortedList which consists of IsAdmin,IsLeaveApprover,IsSimpleUser</returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.EmployeeHelper.GetEmployeesListDatabyBranchGradeDivDept(System.Int32,System.String,System.String,System.String,System.String,System.Int16,System.Int32,System.Int64,System.String)">
+ <summary>
+ return string list of employees found on the basis of rights provided in the params
+ </summary>
+ <param name="pCompanyID"></param>
+ <param name="pBranchList"></param>
+ <param name="pGradeList"></param>
+ <param name="pHasLeaved"></param>
+ <param name="pDivisionList"></param>
+ <param name="pDepartmentList"></param>
+ <param name="pSearchby"></param>
+ <param name="pEmployeeCategory"></param>
+ <param name="pEmployeeID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.EmployeeHelper.GetAuthList(System.String,System.Int32)">
+ <summary>
+ Returns comma separated string of IDs of the specified list
+ </summary>
+ <param name="pListName">Name of List, e.g Branch</param>
+ <param name="pCompanyID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.EmployeeHelper.GetEmployeeIDsOnEssRights(System.Boolean,System.Boolean,System.Boolean,System.Int64,System.String,System.String,System.String,System.String,System.String,System.Int32)">
+ <summary>
+ Returns subordinates EmployeeIDs based on ESS Rights
+ </summary>
+ <param name="IsAdmin"></param>
+ <param name="IsLeaveApprover"></param>
+ <param name="pisSimpleUser"></param>
+ <param name="pEmployeeID"></param>
+ <param name="pBranchList"></param>
+ <param name="pGradeList"></param>
+ <param name="pDivisionList"></param>
+ <param name="pDepartmentList"></param>
+ <param name="pEmployeeHierarchy"></param>
+ <param name="pCompanyID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.EmployeeHelper.GetQueryColumns(System.Int32,System.Boolean)">
+ <summary>
+ Returns Dictionary having key as FieldName of FormEditor and Value as Query to get the columns for Employee Profile.
+ </summary>
+ <param name="pDateFormatNo"></param>
+ <returns></returns>
+ <remarks>Moved from UploadEmployeeInfo.aspx - AbdulMoiz 2019-05-21. 
+ Works with boEmployee.tblEmployee.GetEmployeeInfo_BySelectStatement as of 2019-05-21</remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.GridViewTemplate.TextBox_DataBinding(System.Object,System.EventArgs)">
+ <summary>
+ This is the event, which will be raised when the binding happens.
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:TimeTraxDLL_HR.ReportHelper.GetAttendanceByDate_Shift(System.DateTime,System.Int32,System.String,System.String,System.String,System.String,System.Int32,System.String,System.Int64,System.String)">
+ <summary>
+ Used for Attendance Verification. 
+ </summary>
+ <param name="strEmployees"></param>
+ <param name="pFromDate"></param>
+ <param name="pToDate"></param>
+ <param name="pShiftID"></param>
+ <param name="pCompanyID"></param>
+ <param name="pStatus">Makes a where clause of Status if provided, else looks for records having VerificationTranID = 0</param>
+ <param name="IsTourEntry"></param>
+ <param name="IsManualEntry"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.ReportHelper.GetAttendanceByDate_Shift_ByTranID(System.Int64,System.String,System.String,System.Int32)">
+ <summary>
+ Used to get Edit records of Attendance Verification
+ </summary>
+ <param name="pVerificationTranID"></param>
+ <param name="pStatus"></param>
+ <param name="pCompanyID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.ReportHelper.GetGratuityValue(System.Int64,System.Int32,System.Int32,System.DateTime,System.DateTime,System.Int32,System.String,System.Int32)">
+ <summary>
+ Returns GratuityAmount of Employee 
+ </summary>
+ <param name="pEmployeeID"></param>
+ <param name="pPayrollMonth"></param>
+ <param name="pPayrollYear"></param>
+ <param name="pFromDate"></param>
+ <param name="pToDate"></param>
+ <param name="pCompanyID"></param>
+ <param name="CallType"></param>
+ <param name="LeavingReasonID"></param>
+ <returns>If Gratuity Payment Setup is defined, then it calculates upon setup, else if CompanyFlag IsGratuityEOSRoundOff is True then if return round off Accrued Gratuity Amount else returns simple Gratuity Accrued Amount </returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_HR.ReportHelper.CheckMonthClose_New(System.String,System.String,System.DateTime,System.Int32)">
+ <summary>
+ '
+ </summary>
+ <param name="EmpID"></param>
+ <param name="PayrollType"></param>
+ <param name="effectiveDate"></param>
+ <param name="pCompanyID"></param>
+ <returns>True if month is not closed, False if month is closed</returns>
+ <remarks></remarks>
+</member>
+<member name="T:TimeTraxDLL_HR.WsConstr.WsConstr">
+<remarks/>
+</member>
+<member name="M:TimeTraxDLL_HR.WsConstr.WsConstr.#ctor">
+<remarks/>
+</member>
+<member name="E:TimeTraxDLL_HR.WsConstr.WsConstr.GetConnectionStringCompleted">
+<remarks/>
+</member>
+<member name="M:TimeTraxDLL_HR.WsConstr.WsConstr.GetConnectionString(System.String)">
+<remarks/>
+</member>
+<member name="M:TimeTraxDLL_HR.WsConstr.WsConstr.GetConnectionStringAsync(System.String)">
+<remarks/>
+</member>
+<member name="M:TimeTraxDLL_HR.WsConstr.WsConstr.GetConnectionStringAsync(System.String,System.Object)">
+<remarks/>
+</member>
+<member name="M:TimeTraxDLL_HR.WsConstr.WsConstr.CancelAsync(System.Object)">
+<remarks/>
+</member>
+<member name="T:TimeTraxDLL_HR.WsConstr.GetConnectionStringCompletedEventHandler">
+<remarks/>
+</member>
+<member name="T:TimeTraxDLL_HR.WsConstr.GetConnectionStringCompletedEventArgs">
+<remarks/>
+</member>
+<member name="P:TimeTraxDLL_HR.WsConstr.GetConnectionStringCompletedEventArgs.Result">
+<remarks/>
+</member>
+</members>
+</doc>

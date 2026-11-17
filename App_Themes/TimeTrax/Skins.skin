@@ -1,0 +1,115 @@
+<%@ Register Assembly="KMobile.Web" Namespace="KMobile.Web.UI.WebControls" TagPrefix="asp" %>
+<%@ Register Assembly="EfroWebControl" Namespace="EfroWebControl" TagPrefix="efro" %>
+
+
+<%-- Top vertical menu --%>
+
+
+
+<%-- Default textbox appearance --%>
+<asp:TextBox runat="server" CssClass="form-control" />
+<asp:TextBox runat="server" SkinID="form-control-uc" CssClass="form-control-uc" />
+<asp:TextBox runat="server" skinid="Captcha" CssClass="form-control floatleft" />
+<%-- Textboxes Standards --%>
+<asp:TextBox runat="server" SkinID="StandardLarge" CssClass="form-control largeTextbox" />
+<asp:TextBox runat="server" SkinID="StandardMedium" CssClass="form-control MediumTextbox" />
+<asp:TextBox runat="server" SkinID="StandardSmall" CssClass="form-control SmallTextbox" />
+
+<efro:EfroNumericTextBox  runat="server" CssClass="form-control" />
+<efro:EfroDateTextBox  runat="server" CssClass="form-control" />
+<asp:Label runat="server" CssClass="all" />
+
+
+
+<%-- added by rizwan nazar 30-jan-2024 for the pages which CSS not defined in database --%>
+<asp:Panel runat="server" SkinID="pnlInsingleRow" CssClass="pnlInsingleRow" />
+<asp:Panel runat="server" SkinID="pnloverlayHead" CssClass="pnloverlayHead" />
+<asp:Panel runat="server" SkinID="pnloverlayDetail" CssClass="pnloverlayDetail" />
+<asp:Panel runat="server" SkinID="pnloverlayDetail2" CssClass="pnloverlayDetail2" />
+
+<asp:Label SkinID ="pnlLableColumn"  runat="server" CssClass="pnlLableColumn" />
+<asp:Label SkinID ="UploadFormHeading"  runat="server" CssClass="pnlLableColumn UploadFormWidth" />
+
+<asp:Label SkinID ="pnlLableColumnHead"  runat="server" CssClass="pnlLableColumnHead" />
+<asp:Label SkinID ="pnlLableColumnUC"  runat="server" CssClass="pnlLableColumnUC" />
+<asp:Label SkinID ="labelAutoWidth"  runat="server" CssClass="labelAutoWidth" />
+
+<%-- Default button appearance --%>
+<asp:Button runat="server" CssClass="btn btn-primary btn-xs" />
+<asp:Button runat="server" CssClass="btn btn-primary" SkinID="norm_button" />
+<asp:Button runat="server" CssClass="btn btn-primary btn-lg" SkinID="refbutton" />
+<asp:Button runat="server" CssClass="favbutton" SkinID="favbutton" />
+<asp:Button runat="server" CssClass="delfavbutton" SkinID="delfavbutton" />
+<asp:Button runat="server" CssClass="helpbutton" SkinID="helpbutton" />
+<asp:Button runat="server" CssClass="homebutton" SkinID="homebutton" />
+<%-- Added by Rizwan Nazar 01-03-2024 --%>
+<asp:Button runat="server" CssClass="btn btn-primary btn-xs ButtonWidth" SkinID="ButtonWidth" />
+
+<%-- Default ImageButton appearance --%>
+
+
+<%-- Default Combo appearance 
+<asp:DropDownlist runat="server" CssClass="form-control" />--%>
+<efro:EfroDropDown runat="server" CssClass="form-control floatleft" />
+<efro:EfroDropDown runat="server" SkinID="form-control-combo" CssClass="form-control-combo"/>
+
+<%-- Dropdown standards--%>
+<efro:EfroDropDown runat="server" SkinID="DDstandardLarge" CssClass="form-control floatleft largeTextbox" />
+<efro:EfroDropDown runat="server" SkinID="DDstandardMedium" CssClass="form-control floatleft MediumTextbox" />
+<efro:EfroDropDown runat="server" SkinID="DDstandardSmall" CssClass="form-control floatleft SmallTextbox" />
+
+<asp:DropDownlist runat="server" SkinID="DDstandardLarge" CssClass="form-control floatleft largeTextbox" />
+<asp:DropDownlist runat="server" SkinID="DDstandardMedium" CssClass="form-control floatleft MediumTextbox" />
+<asp:DropDownlist runat="server" SkinID="DDstandardSmall" CssClass="form-control floatleft SmallTextbox" />
+
+<asp:DropDownlist runat="server" CssClass="form-control floatleft"/>
+<asp:DropDownlist runat="server" SkinID="form-control-combo" CssClass="form-control-combo"/>
+<%-- Default FileUpload appearance --%>
+<asp:FileUpload runat="server" CssClass="form-control" />
+<asp:FileUpload runat="server" SkinID="FULarge" CssClass="form-control FULarge" />
+<asp:FileUpload runat="server" SkinID="FUMedium" CssClass="form-control FUMedium" />
+
+<asp:Label SkinID="headertext"  runat="server" CssClass="headertext" />
+                
+<%-- Sample GridView on the Page1.aspx page --%>
+<asp:GridView  runat="server" CssClass="mGrid" PagerStyle-CssClass="pgr"  PageSize="10"></asp:GridView>
+
+<asp:GridView  runat="server" skinid="NomGrid" CssClass="table table-bordered table-striped table-hover" Width="98.5%" PageSize="10"></asp:GridView>
+<%-- Sample GridView on the Page1.aspx page --%>
+
+<asp:CompleteGridView  runat="server" CssClass="mGrid" PagerStyle-CssClass="pgr"  PageSize="10"></asp:CompleteGridView>
+
+<%-- Sample GridView on the Page1.aspx page --%>
+<efro:EfroGridView  runat="server" CssClass="mGrid" PagerStyle-CssClass="pgr"  PageSize="10"></efro:EfroGridView>
+
+<%-- Sample Link Button on the Page1.aspx page --%>
+<asp:LinkButton CssClass="btn btn-primary btn-xs" runat="server" >
+                                        
+</asp:LinkButton>
+
+<ajaxtoolkit:CalendarExtender CssClass="MyCalendar" runat="server" />
+<asp:Panel runat="server" SkinID="pnlLeft" CssClass="pnlHeadContainerLeft" />
+<asp:Panel runat="server" SkinID="pnlCenterTop" CssClass="pnlHeadContainerCenterTop" />
+<asp:Panel runat="server" SkinID="pnlCenterBottom" CssClass="pnlHeadContainerCenterBottom" />
+<asp:Panel runat="server" SkinID="pnlRightTop" CssClass="pnlHeadContainerRightTop" />
+<asp:Panel runat="server" SkinID="pnlRightBottom" CssClass="pnlHeadContainerRightBottom" />
+<asp:Label runat="server" SkinID="pnlHeaderSkin" CssClass="pnlHeader" />
+
+<dxwgv:ASPxGridView CssClass="table table-bordered table-striped table-hover" runat="server" EnableCallBacks="false" Width="100%"
+Settings-ShowGroupPanel ="true" SettingsPager-LastPageButton-Visible="true" SettingsPager-FirstPageButton-Visible="true"
+SettingsPager-PageSize="10" Settings-ShowFilterBar="Auto" Settings-ShowFilterRow="true" Settings-ShowFilterRowMenu ="true"
+Settings-ShowTitlePanel="true" EnablePagingGestures="False" Styles-Header-Wrap ="True" SettingsBehavior-FilterRowMode="OnClick"
+SettingsPager-PageSizeItemSettings-Visible="true" />
+
+<dxwgv:ASPxGridView CssClass="table table-bordered table-striped table-hover" skinid="DevHorScrollBar" runat="server" EnableCallBacks="false" Width="98.5%"
+Settings-ShowGroupPanel ="true" SettingsPager-LastPageButton-Visible="true" SettingsPager-FirstPageButton-Visible="true" 
+SettingsPager-PageSize="10" Settings-ShowFilterBar="Auto" Settings-ShowFilterRow="true" Settings-ShowFilterRowMenu ="true"
+Settings-ShowTitlePanel="true" Settings-ShowHorizontalScrollBar ="true" EnablePagingGestures="False" Styles-Header-Wrap ="True"
+SettingsBehavior-FilterRowMode="OnClick" SettingsPager-PageSizeItemSettings-Visible="true"/>
+
+<dxwgv:ASPxProgressBar runat="server" SkinID="DevProgressBar"  
+Height="32px" Width="400px" IndicatorStyle-CssClass="progress-bar progress-bar-success progress-bar-striped active" />  
+
+<%-- <dxwgv:ASPxComboBox runat="server" Width="310px" SkinID="DDstandardLarge"  IndicatorStyle-CssClass="form-control"  />  
+<dxwgv:ASPxComboBox runat="server" SkinID="DDstandardMedium" IndicatorStyle-CssClass="form-control floatleft MediumTextbox" />  
+<dxwgv:ASPxComboBox runat="server" SkinID="DDstandardSmall"  IndicatorStyle-CssClass="form-control floatleft SmallTextbox"  />--%>  

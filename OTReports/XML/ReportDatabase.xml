@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <ReportDatabase>
+    <DBid>-1</DBid>
+    <DBTitle>Database</DBTitle>
+    <ConnString>Provider=SQLOLEDB;Server=VMS\SQL2005;Initial Catalog=TimeTrax_Demo;CommandTimeOut=300;</ConnString>
+    <Userid>sa</Userid>
+    <Password>epGXeaVqvWOoyylJPRcjomUgKEJP0m7DUzuqOJK6HNSjpx++3+UH9lpQwDMoCJPW</Password>
+    <SchemaType>both</SchemaType>
+    <DBType>SQL</DBType>
+    <AssemblyName>TT_Reports.clsReports</AssemblyName>
+  </ReportDatabase>
+</NewDataSet>

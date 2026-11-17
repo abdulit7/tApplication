@@ -1,0 +1,304 @@
+.panel {
+    margin-bottom: 0px;
+    background-color: #fff;
+   border:none;
+    border-radius: 4px;
+   box-shadow: none;
+}
+.panel .panel-heading{
+    background: #fff;
+}
+
+ul.nav-tabs {
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    z-index: 999999999;
+}
+.title{
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0px;
+    font-family: segoe UI;
+    padding: 12px;
+}
+.analytics-tab li{
+    width: 50%;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+}
+
+.analytics-tab li a{
+    color: #333;
+    font-size: 15px;
+}
+ .fullHeightBody {
+    height: 100vh;
+    overflow: auto;
+}
+
+.divtodayinout{
+    font-size: 32px;
+    text-align: center;
+    color: #607D8B;
+    padding: 4px;        
+    min-height: 50PX;
+    box-shadow: 1px 1px 8px #ddd;
+}
+
+.divin .fa{
+    color: #4CAF50;
+}
+
+.divout .fa{
+    color: #f44336;
+}
+
+.notattendance{
+    display: none;
+}
+.notattendance .fa{
+    color: orange;
+}
+.notattendance h6{
+    font-size: 16px;
+    margin: 2px;    
+}
+
+.divinout{
+    
+}
+.divdailyothers{
+    margin-top: 10px;    
+    min-height: 158px;
+    background: #fff;
+    padding: 6px;
+}
+
+.otherbox{
+    text-align: center;
+    padding: 4px;
+    background: #fff;
+    /* border: 3px solid #E0F2F1; */
+    border-radius: 4px;
+    margin-bottom: 8px;
+    z-index: 999;
+    box-shadow: 1px 1px 8px #ddd;
+}
+.otherbox .fa{
+    font-size: 58px;
+    color: #E0F2F1;
+    z-index: -1;
+    position: absolute;
+    right: 10px;;
+
+}
+.otherbox span{
+    text-shadow: 0px 0px 2px #ddd;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    border-radius: 50px;
+}
+.otherbox h4{
+    font-size: 20px;
+    margin: 6px;
+    font-weight: bold;
+    color: #607D8B;
+}
+
+#monthlysummary table tr td{
+    width: 50%;
+}
+
+#monthlysummary table tr td:nth-child(even){
+    text-align: right;
+}
+
+.timespenttillnow{
+    padding-top: 20px;
+}
+.progress {
+    height: 60px;
+    margin-bottom: 20px;
+    overflow: hidden;   
+    background: rgb(250,250,250);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%,rgba(250,250,250,1) 30%, rgba(76,175,80,0.8519782913165266) 100%);
+    border:1px solid #f1f1f1;    
+}
+
+.progress-bar-green, .progress-bar-success {
+    background-color: transparent !important;
+    border-right: 4px solid #2E7D32;
+    color: #2E7D32;
+    
+    text-align: right;
+    vertical-align: middle;
+    line-height: 55px;
+    font-size: 14px;    
+    padding-right: 16px;
+}
+
+
+#leavebalancetableview table tr td{
+    width: 50%;
+}
+
+#leavebalancetableview table tr td:nth-child(even){
+    text-align: right;
+}
+
+/* Circle Progress - Start */
+
+.cirprogress{
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    background: none;
+    margin: 0 auto;
+    box-shadow: none;
+    position: relative;
+}
+.cirprogress:after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 12px solid #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.cirprogress > span{
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+.cirprogress .cirprogress-left{
+    left: 0;
+}
+.cirprogress .cirprogress-bar{
+    width: 100%;
+    height: 100%;
+    background: none;
+    border-width: 12px;
+    border-style: solid;
+    position: absolute;
+    top: 0;
+}
+.cirprogress .cirprogress-left .cirprogress-bar{
+    left: 100%;
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+    border-left: 0;
+    -webkit-transform-origin: center left;
+    transform-origin: center left;
+}
+.cirprogress .cirprogress-right{
+    right: 0;
+}
+.cirprogress .cirprogress-right .cirprogress-bar{
+    left: -100%;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
+    border-right: 0;
+    -webkit-transform-origin: center right;
+    transform-origin: center right;
+    animation: loading-1 1.8s linear forwards;
+}
+.cirprogress .cirprogress-value{
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    background: #44484b;
+    font-size: 24px;
+    color: #fff;
+    line-height: 135px;
+    text-align: center;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+
+.cirprogress.blue .cirprogress-bar{
+    border-color: #049dff;
+}
+.cirprogress.blue .cirprogress-left .cirprogress-bar{
+    animation: loading-2 1.5s linear forwards 1.8s;
+}
+.cirprogress.yellow .cirprogress-bar{
+    border-color: #fdba04;
+}
+.cirprogress.yellow .cirprogress-left .cirprogress-bar{
+    animation: loading-3 1s linear forwards 1.8s;
+}
+.cirprogress.pink .cirprogress-bar{
+    border-color: #ed687c;
+}
+.cirprogress.pink .cirprogress-left .cirprogress-bar{
+    animation: loading-4 0.4s linear forwards 1.8s;
+}
+.cirprogress.green .cirprogress-bar{
+    border-color: #8BC34A;
+}
+.cirprogress.green .cirprogress-left .cirprogress-bar{
+    animation: loading-5 1.2s linear forwards 1.8s;
+}
+@keyframes loading-1{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+@keyframes loading-2{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(144deg);
+        transform: rotate(144deg);
+    }
+}
+@keyframes loading-3{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+}
+@keyframes loading-4{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(36deg);
+        transform: rotate(36deg);
+    }
+}
+@keyframes loading-5{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(126deg);
+        transform: rotate(126deg);
+    }
+}
+@media only screen and (max-width: 990px){
+    .cirprogress{ margin-bottom: 20px; }
+}
+
+/* Circle Progress - End */

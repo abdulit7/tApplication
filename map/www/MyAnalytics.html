@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome to TimeTrax - Mobile App</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <!-- Timeline CSS -->
+    <link href="css/timeline.css" rel="stylesheet">
+    <!-- datetime -->
+    <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="css/AdminLTE.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="css/skin-blue.css">
+    <link href="css/chosen.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="js/select2/select2.css">
+    <link rel="stylesheet" href="js/noti/toastr.css">
+    <link rel="stylesheet" href="css/chart.css">
+    <link rel="stylesheet" href="css/myanalytics.css">
+
+</head>
+
+<body class="hold-transition skin-blue fixed sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="main.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><img src="img/logo-sml.png" /></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><img src="img/logo.png" /></span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav" id="pageDropdowns">
+                        <!-- Messages: style can be found in dropdown.less-->
+
+                        <!-- Notifications: style can be found in dropdown.less -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user"></i>
+                                <script type="text/javascript" src="js/UserName.js"></script>
+
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" id="btnlogout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <!-- Tasks: style can be found in dropdown.less -->
+
+                        <!-- User Account: style can be found in dropdown.less -->
+
+
+                    </ul>
+
+
+                </div>
+            </nav>
+        </header>
+        <!-- =============================================== -->
+        <!-- Left side column. contains the sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <!-- <script type="text/javascript" src="js/mainmenu.js"></script> -->
+
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- =============================================== -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <section class="">
+
+                <ul class="nav nav-tabs analytics-tab">
+                    <li class="active"><a data-toggle="tab" href="#home" onclick="callview()">
+                            <i class="fa fa-calendar-check-o"></i> Attendance Analytics</a></li>
+                    <li><a data-toggle="tab" href="#leave" onclick="callview()">
+                            <i class="fa fa-calendar-minus-o"></i> Leave Analytics</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <br><br>
+                    <div id="home" class="tab-pane fade in active">
+
+                        <div class="panel panel-default">
+                            <div class="panel-body fullHeightBody">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                                        Today's Analytics
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="divtodayinout">
+                                            <div class="col-xs-6 divinout divin">
+                                                <i class="fa fa-sign-in"></i>
+                                                <span>09:00</span>
+
+                                            </div>
+                                            <div class="col-xs-6 divinout divout">
+                                                <i class="fa fa-sign-out"></i>
+                                                <span>19:00</span>
+                                            </div>
+                                            <div class="col-md-12 notattendance">
+                                                <i class="fa fa-exclamation-triangle"></i>
+                                                <h6>You have not marked your attendace today!</h6>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="timespenttillnow">
+
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-success progress-bar-striped active"
+                                                    role="progressbar" aria-valuenow="80" aria-valuemin="0"
+                                                    aria-valuemax="100" style="width:80%">
+                                                    Time spent till now (80%)
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="divdailyothers">
+
+
+                                            <div class="col-xs-6">
+                                                <div class="col-xs-12 otherbox otherbox2">
+                                                    <i class="fa fa-clock-o"></i>
+                                                    <span>Schedule Time</span>
+                                                    <h4>23</h4>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="col-xs-12 otherbox otherbox2">
+                                                    <i class="fa fa-clock-o"></i>
+                                                    <span>Spent Time</span>
+                                                    <h4>23</h4>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="col-xs-12 otherbox otherbox3">
+                                                    <span>
+                                                        <i class="fa fa-clock-o"></i> Short Time</span>
+                                                    </span>
+                                                    <h4>23</h4>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="col-xs-12 otherbox otherbox4">
+                                                    <span>
+                                                        <i class="fa fa-clock-o"></i> Excess Time</span>
+                                                    </span>
+                                                    <h4>23</h4>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="col-xs-12 otherbox otherbox3">
+                                                    <span>
+                                                        <i class="fa fa-clock-o"></i> Late Time</span>
+                                                    </span>
+                                                    <h4>23</h4>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="col-xs-12 otherbox otherbox4">
+                                                    <span>
+                                                        <i class="fa fa-clock-o"></i> O.T/E.D Time</span>
+                                                    </span>
+                                                    <h4>23</h4>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                        Monthly Analytics
+                                    </div>
+                                    <div class="panel-body">
+
+                                        <div id="dailytimespent">
+                                            <canvas id="chartdailytimespent" height="220px"></canvas>
+                                        </div>
+
+                                        <div id="monthlysummary">
+
+                                            <div class="text-center title"> <i class="fa fa-list"></i> Monthly
+                                                Summary</div>
+
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <td> <i class="fa fa-calendar-o"></i> Work Days</td>
+                                                    <td><span>1</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <i class="fa fa-clock-o"></i> Total Grace Time</td>
+                                                    <td><span>1</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <i class="fa fa-clock-o"></i> Total Late Time</td>
+                                                    <td><span>1</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <i class="fa fa-clock-o"></i> Total Short Time</td>
+                                                    <td><span>1</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <i class="fa fa-clock-o"></i> Total Excess Time</td>
+                                                    <td><span>1</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <i class="fa fa-clock-o"></i> Net Balance Time</td>
+                                                    <td><span>1</span></td>
+                                                </tr>
+                                            </table>
+
+                                        </div>
+
+                                        <div id="ontimearrival">
+                                            <div class="text-center title"> <i class="fa fa-list"></i> Monthly OnTime
+                                                Arrival (March)</div>
+                                            <div class="col-md-3 col-sm-6">
+
+
+                                                <div class="cirprogress green">
+                                                    <span class="cirprogress-left">
+                                                        <span class="cirprogress-bar"></span>
+                                                    </span>
+                                                    <span class="cirprogress-right">
+                                                        <span class="cirprogress-bar"></span>
+                                                    </span>
+                                                    <div class="cirprogress-value">90%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div id="currentvslasmonthspenttime">
+                                            <canvas id="chartcurrentvslasmonthspenttime" height="220px"></canvas>
+                                        </div>
+
+                                        <div id="currentvslasmonthtotalspenttime">
+                                            <canvas id="chartcurrentvslasmonthtotalspenttime" height="220px"></canvas>
+                                        </div>
+
+                                        <div id="presentabsentleave">
+                                            <div class="text-center title">📈 Present/Absent/Leave (Mar)</div>
+                                            <canvas id="chartpresentabsentleave" height="350px"></canvas>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="leave" class="tab-pane">
+
+                        <div class="panel panel-default">
+                            <div class="panel-body fullHeightBody">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <i class="fa fa-flag" aria-hidden="true"></i>
+                                        Summary
+                                    </div>
+                                    <div class="panel-body">
+
+                                        <div id="divleavebalance">
+                                            <canvas id="chartleavebalance" height="220px"></canvas>
+                                        </div>
+
+                                        <div id="leavebalancetableview">
+                                            <div class="text-center title">Leave Balance (Tabular View)</div>
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <td><i class="fa fa-flag"></i> Annual Leave</td>
+                                                    <td><span>15</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><i class="fa fa-flag"></i> Sick Leave</td>
+                                                    <td><span>7</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><i class="fa fa-flag"></i> Casual Leave</td>
+                                                    <td><span>13</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><i class="fa fa-flag"></i> Compensatory Leave</td>
+                                                    <td><span>5</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><i class="fa fa-flag"></i> Personal Leave</td>
+                                                    <td><span>3</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><i class="fa fa-flag"></i> Maternity Leave</td>
+                                                    <td><span>30</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><i class="fa fa-flag"></i> Hajj Leave</td>
+                                                    <td><span>45</span></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                        <div id="divleaveavailedbytype">
+                                            <div class="text-center title">📈 Leave Availed By Type</div>
+                                            <canvas id="chartleaveavailedbytype" height="250px"></canvas>
+                                        </div>
+
+                                        <div id="divleaveavailabelvstaken">
+                                            <canvas id="charleaveavailabelvstaken" height="280px"></canvas>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        Monthly Analytics
+                                    </div>
+                                    <div class="panel-body">
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+
+
+
+    </div>
+
+    </section>
+    <!-- /.content -->
+    </div>
+    </div>
+
+
+
+    <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+
+    <script type="text/javascript" src="js/footer.js"></script>
+
+    <footer class="navbar-fixed-bottom">
+        <!--<div class="pull-right hidden-xs">
+                <b>Version</b> 5.1.0
+            </div>
+            <strong>Copyright &copy; <script>document.write(getYear());</script> 
+                <a href="http://EfroTech.com">EfroTech</a>.</strong> All rights reserved.-->
+        <script>                document.write(getShortCuts());</script>
+    </footer>
+    <!-- Control Sidebar -->
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+           immediately after the control sidebar -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+
+
+    <script src="js/polyfill.js"></script>
+
+    <script src="js/jquery.js"></script>
+
+    <script src="js/jquery.signalR-2.4.1.js"></script>
+    <script src="js/SignalRHub.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+
+    <script src="js/bootstrap.js"></script>
+    <!-- SlimScroll -->
+
+    <script src="js/jquery.slimscroll.js"></script>
+
+    <!-- FastClick -->
+
+    <script src="js/fastclick.js"></script>
+
+    <!-- AdminLTE App -->
+    <script src="js/noti/toastr.js"></script>
+    <script src="js/app.js"></script>
+    <script type="text/javascript" src="js/mainmenu.js"></script>
+    <script src="js/moment-with-locales.js"></script>
+    <script src="js/bootstrap-datetimepicker.js"></script>
+    <script src="js/chosen.jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/chart.js"></script>
+    <script src="js/chartjs-plugin-datalabels.js"></script>
+    <script src="js/Helper.js"></script>
+    <script src="js/MyAnalytics.js" type="text/javascript" charset="utf-8"></script>
+
+    <script> $(function () { var element = document.getElementById("mnuSurvey"); element.className += " active"; }); </script>
+
+
+</body>
+
+</html>

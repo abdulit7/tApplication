@@ -1,0 +1,282 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+	<ReportParameter>
+			<ObjectID>1187</ObjectID>
+			<ReportParameterID>190</ReportParameterID>
+			<ParameterID>4</ParameterID>
+			<DBFieldName>viw_CosttoCompany.TransactionDate</DBFieldName>
+			<ReportParameterTitle>From Date</ReportParameterTitle>
+			<SortIndex>1</SortIndex>
+			<CompanyID>-1</CompanyID>
+			<ApplyOn>SQL</ApplyOn>
+			<IsHidden>false</IsHidden>
+		</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1187</ObjectID>
+		<ReportParameterID>191</ReportParameterID>
+		<ParameterID>5</ParameterID>
+		<DBFieldName>viw_CosttoCompany.TransactionDate</DBFieldName>
+		<ReportParameterTitle>To Date</ReportParameterTitle>
+		<SortIndex>2</SortIndex>
+		<CompanyID>-1</CompanyID>
+		<ApplyOn>SQL</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1187</ObjectID>
+		<ReportParameterID>192</ReportParameterID>
+		<ParameterID>6</ParameterID>
+		<DBFieldName>viw_CosttoCompany.DepartmentID</DBFieldName>
+		<ReportParameterTitle>Department</ReportParameterTitle>
+		<SortIndex>4</SortIndex>
+		<CompanyID>-1</CompanyID>
+		<ApplyOn>SQL</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1187</ObjectID>
+		<ReportParameterID>193</ReportParameterID>
+		<ParameterID>37</ParameterID>
+		<DBFieldName>viw_CosttoCompany.EmployeeCategoryID</DBFieldName>
+		<ReportParameterTitle>Employee Category</ReportParameterTitle>
+		<SortIndex>3</SortIndex>
+		<CompanyID>-1</CompanyID>
+		<ApplyOn>SQL</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+
+
+	<ReportParameter>
+		<ObjectID>1226</ObjectID>
+		<ReportParameterID>453</ReportParameterID>
+		<ParameterID>4</ParameterID>
+		<DBFieldName>sp_Retention | @FrDate AS datetime</DBFieldName>
+		<ReportParameterTitle>From Date</ReportParameterTitle>
+		<SortIndex>1</SortIndex>
+		<CompanyID>2</CompanyID>
+		<ApplyOn>SQLCRP</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1226</ObjectID>
+		<ReportParameterID>454</ReportParameterID>
+		<ParameterID>5</ParameterID>
+		<DBFieldName>sp_Retention | @ToDate AS datetime</DBFieldName>
+		<ReportParameterTitle>To Date</ReportParameterTitle>
+		<SortIndex>2</SortIndex>
+		<CompanyID>2</CompanyID>
+		<ApplyOn>SQLCRP</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1226</ObjectID>
+		<ReportParameterID>455</ReportParameterID>
+		<ParameterID>17</ParameterID>
+		<DBFieldName>sp_Retention | @DepartmentID AS bigint</DBFieldName>
+		<ReportParameterTitle>Department</ReportParameterTitle>
+		<SortIndex>3</SortIndex>
+		<CompanyID>2</CompanyID>
+		<ApplyOn>SQLCRP</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1226</ObjectID>
+		<ReportParameterID>456</ReportParameterID>
+		<ParameterID>59</ParameterID>
+		<DBFieldName>sp_Retention | @DesignationID AS bigint</DBFieldName>
+		<ReportParameterTitle>Designation</ReportParameterTitle>
+		<SortIndex>4</SortIndex>
+		<CompanyID>2</CompanyID>
+		<ApplyOn>SQLCRP</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1226</ObjectID>
+		<ReportParameterID>457</ReportParameterID>
+		<ParameterID>60</ParameterID>
+		<DBFieldName>sp_Retention | @EmpGradeID AS bigint</DBFieldName>
+		<ReportParameterTitle>Employee Grade</ReportParameterTitle>
+		<SortIndex>5</SortIndex>
+		<CompanyID>2</CompanyID>
+		<ApplyOn>SQLCRP</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1226</ObjectID>
+		<ReportParameterID>458</ReportParameterID>
+		<ParameterID>16</ParameterID>
+		<DBFieldName>sp_Retention | @BranchID AS bigint</DBFieldName>
+		<ReportParameterTitle>Branch</ReportParameterTitle>
+		<SortIndex>6</SortIndex>
+		<CompanyID>2</CompanyID>
+		<ApplyOn>SQLCRP</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1226</ObjectID>
+		<ReportParameterID>459</ReportParameterID>
+		<ParameterID>61</ParameterID>
+		<DBFieldName>sp_Retention | @Type AS varchar</DBFieldName>
+		<ReportParameterTitle>Sub Leaving Reason Type</ReportParameterTitle>
+		<SortIndex>7</SortIndex>
+		<CompanyID>2</CompanyID>
+		<ApplyOn>SQLCRP</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	
+	<ReportParameter>
+		<ObjectID>1232</ObjectID>
+		<ReportParameterID>446</ReportParameterID>
+		<ParameterID>4</ParameterID>
+		<DBFieldName>sp_Retention | @FrDate AS datetime</DBFieldName>
+		<ReportParameterTitle>From Date</ReportParameterTitle>
+		<SortIndex>1</SortIndex>
+		<CompanyID>2</CompanyID>
+		<ApplyOn>SQLCRP</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1232</ObjectID>
+		<ReportParameterID>447</ReportParameterID>
+		<ParameterID>5</ParameterID>
+		<DBFieldName>sp_Retention | @ToDate AS datetime</DBFieldName>
+		<ReportParameterTitle>To Date</ReportParameterTitle>
+		<SortIndex>2</SortIndex>
+		<CompanyID>2</CompanyID>
+		<ApplyOn>SQLCRP</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1232</ObjectID>
+		<ReportParameterID>448</ReportParameterID>
+		<ParameterID>17</ParameterID>
+		<DBFieldName>sp_Retention | @DepartmentID AS bigint</DBFieldName>
+		<ReportParameterTitle>Department</ReportParameterTitle>
+		<SortIndex>3</SortIndex>
+		<CompanyID>2</CompanyID>
+		<ApplyOn>SQLCRP</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1232</ObjectID>
+		<ReportParameterID>449</ReportParameterID>
+		<ParameterID>59</ParameterID>
+		<DBFieldName>sp_Retention | @DesignationID AS bigint</DBFieldName>
+		<ReportParameterTitle>Designation</ReportParameterTitle>
+		<SortIndex>4</SortIndex>
+		<CompanyID>2</CompanyID>
+		<ApplyOn>SQLCRP</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1232</ObjectID>
+		<ReportParameterID>450</ReportParameterID>
+		<ParameterID>60</ParameterID>
+		<DBFieldName>sp_Retention | @EmpGradeID AS bigint</DBFieldName>
+		<ReportParameterTitle>Employee Grade</ReportParameterTitle>
+		<SortIndex>5</SortIndex>
+		<CompanyID>2</CompanyID>
+		<ApplyOn>SQLCRP</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1232</ObjectID>
+		<ReportParameterID>451</ReportParameterID>
+		<ParameterID>61</ParameterID>
+		<DBFieldName>sp_Retention | @Type AS varchar</DBFieldName>
+		<ReportParameterTitle>Sub Leaving Reason Type</ReportParameterTitle>
+		<SortIndex>7</SortIndex>
+		<CompanyID>2</CompanyID>
+		<ApplyOn>SQL</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1232</ObjectID>
+		<ReportParameterID>452</ReportParameterID>
+		<ParameterID>16</ParameterID>
+		<DBFieldName>sp_Retention | @BranchID AS bigint</DBFieldName>
+		<ReportParameterTitle>Branch</ReportParameterTitle>
+		<SortIndex>6</SortIndex>
+		<CompanyID>2</CompanyID>
+		<ApplyOn>SQL</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	
+	<ReportParameter>
+		<ObjectID>1233</ObjectID>
+		<ReportParameterID>460</ReportParameterID>
+		<ParameterID>4</ParameterID>
+		<DBFieldName>sp_Retention | @FrDate AS datetime</DBFieldName>
+		<ReportParameterTitle>From Date</ReportParameterTitle>
+		<SortIndex>1</SortIndex>
+		<CompanyID>1</CompanyID>
+		<ApplyOn>SQLCRP</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1233</ObjectID>
+		<ReportParameterID>461</ReportParameterID>
+		<ParameterID>5</ParameterID>
+		<DBFieldName>sp_Retention | @ToDate AS datetime</DBFieldName>
+		<ReportParameterTitle>To Date</ReportParameterTitle>
+		<SortIndex>2</SortIndex>
+		<CompanyID>1</CompanyID>
+		<ApplyOn>SQLCRP</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1233</ObjectID>
+		<ReportParameterID>462</ReportParameterID>
+		<ParameterID>17</ParameterID>
+		<DBFieldName>sp_Retention | @DepartmentID AS bigint</DBFieldName>
+		<ReportParameterTitle>Department</ReportParameterTitle>
+		<SortIndex>3</SortIndex>
+		<CompanyID>1</CompanyID>
+		<ApplyOn>SQLCRP</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1233</ObjectID>
+		<ReportParameterID>463</ReportParameterID>
+		<ParameterID>59</ParameterID>
+		<DBFieldName>sp_Retention | @DesignationID AS bigint</DBFieldName>
+		<ReportParameterTitle>Designation</ReportParameterTitle>
+		<SortIndex>4</SortIndex>
+		<CompanyID>1</CompanyID>
+		<ApplyOn>SQLCRP</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1233</ObjectID>
+		<ReportParameterID>464</ReportParameterID>
+		<ParameterID>60</ParameterID>
+		<DBFieldName>sp_Retention | @EmpGradeID AS bigint</DBFieldName>
+		<ReportParameterTitle>Employee Grade</ReportParameterTitle>
+		<SortIndex>5</SortIndex>
+		<CompanyID>1</CompanyID>
+		<ApplyOn>SQLCRP</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1233</ObjectID>
+		<ReportParameterID>465</ReportParameterID>
+		<ParameterID>16</ParameterID>
+		<DBFieldName>sp_Retention | @BranchID AS bigint</DBFieldName>
+		<ReportParameterTitle>Branch</ReportParameterTitle>
+		<SortIndex>6</SortIndex>
+		<CompanyID>1</CompanyID>
+		<ApplyOn>SQLCRP</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+	<ReportParameter>
+		<ObjectID>1233</ObjectID>
+		<ReportParameterID>466</ReportParameterID>
+		<ParameterID>61</ParameterID>
+		<DBFieldName>sp_Retention | @Type AS varchar</DBFieldName>
+		<ReportParameterTitle>Sub Leaving Reason Type</ReportParameterTitle>
+		<SortIndex>7</SortIndex>
+		<CompanyID>1</CompanyID>
+		<ApplyOn>SQLCRP</ApplyOn>
+		<IsHidden>false</IsHidden>
+	</ReportParameter>
+</NewDataSet>

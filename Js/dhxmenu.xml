@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<menu>
+  <item id="edit" text="View/Edit" img="Editor.png" imgdis="Editor.png"/>
+  <item id="timeadd" text="Time Entry" img="plus.png" imgdis="plus.png"/>
+  <item id="file_sep_1" type="separator"/>
+  <item id="tstatus" text="Update Status" img="available.png" imgdis="available.png"/>
+  <item id="file_sep_2" type="separator"/>
+  <item id="delete" text="Delete" img="delete.png" imgdis="delete.png"/>
+</menu>

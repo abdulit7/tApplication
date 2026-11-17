@@ -1,0 +1,94 @@
+ 
+        #chart-container {
+            font-family: Arial;
+            height: auto;
+            border: 2px dashed #aaa;
+            border-radius: 5px;
+            overflow: auto;    
+            overflow-x: hidden;        
+            text-align: center;
+        }
+
+        
+
+        .orgchart{
+            background: transparent;
+        }
+        .orgchart .node {
+             width: 150px;
+             
+            }
+
+            .userName {
+     margin-top: 0px; 
+ 
+}
+
+
+
+       .orgchart .node .title {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    /* height: 20px; */
+    /* line-height: 20px; */
+    overflow: hidden;
+    /* text-overflow: ellipsis; */
+    /* white-space: nowrap; */
+    background: linear-gradient(#003960,#003960);
+    color: #fff;
+    border:1px solid #003960;
+    border-radius: 4px 4px 0 0;
+      min-height: 55px;
+    overflow :hidden;
+}
+
+strong{
+    font-weight: lighter;
+    font-size:11px;
+}
+
+.orgchart tr.lines td.leftLine {
+    border-left: 1px solid #003960;
+    float: none;
+    border-radius: 0;
+}
+.orgchart tr.lines td.topLine {
+    border-top: 2px solid #003960;
+}
+.orgchart tr.lines .downLine {
+     background-color: #003960;
+    margin: 0 auto;
+    height: 20px;
+    width: 2px;
+    float: none;
+}
+.orgchart .verticalNodes ul>li::after, .orgchart .verticalNodes ul>li::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    border-color: #003960;
+    border-style: solid;
+    border-width: 0 0 2px 2px;
+}
+.orgchart .verticalNodes>td::before {
+    content: '';
+    border: 1px solid #003960;
+}
+.orgchart .node .content {
+    padding: 5px;
+    width: 100%;
+    font-size: 11px;
+    line-height: 18px;
+    border: 1px solid #003960;
+    border-radius: 0 0 4px 4px;
+    text-align: center;
+    background-color: #fff;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-x: visible!important;
+    overflow-y: visible!important;
+}
+    

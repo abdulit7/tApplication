@@ -1,0 +1,3 @@
+ERROR DATE & TIME  : 10/4/2022 12:45:44 PM - ERROR TEXT :  before running exe with path ~/bin/TimeTraxDLL_AutoProcess.exe 10/4/2022 12:45:44 PM
+ERROR DATE & TIME  : 10/4/2022 12:45:44 PM - ERROR TEXT :  After running process1 10/4/2022 12:45:44 PM
+ERROR DATE & TIME  : 10/4/2022 12:45:44 PM - ERROR TEXT :  After running process2 10/4/2022 12:45:44 PM

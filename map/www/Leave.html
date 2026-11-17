@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome to TimeTrax - Mobile App</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <!-- Timeline CSS -->
+    <link href="css/timeline.css" rel="stylesheet">
+    <!-- datetime -->
+    <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="css/AdminLTE.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="css/skin-blue.css">
+    <link href="css/chosen.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="js/noti/toastr.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.js"></script>
+    <![endif]-->
+
+    <style>
+        .removewrappermargin {
+            margin: 0px !important;
+        }
+    </style>
+</head>
+
+<body class="hold-transition skin-blue fixed sidebar-mini">
+    <div class="wrapper">
+
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="main.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><img src="img/logo-sml.png" /></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><img src="img/logo.png" /></span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav" id="pageDropdowns">
+                        <!-- Messages: style can be found in dropdown.less-->
+
+                        <!-- Notifications: style can be found in dropdown.less -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user"></i>
+                                <script type="text/javascript" src="js/UserName.js"></script>
+
+                            </a>
+                            <ul class="dropdown-menu">
+
+
+
+                                <li><a href="#" id="btnlogout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <!-- Tasks: style can be found in dropdown.less -->
+
+                        <!-- User Account: style can be found in dropdown.less -->
+
+
+                    </ul>
+
+
+                </div>
+            </nav>
+        </header>
+
+        <!-- =============================================== -->
+
+        <!-- Left side column. contains the sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <!--  <script type="text/javascript" src="js/mainmenu.js"></script>
+                <script type="text/javascript">
+                    $(function(){ var element = document.getElementById("mnuLeave");
+                    element.className += " active"; });
+                </script>-->
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- =============================================== -->
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+
+
+
+            <!-- Main content -->
+            <section class="content">
+
+                <!--<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Leave Request</h1>
+                </div>
+
+            </div>-->
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <span id="pageHeading" class="page-heading">Leave Request</span>
+                                <span id="wait" style="display: none;font-size: 18px;" class="fa fa-spinner fa-spin pull-right btn"></span>
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            Leave Year</label>
+                                        <div class="col-sm-4">
+                                            <select class="form-control control-select" id="ddlLeaveYear">
+                                                <option value="0">- Select - </option>
+                                                <option value="2015">2015</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            Leave Type</label>
+                                        <div class="col-sm-4">
+                                            <select class="form-control control-select" id="ddlleavetype">
+                                                <option value="0">- Select - </option>
+                                                <option value="1">Annual Leave</option>
+                                                <option value="2">Sick Leave</option>
+                                                <option value="3">Casual Leave</option>
+                                            </select>
+                                        </div>
+                                        <label for="inputPassword" class="col-sm-2 control-label">
+                                            Balance
+                                        </label>
+                                        <div class="col-sm-4">
+                                            <input class="form-control" id="txtLeaveBalance" type="text" placeholder=""
+                                                disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ShortLeave" class="col-sm-2 control-label">
+                                            <!--Short Leave-->
+                                            Details
+                                        </label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" id="ddlShortLeave">
+                                                <option value="0">Full Leave</option>
+                                                <option value="1">Short Leave</option>
+                                            </select>
+                                            <select class="form-control" id="ddlShortLeavePortion" disabled>
+                                                <!--<option value="0.25">0.25</option>
+                                            <option value="0.5">0.5</option>-->
+                                                <!--<option value="0.75">0.75</option>-->
+                                                <!--<option value="1" selected>1</option>-->
+                                            </select>
+                                            <select class="form-control" id="ddlShortLeaveFor" disabled>
+                                                <option value="F">Whole Day</option>
+                                                <option value="M">1st Half</option>
+                                                <option value="E">2nd Half</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Description" class="col-sm-2 control-label">
+                                            Description
+                                        </label>
+                                        <div class="col-sm-10">
+                                            <textarea class="form-control" id="txtDetail" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Description" class="col-sm-2 control-label">
+                                            Duration
+                                        </label>
+                                        <div class='col-sm-4'>
+                                            <div class='input-group date' id='datetimepicker6'>
+                                                <input type='text' id="txtFromDate" class="form-control" readonly />
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class='col-sm-4'>
+                                            <div class='input-group date' id='datetimepicker7'>
+                                                <input type='text' id="txtToDate" class="form-control" readonly />
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-2">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <button type="button" class="btn btn-primary btn-block" id="btnSave">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-8 -->
+                    <!-- /.col-lg-4 -->
+                </div>
+                <!-- /.row -->
+
+            </section><!-- /.content -->
+        </div><!-- /.content-wrapper -->
+
+        <script type="text/javascript" src="js/footer.js"></script>
+        <footer class="navbar-fixed-bottom">
+            <!--<div class="pull-right hidden-xs">
+                <b>Version</b> 5.1.0
+            </div>
+            <strong>Copyright &copy; <script>document.write(getYear());</script>
+                <a href="http://EfroTech.com">EfroTech</a>.</strong> All rights reserved.-->
+            <script>document.write(getShortCuts());</script>
+        </footer>
+
+        <!-- Control Sidebar -->
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+           immediately after the control sidebar -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Ajax Request Spinner -->
+    <!-- <div id="wait" style="position: fixed;top:50%;left:49%;z-index: 99999;display: none;"><div style="text-align:center;color:#F5770B;"><i class="fa fa-spinner fa-spin" style="font-size:24px;text-align:center;"></i><div></div></div></div> -->
+
+    <!-- jQuery -->
+
+    <script src="js/polyfill.js"></script>
+
+    <script src="js/jquery.js"></script>
+
+    <script src="js/jquery.signalR-2.4.1.js"></script>
+    <script src="js/SignalRHub.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+
+    <script src="js/bootstrap.js"></script>
+
+    <!-- SlimScroll -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!-- FastClick -->
+    <script src="js/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="js/noti/toastr.js"></script>
+    <script src="js/app.js"></script>
+    <script type="text/javascript" src="js/mainmenu.js"></script>
+    <script src="js/moment-with-locales.js"></script>
+    <script src="js/bootstrap-datetimepicker.js"></script>
+    <script src="js/chosen.jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/Leave.js" type="text/javascript" charset="utf-8"></script>
+    <script> $(function () { var element = document.getElementById("mnuLeave"); element.className += " active"; }); </script>
+</body>
+
+</html>

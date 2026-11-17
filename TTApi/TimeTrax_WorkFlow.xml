@@ -1,0 +1,38 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+TimeTrax_WorkFlow
+</name>
+</assembly>
+<members>
+<member name="T:TimeTrax_WorkFlow.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:TimeTrax_WorkFlow.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:TimeTrax_WorkFlow.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:TimeTrax_WorkFlow.WorkFlowHelper.SendWorkflowEmails(System.Data.OleDb.OleDbConnection,System.Data.OleDb.OleDbTransaction,System.String,System.Int64,System.Int64,System.String,System.Int32,System.String)">
+ <summary>
+ Sends Email and performs Ending Task on approval of requests with same transaction as of approval.
+ </summary>
+ <param name="pRequestID"></param>
+ <param name="pEmployeeID"></param>
+ <param name="pWFType"></param>
+ <param name="pProcessID"></param>
+ <param name="connString"></param>
+ <param name="pIsSubmitted"></param>
+ <remarks>Overload Made by AbdulMoiz 2019-04-10</remarks>
+</member>
+</members>
+</doc>

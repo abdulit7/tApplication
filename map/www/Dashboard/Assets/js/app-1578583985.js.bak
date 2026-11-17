@@ -1,0 +1,2525 @@
+//var baseURL = 'http://localhost:3580/TimeTraxWeb/wsttdashboard.asmx?op=';
+clearAllConsolelogs(false); // pass true as arg if want to show console msgs
+var bgColors = [];
+var borderColor = [];
+var FType = getParameterByName('FType');
+FType = isNull(FType) ? 0 : FType.toLowerCase();
+var globalFilter = [];
+var globalpayrrolFilter = {
+    Years: [sysdate.split('/')[2]],
+    Months: [sysdate.split('/')[1]],
+};
+var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+// var dashboardMaster = [
+//     {
+//         dashboardType: 'hrdashboard',
+//         dashboardObject: 'DashboardNew.html?FType=hrdashboard'
+//     }
+// ]
+
+$(function () {
+
+    jQuery('body #main').hide();
+    //jQuery('body').append('');
+    checkRights('DashboardNew.html?FType=' + FType + '', function () {
+        jQuery('body #main').show();
+        jQuery('#initLoader').remove();
+        populateCriteria();
+        var date = new Date();
+        $('#ddlYear').val([date.getFullYear(), date.getFullYear() - 1]);
+        $('#ddlYear').trigger('change');
+        createPayrollFilter();
+        main([], 1);
+    });
+});
+
+
+
+function checkRights(pObject, callback) {
+
+    postRequestD('wsttmapp.asmx/GetMenuRights', { pPages: pObject, pModules: "'test'" }, function (response) {
+        var res = JSON.parse(response.d);
+        res = res.Menu;
+        pObject = pObject.toLowerCase();
+        var IsRightsAvailable = res.filter(function (value) {
+            return value.ObjectName.toLowerCase() === pObject;  //&& value.Allowed === true;
+        });
+        //////console.log({ IsRightsAvailable });
+        if (IsRightsAvailable.length > 0) {
+            jQuery('#' + FType).removeClass('hide');
+            jQuery('#' + FType).addClass('active');
+            jQuery('#' + FType).addClass('in');
+            callback();
+        } else {
+            jQuery('body').html('<br><br><center>No Permission!</center>');
+            jQuery('body').show();
+        }
+
+    });
+
+}
+
+function OnFilterChange(evt) {
+
+    //    //////console.log('oc', isAnySelect2Open);
+    if (isAnySelect2Open == 'true') {
+        return;
+    }
+
+    // main($( '#ddlYear').val());
+    var filters = [];
+    if (isNull($('#ddlYear').val())) {
+        //alert('Select Year!');
+        //$('#ddlYear').val([date.getFullYear()]);
+        //main([], 1);
+        //return;
+    }
+    $.each(filterData, function (i, item) {
+        var _control = $('#' + item.ControlID);
+        var _inornotin = $('#inornotin' + item.ControlID);
+
+        var filterrow = {
+            FilterType: item.ControlID,
+            FilterIDColumn: item.P2,
+            InOrNotIn: _inornotin.val(),
+            FilterIDs: !isNull(_control.val()) ? _control.val().join() : 0,
+        };
+        filters.push(filterrow);
+    });
+    ////////console.log({ filters });
+    globalFilter = filters;
+
+
+    //$("#foo").select2("isOpen")
+    //var isdop = $(".select2-results").is(":visible");
+    ////////console.log(isdop);
+
+    main(filters);
+}
+
+
+
+function main(filterc, pFirstLoad) {
+
+
+    var vyears;
+    if (pFirstLoad) {
+        vyears = '2019'
+    }
+
+    //var criteria0 = { pYears: vyears, pMonths: __Month, pFilterCriteria: filterc };
+    var __Month = typeof globalpayrrolFilter.Months === 'object' ? globalpayrrolFilter.Months.join(',') : '';//globalpayrrolFilter.Months[0];
+    window['criteria0'] = { pYears: vyears, pMonths: __Month, pFilterCriteria: filterc };
+
+
+    if (FType == 'hrdashboard') {
+        vyears = $('#ddlYear').val().join();
+        vyears = pFirstLoad == 1 ? '2019,2018' : vyears;
+        var pdata = { pYears: vyears, pType: 'joiners', pFilterCriteria: filterc };
+        populateJoinersDiversity('joinersarea', pdata);
+
+        var pdata1 = { pYears: vyears, pType: 'leavers', pFilterCriteria: filterc };
+        populateJoinersDiversity('leaversarea', pdata1);
+
+        var pdata2 = { pYears: vyears, pType: 'all', pFilterCriteria: filterc };
+        populateJoinersDiversity('headcountallarea', pdata2);
+
+        vyears = pFirstLoad == 1 ? '2019' : vyears;
+        var pdata3 = { pYears: vyears, pFilterCriteria: filterc };
+        TimeToQuitJob('jobquit', pdata3);
+        TimeToQuitJobByAge('jobquitage', pdata3);
+        AverageTenureByDept('avgtenurebydept', pdata3);
+
+        GetTurnOverMonthly('turnovermonthly', pdata3);
+        pdata3 = { pYears: getYears(20, new Date().getFullYear()), pFilterCriteria: filterc };
+        //GetEmployeesByYear('noofempbyyear', pdata3);
+
+        GetEmployeesByYear2('noofempbyyear', pdata3);
+
+        GetStaffGenderSplitAndAvgAgeByDept('', pdata3);
+        pdata3 = { pYears: new Date().getFullYear(), pFilterCriteria: filterc };
+        //GetStaffSplitByGenderAndDepartment('staffsplitbygenderdept', pdata3);
+
+
+        vyears = vyears = pFirstLoad == 1 ? getYears(3) : vyears;
+        var pdata5 = { pYears: vyears, pFilterCriteria: filterc };
+        yearwiseTurnoverretention('yearwiseturnoverret', pdata5);
+
+        vyears = pFirstLoad == 1 ? '2019' : vyears.split(',')[0];
+        var pdata4 = { pYears: vyears, pFilterCriteria: filterc };
+        GetTurnOverByDept('turnoverretbydept', pdata4);
+
+
+
+    } else if (FType === 'attendancedashboard') {
+
+
+
+
+        vyears = typeof globalpayrrolFilter.Years === 'object' ? globalpayrrolFilter.Years.join(',') : globalpayrrolFilter.Years[0];
+        var pdata4 = { pYears: vyears, pMonths: __Month, pReturnDataType: "summary", pDetailDataFilter: '', pAdditionalDetailWhereClause: '', pFilterCriteria: filterc };
+        GetAbsentism('absenteeismbydept', pdata4);
+
+        var pdata6 = { pYears: getYears(2, new Date().getFullYear() - 1), pFilterCriteria: filterc };
+        AbsentismLast3Year('absenteeismlast3yrs', pdata6);
+
+        vyears = pFirstLoad == 1 ? '2019' : vyears;
+        var pdata3 = { pYears: vyears, pMonths: __Month, pFilterCriteria: filterc };
+        //AvgOTByAgeGroup('avgotage', pdata3);
+        GetAttendanceSummary(pdata3);
+        pdata3 = { pYears: getYears(9, new Date().getFullYear()), pMonths: __Month, pFilterCriteria: filterc };
+        //YearlyAvgOTHours('yearlyavhothrs', pdata3);
+
+    }
+    else if (FType === 'payrolldashboard') {
+        //vyears = pFirstLoad == 1 ? '2019' : vyears.split(',')[0];
+        //var pdata4 = { pYears: vyears, pFilterCriteria: filterc };
+
+        //////console.log({ globalpayrrolFilter });
+
+        var __Years = typeof globalpayrrolFilter.Years === 'object' ? globalpayrrolFilter.Years.join(',') : globalpayrrolFilter.Years[0];
+        var __Month = typeof globalpayrrolFilter.Months === 'object' ? globalpayrrolFilter.Months.join(',') : '';//globalpayrrolFilter.Months[0];
+        var pdata4 = { pYears: __Years, pMonths: __Month, pFilterCriteria: filterc };
+        GetAverageSalaryByDept('averageSalaryByDept', pdata4);
+        GetAverageSalaryByDesig('averageSalaryByDesig', pdata4);
+
+        GetSalaryRangeBreakDown('salaryRangeBreakdown', pdata4);
+        GetSalaryByMonth('salaryByMonth', pdata4);
+        GetSalaryBreakDownByMonth('salaryBreakdownByMonth', pdata4);
+
+
+
+        //GetSalaryBreakDownByDept('salaryBreakdownByDept', pdata4);
+        //GetSalaryBreakDownByDepartment('salaryBreakdownByDept', pdata4);
+    }
+    else if (FType === 'appraisaldashboard') {
+
+        var ReviewYears = $('#ddlReviewYear');
+        var ReviewTypeKPI = $('#ddlReviewType');
+        var ReviewTypeOBJ = $('#ddlReviewType2');
+
+        if (!validateAppraisalCriteria(pFirstLoad)) { return; }
+
+        GetPerforamceMatrix(ReviewYears, ReviewTypeKPI, ReviewTypeOBJ, filterc);
+
+        var strReviewYears = '';
+        $.each(ReviewYears.val(), function (i, item) { strReviewYears += "'" + item + "',"; });
+        strReviewYears = strReviewYears.replace(/,\s*$/, "");
+
+        var params = { pReviewTypeIDs: ReviewTypeKPI.val().join(','), pReviewYears: strReviewYears, pFilterCriteria: filterc };
+        GetPerformaceBellCurve('performancebellcurve', params);
+        $('.innerFilterDiv').slideUp();
+
+    }
+
+    //var pdata7 = { pYears: vyears, pFilterCriteria: filterc };
+    //AbsGauge('gauge', 5.5);
+    //otYearlyAvg('otyealyavg', pdata2);
+
+    //otYearlyAvg('avgotage', pdata2);
+    //postRequestD('GetJoinersDiversityByGenderAndYearWS', pdata2, function (response) { var r = JSON.parse(response.d); NoOfEmployeeByYearAndGenderBarChart(r); });
+
+}
+
+function clearFilter() {
+
+    $.each(filterData, function (i, item) {
+        var _control = $('#' + item.ControlID);
+        //_control.val([]);
+        //_control.select2('val', '');
+        _control.val("");
+        _control.trigger("change");
+        //console.log(_control);
+    });
+    $('#ddlYear').val('2019');
+    $('#ddlYear').trigger("change");
+
+    globalpayrrolFilter = {
+        Years: [sysdate.split('/')[2]],
+        Months: [sysdate.split('/')[1]],
+    }
+    createPayrollFilter();
+
+    closeNav();
+    main([], 1);
+}
+
+function GetPerformaceBellCurve(ctx, data) {
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+
+    //var fixedGroup = [1, 2, 3, 4, 5];
+
+    postRequestD('GetPerformanceBellCurve', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+        var _d = JSON.parse(response.d);
+        //Jam
+
+        var options = {
+            fill: false
+        }
+        DrillDownChart(ctx, _d, 'Rating', 'EmployeeID', 'count', 'number', 'line', options, 'Rating', 'No Of Employee(s)', '', 'top', '', '');
+
+
+        //Jam
+
+
+        // //console.log({ _d });
+
+        // // $.each(fixedGroup, function (g, group) {
+        // //     var data = _d.filter(function (value) { return value.Rating == group; });
+        // //     if (data.length <= 0) {
+        // //         _d.push(
+        // //             {
+        // //                 Rating: group,
+        // //                 TotalEmployee: 0,
+        // //             }
+        // //         );
+        // //     }
+        // // });
+
+        // _d.sort(function (a, b) { return a.Rating - b.Rating; })
+
+        // var lbls = [];
+        // var _data = [];
+        // $.each(_d, function (i, item) {
+        //     lbls.push(item.Rating);
+        //     var per = item.TotalEmployee;
+        //     _data.push(parseFloat(per));
+        // });
+
+
+        // var options = {
+        //     tickCallback: function (label, index, labels) { return label + ''; },
+        //     yAxesTitle: 'No Of Employee(s)',
+        //     xAxesTitle: 'Rating',
+        //     bgColorOpacity: 0.2,
+        //     borderWidth: 0,
+        //     lineTension: 0,
+        //     datalabels: {
+        //         color: '#333',
+        //         formatter: function (value, context) {
+        //             return value;
+        //         },
+        //         align: 'top'
+
+        //     },
+        //     legendVisible: true,
+        //     fill: true,
+        //     lineTension: 0.3,
+        //     borderColor: '',
+        //     borderWidth: 4,
+        //     borderDash: [2, 2],
+        //     backgroundColor: '',
+        //     pointRadius: 2,
+        //     pointHoverRadius: 4,
+        //     pointBackgroundColor: '',
+        //     legendVisible: false,
+
+
+
+        // }
+
+        // var obj = {
+        //     label: lbls.filter(onlyUnique),
+        //     data: _data
+        // };
+
+        // //DashboardHelper.chartBasic(ctx, obj, 'line', options);
+        // DashboardHelper.createChart(ctx, 'line', obj.data, obj.label, 'Employee(s)', true, options);
+    });
+
+}
+
+
+
+
+function GetPerforamceMatrix(ReviewYears, ReviewTypeKPI, ReviewTypeOBJ, filterc) {
+    $('.employeecount span').html('<i class="fa fa-spinner fa-spin"></i>');
+
+    var params = {
+        ReviewYear: ReviewYears.val()[0],
+        ReviewTypeKPI: ReviewTypeKPI.val()[0],
+        ReviewTypeOBJ: ReviewTypeOBJ.val()[0],
+        filterc: filterc
+    }
+
+    populateMatrixD('matrix11', 1, 1, params);
+    populateMatrixD('matrix12', 1, 2, params);
+    populateMatrixD('matrix13', 1, 3, params);
+
+    populateMatrixD('matrix21', 2, 1, params);
+    populateMatrixD('matrix22', 2, 2, params);
+    populateMatrixD('matrix23', 2, 3, params);
+
+    populateMatrixD('matrix31', 3, 1, params);
+    populateMatrixD('matrix32', 3, 2, params);
+    populateMatrixD('matrix33', 3, 3, params);
+}
+
+function populateMatrixD(matrixNo, KPI, OBJ, filterc) {
+
+    try {
+
+        var paramsData = {
+            pReviewTypeIDKPI: filterc.ReviewTypeKPI,
+            pReviewTypeIDOBJ: filterc.ReviewTypeOBJ,
+            pReviewYear: filterc.ReviewYear,
+            pFilterCriteria: filterc.filterc,
+            pKPI: KPI,
+            pOBJ: OBJ,
+        }
+
+        postRequestD('GetDataForPerformancePotentialMatrix2', paramsData, function (response) {
+            var data = JSON.parse(response.d);
+
+            ////console.log(data);
+            data_ = data.Data;
+            var Ratings = data.RatingTitle;
+            var userdt = data.UserDetail;
+            var dtemppic = data.EmployeePics;
+            ////console.log({ userdt });
+
+            $('#' + matrixNo + ' .employeecount span').html(data_.length);
+            $('#' + matrixNo).click(function (e) {
+
+                var template = '';
+
+                template = '';
+                $.each(userdt, function (i, item) {
+                    var sno = i + 1;
+                    var empimage = '';
+                    var picpath = dtemppic.filter(function (value) {
+                        return item.EmployeeID = value.EmployeeID;
+                    });
+
+
+                    //if (picpath.length > 0) {
+                    //empimage = '../' + picpath[0].EmployeeImage;
+                    // } else {
+                    //   empimage = 'img/avatar.png';
+                    //}
+                    empimage = 'assets/images/avataruser.png';
+
+                    template += '<tr>' +
+                        '<td>' + sno + '</td>' +
+                        '<td style="text-align:center;">' +
+                        '<img src="' + empimage + '"  class="img img-circle img-thumbnail userpic" ></td> ' +
+                        '<td> ' + item.EmployeeRefNo + '</td> ' +
+                        '<td>' + item.EmployeeName + '</td>' +
+                        '<td>' + item.DesignationTitle + '</td>' +
+                        '<td>' + item.DepartmentTitle + '</td>' +
+                        '<td>' + item.BranchTitle + '</td>' +
+                        '<td>' + item.DivisionTitle + '</td>' +
+                        '<td>' + item.GroupLevelTitle + '</td>' +
+                        '<td>' + item.GradeTitle + '</td>' +
+                        '<td>' + item.Email + '</td>' +
+                        '<td>' + getFormattedDateNew(item.BirthDate, '') + '</td>' +
+                        '<td>' + item.Age + '</td>' +
+                        '<td>' + item.Sex + '</td>' +
+                        '<td>' + item.QualificationTitle + '</td>' +
+                        '<td>' + getFormattedDateNew(item.AppointmentDate, '') + '</td>' +
+                        '<td>' + item.ServicePeriod + '</td>' +
+                        '<td>' + getFormattedDateNew(item.PromotionDate, '') + '</td>' +
+                        '<td>' + item.PromotionPeriod + '</td>' +
+
+                        '</tr>'
+                });
+
+                var table = '<div class="table-responsive"><table class="table table-bordered">' +
+                    '<thead>' +
+                    '<tr>' +
+                    '<th>Sno.</th>' +
+                    '<th></th>' +
+                    '<th>Employee ID</th>' +
+                    '<th>Employee Name</th>' +
+                    '<th>Designation</th>' +
+                    '<th>Department</th>' +
+                    '<th>Branch</th>' +
+                    '<th>Division</th>' +
+                    '<th>Function</th>' +
+                    '<th>Group</th>' +
+                    '<th>Email Address</th>' +
+                    '<th>Birth Date</th>' +
+                    '<th>Age</th>' +
+                    '<th>Gender</th>' +
+                    '<th>Qualification</th>' +
+                    '<th>Appointment Date</th>' +
+                    '<th>Service Period</th>' +
+                    '<th>Last Promotion Date</th>' +
+                    '<th>Last Promotion Period</th>' +
+                    '</tr>' +
+                    '</thead>' +
+                    '<tbody>             ' +
+                    template +
+                    '</tbody>' +
+                    '</table></div>';
+
+
+                $('#listcontainer').html(table);
+                $("#myModal").modal('show');
+            });
+        });
+
+    } catch (error) {
+        ////console.log(error);
+    }
+
+
+}
+
+function validateAppraisalCriteria(pFirstLoad) {
+    var ReviewYears = $('#ddlReviewYear');
+    var ReviewTypeKPI = $('#ddlReviewType');
+    var ReviewTypeOBJ = $('#ddlReviewType2');
+
+    if (pFirstLoad) { return; }
+    var validateMsg = '';
+    if (isNull(ReviewYears.val())) {
+        $('.innerFilterDiv').slideDown();
+        validateMsg += 'Select Review Year! \n';
+    }
+    if (isNull(ReviewTypeKPI.val())) {
+        $('.innerFilterDiv').slideDown();
+        validateMsg += 'Select Review Type!';
+    }
+
+
+    if (validateMsg.length > 0) {
+        alert(validateMsg);
+        return false;
+    } else {
+
+        if (isNull(ReviewTypeOBJ.val())) {
+            ReviewTypeOBJ.val(ReviewTypeKPI.val());
+        }
+        return true;
+    }
+}
+
+function getCheckedCheckboxesFor(checkboxName) {
+    var checkboxes = document.querySelectorAll('input[name="' + checkboxName + '"]:checked'), values = [];
+    Array.prototype.forEach.call(checkboxes, function (el) {
+        values.push(el.value);
+    });
+    return values;
+}
+
+
+
+function createPayrollFilter() {
+
+    var placeholder = $('#' + FType + 'FilterDiv');
+
+    if (FType == 'payrolldashboard' || FType == 'attendancedashboard') {
+
+        var years_ = getYearsArrayFromToNow('2012');
+        //years_ = years_.split(',');
+
+        var template = '';
+
+        $.each(years_, function (i, item) {
+            var checkedYr = '';
+            if (item == sysdate.split('/')[2]) { checkedYr = 'checked' }
+            //template += '<span> <input name="payrollYears" type="checkbox" value="' + item + '" class="chk" /> <label for=""' + item + '"">' + item + '</label> </span>';
+            template += '<label><input ' + checkedYr + ' name="payrollYears" type="checkbox" value="' + item + '" class="chk"> <span></span>&nbsp;' + item + '</label>';
+        });
+        template += '<span class="payrollFitlerDivider"></span>';
+
+        $.each(monthNames, function (i, items) {
+            var monthNo = i + 1;
+            var checkedMonth = '';
+            if (monthNo == sysdate.split('/')[1]) { checkedMonth = 'checked' }
+            //template += '<span> <input name="payrollMonths" type="checkbox" value="' + monthNo + '" class="chkm" /> <label for=""' + items + '"">' + items + '</label> </span>';
+            template += '<label><input ' + checkedMonth + ' name="payrollMonths" type="checkbox" value="' + monthNo + '" class="chk"> <span></span>&nbsp;' + items + '</label>    ';
+        });
+
+        template += '<button class="btn btn-xs btn-primary" onClick="ShowPayrollDashboard();">Show</button>';
+
+        placeholder.html(template);
+
+        $('.chk,.chkm').change(function () {
+            //alert(getCheckedCheckboxesFor('payrollYears'));
+            var _resYears = getCheckedCheckboxesFor('payrollYears');
+            var _resMonths = getCheckedCheckboxesFor('payrollMonths');
+            globalpayrrolFilter =
+                {
+                    Years: _resYears,
+                    Months: _resMonths
+                }
+            //////console.log({ _resYears, _resMonths });
+            //        main(globalFilter);
+        });
+
+    } else if (FType == 'appraisaldashboard') {
+
+        var template = '';
+        var params = { PID1: 'tblReviewYear', PID2: 'ReviewYear', PID3: "ReviewYear", PID4: '' }
+        var paramsReviewType = { PID1: 'tblReviewType', PID2: 'ReviewTypeID', PID3: "ReviewTypeTitle", PID4: '' }
+        fillDD('ddlReviewYear', params);
+        fillDD('ddlReviewType', paramsReviewType);
+        fillDD('ddlReviewType2', paramsReviewType);
+        $('.mbox').closest('td').css('width', '180px');
+
+    }
+
+
+
+}
+function ShowPayrollDashboard() {
+    main(globalFilter);
+}
+
+
+function GetTurnOverMonthly(ctx, data) {
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+
+    postRequestD('GetMonthlyTurnover', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+
+        var _d = JSON.parse(response.d);
+
+        ////console.table(_d);
+
+        var lbls = [];
+        var _data = [];
+        var _data1 = [];
+
+        var distinctYear = getDistinctArray(_d, 'Year0');
+
+        ////////console.log({ distinctYear });
+
+        var ds = [];
+        $.each(distinctYear, function (i, item) {
+
+            var filterData = _d.filter(function (value) {
+                return value.Year0 == item;
+            });
+
+
+
+            ////////console.log({ filterData });
+            _data = [];
+            _data1 = [];
+            $.each(filterData, function (i, ditem) {
+
+
+
+                //lbls.push(monthNames[ditem.Month]);
+                var turnOver = ditem.OpeningCount + ditem.ClosingCount != 0 ? ditem.LeftEmployees / ((ditem.OpeningCount + ditem.ClosingCount) / 2) * 100 : 0;
+                var retention = ditem.ClosingCount != 0 ? ((ditem.ClosingCount - ditem.LeftEmployees) / ditem.ClosingCount) * 100 : 0;
+
+                var per = turnOver;
+                var per2 = retention;
+
+
+                if (per % 1 !== 0) {
+                    per = per.toFixed(2);
+                }
+
+                if (per2 % 1 !== 0) {
+                    per2 = per2.toFixed(2);
+                }
+
+                _data.push(parseFloat(per));
+                _data1.push(parseFloat(per2));
+
+            });
+
+            //////////console.log({ _data, _data1 });
+            var rcolor = materialColor();
+            var chrtTurnover = {
+                label: 'Turnover-' + item + '',
+                data: _data,
+                fill: false,
+                type: 'line',
+                backgroundColor: rcolor,
+                borderColor: rcolor,
+                lineTension: 0
+            }
+            rcolor = materialColor();
+            var chrtRetention = {
+                label: 'Retention-' + item + '',
+                data: _data1,
+                fill: false,
+                type: 'line',
+                backgroundColor: rcolor,
+                borderColor: rcolor,
+                lineTension: 0,
+                borderDash: [2, 3],
+            }
+
+
+            ds.push(chrtTurnover);
+
+
+
+        });
+
+        ////////console.log({ ds });
+        //////console.table(getDistinctArray(_d, 'Year0'));
+
+
+
+
+
+
+
+        var objdataTurnOver = {
+            // datasets: [{
+            //     label: 'Turnover-2019',
+            //     data: [3, 5, 35, 7, 4, 2, 6, 7, 3, 4, 52, 6, 8],
+            //     fill: false,
+            //     type: 'line',
+            //     backgroundColor: 'orange',
+            //     borderColor: 'orange',
+            //     lineTension: 0
+            // },
+
+            // {
+            //     label: 'Retention-2019',
+            //     data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            //     fill: false,
+            //     lineTension: 0,
+            //     borderColor: '#ddd',
+            //     borderWidth: 5,
+            //     borderDash: [5, 5],
+            //     backgroundColor: '#ddd',
+            //     pointRadius: 4,
+            //     pointHoverRadius: 1,
+            //     pointBackgroundColor: '#ddd',
+
+            // }
+            // ],
+            datasets: ds,
+            labels: monthNames //lbls.filter(onlyUnique)
+        };
+
+        var objdataRetention = {
+            // datasets: [{
+            //     label: 'Turnover-2019',
+            //     data: [3, 5, 35, 7, 4, 2, 6, 7, 3, 4, 52, 6, 8],
+            //     fill: false,
+            //     type: 'line',
+            //     backgroundColor: 'orange',
+            //     borderColor: 'orange',
+            //     lineTension: 0
+            // },
+
+            // {
+            //     label: 'Retention-2019',
+            //     data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            //     fill: false,
+            //     lineTension: 0,
+            //     borderColor: '#ddd',
+            //     borderWidth: 5,
+            //     borderDash: [5, 5],
+            //     backgroundColor: '#ddd',
+            //     pointRadius: 4,
+            //     pointHoverRadius: 1,
+            //     pointBackgroundColor: '#ddd',
+
+            // }
+            // ],
+            datasets: [ds[0]],
+            labels: monthNames //lbls.filter(onlyUnique)
+        };
+
+        var options = {
+            tickCallback: function (label, index, labels) { return label + ''; },
+            yAxesTitle: '',
+            xAxesTitle: 'Month',
+            fill: false,
+            bgColorOpacity: 0.6,
+            borderWidth: 0,
+            datalabels: {
+                color: '#333',
+                formatter: function (value, context) {
+                    return value + '';
+                },
+                font: {
+                    Family: 'segoe UI',
+                    size: 16,
+                    weight: 'light'
+                },
+                font: {
+                    size: 9,
+                },
+                clamp: false,
+                align: 'top'
+            },
+            lineTension: 0,
+            //borderDash: [4, 5],
+            borderWidth: 3,
+
+
+        }
+
+
+
+        // $('#' + ctx + 'expand').click(function () {
+        //     controlWidth(ctx, _d);
+        // });
+
+        DashboardHelper.createChart2(ctx, 'line', objdataTurnOver, true, options);
+        //DashboardHelper.createChart2(ctx + 'ret', 'bar', objdataRetention, true, options);
+
+        // var obj = {
+        //     label: lbls, //.filter(onlyUnique),
+        //     data: _data
+        // };
+
+        // DashboardHelper.createChart(ctx, 'line', obj.data, obj.label, 'Average Tenure', false, options);
+
+
+
+    });
+
+}
+
+
+function GetStaffSplitByGenderAndDepartment(ctx, data) {
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+
+    //var fixedGroup = [1, 2, 3, 4, 5];
+
+    postRequestD('GetEmployeesByYear', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+        var res = JSON.parse(response.d);
+        //Jam
+        var options = {
+            fill: true
+        }
+        //console.log({ res });
+
+        DrillDownChart2(ctx, res, false, "Year", "Gender", "Employee ID", "count", "Department", "stackBar", 'string', 0);
+
+    });
+}
+function GetEmployeesByYear(ctx, data) {
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+
+    //var fixedGroup = [1, 2, 3, 4, 5];
+
+    postRequestD('GetEmployeesByYear', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+        var _d = JSON.parse(response.d);
+        //Jam
+        var options = {
+            fill: true,
+            excludeColumns: ['Birth Date']
+        }
+
+        DrillDownChart(ctx, _d, 'Year', 'Employee ID', 'count', 'number', 'bar', options, 'No Of Employee(s)', 'Year', 'No Of Employee(s)', 'top', '', '');
+        _d = alasql('select * from ? where Year = ' + new Date().getFullYear() + '', [_d]);
+        DrillDownChart('avgagebydept', _d, 'Department', 'Age', 'avg', 'string', 'line', options, 'Average Age', 'Department', 'Average Age of Employee', 'top', '', '', null, 0);
+        _d = alasql('select * from ? where Year = ' + new Date().getFullYear() + '', [_d]);
+        DrillDownChart2('staffsplitbygenderdept', _d, false, "", "Gender", "Employee ID", "count", "Department", "stackBar", 'string', 0);
+    });
+}
+
+function GetStaffGenderSplitAndAvgAgeByDept(ctx, data) {
+    data.pYears = sysdate.split('/')[2];
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+    postRequestD('GetEmployeesByYear', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+        var _d = JSON.parse(response.d);
+        //Jam
+        var options = {
+            fill: true,
+            excludeColumns: ['Birth Date']
+        }
+
+        //DrillDownChart(ctx, _d, 'Year', 'Employee ID', 'count', 'number', 'bar', options, 'No Of Employee(s)', 'Year', 'No Of Employee(s)', 'top', '', '');
+        //_d = alasql('select * from ? where Year = ' + new Date().getFullYear() + '', [_d]);
+        DrillDownChart('avgagebydept', _d, 'Department', 'Age', 'avg', 'string', 'line', options, 'Average Age', 'Department', 'Average Age of Employee', 'top', '', '', null, 0);
+        _d = alasql('select * from ? where Year = ' + new Date().getFullYear() + '', [_d]);
+        DrillDownChart2('staffsplitbygenderdept', _d, false, "", "Gender", "Employee ID", "count", "Department", "stackBar", 'string', 0);
+    });
+}
+
+function yearwiseTurnoverretention(divID, data) {
+    //$('#' + divID).closest('div').before('<div id="' + divID + 'progress" style="position:absolute;left:45%;"></div>');
+    postRequestD('GetYearlyTurnOver', data, function (response) {
+        //$('#' + divID + 'progress').remove();
+        var _d = JSON.parse(response.d);
+
+        if (_d.length <= 0 || _d['status'] == 'Error') {
+            $('#' + divID).html(data404());
+            return;
+        }
+        console.log({ _d });
+
+
+        var template = '';
+        var orangeClass = 'orangecount';
+
+        var currentyear = new Date().getFullYear();
+
+        $.each(_d, function (i, item) {
+
+
+            if (item.Year == currentyear) {
+                orangeClass = 'orangecount';
+            } else {
+                orangeClass = '';
+            }
+
+            //var turnOver = item.OpeningCount + item.ClosingCount != 0 ? item.LeftEmployees / ((item.OpeningCount + item.ClosingCount) / 2) * 100 : 0;
+            var turnOver = item.OpeningCount + item.ClosingCount != 0 ? (item.LeftEmployees / item.ClosingCount) * 100 : 0;
+            var retention = item.ClosingCount != 0 ? ((item.ClosingCount - item.LeftEmployees) / item.ClosingCount) * 100 : 0;
+
+            template += '<div class="col-md-3 divbox">' +
+                '<div class="row">' +
+                '<div class="col-xs-12">' +
+                '<table class="table table-condensed">' +
+                '<tr>' +
+                '<td><span class="divcount ' + orangeClass + '">Turnover</span></td>' +
+                '<td><span class="divcount ' + orangeClass + '">Retention</span></td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td><span class="divicon" style="font-size:32px;text-shadow:0px 0px 4px #ddd;">' + turnOver.toFixed(2) + ' </span></td>' +
+                '<td><span class="divicon"  style="font-size:32px;text-shadow:0px 0px 4px #ddd;">' + retention.toFixed(2) + '</span></td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td colspan="2"><span class="divyear">' + item.Year + '</span></td>' +
+                '</tr>' +
+                '</table>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+
+        });
+
+        $('#' + divID).html(template);
+
+
+
+    });
+}
+
+
+function AverageTenureByDept(ctx, data) {
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+
+    postRequestD('GetAverageTenureByDept', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+
+        var _d = JSON.parse(response.d);
+
+
+        DrillDownChart(ctx, _d, 'Department', 'ServicePeriodInYear', 'avg', 'string', 'line', {}, 'No of Employee(s)', 'Age Group', 'Employee(s)', 'top', '', '', null, 1);
+
+        var avgEmployeeTenure = sum(_d, 'ServicePeriodInYear') / _d.length;
+        $('#avgemptenure').html(avgEmployeeTenure.toFixed(2));
+        // return;
+
+        // var lbls = [];
+        // var _data = [];
+
+        // $.each(_d, function (i, item) {
+        //     lbls.push(item.Department);
+        //     //_data.push(item.NoOfEmployees);
+        //     var per = item.ServicePeriodInYear;
+
+        //     if (per % 1 !== 0) {
+        //         per = per.toFixed(2);
+        //     }
+
+        //     _data.push(parseFloat(per));
+
+        // });
+
+
+
+        // var options = {
+        //     tickCallback: function (label, index, labels) { return label + ''; },
+        //     yAxesTitle: 'Service Period',
+        //     xAxesTitle: 'Department',
+        //     fill: true,
+        //     bgColorOpacity: 0.6,
+        //     borderWidth: 0,
+        //     datalabels: {
+        //         color: '#333',
+        //         formatter: function (value, context) {
+        //             return value + '';
+        //         },
+        //         font: {
+        //             Family: 'segoe UI',
+        //             size: 16,
+        //             weight: 'light'
+        //         },
+        //         font: {
+        //             size: 9,
+        //         },
+        //         clamp: false,
+        //         align: 'top'
+        //     },
+        //     lineTension: 0,
+        //     //borderDash: [4, 5],
+        //     borderWidth: 3,
+
+
+        // }
+
+        // var obj = {
+        //     label: lbls, //.filter(onlyUnique),
+        //     data: _data
+        // };
+
+
+        // ////////////console.log(_d);
+
+        // //controlWidth(ctx, _d);
+
+        // $('#' + ctx + 'expand').click(function () {
+        //     controlWidth(ctx, 'line', _d);
+        // });
+
+
+        // DashboardHelper.createChart(ctx, 'line', obj.data, obj.label, 'Average Tenure', false, options);
+
+
+
+
+    });
+
+}
+
+// function controlWidth2(ctx,_d){
+//     if
+//}
+
+function controlWidth(ctx, ptype, _d) {
+    var cntz = $('#' + ctx);
+
+    // if (cntz.closest('div').hasClass('WithApplied')) {
+    //     cntz.closest('div').css('width', 'auto');
+    //     cntz.closest('div').removeClass('WithApplied');
+    //     //var typec = ptype + '' + ctx;
+    // } else {
+
+    //     if (_d.length > 10) {
+    //         var totalWidth = _d.length * 80;
+    //         cntz.closest('div').css('width', totalWidth + 'px');
+    //         cntz.closest('div').addClass('WithApplied');
+    //     } else {
+    //         //cntz.closest('div').css('width', 'auto');
+    //     }
+    // }
+    if (cntz.closest('div').hasClass('WithApplied')) {
+
+        cntz.closest('div').css('width', 'auto');
+        cntz.closest('div').removeClass('WithApplied');
+
+
+    } else {
+        var totalWidth = 20 * _d.length;
+        cntz.closest('div').css('width', totalWidth + 'px');
+        cntz.closest('div').addClass('WithApplied');
+    }
+
+
+
+
+    //$('#' + ctx).closest('.cardheading').hide(); //append('<span style="font-size: 15px;" class="pull-right"><i class="fa fa-expand"></i></span>');
+
+}
+
+
+function GetTurnOverByDept(ctx, data) {
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+    postRequestD('GetDepartmentWiseTurnOverAndRetention', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+
+        var _d = JSON.parse(response.d);
+        ////////console.log({ _d });
+
+        var lbls = [];
+        var _data = [];
+        var _data1 = [];
+
+        $.each(_d, function (i, item) {
+
+            //var avgEmployees = (item.EmpLastCount + item.EmpCurrentCount) / 2
+            //var _turnOver = avgEmployees > 0 ? (item.LeftEmployees / avgEmployees) * 100 : 0;
+            //var _retention = item.EmpCurrentCount > 0 ? (item.LeftEmployees / item.EmpCurrentCount) * 100 : 0;
+
+            var _turnOver = item.OpeningCount + item.ClosingCount != 0 ? item.LeftEmployees / ((item.OpeningCount + item.ClosingCount) / 2) * 100 : 0;
+            var _retention = item.ClosingCount != 0 ? ((item.ClosingCount - item.LeftEmployees) / item.ClosingCount) * 100 : 0;
+            lbls.push(item.DepartmentTitle);
+            _data.push(_turnOver.toFixed(2));
+            _data1.push(_retention.toFixed(2));
+        });
+
+
+        var options = {
+            tickCallback: function (label, index, labels) { return label + ' %'; },
+            yAxesTitle: '',
+            xAxesTitle: 'Department(s)',
+            bgColorOpacity: 0.6,
+            borderWidth: 2,
+            datalabels: {
+                color: '#333',
+                formatter: function (value, context) {
+                    return ''; //value + ' %';
+                },
+                font: {
+                    Family: 'segoe UI',
+                    size: 12,
+                    weight: 'light'
+                },
+                align: 'bottom'
+            },
+
+
+        }
+
+        var ds = [];
+
+
+
+        //var clr = materialColor();
+        var objdata = {
+            datasets: [{
+                label: 'Turnover',
+                data: _data,
+                fill: true,
+                type: 'bar',
+                backgroundColor: 'orange', //materialColor(),
+                borderColor: 'orange', //materialColor(),
+                lineTension: 0
+            },
+
+                // {
+                //     label: 'Retention',
+                //     data: _data1,
+                //     fill: true,
+                //     type: 'bar',
+                //     backgroundColor: materialColor(),
+                //     borderColor: materialColor(),
+                //     lineTension: 0
+                //     // label: 'Retention',
+                //     // data: _data1,
+                //     // fill: false,
+                //     // lineTension: 0,
+                //     // borderColor: 'materialColor()',
+                //     // borderWidth: 2,
+                //     // borderDash: [5, 5],
+                //     // backgroundColor: 'materialColor()',
+                //     // pointRadius: 4,
+                //     // pointHoverRadius: 1,
+                //     // pointBackgroundColor: 'materialColor()',
+                // }
+            ],
+            labels: lbls.filter(onlyUnique)
+        };
+
+        $('#' + ctx + 'expand').click(function () {
+            controlWidth(ctx, _d);
+        });
+
+        DashboardHelper.createChart2(ctx, 'bar', objdata, true, options);
+
+        // var options = {
+        //     tickCallback: function(label, index, labels) { return label + ' %'; },
+        //     yAxesTitle: 'Left Employee(s)',
+        //     xAxesTitle: 'Age Group',
+        //     bgColorOpacity: 0.6,
+        //     borderWidth: 4,
+        //     fill: true,
+        //     datalabels: {
+        //         color: '#333',
+        //         formatter: function(value, context) {
+        //             return value + ' %';
+        //         },
+        //         font: {
+        //             Family: 'segoe UI',
+        //             size: 12,
+        //             weight: 'light'
+        //         },
+        //         font: {
+        //             size: 9,
+        //         },
+        //         clamp: false,
+        //         align: 'top'
+        //     },
+        //     lineTension: 0,
+        //     pointRadius: 1,
+        //     //borderDash: [2, 3],
+
+        // }
+
+
+        // var obj = {
+        //     label: lbls.filter(onlyUnique),
+        //     data: _data
+        // };
+
+        // var _ddt = _d;
+        // $('#' + ctx + 'expand').click(function() {
+        //     controlWidth(ctx, _ddt);
+        // });
+
+
+        // DashboardHelper.createChart(ctx, 'line', obj.data, obj.label, 'Percentage', false, options);
+
+        //var abgabsentismrate = sum(_d, 'Percentage') / _d.length;
+        //$('#gauge2').html(abgabsentismrate.toFixed(2));
+
+    });
+
+}
+
+function GetAbsentism(ctx, data) {
+    window['filter' + ctx] = data;
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+    postRequestD('GetAbsentismByDepartment', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+
+        var _d = JSON.parse(response.d);
+        //////////console.log({ _d });
+
+        var options = {
+            IsDataInPercentage: false,
+            DecimalRoundPoint: 2,
+            IsDataLabelVisible: false,
+            DataLabelPosition: 'top',
+            xAxesTitle: 'Department ',
+            yAxesTitle: '',
+            tooltipLabel: 'Percentage',
+        }
+
+        DrillDownChartOnDemand('bar', _d, ctx, 'DepartmentTitle', 'Percentage', options);
+        var abgabsentismrate = sum(_d, 'Percentage') / _d.length;
+        $('#gauge2').html(abgabsentismrate.toFixed(2) + '');
+        jQuery('#gauge2').parent().find('h4').html('Employee Absentism Rate %  (' + data.pYears + ')');
+        //console.log({ data });
+        return;
+
+        // var lbls = [];
+        // var _data = [];
+
+
+        // $.each(_d, function (i, item) {
+        //     lbls.push(item.DepartmentTitle);
+        //     _data.push(item.Percentage.toFixed(2));
+        // });
+
+        // var options = {
+        //     tickCallback: function (label, index, labels) { return label + ' %'; },
+        //     yAxesTitle: '',
+        //     xAxesTitle: 'Department(s)',
+        //     bgColorOpacity: 0.6,
+        //     borderWidth: 0,
+
+        //     datalabels: {
+        //         color: '#333',
+        //         formatter: function (value, context) {
+        //             return '';//value + ' %';
+        //         },
+        //         font: {
+        //             Family: 'segoe UI',
+        //             size: 12,
+        //             weight: 'light'
+        //         },
+        //         font: {
+        //             size: 9,
+        //         },
+        //         clamp: false,
+        //         align: 'top'
+        //     },
+        //     lineTension: 0,
+        //     borderDash: [2, 3],
+
+        // }
+
+
+        // var obj = {
+        //     label: lbls.filter(onlyUnique),
+        //     data: _data
+        // };
+
+        // $('#' + ctx + 'expand').click(function () {
+        //     controlWidth(ctx, _d);
+        // });
+
+
+        // DashboardHelper.createChart(ctx, 'bar', obj.data, obj.label, 'Percentage', false, options);
+
+    });
+
+}
+
+
+function GetEmployeesByYear2(ctx, data) {
+
+    data.pType = "summary";
+    data.pAdditionalFilter = "";
+    window['filter' + ctx] = data;
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+    postRequestD('GetEmployeesByYearOnDemand', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+
+        var _d = JSON.parse(response.d);
+        _d = alasql('select * from ? order by Year ', [_d]);
+        //////////console.log({ _d });
+
+        var options = {
+            IsDataInPercentage: false,
+            DecimalRoundPoint: 2,
+            IsDataLabelVisible: false,
+            DataLabelPosition: 'top',
+            xAxesTitle: 'Years ',
+            yAxesTitle: '',
+            tooltipLabel: 'No of Employee(s)',
+        }
+
+        DrillDownChartOnDemandGeneric('bar', _d, ctx, 'Year', 'TotalEmployee', options, 'GetEmployeesByYearOnDemand', {});
+        //var abgabsentismrate = sum(_d, 'TotalEmployee') / _d.length;
+        //$('#gauge2').html(abgabsentismrate.toFixed(2) + '');
+        //jQuery('#gauge2').parent().find('h4').html('Employee Absentism Rate %  (' + data.pYears + ')');
+        //console.log({ data });
+        return;
+
+
+    });
+
+}
+
+
+function TimeToQuitJobByAge(ctx, data) {
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+    postRequestD('GetEmployeeTimeQuitByAgeGroup', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+
+        var _d = JSON.parse(response.d);
+        //////////console.log({ _d });
+
+        DrillDownChart(ctx, _d, 'AgeGroup', 'Employee ID', 'count', 'string', 'bar', {}, 'No of Employee(s)', 'Age Group', 'Employee(s)', 'top', '', '');
+        // return;
+
+        // var lbls = [];
+        // var _data = [];
+        // var total = sum(_d, 'NoOfEmployees');
+        // $.each(_d, function (i, item) {
+        //     lbls.push(item.AgeGroup);
+        //     //_data.push(item.NoOfEmployees);
+        //     var per = item.NoOfEmployees * 100.0 / total;
+        //     _data.push(parseFloat(per.toFixed(2)));
+
+        // });
+
+        // var options = {
+        //     tickCallback: function (label, index, labels) { return label + ' %'; },
+        //     yAxesTitle: 'Left Employee(s)',
+        //     xAxesTitle: 'Age Group',
+        //     //bgColorOpacity: 0.3,
+        //     borderWidth: 1,
+        //     datalabels: {
+        //         color: '#333',
+        //         formatter: function (value, context) {
+        //             return value + ' %';
+        //         },
+        //         font: {
+        //             Family: 'segoe UI',
+        //             size: 12,
+        //             weight: 'light'
+        //         }
+        //     },
+
+
+        // }
+
+        // var obj = {
+        //     label: lbls.filter(onlyUnique),
+        //     data: _data
+        // };
+
+
+        // DashboardHelper.createChart(ctx, 'bar', obj.data, obj.label, 'Percentage', false, options);
+
+
+    });
+
+}
+
+
+function GetAverageSalaryByDesig(ctx, data) {
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+    postRequestD('GetAverageSalaryByDesig', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+        var res = JSON.parse(response.d);
+
+        var options = {
+            fill: false,
+        }
+        DrillDownChart(ctx, res, 'Designation', 'GrossSalary', 'avg', 'string', 'bar', options, 'Average Salary', 'Designation', 'Average Salary (1000s)', 'top', '', 'false');
+        $('#' + ctx + 'expand').click(function () { controlWidth(ctx, 'line', res); });
+
+
+    });
+}
+
+function GetAverageSalaryByDept(ctx, data) {
+    //$('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+
+    ////////console.log({ data });
+
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+    postRequestD('GetAverageSalaryByDept', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+        var res = JSON.parse(response.d);
+
+        //console.log({ res });
+
+        DrillDownChart2(ctx, res, false, "Employee ID", "Year", "GrossSalary", "avg", "Department", "bar", 'number', 1, '(1000s)');
+        return;
+
+        var deptarray = [];
+        $.each(res, function (k, ditem) {
+            deptarray.push(ditem.DepartmentTitle);
+        });
+
+        var options = {
+            dataLabelText: ''
+        };
+
+        var _Years = globalpayrrolFilter.Years;
+        var _Months = globalpayrrolFilter.Months;
+        //_Years = _Years.split(',');
+        //_Months = _Months.split(',');
+        var ds = [];
+        $.each(_Years, function (i, yitem) {
+            //$.each(_Months, function (j, mitem) {
+            var filterData = res.filter(function (value) {
+                return value.Year == yitem; //&& value.Month == mitem;
+            });
+            //////console.log({ filterData });
+            var yearMonth = yitem;
+
+            var dataarray = [];
+            $.each(filterData, function (k, ditem) {
+                dataarray.push(ditem.Average.toFixed(1));
+            });
+
+            //////console.log({ dataarray });
+
+            var dataObj = {
+                label: yearMonth,
+                backgroundColor: materialColor(),
+                data: dataarray
+            }
+            ds.push(dataObj);
+            //});
+        });
+
+        obj = {
+            labels: deptarray.filter(onlyUnique), //deptarray,
+            datasets: ds
+        };
+
+        $('#' + ctx + 'expand').click(function () { controlWidth(ctx, 'line', res); });
+        DashboardHelper.chartBar2(ctx, obj, 'bar', options);
+    });
+
+}
+
+
+function GetSalaryRangeBreakDown(ctx, data) {
+
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+    postRequestD('GetSalaryRangeBreakDown', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+        var res = JSON.parse(response.d);
+        //res = res.filter(function (value) { return value.GrossSalaryRange > 0; })
+
+        res = res.filter(function (value) {
+            return value.GrossSalaryRange !== "0";
+        })
+
+        $.each(res, function (i, item) {
+            item.GrossSalary = parseFloat(item.GrossSalary);
+            switch (item.GrossSalaryRange) {
+                case '< 20K': item.OrderNo = 1; break;
+                case '20K - 40K': item.OrderNo = 2; break;
+                case '40K - 60K': item.OrderNo = 3; break;
+                case '60K - 80K': item.OrderNo = 4; break;
+                case '80K - 100K': item.OrderNo = 5; break;
+                case '100K - 150K': item.OrderNo = 6; break;
+                case '150K - 200K': item.OrderNo = 7; break;
+                case '200K - 250K': item.OrderNo = 8; break;
+                case '250K - 300K': item.OrderNo = 9; break;
+                case '> 300K': item.OrderNo = 10; break;
+            }
+        })
+
+        res.sort(function (a, b) { return a.OrderNo - b.OrderNo; });
+
+        var options = {
+            fill: false,
+            legend: {
+                position: 'right',
+            }
+        }
+
+        DrillDownChart(ctx, res, "GrossSalaryRange", "Employee ID", "count", "string", "doughnut", options, '', '', '', 'top', '', '%', null, 2, false, false, true, -1);
+        return;
+        //var _retdata = getDatasetSalaryRangeBreakDown(res);
+        //var __Years = data.pYears;
+        //var __Months = data.pMonths;
+        ////console.log({ _retdata });
+
+        var options = {
+            dataLabelText: ' %',
+            legnedPosition: 'right'
+        };
+
+        //alert(__Years);
+        if (1 === 0) { //__Years.indexOf(',') > -1 || __Months.indexOf(',') > -1
+
+            //obj = {
+            //  labels: _retdata.dataarray.filter(onlyUnique), //deptarray,
+            //                datasets: _retdata.ds
+            //};
+            //DashboardHelper.chartBar2(ctx, obj, 'bar', options);
+        } else {
+            ////console.log(res);
+
+            $.each(res, function (i, item) {
+                switch (item.SalaryRange) {
+                    case '< 20K': res[i].OrderNo = 1; break;
+                    case '20K - 40K': res[i].OrderNo = 2; break;
+                    case '40K - 60K': res[i].OrderNo = 3; break;
+                    case '60K - 80K': res[i].OrderNo = 4; break;
+                    case '80K - 100K': res[i].OrderNo = 5; break;
+                    case '100K - 150K': res[i].OrderNo = 6; break;
+                    case '150K - 200K': res[i].OrderNo = 7; break;
+                    case '200K - 250K': res[i].OrderNo = 8; break;
+                    case '200K - 300K': res[i].OrderNo = 9; break;
+                    case '> 300K': res[i].OrderNo = 10; break;
+                }
+            });
+
+            res.sort(function (a, b) { return a.OrderNo - b.OrderNo; });
+
+            var _data = [];
+            var _lbl = [];
+            var total = sum(res, 'AvergeEmployee')
+            $.each(res, function (i, item) {
+                _lbl.push(item.SalaryRange);
+                var value = (item.AvergeEmployee / total) * 100;
+                _data.push(value.toFixed(2));
+            });
+            var obj;
+            obj = {
+                label: _lbl,
+                data: _data
+            }
+
+            DashboardHelper.chartBasic(ctx, obj, 'doughnut', options);
+
+        }
+
+
+
+        ////////console.log({ ds });
+
+        //DashboardHelper.createChart(ctx, 'bar', obj.data, obj.label, '', true, options);
+        //DashboardHelper.chartBasic(ctx, obj, 'horizontalBar', options);
+
+        //});
+
+        //  var __Years = data.pYears;
+    });
+
+
+
+}
+
+jQuery('#txtDashboardDate').val(sysdate1);
+jQuery('#datepickertxtDashboardDate').datetimepicker({
+    format: 'MM/DD/YYYY',
+    ignoreReadonly: true,
+}).on('dp.change', function (e) {
+    e.preventDefault();
+    console.log(window['criteria0']);
+    GetAttendanceSummary(window['criteria0']);
+    //console.log(jQuery('#txtDashboardDate').val());
+
+});
+
+function getDatasetSalaryByMonth(res) {
+    //////console.log({ res });
+    var deptarray = [];
+    var dataarray = [];
+    $.each(res, function (k, ditem) {
+        var monthNames_ = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        deptarray.push(monthNames_[ditem.Month]);
+    });
+
+
+
+    var _Years = globalpayrrolFilter.Years;
+    var _Months = globalpayrrolFilter.Months;
+
+    var ds = [];
+    $.each(_Years, function (i, yitem) {
+
+        var filterData = res.filter(function (value) {
+
+            return value.Year == yitem; //&& value.Month == mitem;
+        });
+        //////console.log({ filterData });
+        var yearMonth = yitem;
+        dataarray = [];
+        // var total = sum(res, 'TotalEmployee')
+        $.each(filterData, function (k, ditem) {
+            dataarray.push(ditem.TotalAmount.toFixed(1));
+            //dataarray.push(value.toFixed(2));
+        });
+
+        //////console.log({ dataarray });
+
+        var dataObj = {
+            label: yearMonth,
+            backgroundColor: materialColor(),
+            data: dataarray
+        }
+        ds.push(dataObj);
+        // });
+    });
+
+    var obj = {
+        ds: ds,
+        dataarray: deptarray
+    }
+    return obj;
+}
+
+function getDatasetSalaryRangeBreakDown(res) {
+    //////console.log({ res });
+    var deptarray = [];
+    var dataarray = [];
+    $.each(res, function (k, ditem) {
+        deptarray.push(ditem.SalaryRange);
+    });
+
+
+
+    var _Years = globalpayrrolFilter.Years;
+    var _Months = globalpayrrolFilter.Months;
+
+    var ds = [];
+    $.each(_Years, function (i, yitem) {
+        $.each(_Months, function (j, mitem) {
+            var filterData = res.filter(function (value) {
+                ////////console.log(value.Year, yitem, value.Month, mitem);
+                return value.Year == yitem && value.Month == mitem;
+            });
+            //////console.log({ filterData });
+            var yearMonth = yitem + '-' + mitem;
+
+            dataarray = [];
+            var total = sum(res, 'TotalEmployee')
+            $.each(filterData, function (k, ditem) {
+                var value = (ditem.TotalEmployee / total) * 100;
+                //dataarray.push(ditem.TotalEmployee);
+                dataarray.push(value.toFixed(1));
+            });
+
+            //////console.log({ dataarray });
+
+            var dataObj = {
+                label: yearMonth,
+                backgroundColor: materialColor(),
+                data: dataarray
+            }
+            ds.push(dataObj);
+        });
+    });
+
+    var obj = {
+        ds: ds,
+        dataarray: deptarray
+    }
+    return obj;
+}
+
+function GetSalaryByMonth(ctx, data) {
+    //$('#' + ctx).before('<div class="blocklayout">fdgf</div>');
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+    postRequestD('GetSalaryByMonth', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+        var res = JSON.parse(response.d);
+
+        var _retdata = getDatasetSalaryByMonth(res);
+        //////console.log({ _retdata });
+        var options = {
+            dataLabelText: ''
+        };
+
+        var obj = {
+            labels: _retdata.dataarray.filter(onlyUnique), //deptarray,
+            datasets: _retdata.ds
+        };
+        $('#' + ctx + 'expand').click(function () { controlWidth(ctx, 'line', res); });
+        DashboardHelper.chartBar2(ctx, obj, 'bar', options);
+
+        // options = {
+        //     tickCallback: function(label, index, labels) { return label + ''; },
+        //     yAxesTitle: '',
+        //     xAxesTitle: 'Department',
+        //     fill: false,
+        //     bgColorOpacity: 0.6,
+        //     borderWidth: 0,
+        //     datalabels: {
+        //         color: '#333',
+        //         formatter: function(value, context) {
+        //             return value != 0 || value != '' ? value + ' Rs' : '';
+        //         },
+        //         font: {
+        //             Family: 'segoe UI',
+        //             size: 16,
+        //             weight: 'light'
+        //         },
+        //         font: {
+        //             size: 9,
+        //         },
+        //         clamp: false,
+        //         align: 'top'
+        //     },
+        //     lineTension: 0,
+        //     //borderDash: [4, 5],
+        //     borderWidth: 3,
+
+
+        // }
+
+        // $('#' + ctx + 'expand').click(function () {
+        //     controlWidth(ctx, _d);
+        // });
+
+        //DashboardHelper.createChart2(ctx, 'bar', obj, true, options);
+
+    });
+
+
+
+    // var monthNames = ["January", "February", "March", "April", "May", "June",
+    //     "July", "August", "September", "October", "November", "December"
+    // ];
+
+    // var obj = {
+    //     label: monthNames,
+    //     data: [23, 435, 45, 566, 565, 342, 656, 343, 564, 545, 454, 76]
+    // }
+
+    // DashboardHelper.chartBasic(ctx, obj, 'line', options);
+
+}
+
+function getColumnDataArrayFromObject(pObject, pColumn) {
+    var arr = [];
+    $.each(pObject, function (i, item) {
+        arr.push(item[pColumn]);
+    });
+    return arr;
+}
+
+function GetSalaryBreakDownByMonth(ctx, data) {
+
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+    postRequestD('GetSalaryBrakDownByMonth', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+        var dt = JSON.parse(response.d);
+        //////console.log({ dt });
+
+        var options = { dataLabelText: '' };
+
+        var _Years = globalpayrrolFilter.Years;
+        var _Months = globalpayrrolFilter.Months;
+        var ds = [];
+        //$.each(_Months, function(j, mitem) { });
+
+        var arr = getDistinctArray(dt, 'AllowanceGroup');
+        $.each(_Years, function (i, yitem) {
+
+            $.each(arr, function (ag, agitem) {
+
+                var _filterData = dt.filter(function (value) {
+                    return value.Year == yitem && value.AllowanceGroup == agitem;
+                });
+
+                //////console.log({ _filterData });
+
+                var data_ = [];
+                for (var mitem = 1; mitem <= 12; mitem++) {
+                    var filterData2 = _filterData.filter(function (value2) {
+                        return value2.Month == mitem;
+                    });
+
+                    // ////console.log(mitem, { filterData2 });
+
+                    if (filterData2.length > 0) {
+                        data_.push(filterData2[0].GroupTotal.toFixed(1));
+                    } else {
+                        data_.push(0);
+                    }
+                }
+
+                var row =
+                {
+                    label: agitem + ' (' + yitem + ')',
+                    backgroundColor: materialColor(),
+                    data: data_,
+                    stack: parseInt(yitem)
+                }
+                ds.push(row);
+
+            });
+
+        });
+
+        var obj = {
+
+            labels: monthNames,
+            datasets: ds
+        };
+        $('#' + ctx + 'expand').click(function () { controlWidth(ctx, 'line', dt); });
+        DashboardHelper.chartStackBar(ctx, obj, 'bar', options);
+
+    });
+
+}
+
+function GetSalaryBreakDownByDept(ctx, data) {
+
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+    postRequestD('GetSalaryBrakDownByMonth', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+        var dt = JSON.parse(response.d);
+        //////console.log({ dt });
+
+        var options = { dataLabelText: '' };
+
+        var _Years = globalpayrrolFilter.Years;
+        var _Months = globalpayrrolFilter.Months;
+        var ds = [];
+        //$.each(_Months, function(j, mitem) { });
+
+        var arr = getDistinctArray(dt, 'AllowanceGroup');
+        $.each(_Years, function (i, yitem) {
+
+            $.each(arr, function (ag, agitem) {
+
+                var _filterData = dt.filter(function (value) {
+                    return value.Year == yitem && value.AllowanceGroup == agitem;
+                });
+
+                //////console.log({ _filterData });
+
+                var data_ = [];
+                for (var mitem = 1; mitem <= 12; mitem++) {
+                    var filterData2 = _filterData.filter(function (value2) {
+                        return value2.Month == mitem;
+                    });
+
+                    // ////console.log(mitem, { filterData2 });
+
+                    if (filterData2.length > 0) {
+                        data_.push(filterData2[0].GroupTotal);
+                    } else {
+                        data_.push(0);
+                    }
+                }
+
+                var row =
+                {
+                    label: agitem + ' (' + yitem + ')',
+                    backgroundColor: materialColor(),
+                    data: data_,
+                    stack: parseInt(yitem)
+                }
+                ds.push(row);
+
+            });
+
+        });
+
+        ////console.log(ds);
+
+        ////console.log(JSON.stringify(ds));
+
+        var obj = {
+
+            labels: monthNames,
+            datasets: ds
+        };
+
+        DashboardHelper.chartStackBar(ctx, obj, 'bar', options);
+
+    });
+
+}
+
+function GetSalaryBreakDownByMonthdept(ctx, data) {
+
+    var options = {
+        dataLabelText: ''
+    };
+
+    var obj = {
+        labels: monthNames,
+        datasets: [{
+            label: 'Salary',
+            backgroundColor: materialColor(),
+            data: [12, 45, 64, 43, 55, 78]
+        },
+        {
+            label: 'Overtime',
+            backgroundColor: materialColor(),
+            data: [99, 47, 45, 74, 78, 56, 45]
+        }]
+
+    };
+    DashboardHelper.chartStackBar(ctx, obj, options);
+}
+
+function GetSalaryBreakDownByDepartment(ctx, data) {
+
+    var options = {
+        dataLabelText: ''
+    };
+
+    var obj = {
+        labels: ['Admin', 'HR', 'Sales', 'Marketing'],
+        datasets: [{
+            label: 'Dataset 1',
+            backgroundColor: materialColor(),
+            data: [12, 45, 64, 43]
+        },
+        {
+            label: 'Dataset 1',
+            backgroundColor: materialColor(),
+            data: [99, 47, 45, 74]
+        }]
+    };
+
+    DashboardHelper.chartStackBar(ctx, obj, options);
+
+}
+
+
+
+function AvgOTByAgeGroup(ctx, data) {
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+
+    var fixedGroup = ['<25', '25-35', '35-45', '45-55', '>55'];
+
+    postRequestD('GetAverageOverTimeByAgeGroup', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+        var _d = JSON.parse(response.d);
+        ////console.log({ _d });
+
+        $.each(fixedGroup, function (g, group) {
+            var data = _d.filter(function (value) { return value.AgeGroup == group; });
+            if (data.length <= 0) {
+                _d.push(
+                    {
+                        AgeGroup: group,
+                        AgeGroupOorder: g,
+                        OTMins: 0
+                    }
+                );
+            }
+        });
+
+        _d.sort(function (a, b) { return a.AgeGroupOorder - b.AgeGroupOorder; });
+
+        var lbls = [];
+        var _data = [];
+        $.each(_d, function (i, item) {
+            lbls.push(item.AgeGroup);
+            var per = item.OTHours > 0 ? item.OTHours.toFixed(2) : 0; //item.NoOfEmployees * 100.0 / total;
+            _data.push(parseFloat(per));
+        });
+
+
+        var options = {
+            dataLabelText: ' (h)'
+            // tickCallback: function (label, index, labels) { return label + ' %'; },
+            // yAxesTitle: 'Hour(s)',
+            // xAxesTitle: 'Age Group',
+            // bgColorOpacity: 0.6,
+            // borderWidth: 0,
+            // datalabels: {
+            //     color: '#333',
+            //     formatter: function (value, context) {
+            //         return value + ' (h)';
+            //     },
+            //     font: {
+            //         Family: 'segoe UI',
+            //         size: 12,
+            //         weight: 'light'
+            //     }
+            // },
+            // legendVisible: false
+
+        }
+
+        var obj = {
+            label: lbls.filter(onlyUnique),
+            data: _data
+        };
+
+        DashboardHelper.chartBasic(ctx, obj, 'bar', options);
+        //DashboardHelper.createChart(ctx, 'bar', obj.data, obj.label, '', false, options);
+    });
+
+}
+
+
+function GetAttendanceSummary(data) {
+    data.pDate = $('#txtDashboardDate').val(); //'11/06/2019';
+    data.pType = 'summary';
+    var txtAttStrength = $('#txtAttStrength');
+    var txtAttPresent = $('#txtAttPresent');
+    var txtAttAbsent = $('#txtAttAbsent');
+    var txtAttLeave = $('#txtAttLeave');
+
+    txtAttStrength.html(progress());
+    txtAttPresent.html(progress());
+    txtAttAbsent.html(progress());
+    txtAttLeave.html(progress());
+
+    postRequestD('GetAttendanceSummary', data, function (response) {
+        var _d = JSON.parse(response.d);
+        if (_d.length > 0) {
+            var att = _d[0];
+            txtAttStrength.html(att.Strength);
+            txtAttPresent.html(att.Present);
+            txtAttAbsent.html(att.Absent);
+            txtAttLeave.html(att.Leave);
+
+            jQuery('#txtAttStrength,#txtAttPresent,#txtAttAbsent,#txtAttLeave').off('click').on('click', function (e) {
+                e.preventDefault();
+                //alert(jQuery(this).attr('id'));
+                var type = jQuery(this).attr('id').slice(6, this.length);
+                var displayDate = data.pDate.split('/')[1] + '-' + monthNames[data.pDate.split('/')[0] - 1] + '-' + data.pDate.split('/')[2];
+                var modalHeading = jQuery(this).attr('id').slice(6, this.length) + ' - ' + displayDate;
+                console.log({ type, data });
+                data.pDate = $('#txtDashboardDate').val();
+                data.pType = type;
+                doModalProgress2(type, modalHeading, 'GetAttendanceSummary', data);
+            });
+        } else {
+            txtAttStrength.html(0); txtAttPresent.html(0); txtAttAbsent.html(0); txtAttLeave.html(0);
+        }
+
+
+    });
+}
+
+function progress() {
+    return '<i class="fa fa-spinner fa-spin"></i>';
+}
+
+
+function AbsentismLast3Year(ctx, data) {
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+
+    postRequestD('GetAverageAbsentism', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+        var _d = JSON.parse(response.d);
+        //////////console.log({ _d });
+
+        var lbls = [];
+        var _data = [];
+        $.each(_d, function (i, item) {
+            lbls.push(item.Year);
+            _data.push(parseFloat(item.Average.toFixed(2)));
+
+        });
+
+
+
+        var options = {
+            tickCallback: function (label, index, labels) { return label + ''; },
+            yAxesTitle: 'Hour(s)',
+            xAxesTitle: 'Year',
+            bgColorOpacity: 0.6,
+            borderWidth: 0,
+            lineTension: 0,
+            datalabels: {
+                color: '#333',
+                formatter: function (value, context) {
+                    return value + '';
+                },
+                font: {
+                    Family: 'segoe UI',
+                    size: 12,
+                    weight: 'light'
+                },
+                align: 'bottom'
+            },
+            legendVisible: true,
+            fill: false,
+            lineTension: 0,
+            borderColor: 'orange',
+            borderWidth: 0,
+            borderDash: [4, 5],
+            backgroundColor: 'orange',
+            pointRadius: 4,
+            pointHoverRadius: 1,
+            pointBackgroundColor: 'orange',
+            legendVisible: false,
+
+        }
+
+        var obj = {
+            label: lbls,
+            data: _data
+        }
+
+
+        //doughnut
+        DashboardHelper.createChart(ctx, 'line', obj.data, obj.label, 'Avg OT By Year', false, options);
+
+    });
+
+
+}
+
+function YearlyAvgOTHours(ctx, data) {
+
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+
+
+
+    postRequestD('GetYealyAverageOverTimeHours', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+        var _d = JSON.parse(response.d);
+        //console.log({ _d });
+
+        var lbls = [];
+        var _data = [];
+        $.each(_d, function (i, item) {
+            lbls.push(item.Year);
+            var per = item.OTHours > 0 ? item.OTHours.toFixed(2) : 0; //item.NoOfEmployees * 100.0 / total;
+            _data.push(parseFloat(per));
+        });
+
+
+        // var options = {
+        //     dataLabelText: ' (h)'
+        // }
+
+        var options = {
+            tickCallback: function (label, index, labels) { return label + ''; },
+            yAxesTitle: 'Hour(s)',
+            xAxesTitle: 'Year',
+            bgColorOpacity: 0.6,
+            borderWidth: 0,
+            lineTension: 0,
+            datalabels: {
+                color: '#333',
+                formatter: function (value, context) {
+                    return '';
+                },
+                font: {
+                    Family: 'segoe UI',
+                    size: 12,
+                    weight: 'light'
+                }
+            },
+            legendVisible: true,
+            fill: false,
+            lineTension: 0.3,
+            borderColor: '',
+            borderWidth: 4,
+            borderDash: [2, 2],
+            backgroundColor: '',
+            pointRadius: 2,
+            pointHoverRadius: 1,
+            pointBackgroundColor: '',
+            legendVisible: false,
+
+
+
+        }
+
+        var obj = {
+            label: lbls.filter(onlyUnique),
+            data: _data
+        };
+
+
+        DashboardHelper.createChart(ctx, 'line', obj.data, obj.label, 'Avg OverTime', false, options);
+        //DashboardHelper.chartBasic(ctx, obj, 'line', options);
+        //DashboardHelper.createChart(ctx, 'bar', obj.data, obj.label, '', false, options);
+    });
+
+
+
+
+    // var obj = {
+    //     label: ['2016', '2017', '2018', '2019'],
+    //     data: [300, 450, 200, 120]
+    // }
+    // DashboardHelper.createChart(ctx, 'line', obj.data, obj.label, 'Avg OT By Year', false, options);
+
+}
+
+function TimeToQuitJob(ctx, data, vyears) {
+    var options = {
+        yAxesTitle: 'Left employee(s)',
+        xAxesTitle: 'Years at company',
+        lineTension: 0,
+        tickCallback: function (label, index, labels) { return label + ' %'; },
+        fill: true,
+        borderWidth: 0,
+        xAxesType: 'linear',
+        showLine: true,
+        borderDash: [2, 2]
+    };
+
+    postRequestD('GetEmployeeTimeQuitByTimeSpend', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+        var d = JSON.parse(response.d);
+        //console.log({ d });
+        //console.log({ d });    
+        var opt = {
+            fill: true
+        }
+
+        DrillDownChart(ctx, d, 'ServicePeriodInYear', 'Employee ID', 'count', 'number', 'scatter', opt, 'No of Employee(s)', 'Year(s) at Company', 'Employee(s)', 'top', '%', '', 'linear', 0, true, true, false);
+        return;
+
+        d = alasql('select  ServicePeriodInYear , count(ServicePeriodInYear) as NoOfEmployees  From ? GROUP BY ServicePeriodInYear ORDER By ServicePeriodInYear ', [d])
+
+        //console.log({ d });
+
+        //createRandomColor(5);
+        //  var yeararry = vyears.split(',');
+        var lbls = [];
+        var _data = [];
+        var total = sum(d, 'NoOfEmployees');
+
+        var dataarray = [];
+
+        $.each(d, function (i, item) {
+            lbls.push(item.ServicePeriodInYear);
+            //_data.push(item.NoOfEmployees);
+            //_data.push(parseFloat(per.toFixed(2)));
+
+            var per = item.NoOfEmployees * 100.0 / total;
+            per = parseFloat(per.toFixed(2));
+
+            var xy = { x: item.ServicePeriodInYear, y: per };
+            dataarray.push(xy);
+        });
+
+        // $('#' + ctx + 'expand').click(function() {
+        //     controlWidth(ctx, d);
+        // });
+        console.log({ dataarray });
+        DashboardHelper.createChart(ctx, 'scatter', dataarray, [], 'Percentage', false, options)
+        //DashboardHelper.createChart('myscatter', 'scatter', dta, lbl, 'Percentage', false, options);
+
+    });
+
+
+}
+
+function AbsGauge(_id, val) {
+    if (!window._id) {
+        window._id = new JustGage({
+            id: _id,
+            value: val,
+            decimals: 1,
+            min: 0,
+            max: 100,
+            title: "Avg Absenteeism Rate",
+            titleFontSize: 12,
+            titlePosition: "below",
+            titleFontColor: "red",
+            titleFontFamily: "Georgia",
+            titlePosition: "below",
+            valueFontColor: "orange",
+            valueFontFamily: "Georgia",
+            label: "%",
+            levelColors: ['#f5821f'],
+            lableFontSize: "10px",
+            width: 300,
+            height: 200,
+            relativeGaugeSize: true,
+            pointer: true,
+            counter: true,
+        });
+    } else {
+        window._id.refresh(val, 100);
+    }
+
+}
+
+
+
+function otYearlyAvg(ctx, data) {
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+
+    var options = {
+        yAxesTitle: 'Left employee(s)',
+        xAxesTitle: 'Years at company',
+        lineTension: 0,
+        tickCallback: function (label, index, labels) { return label + ' %'; },
+        fill: true,
+        borderWidth: 0,
+        showLine: true,
+        borderDash: [2, 2]
+    };
+
+    var obj = {
+        label: ['a', 'b'],
+        data: [1, 2]
+    }
+
+    DashboardHelper.createChart(ctx, 'pie', obj.data, obj.label, '', false, options)
+    //DashboardHelper.createChart('myscatter', 'scatter', dta, lbl, 'Percentage', false, options);
+
+
+
+}
+
+
+function sum(obj, prop) {
+    var sum = 0;
+    $.each(obj, function (i, item) {
+
+        if (!isNull(item[prop])) {
+            sum += parseFloat(item[prop]);
+        }
+
+    });
+    return sum;
+}
+
+function NoOfEmployeeByYearAndGenderBarChart(data) {
+
+    var lbls = [];
+    var cdatam = [];
+    var cdataf = [];
+    $.each(data, function (i, item) {
+        lbls.push(item.year);
+    });
+
+    var mdata = data.filter(function (v) { return v.Sex === 'M'; });
+    $.each(mdata, function (i, item) {
+        cdatam.push(item.Total);
+    });
+    mdata = data.filter(function (v) { return v.Sex === 'F'; });
+    $.each(mdata, function (i, item) {
+        cdataf.push(item.Total);
+    });
+
+
+
+    var objdata = {
+        datasets: [{
+            label: 'Male',
+            data: cdatam,
+            fill: false,
+            backgroundColor: createRandomColor(5).bgColors,
+            borderColor: createRandomColor(5).borderColor,
+        }, {
+            label: 'Female',
+            data: cdataf,
+            fill: false,
+            type: 'bar',
+        }],
+        labels: lbls.filter(onlyUnique)
+    };
+
+    DashboardHelper.createChart2('myChart', 'bar', objdata, true)
+
+
+}
+
+function drillDownDiversity(pYear, pGender) {
+    //console.log(pYear + '-' + pGender);
+}
+
+function populateJoinersDiversity(divID, pdata) {
+    postRequestD('GetJoinersDiversityByGenderAndYearWS', pdata, function (response) {
+        var r = JSON.parse(response.d);
+        //////////console.log({ r });
+        ////////////console.log(pdata.pYears);
+        var yrs = pdata.pYears.split(',');
+        var data;
+        var template = '';
+        var ftemplate = '';
+
+        var malecount = 0;
+        var femalecount = 0;
+        var maleage = 0.00;
+        var femaleage = 0.00;
+        var totalcountofyear = 0;
+        var orangeClass = 'orangecount';
+        yrs.sort(function (a, b) { return b - a });
+        var yrs;
+        var isActive = 'active';
+        //////////console.log({ yrs });
+        var yrsLength = yrs.length;
+        $.each(yrs, function (i, item) {
+
+
+            var maledata;
+            var femaledata;
+            // if (divID.toLowerCase() == 'headcountallarea') {
+            //     data = r.filter(function (value) {
+            //         yrs = item;
+            //         return value.year == item;
+            //     });
+            //     maledata = data.filter(function (val) { return val.Sex === 'M' && val.year == item; });
+            //     femaledata = data.filter(function (val) { return val.Sex === 'F' && val.year == item;; });
+            // } else {
+            //}
+
+            data = alasql('select Year,Gender, count("EmployeeID") as Total from ? WHERE Year = ' + item + ' GROUP BY Gender,Year ', [r]);
+            maledata = data.filter(function (val) { return val.Gender === 'Male' && val.Year == item; });
+            femaledata = data.filter(function (val) { return val.Gender === 'Female' && val.Year == item;; });
+
+
+            var currentyear = new Date().getFullYear();
+            ////////////console.log(yrs + ''+ currentyear);
+            if (parseInt(yrs) == parseInt(currentyear)) { orangeClass = 'orangecount'; } else { orangeClass = ''; }
+
+
+
+            malecount = isEmptyObj(maledata) ? 0 : parseInt(maledata[0].Total);
+            femalecount = isEmptyObj(femaledata) ? 0 : parseInt(femaledata[0].Total);
+
+            //maleage = parseFloat(isEmptyObj(maledata) ? 0.00 : maledata[0].Age).toFixed(2);
+            //femaleage = parseFloat(isEmptyObj(femaledata) ? 0.00 : femaledata[0].Age).toFixed(2);
+
+            totalcountofyear = malecount + femalecount;
+            maleage = malecount > 0 ? malecount * 100.0 / totalcountofyear : 0;
+            femaleage = femalecount > 0 ? femalecount * 100.0 / totalcountofyear : 0;
+
+            template += '<div class="col-md-6 divbox diversitydiv">' +
+                '<div class="row">' +
+                '<div class="col-xs-12">' +
+                '<table class="table table-condensed">' +
+                '<tr>' +
+                '<td><span class="divcount ' + orangeClass + '">' + malecount + '</span></td>' +
+                '<td><span class="divcount ' + orangeClass + '">' + femalecount + '</span></td>' +
+                '</tr>' +
+                '<tr>' +
+                //'<td><span class="fa fa-male divicon"></span></td>' +
+                //onClick="drillDownDiversity(' + item + ', \'Male\');"
+                '<td><img data-gender="Male" data-year="' + item + '" src="assets/images/male.png" /></td>' +
+                '<td><img data-gender="Female"  data-year="' + item + '"  src="assets/images/female.png" /></td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td><span class="divper ' + orangeClass + '">' + maleage.toFixed(1) + ' %</span></td>' +
+                '<td><span class="divper ' + orangeClass + '">' + femaleage.toFixed(1) + ' %</span></td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td colspan="2"><span class="divyear">' + item + '</span></td>' +
+                '</tr>' +
+                '</table>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+
+            var idx = i + 1;
+            if (idx % 2 == 0) {
+                ftemplate += `<div class="item ${isActive}">${template}</div>`;
+                isActive = '';
+                template = '';
+            }
+
+            if (idx == yrsLength) {
+                if (idx % 2 != 0) {
+                    ftemplate += `<div class="item ${isActive}">${template}</div>`;
+                    isActive = '';
+                    template = '';
+                }
+            }
+
+            ////////////console.log(ftemplate);
+
+        });
+
+        mrd = divID;
+        var temp = '<div id="myCarousel' + mrd + '" class="carousel slide" data-ride="carousel' + mrd + '">        ' +
+            '<ol class="carousel-indicators">' +
+            '<li data-target="#myCarousel' + mrd + '" data-slide-to="0" class="active"></li>' +
+            '<li data-target="#myCarousel' + mrd + '" data-slide-to="1"></li>' +
+            '<li data-target="#myCarousel' + mrd + '" data-slide-to="2"></li>' +
+            '</ol>              ' +
+            '<div class="carousel-inner">' +
+            ftemplate +
+            '<a class="left carousel-control" href="#myCarousel' + mrd + '" data-slide="prev">' +
+            '<span class="glyphicon glyphicon-chevron-left"></span>' +
+            '<span class="sr-only">Previous</span>' +
+            '</a>' +
+            '<a class="right carousel-control" href="#myCarousel' + mrd + '" data-slide="next">' +
+            '<span class="glyphicon glyphicon-chevron-right"></span>' +
+            '<span class="sr-only">Next</span>' +
+            '</a>' +
+            '</div>';
+
+        $('#' + divID).html(temp);
+
+        //if (divID.toLowerCase() != 'headcountallarea') {
+        $('#' + divID + ' .diversitydiv .table img').click(function (e) {
+            ////console.log({ r });
+            var gender = $(this).attr('data-gender');
+            var year = $(this).attr('data-year');
+            //alert(gender + '-' + year);
+            var filterData = alasql('select * from ? where Year = ' + year + ' and Gender = "' + gender + '"', [r]);
+            doModal('Detail', CreateTableFromJSON(filterData));
+            var table = $('.drillTable').DataTable({
+                responsive: true, bDestroy: true,
+            });
+            $('.dataTables_filter input').addClass('show');
+
+        });
+        // }
+
+
+
+    })
+}
+
+
+
+function createRandomColor(data) {
+
+    var i;
+    for (i = 0; i < 5; i++) {
+        var strcolor = renderColor();
+        bgColors.push(strcolor += '0.25)');
+        borderColor.push(strcolor += '1)');
+    }
+}
+
+        // datasets: [{
+            //     label: '2018',
+            //     data: [11,44,20,34,19],
+            //     fill: false,
+            //     lineTension : 0,            
+            //     backgroundColor :bgColors,
+            //     borderColor : borderColor,
+            //     fill:true
+            // },{            
+            //     label: '2018',
+            //     data: [12,34,10,24,29],
+            //     fill: false,
+            //     type: 'line',
+            //     lineTension : 0,            
+            //     backgroundColor : bgColors,
+            //     borderColor : borderColor,
+            //     fill:true
+            // }],

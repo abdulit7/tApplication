@@ -1,0 +1,166 @@
+/**
+	ufd 0.5: http://code.google.com/p/ufd/
+	
+	This is only the structural base CSS, include 1+ skin CSS files also.
+*/
+
+/* master wrapper; emulate select positioning */
+.ufd {
+	display: -moz-inline-stack;
+	display: inline-block;
+    position: relative;
+    white-space: nowrap;
+     
+}
+
+.ufd,
+.ufd input,
+.ufd button,
+#ufd-container div.list-scroll,
+#ufd-container div.list-wrapper,
+#ufd-container ul,
+#ufd-container li  {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-size:11px;
+     color:#333;
+     background-color: #fff;   
+}
+
+.ufd,
+.ufd button,
+#ufd-container div.list-scroll,
+#ufd-container div.list-wrapper,
+#ufd-container ul,
+#ufd-container li {
+    overflow: hidden;
+}
+
+.ufd select,
+#ufd-container .invisible,
+.ufd.invisible {
+	display: none;
+}
+
+.ufd input,
+.ufd button {
+	position: relative;
+	float: left;
+}
+
+.ufd button.disabled {
+	cursor: default;
+}
+
+.ufd input.disabled {
+    color: graytext;
+}
+
+#ufd-container div.list-wrapper {
+    position: absolute;
+}
+
+#ufd-container ul {
+    list-style-type: none;
+}
+
+#ufd-container li {
+    cursor: pointer;
+    
+    display: block;
+    white-space: nowrap; 
+    float: left;  
+        clear: left;   
+}
+
+/**
+	ufd 0.5: http://code.google.com/p/ufd/
+	
+	This is the default skin, a plain but attractive dropdown.
+*/
+
+span.ufd.plain {
+    height: auto;
+    background-color: #fff; /* http://blog.toolman.geek.nz/2009/12/annoying-ie6-bug-of-day.html */
+    border: 1px solid #ccc;
+}
+
+span.ufd.plain-focus {
+    background-color: #ccc;
+    border: 1px solid #ccc;
+}
+
+.ufd.plain input {
+    line-height: 16px !important;
+    height: 20px;
+    padding: 4px;
+    font-size: 11px;
+     width:100%;
+    border: 0;
+}
+
+.ufd.plain input.disabled {
+	color: #ccc;
+    background-color: gray !important;
+}
+
+.ufd.plain input.focus {
+}
+
+.ufd.plain button {
+    width: 16px;
+    height: 16px;
+    margin-left: 4px; /* for divider */
+    margin-top: 2px;
+    background: url(images/icon.jpg) no-repeat 0px 0px;    
+}
+
+.ufd.plain button.focus {
+}
+
+
+.ufd.plain button.hover {
+	background-position: 4px 0px;
+}
+
+.ufd.plain button.mouseDown {
+	background-position: 8px 0px;
+}
+
+.ufd.plain button.disabled {
+	background-position: 8px 0px !important;
+}
+
+/* dropdown */
+
+#ufd-container .plain div.list-scroll {
+    border: 1px solid #ccc;
+    border-top-width: 0px;
+    background-color: #FFF;
+     padding-left: 2px;
+}
+
+#ufd-container .plain div.list-wrapper-up div.list-scroll {
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+}
+
+#ufd-container .plain li {
+    padding-left: 0px;
+}
+
+#ufd-container .plain li em {
+	
+	font-style: normal;
+}
+
+
+#ufd-container .plain li.active {
+	background-color: highlight;
+	color: highlighttext;
+}
+
+.ufd.plain.form-control 
+{
+}

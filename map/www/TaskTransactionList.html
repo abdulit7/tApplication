@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome to TimeTrax - Mobile App</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <!-- Timeline CSS -->
+    <link href="css/timeline.css" rel="stylesheet">
+    <!-- datetime -->
+    <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="css/AdminLTE.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="css/skin-blue.css">
+    <link href="css/chosen.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="js/select2/select2.css">
+    <link rel="stylesheet" href="js/noti/toastr.css">
+    <style>
+        .assignmentlist:hover{
+                background: #fef1e7;
+        }
+        .txtCompanyTit{font-weight: bold;}
+
+
+        .inner-addon {
+            position: relative;
+            display: none;
+        }
+    
+        /* style icon */
+        .inner-addon .glyphicon {
+            position: absolute;
+            padding: 5px 10px 10px 10px;
+            pointer-events: none;
+        }
+    
+        .right-addon>input {
+            border-radius: 50px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    
+        /* align icon */
+        .left-addon .glyphicon {
+            left: 0px;
+        }
+    
+        .right-addon .glyphicon {
+            right: 0px;
+        }
+    
+        /* add padding  */
+        .left-addon input {
+            padding-left: 30px;
+        }
+    
+        .right-addon input {
+            padding-right: 30px;
+        }
+
+  .panelshadow{
+            box-shadow: 0px 0px 10px #ccc;
+            border-radius: 10px;
+            border:1px solid rgba(245, 120, 11, 0.295);
+            position: relative;         
+        }
+
+
+
+        .surveytitle{
+            padding: 4px;
+            border-bottom:1px solid #ddd;
+            display: block;
+            font-weight:bold;   
+            color: #777;  
+            margin-bottom: 1%;  
+            font-size: 18px;      
+        }
+        .surveyinfo{
+            margin-top: 0%;
+            padding: 2px;
+            
+        }
+        .suveryfield{
+            margin-top: 1%;
+        }
+        .surveylbl{
+            color: rgb(165, 165, 165);
+        }
+        .surveytxt{
+            color: #333;
+        }
+        .panelshadow:hover{
+            background: #fafafa;
+        }
+        .form-group {
+            margin-bottom: 2px !important;
+        }
+        .hdesc{
+            background: #ddd;                      
+        }
+        .hdesc span{
+            color: #333;
+        }
+
+        .groupDetail{
+            padding: 2px;
+            border:1px dashed #999;
+            border-radius: 8px;
+        }
+        .groupItem{
+            border-bottom: 1px solid #999;
+            background: #fafafa;
+        }
+
+        .groupItem:hover{
+            background: #fff;
+        }
+        hr{margin: 0;margin-bottom: 5px;margin-top: 5px;}
+    </style>
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.js"></script>
+    <![endif]-->
+</head>
+
+<body class="hold-transition skin-blue fixed sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="main.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><img src="img/logo-sml.png" /></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><img src="img/logo.png" /></span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav" id="pageDropdowns">
+                        <!-- Messages: style can be found in dropdown.less-->
+
+                        <!-- Notifications: style can be found in dropdown.less -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user"></i>
+                                <script type="text/javascript" src="js/UserName.js"></script>
+
+                            </a>
+                            <ul class="dropdown-menu">
+
+
+
+                                <li><a href="#" id="btnlogout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <!-- Tasks: style can be found in dropdown.less -->
+
+                        <!-- User Account: style can be found in dropdown.less -->
+
+
+                    </ul>
+
+
+                </div>
+
+
+            </nav>
+        </header>
+        <!-- =============================================== -->
+        <!-- Left side column. contains the sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <!--  <script type="text/javascript" src="js/mainmenu.js"></script>
+                <script type="text/javascript">
+                    $(function(){ var element = document.getElementById("mnuTMS");
+                    element.className += " active"; });
+                </script>-->
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- =============================================== -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <section class="content">
+
+                <!--<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Leave Request</h1>
+                </div>
+                
+            </div>-->
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <span class="page-heading">Task Transaction List</span>
+                                <span id="wait" style="display: none;font-size: 18px;" class="fa fa-spinner fa-spin pull-right btn"></span>
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <form id="frmTaskList" class="form-horizontal" role="form">
+
+                                    <div class="form-group form-horizontal">
+                                        <!-- <label for="Date" class="col-sm-1 col-xs-1 control-label">Date</label> -->
+                                        <div class='col-sm-6 col-xs-6'>
+                                            <label for="">From</label>
+                                            <div class='input-group date' id='datetimepicker'>
+                                                <input type='text' id="txtFromDate" class="form-control" readonly />
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!-- <label for="Date" class="col-sm-1 col-xs-2 control-label">Date</label> -->
+                                        <div class='col-sm-6 col-xs-6'>
+                                            <label for="">To</label>
+                                            <div class='input-group date' id='datetimepicker1'>
+                                                <input type='text' id="txtToDate" class="form-control" readonly />
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12 col-xs-12">
+                                            <label for="">Employee</label>
+                                            <select id="ddlEmployee" class="form-control">
+                                                <option value="0">- All -</option>
+                                            </select>
+
+                                        </div>
+
+                                        <div class="col-sm-12 col-xs-12">
+                                            <!-- <label for="">Assignment No</label> -->
+                                            <input type="text" id="txtAssignmentNo" placeholder="Assignment No" class="form-control">
+
+                                        </div>
+
+                                        <div class="col-sm-12 col-xs-12">
+                                            <button type="submit" class="btn btn-primary btn-block btn-xs" id="btnShow">Show</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <div class="list-group">
+                                    <div class="inner-addon right-addon" id="searchBar">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                        <input type="text" id="txtSearch" class="form-control" placeholder="search ..."
+                                            onkeyup="searchList(this.value)" />
+                                        <input type="hidden" id="hidSearch" />
+                                    </div>
+                                    <div id="taskList" class="list-group"></div>
+                                    <!-- <ul id="taskList" class="list-group"> </ul> -->
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-8 -->
+                <!-- /.col-lg-4 -->
+        </div>
+        <!-- /.row -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <script type="text/javascript" src="js/footer.js"></script>
+
+    <footer class="navbar-fixed-bottom">
+        <!--<div class="pull-right hidden-xs">
+                <b>Version</b> 5.1.0
+            </div>
+            <strong>Copyright &copy; <script>document.write(getYear());</script> 
+                <a href="http://EfroTech.com">EfroTech</a>.</strong> All rights reserved.-->
+        <script>                document.write(getShortCuts());</script>
+    </footer>
+    <!-- Control Sidebar -->
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+           immediately after the control sidebar -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+
+    <script src="js/polyfill.js"></script>
+
+    <script src="js/jquery.js"></script>
+
+    <script src="js/jquery.signalR-2.4.1.js"></script>
+    <script src="js/SignalRHub.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.js"></script>
+    <!-- SlimScroll -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!-- FastClick -->
+
+    <script src="js/fastclick.js"></script>
+
+    <!-- AdminLTE App -->
+    <script src="js/noti/toastr.js"></script>
+    <script src="js/app.js"></script>
+    <script type="text/javascript" src="js/mainmenu.js"></script>
+
+    <script src="js/moment-with-locales.js"></script>
+    <script src="js/bootstrap-datetimepicker.js"></script>
+    <script src="js/chosen.jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/select2/select2.js"></script>
+    <script src="js/tasktranlist.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <script> $(function () { var element = document.getElementById("mnuTask"); element.className += " active"; }); </script>
+</body>
+
+</html>

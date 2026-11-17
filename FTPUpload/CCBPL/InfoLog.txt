@@ -1,0 +1,6 @@
+LDAP://10.0.5.109 | kashan | shanskn | AddFilter * | Filter (&(objectCategory=User)((givenname=ma*))) On  : 6/9/2015 5:47:42 PM
+LDAP://10.0.5.109/CN=Maaz,OU=QC,DC=khi,DC=efrotech,DC=com | maaz | Maaz | Maaz |  On  : 6/9/2015 5:47:42 PM
+LDAP://10.0.5.109/CN=Mahboob,OU=Ristricted User,DC=khi,DC=efrotech,DC=com | mahboob | Mahboob | Mahboob |  On  : 6/9/2015 5:47:42 PM
+LDAP://10.0.5.109/CN=Marketing,OU=Marketing,DC=khi,DC=efrotech,DC=com | marketing | Marketing | Marketing |  On  : 6/9/2015 5:47:42 PM
+LDAP://10.0.5.109/CN=Marvi,OU=Marketing,DC=khi,DC=efrotech,DC=com | marvi | Marvi | Marvi |  On  : 6/9/2015 5:47:42 PM
+LDAP://10.0.5.109/CN=masroor,OU=Marketing,DC=khi,DC=efrotech,DC=com | masroor | masroor | masroor |  On  : 6/9/2015 5:47:42 PM

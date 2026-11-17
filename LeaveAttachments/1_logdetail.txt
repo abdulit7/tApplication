@@ -1,0 +1,54 @@
+, dtPrv As New DataTable, dtNew As New DataTable, strLogMode As String = "insert", _
+            strLogMessage As String = ""
+
+
+
+strLogMode = "update"
+                strLogMessage = "Master Payroll Head updated for " & ddlEmployee.SelectedItem.Text & ""
+                dtPrv = BOMaster.tblEmployeeAllowancesDeductionsHead.GetMasterPayrollHeadForLog(hidEmployeeID.Value, TranID, CompanyID)
+
+dtPrv = BOMaster.tblEmployeeAllowancesDeductionsDetail.GetMasterPayrollDetailForLog(hidEmployeeID.Value, pSalaryStructureID)
+
+
+
+
+
+
+strLogMode = "insert"
+                strLogMessage = "Master Payroll Head inserted for " & ddlEmployee.SelectedItem.Text & ""
+
+
+
+
+dtNew = BOMaster.tblEmployeeAllowancesDeductionsHead.GetMasterPayrollHeadForLog(hidEmployeeID.Value, TranID, CompanyID)
+            UpdateLogDetail(dtPrv, dtNew, strLogMode, CompanyID, strLogMessage)
+
+            dtPrv.Clear()
+            dtNew.Clear()
+
+            strLogMode = "insert"
+            strLogMessage = "Master Payroll Detail inserted for " & ddlEmployee.SelectedItem.Text & ""
+
+
+
+
+strLogMode = "update"
+                    strLogMessage = "Master Payroll Detail updated for " & ddlEmployee.SelectedItem.Text & ""
+
+                    If dtPrv.Rows.Count = 0 Then
+                        dtPrv = BOMaster.tblEmployeeAllowancesDeductionsDetail.GetMasterPayrollDetailForLog(hidEmployeeID.Value, CInt(dr("AllowanceID")), pNewEffectiveDate, dr("PayrollType").ToString, CompanyID)
+                    Else
+                        dtPrv.Merge(BOMaster.tblEmployeeAllowancesDeductionsDetail.GetMasterPayrollDetailForLog(hidEmployeeID.Value, CInt(dr("AllowanceID")), pNewEffectiveDate, dr("PayrollType").ToString, CompanyID))
+                    End If
+
+
+
+If dtNew.Rows.Count = 0 Then
+                    dtNew = BOMaster.tblEmployeeAllowancesDeductionsDetail.GetMasterPayrollDetailForLog(hidEmployeeID.Value, CInt(dr("AllowanceID")), pNewEffectiveDate, dr("PayrollType").ToString, CompanyID)
+                Else
+                    dtNew.Merge(BOMaster.tblEmployeeAllowancesDeductionsDetail.GetMasterPayrollDetailForLog(hidEmployeeID.Value, CInt(dr("AllowanceID")), pNewEffectiveDate, dr("PayrollType").ToString, CompanyID))
+                End If
+
+
+If dtPrv.Rows.Count > 0 Then strLogMode = "update"
+        UpdateLogDetail(dtPrv, dtNew, strLogMode, CompanyID, strLogMessage, , , "TranDtlID")

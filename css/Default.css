@@ -1,0 +1,22 @@
+.helpheading {
+	font-size: 16px;
+	 font-weight:bold;
+	 font-family:Arial, Tahoma, Verdana;
+	 color:White;
+	 text-indent:5px;
+}
+.helplink {
+	font-size: 12px;
+	font-weight:bold;
+	font-family:Arial, Tahoma, Verdana;
+	color:White;
+     margin-right:5px;
+}
+.Searchlink 
+{
+	font-size: 12px;
+	font-weight:bold;
+	font-family:Verdana,Arial, Tahoma;
+	color:Black ;
+     margin-right:5px;
+}

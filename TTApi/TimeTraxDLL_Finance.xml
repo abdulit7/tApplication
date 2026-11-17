@@ -1,0 +1,144 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+TimeTraxDLL_Finance
+</name>
+</assembly>
+<members>
+<member name="T:TimeTraxDLL_Finance.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:TimeTraxDLL_Finance.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:TimeTraxDLL_Finance.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:TimeTraxDLL_Finance.BO_Budget.tblBudgetDataTable.DeleteRowbyCompanyYearAndCompanyUnitID(System.Int64,System.Int32,System.String,System.String)">
+ <summary>
+ delete from budget
+ </summary>
+ <param name="pWhereCompanyID"></param>
+ <param name="pWhereBudgetYear"></param>
+ <param name="pWhereCompanyUnitID"></param>
+ <remarks>'Below method is used in RequisitionBudgetUpload.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_Finance.BO_Budget.tblBudgetDataTable.DeleteRowbyCompanyAndyear(System.Int64,System.Int32)">
+ <summary>
+ delete from budget
+ </summary>
+ <param name="pWhereCompanyID"></param>
+ <param name="pWhereBudgetYear"></param>
+ <remarks>'Below method is used in RequisitionBudgetUpload.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_Finance.BO_Budget.tblBudgetDataTable.GetDatabyCompanyAndyear_New(System.Int64,System.Int32,System.String,System.String)">
+ <summary>
+ get data from budget to download existing budget file
+ </summary>
+ <param name="pWhereCompanyID"></param>
+ <param name="pWhereBudgetYear"></param>
+ <param name="pWhereCompanyUnitID"></param>
+ <returns></returns>
+ <remarks>'Below method is used in DownloadTemplateBudget.aspx.vb</remarks>
+ 
+</member>
+<member name="M:TimeTraxDLL_Finance.BO_Budget.tblBudgetDataTable.GetDataForGrid(System.Int64,System.Int32,System.String)">
+ <summary>
+ get data list for budget view
+ </summary>
+ <param name="pWhereCompanyID"></param>
+ <param name="pWhereBudgetYear"></param>
+ <param name="pWhereCompanyUnitID"></param>
+ <returns></returns>
+ <remarks>'Below method is used in RequisitionBudgetView.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_Finance.BO_Budget.tblBudgetDataTable.GetDatalastUpdated(System.Int32,System.String,System.Int32)">
+ <summary>
+ get user detail whom last updated budget
+ </summary>
+ <param name="pCompanyID"></param>
+ <param name="CompanyUnitID"></param>
+ <param name="pWhereBudgetYear"></param>
+ <returns></returns>
+ <remarks>'Below method is used in RequisitionBudgetView.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_Finance.BO_Budget.tblBudgetDataTable.GetDataForBudgetCheckNew(System.Int32,System.Int32,System.String,System.Int32,System.Int32,System.Int32)">
+ <summary>
+ check either is budget exists for given criterai
+ </summary>
+ <param name="CompanyID"></param>
+ <param name="Year"></param>
+ <param name="CompanyUnitID"></param>
+ <param name="BUlevel1ID"></param>
+ <param name="BUlevel2ID"></param>
+ <param name="BusinessUnitID"></param>
+ <returns></returns>
+ <remarks>'Below method is used in clsBudgetCheck.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_Finance.BO_Budget.tblBudgetDataTable.GetDataForBudgetAvailable(System.Int32,System.Int32,System.String,System.Int32,System.Int32,System.Int32)">
+ <summary>
+ check either is budget exists for given criteria
+ </summary>
+ <param name="CompanyID"></param>
+ <param name="Year"></param>
+ <param name="CompanyUnitID"></param>
+ <param name="BUlevel1ID"></param>
+ <param name="BUlevel2ID"></param>
+ <param name="BusinessUnitID"></param>
+ <returns></returns>
+ <remarks>'Below method is used in clsBudgetCheck.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_Finance.BO_Budget.tblBudgetDataTable.UpdateRowConsume(System.Double,System.Int64,System.Int32,System.String,System.Int32,System.Int64,System.Int64,System.Int64,System.Int64)">
+ <summary>
+ update Consume Value for given criteria
+ </summary>
+ <param name="pConsumeValue"></param>
+ <param name="pWhereCompanyID"></param>
+ <param name="pWhereBudgetYear"></param>
+ <param name="pWhereCompanyUnitID"></param>
+ <param name="pWhereBudgetMonth"></param>
+ <param name="pWhereExpenseTypeID"></param>
+ <param name="pWhereBusinessUnitID"></param>
+ <param name="pWhereBUlevel1ID"></param>
+ <param name="pWhereBUlevel2ID"></param>
+ <remarks> 'Below method is used in clsBudgetCheck.vb,RequisitionCreate.aspx.vb,RequisitionCreateNew.aspx.vb,RequisitionEdit.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_Finance.BO_Budget.tblBudgetDataTable.UpdateRowReturnValue(System.Double,System.Int64,System.Int32,System.String,System.Int32,System.Int64,System.Int64,System.Int64,System.Int64)">
+ <summary>
+ update return value for given criteria
+ </summary>
+ <param name="pReturnValue"></param>
+ <param name="pWhereCompanyID"></param>
+ <param name="pWhereBudgetYear"></param>
+ <param name="pWhereCompanyUnitID"></param>
+ <param name="pWhereBudgetMonth"></param>
+ <param name="pWhereExpenseTypeID"></param>
+ <param name="pWhereBusinessUnitID"></param>
+ <param name="pWhereBUlevel1ID"></param>
+ <param name="pWhereBUlevel2ID"></param>
+ <remarks>'Below method is used in clsBudgetCheck.vb,RequisitionCreate.aspx.vb,RequisitionCreateNew.aspx.vb,RequisitionEdit.aspx.vb</remarks>
+</member>
+<member name="M:TimeTraxDLL_Finance.BO_Budget.tblBudgetDataTable.GetEffectedRowbyCompanyAndyear(System.Int64,System.Int32,System.String)">
+ <summary>
+ 
+ </summary>
+ <param name="pWhereCompanyID"></param>
+ <param name="pWhereBudgetYear"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:TimeTraxDLL_Finance.BO_Budget.tblBudgetDataTable.GetDataForBudgetCheckNew(System.Data.OleDb.OleDbConnection@,System.Data.OleDb.OleDbTransaction@,System.Int64,System.Int32,System.Int64,System.Int64,System.Int64,System.Int64)">
+ <summary>
+ check either is budget exists for given criterai
+ </summary>
+</member>
+</members>
+</doc>

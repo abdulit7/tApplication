@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome to TimeTrax - Mobile App</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <!-- Ionicons -->
+    <!-- Theme style -->
+    <link rel="stylesheet" href="css/AdminLTE.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="css/skin-blue.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.js"></script>
+    <![endif]-->
+    <style>
+        Html, body
+        {
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+        .grandParentContaniner
+        {
+            display: table;
+            height: 100%;
+            margin: 0 auto;
+        }
+        .parentContainer
+        {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .parentContainer #loginForm
+        {
+            background: #fff;
+            border: 0px solid #fff;
+            padding: 10px;
+            width: 300px; /*  your login form width */
+        }
+        .panel-title {
+    padding: 0 10px;
+}
+    </style>
+</head>
+
+<body class="hold-transition login-page">
+    <div class="grandParentContaniner">
+        <div class="parentContainer">
+            <!-- /.login-logo -->
+            <div class="login-box-body">
+                <div class="login-logo">
+                    <img src="img/logo-login.png" />
+                </div>
+                <div>
+                    <h3 class="panel-title">
+                        Sign In</h3>
+                </div>
+                <div>
+                    <form role="form" id="loginForm">
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Company Pin" id="txtPin" type="text" required>
+                        </div>
+
+                        <div class="form-group" id="divFullName">
+                            <input class="form-control" placeholder="Full Name" id="txtFullName" type="text" required>
+                        </div>
+
+                        <div class="form-group" id="divEmail">
+                            <input type="email" class="form-control" placeholder="Email" id="txtEmail" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" placeholder="User Name" id="txtUserID" type="text" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Password" id="txtPassword" type="password" value=""
+                                required>
+                        </div>
+                        <!--<div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                    </label>
+                                </div>-->
+                        <!-- Change this to a button or input when using this as a form -->
+                        <div class="form-group">
+                            <input class="form-control" placeholder="TimeTrax URL" id="txtServicePath" type="text"
+                                value="">
+                        </div>
+                        <div id="diverror">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block" id="btnLogin">
+                            Login
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <!-- /.login-box-body -->
+        </div>
+    </div>
+    <!-- jQuery -->
+
+    <script src="js/polyfill.js"></script>
+
+    <script src="js/jquery.js"></script>
+
+    <!-- <script src="js/jquery.signalR-2.4.1.js"></script>
+    <script src="js/SignalRHub.js"></script> -->
+
+    <!-- Bootstrap Core JavaScript -->
+
+    <script src="js/bootstrap.js"></script>
+
+    <script src="js/Jscookie.js"></script>
+
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script src="js/noti/toastr.js"></script>
+
+    <script type="text/javascript" src="js/login.js"></script>
+
+</body>
+
+</html>

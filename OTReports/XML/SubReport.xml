@@ -1,0 +1,140 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <ObjectMst>
+    <ObjectID>10549</ObjectID>
+    <ObjectTitle>efinance</ObjectTitle>
+    <ObjectName />
+    <ParentObjectID>0</ParentObjectID>
+    <AssemblyName />
+    <RecordType>D</RecordType>
+    <ObjectType>0</ObjectType>
+    <IsActive>true</IsActive>
+    <ObjectNature>Dashboard</ObjectNature>
+    <Description />
+    <IntimationObject />
+    <IntAssemblyName />
+    <IntimationObjectID>140</IntimationObjectID>
+    <FormType xml:space="preserve"> </FormType>
+    <OrderNo>1</OrderNo>
+    <SubOrderNo>0</SubOrderNo>
+    <IsAdminMenu>false</IsAdminMenu>
+    <IsReport>false</IsReport>
+    <UniqueID />
+    <ReportLayout />
+    <PageSize>0</PageSize>
+    <DBid>0</DBid>
+    <ROD>0</ROD>
+    <IsAuto>false</IsAuto>
+    <DataSourceType>Views And Tables</DataSourceType>
+    <CompanyID>19</CompanyID>
+    <TopParentID>10549</TopParentID>
+  </ObjectMst>
+  <SubReport>
+    <ObjectID>10549</ObjectID>
+    <RowNo>1</RowNo>
+    <ColumnNo>20</ColumnNo>
+    <ReportObjectID>10254</ReportObjectID>
+    <UserID>140</UserID>
+    <RefereshTime>0</RefereshTime>
+    <HeaderColor>#228B22</HeaderColor>
+    <ParentObjectID>10121</ParentObjectID>
+    <ObjectTitle>Total Assets</ObjectTitle>
+    <ChartControlType>Tile</ChartControlType>
+  </SubReport>
+  <SubReport>
+    <ObjectID>10549</ObjectID>
+    <RowNo>2</RowNo>
+    <ColumnNo>20</ColumnNo>
+    <ReportObjectID>10255</ReportObjectID>
+    <UserID>140</UserID>
+    <RefereshTime>0</RefereshTime>
+    <HeaderColor>#191970</HeaderColor>
+    <ParentObjectID>10121</ParentObjectID>
+    <ObjectTitle>Total Liabilities</ObjectTitle>
+    <ChartControlType>Tile</ChartControlType>
+  </SubReport>
+  <SubReport>
+    <ObjectID>10549</ObjectID>
+    <RowNo>3</RowNo>
+    <ColumnNo>20</ColumnNo>
+    <ReportObjectID>10256</ReportObjectID>
+    <UserID>140</UserID>
+    <RefereshTime>0</RefereshTime>
+    <HeaderColor>#808000</HeaderColor>
+    <ParentObjectID>10121</ParentObjectID>
+    <ObjectTitle>Total Equity</ObjectTitle>
+    <ChartControlType>Tile</ChartControlType>
+  </SubReport>
+  <SubReport>
+    <ObjectID>10549</ObjectID>
+    <RowNo>4</RowNo>
+    <ColumnNo>20</ColumnNo>
+    <ReportObjectID>10257</ReportObjectID>
+    <UserID>140</UserID>
+    <RefereshTime>0</RefereshTime>
+    <HeaderColor>#4682B4</HeaderColor>
+    <ParentObjectID>10121</ParentObjectID>
+    <ObjectTitle>Total Expenses</ObjectTitle>
+    <ChartControlType>Tile</ChartControlType>
+  </SubReport>
+  <SubReport>
+    <ObjectID>10549</ObjectID>
+    <RowNo>5</RowNo>
+    <ColumnNo>20</ColumnNo>
+    <ReportObjectID>10258</ReportObjectID>
+    <UserID>140</UserID>
+    <RefereshTime>0</RefereshTime>
+    <HeaderColor>#FF00FF</HeaderColor>
+    <ParentObjectID>10121</ParentObjectID>
+    <ObjectTitle>Total Revenue</ObjectTitle>
+    <ChartControlType>Tile</ChartControlType>
+  </SubReport>
+  <SubReport>
+    <ObjectID>10549</ObjectID>
+    <RowNo>6</RowNo>
+    <ColumnNo>50</ColumnNo>
+    <ReportObjectID>10259</ReportObjectID>
+    <UserID>140</UserID>
+    <RefereshTime>0</RefereshTime>
+    <HeaderColor>#ff4500</HeaderColor>
+    <ParentObjectID>10121</ParentObjectID>
+    <ObjectTitle>Financial Chart</ObjectTitle>
+    <ChartControlType>Chart</ChartControlType>
+  </SubReport>
+  <SubReport>
+    <ObjectID>10549</ObjectID>
+    <RowNo>6</RowNo>
+    <ColumnNo>50</ColumnNo>
+    <ReportObjectID>10450</ReportObjectID>
+    <UserID>140</UserID>
+    <RefereshTime>0</RefereshTime>
+    <HeaderColor>#191970</HeaderColor>
+    <ParentObjectID>10140</ParentObjectID>
+    <ObjectTitle>Month Wise Expense - Revenue (Graph)</ObjectTitle>
+    <ChartControlType>Chart</ChartControlType>
+  </SubReport>
+  <SubReport>
+    <ObjectID>10549</ObjectID>
+    <RowNo>6</RowNo>
+    <ColumnNo>50</ColumnNo>
+    <ReportObjectID>10253</ReportObjectID>
+    <UserID>140</UserID>
+    <RefereshTime>0</RefereshTime>
+    <HeaderColor>#00BFFF</HeaderColor>
+    <ParentObjectID>10121</ParentObjectID>
+    <ObjectTitle>Bank Positions</ObjectTitle>
+    <ChartControlType>Chart</ChartControlType>
+  </SubReport>
+  <SubReport>
+    <ObjectID>10549</ObjectID>
+    <RowNo>6</RowNo>
+    <ColumnNo>50</ColumnNo>
+    <ReportObjectID>10260</ReportObjectID>
+    <UserID>140</UserID>
+    <RefereshTime>0</RefereshTime>
+    <HeaderColor>#4682B4</HeaderColor>
+    <ParentObjectID>10121</ParentObjectID>
+    <ObjectTitle>Cash Position</ObjectTitle>
+    <ChartControlType>Chart</ChartControlType>
+  </SubReport>
+</NewDataSet>

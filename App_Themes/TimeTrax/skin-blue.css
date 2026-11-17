@@ -1,0 +1,2181 @@
+/*
+ * Skin: Blue
+ * ----------
+ */
+ body {
+ background: url(images/page-background.jpg); 
+}
+.content-wrapper, .right-side {    
+    background-color: #eee;    
+}
+
+ .login-page, .register-page 
+	{
+    background: #f5821f;
+	}
+
+
+
+.skin-blue .main-header .navbar .nav > li > a
+	{
+		color: #444;
+	}
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background-color: #eee;
+    border-color: #fff;
+}
+.skin-blue .main-header .navbar .nav > li > a:hover,
+.skin-blue .main-header .navbar .nav > li > a:active,
+.skin-blue .main-header .navbar .nav > li > a:focus,
+.skin-blue .main-header .navbar .nav .open > a,
+.skin-blue .main-header .navbar .nav .open > a:hover,
+.skin-blue .main-header .navbar .nav .open > a:focus,
+.skin-blue .main-header .navbar .nav > .active > a
+	{
+		background: rgba(0, 0, 0, 0.1);
+		color: #f6f6f6;
+	}
+
+.skin-blue .main-header .navbar .sidebar-toggle
+	{
+		color: #ffffff;
+	}
+
+.skin-blue .main-header .navbar .sidebar-toggle:hover
+	{
+			color: #f6f6f6;
+			background: rgba(0, 0, 0, 0.1);
+	}
+
+.skin-blue .main-header .navbar .sidebar-toggle
+	{
+		color: #fff;
+	}
+
+.skin-blue .main-header .navbar .sidebar-toggle:hover
+	{
+			background-color: #f5821f;
+	}
+
+.skin-blue .main-header .logo
+	{
+	background-color: #f5821f;
+	color: #ffffff;
+	border-bottom: 0 solid transparent;
+	height: 44px;     
+    line-height: 44px;
+	}
+
+.skin-blue .main-header .logo:hover
+	{
+		background-color: #e0771d;
+	}
+
+.skin-blue .main-header li.user-header
+	{
+	background-color: #e0771d;
+	}
+
+.skin-blue .content-header
+	{
+	background: transparent;
+	}
+
+.skin-blue .wrapper,
+.skin-blue .main-sidebar,
+.skin-blue .left-side
+	{
+	background-color: #222d32;
+	}
+
+.skin-blue .user-panel > .info,
+.skin-blue .user-panel > .info > a
+	{
+	color: #fff;
+	}
+
+.skin-blue .sidebar-menu > li.header
+	{
+	color: #4b646f;
+	background: #1a2226;
+	}
+
+.skin-blue .sidebar-menu > li > a
+	{
+	border-left: 3px solid transparent;
+	}
+
+.skin-blue .sidebar-menu > li:hover > a,
+.skin-blue .sidebar-menu > li.active > a
+	{
+	color: #ffffff;
+	background: #1e282c;
+	border-left-color: #e0771d;
+	}
+
+.skin-blue .sidebar-menu > li > .treeview-menu
+	{
+	margin: 0 1px;
+	background: #2c3b41;
+	}
+
+.skin-blue .sidebar a
+	{
+	color: #b8c7ce;
+	}
+
+.skin-blue .sidebar a:hover
+	{
+		text-decoration: none;
+	}
+
+.skin-blue .treeview-menu > li > a
+	{
+	color: #f6bb88;
+	white-space: normal;
+	}
+
+.skin-blue .treeview-menu > li.active > a,
+.skin-blue .treeview-menu > li > a:hover
+	{
+		color: #ffffff;
+	}
+
+.skin-blue .sidebar-form
+{
+	border-radius: 3px;
+	border: 1px solid #374850;
+	margin: 10px 10px;
+}
+
+.skin-blue .sidebar-form input[type="text"],
+.skin-blue .sidebar-form .btn
+	{
+		box-shadow: none;
+		background-color: #374850;
+		border: 1px solid transparent;
+		height: 35px;
+		-webkit-transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
+	}
+
+.skin-blue .sidebar-form input[type="text"]
+	{
+		color: #666;
+		border-top-left-radius: 2px;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 2px;
+	}
+
+.skin-blue .sidebar-form input[type="text"]:focus,
+.skin-blue .sidebar-form input[type="text"]:focus + .input-group-btn .btn
+	{
+			background-color: #fff;
+			color: #666;
+	}
+
+.skin-blue .sidebar-form input[type="text"]:focus + .input-group-btn .btn
+	{
+		border-left-color: #fff;
+	}
+
+.skin-blue .sidebar-form .btn
+	{
+		color: #999;
+		border-top-left-radius: 0;
+		border-top-right-radius: 2px;
+		border-bottom-right-radius: 2px;
+		border-bottom-left-radius: 0;
+	}
+
+.skin-blue.layout-top-nav .main-header > .logo
+	{
+	background-color: #e0771d;
+	color: #ffffff;
+	border-bottom: 0 solid transparent;
+	}
+
+	.skin-blue.layout-top-nav .main-header > .logo:hover
+	{
+		background-color: #3b8ab8;
+	}
+
+.iframeWrapper
+	{
+	position: relative;
+	padding-bottom: 90%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+	}
+
+.iframeWrapper iframe
+	{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border: 1px solid #eee;
+	}
+
+.all { font-weight: normal; margin: 5px 2px 0 2px;}
+
+.btn-primary
+	{
+	background-color: #e0771d;
+	font-size: 11px;
+	}
+
+.btn.btn-flat
+	{
+	padding: 3px 8px;
+	}
+
+.nav > li > a
+	{
+	position: relative;
+	display: block;
+	padding: 6px 6px;
+	font-size: 11px;
+	}
+/*tab scroller*/
+
+.btnEdit
+	{
+	MARGIN: 0px;
+	padding: 4px;
+	border: 0;
+	HEIGHT: 16px;
+	width: 16px;
+	background: url(images/Edit.png) repeat-x top;
+	}
+
+.btnDelete
+	{
+	MARGIN: 0px;
+	padding: 4px;
+	border: 0;
+	HEIGHT: 16px;
+	width: 16px;
+	background: url(images/Delete.png) repeat-x top;
+	}
+
+.form-control.floatleft
+	{
+	float: left;
+	}
+
+.floatleft
+	{
+	float: left;
+	}
+/* DevXpress css */
+.dxpgControl, .dxpgCustForm
+	{
+	font: 12px 'open_sansregular',Helvetica,Arial,sans-serif;
+	}
+
+.dxgvControl, .dxgvDisabled
+	{
+	border: Solid 1px #9F9F9F;
+	font: 11px 'open_sansregular',Helvetica,Arial,sans-serif;
+	cursor: default;
+	}
+
+.dxgvHeader, .dxgvHeader table
+	{
+	font: 11px 'open_sansregular',Helvetica,Arial,sans-serif;
+	}
+
+.dxgvTable
+	{
+	font: 11px 'open_sansregular',Helvetica,Arial,sans-serif;
+	}
+
+.dxpSummary
+	{
+	font: 11px 'open_sansregular',Helvetica,Arial,sans-serif;
+	}
+
+.dxpPageNumber
+	{
+	font: 11px 'open_sansregular',Helvetica,Arial,sans-serif;
+	}
+/* form controls css */
+.form-control
+	{
+	height: 24px;
+	padding: 2px;
+	font-size: 11px;
+	line-height: 11px;
+	float:left;
+	margin:2px 0 4px 0;
+	width: auto;
+	}
+
+/* Calender css */
+
+.ajax__calendar_title {
+
+    font-family: 'open_sansregular',Helvetica,Arial,sans-serif;
+	font-weight: normal;
+	}
+
+
+
+.ajax__calendar_active .ajax__calendar_day, .ajax__calendar_day:hover
+	{
+	background-color: #444 !important;
+	border-color: #f5821f !important;
+	color: #fff !important;
+	}
+
+.ajax__calendar_today .ajax__calendar_day
+	{
+	font-family: 'open_sansregular',Helvetica,Arial,sans-serif;
+	background-color: #fff !important;
+	border-color: #f5821f !important;
+	color: #f5821f !important;
+	}
+
+.ajax__calendar_footer
+	{
+	background: none;
+	color: #000;
+	margin-bottom: 5px;
+	font-family: 'open_sansregular',Helvetica,Arial,sans-serif;
+	}
+
+/* MyCalendar css */
+.MyCalendar .ajax__calendar_container
+        {
+	font-family: 'open_sansregular',Helvetica,Arial,sans-serif;
+	width: 180px !important;
+	z-index: 99999;
+    background-color: #ffffff;
+    border: 1px solid #444;
+    color: #000000;
+        }
+.MyCalendar .ajax__calendar_body
+	{
+	height: 140px;
+	width: 175px;
+	font-family: 'open_sansregular',Helvetica,Arial,sans-serif;
+	}
+
+.MyCalendar .ajax__calendar_title {
+
+    font-family: 'open_sansregular',Helvetica,Arial,sans-serif;
+	font-weight: normal;
+	}
+.MyCalendar .ajax__calendar_container td
+        {
+            border:0;
+            padding: 0px;
+			margin:0;
+        }
+.MyCalendar .ajax__calendar_dayname {
+    border-bottom: 1px solid #444;
+}
+.MyCalendar .ajax__calendar_active .ajax__calendar_month {
+    background-color: #fff;
+     border: 1px solid #444;
+    color: #444;
+}
+.MyCalendar .ajax__calendar_active .ajax__calendar_year {
+    background-color: #fff;
+    border: 1px solid #444;
+    color: #444;
+}
+.MyCalendar .ajax__calendar_month:hover {
+    background-color: #e2e9da;
+     border: 0px solid #444;
+    color: #444;
+}
+.MyCalendar .ajax__calendar_year:hover {
+    background-color: #e2e9da;
+    border: 0px solid #f5821f;
+    color: #444;
+}
+
+.MyCalendar .ajax__calendar_other .ajax__calendar_day, .MyCalendar .ajax__calendar_other .ajax__calendar_year
+        {
+    background-color: #fff;
+    border-color: #444;
+    color: #444;
+}
+.MyCalendar div.ajax__calendar_dayname, div.ajax__calendar_day
+	{
+	height: 18px;
+	width: 20px;
+	line-height: 20px;
+	text-align: center;
+	font-family: 'open_sansregular',Helvetica,Arial,sans-serif;
+	font-weight: normal;
+	
+	}
+
+
+
+.MyCalendar .ajax__calendar_today .ajax__calendar_day
+	{
+	font-family: 'open_sansregular',Helvetica,Arial,sans-serif;
+	background-color: #fff !important;
+	border: 1px solid #444  !important;
+	color: #444 !important;
+	}
+
+.MyCalendar .ajax__calendar_footer
+	{
+	border-top: 1px solid #f5f5f5;
+	background: none;
+	color: #000;
+	margin-bottom: 5px;
+	font-family: 'open_sansregular',Helvetica,Arial,sans-serif;
+	}
+.div-right
+{ background-color: #fff !important;
+  background-image: url(images/LoginBG.png); background-size:100% auto; background-position: left center; background-repeat: no-repeat;
+}
+.Vert
+	{
+	-ms-writing-mode: tb-lr;
+	-webkit-writing-mode: vertical-lr;
+	-moz-writing-mode: vertical-lr;	
+	vertical-align: bottom;
+	}
+
+.dxpgRowArea
+	{
+	vertical-align: bottom;
+	}
+
+.col-sm-9 
+	{
+		overflow-x:auto;
+		margin:0;
+		padding:0;
+	}
+
+.col-sm-12 
+	{
+		overflow-x:auto;
+	}
+
+#full-page-container1
+	{
+  overflow-x:auto;
+  padding-top:26px;
+	}
+
+legend {
+    color: #f5821f;
+    margin-bottom: 6px;
+    font-size: 18px;
+	}
+
+
+#ctl00_ContentPlaceHolder1_txtStartDate
+	{
+	float:left;
+	margin-right:4px;
+	}
+	
+#ctl00_ContentPlaceHolder1_txtEndDate
+	{
+	float:left;
+	margin-right:4px;
+	}
+#ctl00_ContentPlaceHolder1_txtDeputyFromDate
+	{
+	float:left;
+	margin-right:4px;
+	}
+
+#ctl00_ContentPlaceHolder1_txtDeputyToDate
+	{
+	float:left;
+	margin-right:4px;
+	}
+
+input span#ctl00_ContentPlaceHolder1_rfv_title
+	{
+	float:left;
+	margin-left:4px;
+	}
+	
+#acc {width:96%; list-style:none; color:#033; margin:0;}
+#acc h3 {width:96%; border:1px solid #f5821f; padding:6px 6px 8px; font-weight:bold; margin-top:5px; margin-bottom:0; cursor:pointer; background:#eee;}
+#acc h3:hover {background:#f5821f; color:#fff;}
+#acc .par-selected {background:#f5821f; color:#fff;}
+
+
+#acc .acc-section {overflow:hidden; background:#fff}
+#acc .acc-content {width:96%; padding:15px; border:1px solid #f5821f; border-top:none; background:#fff}
+
+#acc .acc-section1 {overflow:hidden; background:#fff}
+#acc .acc-content1 {width:98%; padding:15px; border:1px solid #f5821f; border-top:none; background:#fff}
+
+#acc .acc-section2 {overflow:hidden; background:#fff}
+#acc .acc-content2 {width:98%; padding:15px; border:1px solid #f5821f; border-top:none; background:#fff}
+
+#acc .acc-section3 {overflow:hidden; background:#fff}
+#acc .acc-content3 {width:98%; padding:15px; border:1px solid #f5821f; border-top:none; background:#fff}
+
+#nested {width:98%; list-style:none; color:#033; margin-bottom:15px}
+#nested h3 {width:98%; border:1px solid #f5821f; padding:6px 6px 8px; font-weight:bold; margin-top:5px; cursor:pointer; background:url(images/x-toolbar-bg.jpg)}
+#nested h3:hover {background:#f5821f; color:#fff;}
+#nested .acc-section {overflow:hidden; background:#fff}
+#nested .acc-content {width:98%; padding:15px; border:1px solid #f5821f; border-top:none; background:#fff}
+#nested .acc-selected {background:#f5821f; color:#fff;}
+
+#nested1 {width:98%; list-style:none; color:#033; margin-bottom:15px}
+#nested1 h3 {width:98%; border:1px solid #f5821f; padding:6px 6px 8px; font-weight:bold; margin-top:5px; cursor:pointer; background:url(images/x-toolbar-bg.jpg)}
+#nested1 h3:hover {background:#f5821f; color:#fff;}
+#nested1 .acc-section1 {overflow:hidden; background:#fff}
+#nested1 .acc-content1 {width:98%; padding:15px 10px; border:1px solid #f5821f; border-top:none; background:#fff}
+#nested1 .acc-selected1 {background:#f5821f; color:#fff;}
+
+#nested2 {width:98%; list-style:none; color:#033; margin-bottom:15px}
+#nested2 h3 {width:98%; border:1px solid #f5821f; padding:6px 6px 8px; font-weight:bold; margin-top:5px; cursor:pointer; background:url(images/x-toolbar-bg.jpg)}
+#nested2 h3:hover {background:#f5821f; color:#fff;}
+#nested2 .acc-section2 {overflow:hidden; background:#fff}
+#nested2 .acc-content2 {width:98%; padding:15px 10px; border:1px solid #f5821f; border-top:none; background:#fff}
+#nested2 .acc-selected2 {background:#f5821f; color:#fff;}
+
+#nested3 {width:98%; list-style:none; color:#033; margin-bottom:15px}
+#nested3 h3 {width:98%; border:1px solid #f5821f; padding:6px 6px 8px; font-weight:bold; margin-top:5px; cursor:pointer; background:url(images/x-toolbar-bg.jpg)}
+#nested3 h3:hover {background:#f5821f; color:#fff;}
+#nested3 .acc-section3 {overflow:hidden; background:#fff}
+#nested3 .acc-content3 {width:98%; padding:15px 10px; border:1px solid #f5821f; border-top:none; background:#fff}
+#nested3 .acc-selected3 {background:#f5821f; color:#fff;}
+
+.dxbButton div.dxb {
+    padding: 0px;
+	border: 0px;
+	}
+
+/*end gridview */
+.dxpPageNumber {
+    color: #f5821f;   
+	}
+
+.tabs-left, .tabs-right {
+  border-bottom: none;
+  padding-top: 2px;
+	}
+
+.tabs-left {
+  border-right: 1px solid #ddd;
+	}
+
+.tabs-right {
+  border-left: 1px solid #ddd;
+	}
+
+.tabs-left>li, .tabs-right>li {
+  float: none;
+  margin-bottom: 2px;
+	}
+	
+.tabs-left>li {
+  margin-right: -1px;
+	}
+	
+.tabs-right>li {
+  margin-left: -1px;
+	}
+
+.tabs-left>li.active>a,
+.tabs-left>li.active>a:hover,
+.tabs-left>li.active>a:focus {
+  border-bottom-color: #ddd;
+  border-right-color: transparent;
+	}
+
+.tabs-right>li.active>a,
+.tabs-right>li.active>a:hover,
+.tabs-right>li.active>a:focus {
+  border-bottom: 1px solid #ddd;
+  border-left-color: transparent;
+	}
+
+.tabs-left>li>a {
+  border-radius: 4px 0 0 4px;
+  margin-right: 0;
+  display:block;
+  font-size: 13px;
+	}
+.tabs-right>li>a {
+  border-radius: 0 4px 4px 0;
+  margin-right: 0;
+	}
+	
+.vertical-text {
+  margin-top:50px;
+  border: none;
+  position: relative;
+}
+.vertical-text>li {
+  height: 20px;
+  width: 120px;
+  margin-bottom: 100px;
+}
+.vertical-text>li>a {
+  border-bottom: 1px solid #ddd;
+  border-right-color: transparent;
+  text-align: center;
+  border-radius: 4px 4px 0px 0px;
+}
+.vertical-text>li.active>a,
+.vertical-text>li.active>a:hover,
+.vertical-text>li.active>a:focus {
+  border-bottom-color: transparent;
+  border-right-color: #ddd;
+  border-left-color: #ddd;
+}
+.vertical-text.tabs-left {
+  left: -50px;
+}
+.vertical-text.tabs-right {
+  right: -50px;
+}
+.vertical-text.tabs-right>li {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.vertical-text.tabs-left>li {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.navbar-nav {
+    margin: 6px 0 0 0;    
+}
+.rightref .delfavbutton
+	{
+            background: #fff url(images/delete.png) no-repeat 5px 50%;
+            padding: 3px 5px 3px 25px;
+            text-align: left;
+            border: 0px solid #f5821f;
+            font-size: 11px;            
+            color: #8D8D8D;
+            width: 118px;
+	}
+.rightref .delfavbutton:hover
+   {
+            background: #f5821f url(images/delete.png) no-repeat 5px 50%;
+            border: 0px solid #fff;
+            color: #fff;
+            width: 118px;
+	}
+
+span.pnlLableColumn {
+    float: left;
+    margin: 6px 2px 0 0;
+    width: 106px;
+	}
+
+span.labelAutoWidth {
+    float: left;
+    margin: 6px 2px 0 2px;    
+}
+
+#ctl00_ContentPlaceHolder1_imgTransactionDate {
+	margin-top: 6px;
+    margin-left: 3px;
+	}
+
+#ctl00_ContentPlaceHolder1_imgStartDate {
+	margin-top: 6px;
+    margin-left: 3px;
+	}
+
+#ctl00_ContentPlaceHolder1_imgEndDate {
+	margin-top: 6px;
+    margin-left: 3px;
+	}
+
+#ctl00_ContentPlaceHolder1_ucRequisitionCriteria1_imgFromTransactionDate {
+	margin-top: 6px;
+    margin-left: 4px;
+    float: left;
+	}
+#ctl00_ContentPlaceHolder1_ucRequisitionCriteria1_imgToTransactionDate {
+	margin-top: 6px;
+    margin-left: 4px;
+    float: left;
+	}
+
+#ctl00_ContentPlaceHolder1_imgBirthDate {
+	margin-top: 6px;
+    margin-left: 3px;
+	}
+
+#ctl00_ContentPlaceHolder1_imgMfgDate {
+	margin-top: 6px;
+    margin-left: 3px;
+	}
+
+#ctl00_ContentPlaceHolder1_imgExpDate {
+	margin-top: 6px;
+    margin-left: 3px;
+	}
+
+#ctl00_ContentPlaceHolder1_imgFollowupDate {
+	margin-top: 6px;
+    margin-left: 3px;
+	}
+
+#ctl00_ContentPlaceHolder1_imgActivityDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgDeputyFromDate {
+	margin-top: 6px;
+    margin-left: 2px;
+}
+
+#ctl00_ContentPlaceHolder1_imgDeputyToDate {
+	margin-top: 6px;
+    margin-left: 2px;
+	}
+
+#ctl00_ContentPlaceHolder1_imgDCDate {
+	margin-top: 6px;
+    margin-left: 3px;
+	}
+
+#ctl00_ContentPlaceHolder1_imgDcDate {
+	margin-top: 6px;
+    margin-left: 3px;
+	}
+
+#ctl00_ContentPlaceHolder1_imgDocDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgFromDate {
+	margin-top: 6px;
+    margin-left: 2px;
+}
+
+#ctl00_ContentPlaceHolder1_imgToDate {
+	margin-top: 6px;
+    margin-left: 2px;
+}
+
+#ctl00_ContentPlaceHolder1_imgCreationDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgModificationDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgTrDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgPJPDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgBookingDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgDepartmentDemandTransactionDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgDemandTransactionDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgFromChequeDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgToChequeDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgClearanceDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgChequeStatusDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgRefDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgInvoiceDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgClearDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgLCTranDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgChallanDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgTaxExmpDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgTargetFromDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgTargetToDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgUploadDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgVisitDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgLastLoginDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgLastPasswordDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgDisableDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgReferenceDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgProspectCreationDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgCustomerCreationDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgDateToBeCustomer {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgActivityDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgSalesLeadTransactionDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgProcessDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgActivationDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgDespatchTransactionDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgJoiningDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgBillDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgLCDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgShipDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgBillDueDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgDatePlaceInService {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgEffectiveFrom {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgEffectiveTo {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgTransactionDate0 {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgChequeDepositDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgInvoiceRecDateByCustomer {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgTranDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgPOTransactionDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgCourierDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgIssueTransactionDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgProjectDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgQuotationTranDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgPoDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgStdDeliveryDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgReqDeliveryDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgInspectionDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgDepartmentIssueTransactionDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgLCExpiryDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgETD {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgETA {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgBLDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgFTACertificateDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgChequeReturnToCustomerDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgChequeClearanceDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgCPRDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgExcelDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgPSDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgExemptionFromDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgExemptionToDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgQuotationTranDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgItemDispatchDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgRecoveryDueDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+ 
+
+#ctl00_ContentPlaceHolder1_imgDeliveryDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgTransactionOn {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgTaxInvoiceDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgReceivingTransactionDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgReceivingReturnTransactionDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgbtnFromDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgbtnToDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgExpenseDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgApprovalDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgRequiredDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgPRTransactionDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgRFQTransactionDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgResultDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgReTestDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgClosingStockDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgTargetFromDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgTargetToDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgFollowUpdate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgBiltyDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgTransferOutDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgROEDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgFrom {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+span.pnlLableColumnUC {
+    float: left;
+    width: auto;
+    margin: 6px 4px 0px 4px;
+}
+
+span.pnlLableColumnHead {
+    float: left;
+    width: 102px;
+    color: #f5821f;
+    margin: 6px 4px 0px 0px;
+}
+
+.form-control-uc
+{
+	height: 24px;
+	padding: 2px;
+	font-size: 11px;
+	line-height: 11px;
+	float:left;
+	margin:2px 0 4px 0;
+	width: 68px;
+	background-color: #eee;
+    opacity: 1;
+    border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition:border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s
+}
+
+.form-control-combo
+{
+	height: 24px;
+	padding: 2px;
+	font-size: 11px;
+	line-height: 11px;
+	float:left;
+	margin:2px 0 4px 0;
+	width: 233px;
+	background-color: #fff;
+    opacity: 1;
+    border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition:border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s
+}
+
+.form-control-combo,.form-control-uc {
+    border-radius:0px !important;
+    box-shadow:inherit;
+    outline:none;
+}
+
+
+.navbar-form {
+    
+    border-top: 0px solid transparent;
+    border-bottom: 0px solid transparent;
+    -webkit-box-shadow: inset 0 0px 0 rgba(255,255,255,.1), 0 0px 0 rgba(255,255,255,.1);
+    box-shadow: inset 0 0px 0 rgba(255,255,255,.1), 0 0px 0 rgba(255,255,255,.1);
+}
+
+
+.reftextop 
+{
+	padding: 5px 0;
+	}
+	
+.btnAlert {
+
+      MARGIN: 0px;
+      padding:4px;
+      border:0;
+      HEIGHT: 16px;
+      width: 16px;
+      background: url(images/Alert.gif) repeat-x top;      
+      /*background-image: url(./images/btn.jpg);*/
+      cursor:default;
+
+	}
+
+.dxeBase .none
+	{
+	padding: 0;
+	background: #fff;
+	}
+
+.table table > tbody > tr > td > span.none 
+	{
+    z-index: 3;
+    padding: 0;
+    color: #fff;
+    cursor: default;
+    background-color: Transparent;
+	}
+
+.content 
+	{
+	padding: 5px 10px;
+	}
+
+.dropdown-menu>li>a {    
+    padding: 3px 10px;    
+	}
+
+.navbar .navbar-collapse.in  
+	{
+	 overflow-x: hidden !important;
+	 max-height: 300px !important;
+     overflow-y: scroll !important;
+    /*max-height: 300px !important; overflow-y: scroll !important; overflow-x: hidden !important; */
+	}
+	
+.AlignCheckBox
+	{
+    text-align: center;
+	}
+.navbar-custom-menu>.navbar-nav>li>.dropdown-menu 
+	{
+    z-index:99999;
+	}
+
+.EmptyDataCSS
+   {
+            color:Gray;
+            text-align:center;
+            width:150px ;
+            
+   } 
+
+.txtmaincolor
+	{
+    color:#e0771d;
+	} 
+            
+/*TT Calender*/
+
+#ctl00_ContentPlaceHolder1_imgAppointmentDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgContractStartDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgContractEndDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgResignDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgConfirmationDueDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgNextAppraisalDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgLeavingDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgCNICExpiry {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgConfirmationDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgDate1 {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgDateOfBirth {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgDateOfcompletion {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgDateOfService {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imbInDate {
+	margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imbDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imbDateIn {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imbDateOut {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imbDateOfMarriage {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imbDateOfBirth {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgEffectiveDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgEffectiveDateWPS {
+    margin-top: 5px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_ibmEffictiveDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgDOJFrom {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgDOJTo {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgDOBDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgRelationDOB {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imbOverTimeDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imbOverTimeOutDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_CETranDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgAsOnDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imbFrShowDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imbToShowDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgExtendUpToDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgPickFromDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgPickToDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgPickFromDate1  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgPickToDate1  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgActionFromDate  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgExpFrom  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgExpTo  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgTo  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgActionToDate  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imbProcessDate  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imbLeaveDate  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgBonusProcessDate  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgBonusStartDate  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgBonusEndDate  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgRegistrationStartDate  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgLastRegistrationDate  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgInstallmentStartingDate  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imbStartDate  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imbEndDate  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_ImgContractStartDate  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgContractEndDate  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgDisbursementDate  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgOffDay  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgWorkDate  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgPostTrainingDate  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgIncrementDate  {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgClaimDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgRequest {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgBillDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_ImageButton1 {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_ibmOutDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgCheckDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgDisbursementDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imbReportDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgCheckInDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgTravelDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgIteneryDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgLastWorkingDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgReJoiningDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgValidDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgLoanDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgLoanReturnDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgDueDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgAppointmentDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgConfirmationDueDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgLeavingDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgLastAppraisalDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgResignDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgRetirementDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgNextAppraisalDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgContractDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgExtensionDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgPFStartDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgIncidentDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgExpiryDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_ImgCExpiryDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_ImgPExpiryDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_ImgGExpiryDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgExpiry {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_ImgPassportIssueDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgRelationMarriageDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgIssueDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgAllowDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgAssetsDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imbHolidayDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgEmployeeCreationDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgEmployeeModificationDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgOfferApprovalDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgExpectedJoiningDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgTargetDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgLastIncrementDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgResourceReqDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgGratuityStartDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgNoticePeriodStartDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgModifyDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgPostedDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+#ctl00_ContentPlaceHolder1_imgApplyBeforeDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imbEffDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgTransactioinDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+#ctl00_ContentPlaceHolder1_imgSDDate {
+    margin-top: 6px;
+    margin-left: 2px;
+}
+#ctl00_ContentPlaceHolder1_ImbEDDate {
+    margin-top: 6px;
+    margin-left: 2px;
+}
+
+#ctl00_ContentPlaceHolder1_imgFromDateProcess {
+	margin-top: 6px;
+    margin-left: 2px;
+}
+
+#ctl00_ContentPlaceHolder1_imgToDateProcess {
+	margin-top: 6px;
+    margin-left: 2px;
+}
+
+#ctl00_ContentPlaceHolder1_imgEncashmentDate {
+	margin-top: 6px;
+    margin-left: 2px;
+}
+
+.cssimgDateCal {
+	margin-top: 6px;
+    margin-left: 2px;
+    margin-right: 2px;    
+
+}
+
+
+.main-footer {
+    padding: 6px;
+}
+
+/*Career*/
+#headerb2b {
+    color: #333;
+    width: 100%;
+    float: left;
+    height: 100px;
+    background-image: url(images/header-bg.jpg);
+    background-repeat: repeat-x;
+}
+#headerb2b .leftlogoCustom {
+    float: left;
+    margin: 0 0 0 10px;
+    height: 100px;
+    width: 200px;
+}
+#headerb2b .centerlogo {
+    float: left;
+    margin: 25px 0 0 20px;
+    height: 75px;
+    width: 40%;
+    text-align: center;
+}
+#headerb2b .rightlogo2014 {
+    float: right;
+    margin: 0 0 0 0;
+    height: 100px;
+    width: 33%;
+}
+
+
+.td_heading {
+    height: 25px;
+    padding: 5px 0px 0px 6px;
+    background: #f5f5f5;    
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+select {    
+    padding: 2px;
+    margin: 2px;
+}
+.toptext { margin-top: 5px; margin-left: 5px; float: left;}
+table.inGrid
+{
+    width: 100%;
+    background-color: #fff;
+    margin: 5px 0 10px 0;
+    border: 1px solid #333333;
+}
+    table.inGrid td
+{
+    padding: 4px;
+    border: 1px solid #000000;
+    color: #000;
+}
+
+    table.inGrid td a{  color: #575757;  }
+    table.inGrid th { padding: 4px 2px; color: #fff; background: #f5821f; border-left: solid 1px #fff; font-size: 0.9em; }
+    table.inGrid th a{ color: #fff; font-size: 0.9em; }
+    table.inGrid .alt { background: #C0C0C0; }    
+    table.inGrid tr.hilite {	 background: #f5a35d; }
+    /*fieldset legend*/
+    form fieldset legend {
+    font-size: 15px;
+    background: #f5f5f5;
+    color: #333;
+     font-weight:bold;
+    padding: 4px;
+    margin: 0;
+    position: relative;   
+    width: 100%;
+    border-bottom: 1px solid #f5821f;
+    border-radius: 4px 4px 0 0;
+    
+}
+form fieldset {
+
+    border: solid 0px #f5821f;
+    background: rgba(255, 255, 255, 0.5);    
+    margin: 10px 0px 10px 0px;
+    position: relative;
+    display: inline;
+    padding: 4px 0px 4px 0px;
+    width: 99%;    
+    text-align: left;
+    border-radius: 0px; 
+
+     background: #fff !important;
+    box-shadow: 2px 2px 4px #ddd !important;
+    border-radius: 10px !important;
+    
+}
+.pnloverlayHead2 fieldset legend {
+    font-size: 15px;
+    background: #f5f5f5;
+    color: #333;
+     font-weight:bold;
+    padding: 4px;
+    margin: 0;
+    position: relative;   
+    width: 100%;
+    border-bottom: 1px solid #f5821f;
+    border-radius: 4px 4px 0 0;
+    
+}
+.pnloverlayHead2 fieldset {
+
+    border: solid 0px #f5821f;
+    background: rgba(255, 255, 255, 0.5);    
+    margin: 10px 0px 10px 0px;
+    position: relative;
+    display: inline;
+    padding: 4px;
+    width: 99%;    
+    text-align: left;
+    border-radius: 0px; 
+    min-height:400px;
+}
+
+.nav-tabs {
+    border-bottom: 0px solid #fff;
+}
+.form-control:focus{border-color:#ccc;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(0,0,0,.2);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(0,0,0,.2)}
+
+form.form-control:focus{border-color:#ccc;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(0,0,0,.2);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(0,0,0,.2)}
+form fieldset .form-control:focus{border-color:#ccc;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(0,0,0,.2);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(0,0,0,.2)}
+.form-control option:focus{
+    border-color:#ccc;
+}
+.box-header{ width:100%; position: fixed; z-index:99999;}
+
+
+
+.nav-tabs>li>a:hover { border: 1px solid #ccc;}
+.navbar-toggle { background-color: #676a6c; margin-right:6px;}
+.navbar-custom-menu .navbar-nav>li>a {background-color:#f5821f; color:#fff; margin:2px 4px 0 0; width: 32px; height: 32px; border-radius: 50%; text-align:center; font-size: larger;font-weight: bolder;}
+@media (max-width: 768px) 
+{
+	.navbar-custom-menu .navbar-nav>li>a { background-color:#f5821f; color:#fff; margin:2px 4px 0 0; width: 32px; height: 32px; border-radius: 50%; text-align:center; font-size: larger;font-weight: bolder;}
+	
+	.fixed .main-header { min-height: 0;}
+	.skin-blue .main-header .navbar { min-height: 0; margin-bottom:0;}
+	.navbar-custom-menu .navbar-nav>li>a {padding-top: 3px;}
+	.navbar-custom-menu .navbar-nav>li {padding-top: 8px;}
+}
+
+.main-header .navbar .nav>li>a>.label {    
+    top: -7px;
+    right: -5%;
+    padding: 6px;
+    border-radius: 100px;
+    width: 20px;
+    height: 20px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered li {
+    color: #444 !important;
+    padding: 0px 10px 0px 3px !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    font-size: 16px !important;      
+    margin: 0px 6px 0px 4px !important;
+}
+
+/*.ajax__calendar_active .ajax__calendar_day, .ajax__calendar_day:hover {
+    background-color: #444 !important;
+    color: #fff !important;
+    border-color: #444 !important;
+}
+
+.MyCalendar .ajax__calendar_today .ajax__calendar_day {    
+    color: #444 !important;    
+    border:1px solid #444  !important; 
+}
+
+.MyCalendar .ajax__calendar_active .ajax__calendar_year {
+    background-color: #e2e9da;
+    border: 1px solid #f5821f;
+    color: #f5821f;
+}*/
+
+.ui-icon-alert{Display:none !important;}
+#Notification span div p{color:#333  !important;}
+div#Notification{top: 1% !important; left: 49% !important;width: 380px !important; cursor:pointer !important;}
+
+.modal-content {border-radius:0 !important;}
+
+/*Select2 Dropdown style - Single */ 
+                            /* Select2 Styling */
+
+         .select2-container--default .select2-selection--single,
+        .select2-selection .select2-selection--single {
+            border: 1px solid #d2d6de !important;
+            border-radius: 0 !important;
+            padding: 1px 1px !important;
+            height: 20px !important;
+            font-size: 11px !important;
+            margin: 2px 0px 2px 0px !important;
+        }
+
+        .select2-container .select2-selection--single {
+            box-sizing: border-box !important;
+            cursor: pointer !important;
+            display: block !important;
+            height: 23px !important;
+            user-select: none !important;
+            border: 1px solid #ccc !important;
+            -webkit-user-select: none !important;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: 22px !important;    
+        }
+
+        /*Multi select2*/
+
+          .select2-container--default .select2-selection--multiple,
+        .select2-selection .select2-selection--multiple {
+            border: 1px solid #d2d6de !important;
+            border-radius: 0 !important;
+            padding: 1px 1px !important;            
+            font-size: 11px !important;
+            margin: 2px 0px 2px 0px !important;
+            min-height: 24px !important;    
+            height: auto !important;
+        }
+
+        .select2-container .select2-selection--multiple {
+            box-sizing: border-box !important;
+            cursor: pointer !important;
+            display: block !important;            
+            user-select: none !important;
+            border: 1px solid #ccc !important;
+            -webkit-user-select: none !important;
+            min-height: 24px !important;    
+            height: auto !important;
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__arrow {
+            min-height: 24px !important;                
+        }
+
+        /* Select2 Styling END */
+
+        /*New Theme Grid Scroll Issue Fix*/
+        #full-page-container1 {
+            width: 100% !important;
+            height: 100vh !important;
+            overflow: auto !important;
+        }
+		 #ctl00_ContentPlaceHolder1_imgChequeDate {
+	margin-top: 6px;
+    margin-left: 3px;
+	}
+ .dialogzone { 
+    margin-top: 32px;
+}
+#ctl00_ContentPlaceHolder1_imgRequestDueDate {
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+        input[type=file] {
+            padding:1px;
+        }
+
+
+#ucReportCriteria1_gvwCriteriaList .dxeButtonEditSys{
+    padding: 1px;
+    margin: 2px;
+}

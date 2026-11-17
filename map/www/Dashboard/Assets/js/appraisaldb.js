@@ -1,0 +1,427 @@
+function renderAppraisalDashboard(pFirstLoad, filterc) {
+
+    $('input[type="checkbox"]').click(function () {
+                
+        var _ctxID = jQuery(this).attr('data-chart');
+        window[_ctxID + '' + _ctxID].config.options.legend.display = jQuery(this).prop("checked");
+        window[_ctxID + '' + _ctxID].update();
+        
+    });
+
+    var ReviewYears = $('#ddlReviewYear');
+    var ReviewTypeKPI = $('#ddlReviewType');
+    var ReviewTypeOBJ = $('#ddlReviewType2');
+
+    var pChartOptions = {
+        labelColor: '#888',
+        //labelBackgroungColor: 'rgba(0,0,0,0.1)',
+        labelBackgroungColor: 'transparent',
+        labelBorderRadius: 10,
+        labelAnchor: 'end',
+        labelClamp: true,
+        labelAlign: 'top',
+        DistinctColorForEachGroup: true,
+        tension: 0.4,
+        fill: false,
+        beginAtZeroX: true,
+        beginAtZeroY: false,
+        pointBorderWidth: 10,        
+        borderWidth: 4,
+        legendPosition: 'left',
+        Chartpadding : 20,
+        excludeColumns: ['RecordCount']
+    }
+
+    if (!validateAppraisalCriteria(pFirstLoad)) { return; }
+
+    //GetPerforamceMatrix(ReviewYears, ReviewTypeKPI, ReviewTypeOBJ, filterc);
+
+    var strReviewYears = '';
+    $.each(ReviewYears.val(), function (i, item) { strReviewYears += "'" + item + "',"; });
+    strReviewYears = strReviewYears.replace(/,\s*$/, "");
+    var params = { pReviewTypeIDs: ReviewTypeKPI.val().join(','), pReviewYears: strReviewYears, pFilterCriteria: filterc };
+
+    //GetPerformaceBellCurve('performancebellcurve', params);
+
+
+    //Bell curve on organization level (Count)
+    getbellcurvebyorganization('bellcurvebyorganization', params, pChartOptions);
+    getbellcurvebyorganization_Criteria('bellcurvebyorganizationcriteria', params, pChartOptions)
+
+    $('.innerFilterDiv').slideUp();
+        
+
+}
+
+function GetPerformaceBellCurve(ctx, data) {
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+
+    //var fixedGroup = [1, 2, 3, 4, 5];
+
+    postRequestD('GetPerformanceBellCurve', data, function (response) {
+        $('#' + ctx + 'progress').remove();
+        var _d = JSON.parse(response.d);
+        //Jam
+
+        var options = {
+            fill: false
+        }
+        DrillDownChart(ctx, _d, 'Rating', 'EmployeeID', 'count', 'number', 'line', options, 'Rating', 'No Of Employee(s)', '', 'top', '', '', '', 0);
+
+
+        //Jam
+
+
+        // //console.log({ _d });
+
+        // // $.each(fixedGroup, function (g, group) {
+        // //     var data = _d.filter(function (value) { return value.Rating == group; });
+        // //     if (data.length <= 0) {
+        // //         _d.push(
+        // //             {
+        // //                 Rating: group,
+        // //                 TotalEmployee: 0,
+        // //             }
+        // //         );
+        // //     }
+        // // });
+
+        // _d.sort(function (a, b) { return a.Rating - b.Rating; })
+
+        // var lbls = [];
+        // var _data = [];
+        // $.each(_d, function (i, item) {
+        //     lbls.push(item.Rating);
+        //     var per = item.TotalEmployee;
+        //     _data.push(parseFloat(per));
+        // });
+
+
+        // var options = {
+        //     tickCallback: function (label, index, labels) { return label + ''; },
+        //     yAxesTitle: 'No Of Employee(s)',
+        //     xAxesTitle: 'Rating',
+        //     bgColorOpacity: 0.2,
+        //     borderWidth: 0,
+        //     lineTension: 0,
+        //     datalabels: {
+        //         color: '#333',
+        //         formatter: function (value, context) {
+        //             return value;
+        //         },
+        //         align: 'top'
+
+        //     },
+        //     legendVisible: true,
+        //     fill: true,
+        //     lineTension: 0.3,
+        //     borderColor: '',
+        //     borderWidth: 4,
+        //     borderDash: [2, 2],
+        //     backgroundColor: '',
+        //     pointRadius: 2,
+        //     pointHoverRadius: 4,
+        //     pointBackgroundColor: '',
+        //     legendVisible: false,
+
+
+
+        // }
+
+        // var obj = {
+        //     label: lbls.filter(onlyUnique),
+        //     data: _data
+        // };
+
+        // //DashboardHelper.chartBasic(ctx, obj, 'line', options);
+        // DashboardHelper.createChart(ctx, 'line', obj.data, obj.label, 'Employee(s)', true, options);
+    });
+
+}
+
+function GetPerforamceMatrix(ReviewYears, ReviewTypeKPI, ReviewTypeOBJ, filterc) {
+    $('.employeecount span').html('<i class="fa fa-spinner fa-spin"></i>');
+
+    var params = {
+        ReviewYear: ReviewYears.val()[0],
+        ReviewTypeKPI: ReviewTypeKPI.val()[0],
+        ReviewTypeOBJ: ReviewTypeOBJ.val()[0],
+        filterc: filterc
+    }
+
+    populateMatrixD('matrix11', 1, 1, params);
+    populateMatrixD('matrix12', 1, 2, params);
+    populateMatrixD('matrix13', 1, 3, params);
+
+    populateMatrixD('matrix21', 2, 1, params);
+    populateMatrixD('matrix22', 2, 2, params);
+    populateMatrixD('matrix23', 2, 3, params);
+
+    populateMatrixD('matrix31', 3, 1, params);
+    populateMatrixD('matrix32', 3, 2, params);
+    populateMatrixD('matrix33', 3, 3, params);
+}
+
+function populateMatrixD(matrixNo, KPI, OBJ, filterc) {
+
+    try {
+
+        var paramsData = {
+            pReviewTypeIDKPI: filterc.ReviewTypeKPI,
+            pReviewTypeIDOBJ: filterc.ReviewTypeOBJ,
+            pReviewYear: filterc.ReviewYear,
+            pFilterCriteria: filterc.filterc,
+            pKPI: KPI,
+            pOBJ: OBJ,
+        }
+
+        postRequestD('GetDataForPerformancePotentialMatrix2', paramsData, function (response) {
+            var data = JSON.parse(response.d);
+
+            ////console.log(data);
+            data_ = data.Data;
+            var Ratings = data.RatingTitle;
+            var userdt = data.UserDetail;
+            var dtemppic = data.EmployeePics;
+            ////console.log({ userdt });
+
+            $('#' + matrixNo + ' .employeecount span').html(data_.length);
+            $('#' + matrixNo).click(function (e) {
+
+                var template = '';
+
+                template = '';
+                $.each(userdt, function (i, item) {
+                    var sno = i + 1;
+                    var empimage = '';
+                    var picpath = dtemppic.filter(function (value) {
+                        return item.EmployeeID = value.EmployeeID;
+                    });
+
+
+                    //if (picpath.length > 0) {
+                    //empimage = '../' + picpath[0].EmployeeImage;
+                    // } else {
+                    //   empimage = 'img/avatar.png';
+                    //}
+                    empimage = 'assets/images/avataruser.png';
+
+                    template += '<tr>' +
+                        '<td>' + sno + '</td>' +
+                        '<td style="text-align:center;">' +
+                        '<img src="' + empimage + '"  class="img img-circle img-thumbnail userpic" ></td> ' +
+                        '<td> ' + item.EmployeeRefNo + '</td> ' +
+                        '<td>' + item.EmployeeName + '</td>' +
+                        '<td>' + item.DesignationTitle + '</td>' +
+                        '<td>' + item.DepartmentTitle + '</td>' +
+                        '<td>' + item.BranchTitle + '</td>' +
+                        '<td>' + item.DivisionTitle + '</td>' +
+                        '<td>' + item.GroupLevelTitle + '</td>' +
+                        '<td>' + item.GradeTitle + '</td>' +
+                        '<td>' + item.Email + '</td>' +
+                        '<td>' + getFormattedDateNew(item.BirthDate, '') + '</td>' +
+                        '<td>' + item.Age + '</td>' +
+                        '<td>' + item.Sex + '</td>' +
+                        '<td>' + item.QualificationTitle + '</td>' +
+                        '<td>' + getFormattedDateNew(item.AppointmentDate, '') + '</td>' +
+                        '<td>' + item.ServicePeriod + '</td>' +
+                        '<td>' + getFormattedDateNew(item.PromotionDate, '') + '</td>' +
+                        '<td>' + item.PromotionPeriod + '</td>' +
+
+                        '</tr>'
+                });
+
+                var table = '<div class="table-responsive"><table class="table table-bordered">' +
+                    '<thead>' +
+                    '<tr>' +
+                    '<th>Sno.</th>' +
+                    '<th></th>' +
+                    '<th>Employee ID</th>' +
+                    '<th>Employee Name</th>' +
+                    '<th>Designation</th>' +
+                    '<th>Department</th>' +
+                    '<th>Branch</th>' +
+                    '<th>Division</th>' +
+                    '<th>Function</th>' +
+                    '<th>Group</th>' +
+                    '<th>Email Address</th>' +
+                    '<th>Birth Date</th>' +
+                    '<th>Age</th>' +
+                    '<th>Gender</th>' +
+                    '<th>Qualification</th>' +
+                    '<th>Appointment Date</th>' +
+                    '<th>Service Period</th>' +
+                    '<th>Last Promotion Date</th>' +
+                    '<th>Last Promotion Period</th>' +
+                    '</tr>' +
+                    '</thead>' +
+                    '<tbody>             ' +
+                    template +
+                    '</tbody>' +
+                    '</table></div>';
+
+
+                $('#listcontainer').html(table);
+                $("#myModal").modal('show');
+            });
+        });
+
+    } catch (error) {
+        ////console.log(error);
+    }
+
+
+}
+
+function validateAppraisalCriteria(pFirstLoad) {
+    var ReviewYears = $('#ddlReviewYear');
+    var ReviewTypeKPI = $('#ddlReviewType');
+    var ReviewTypeOBJ = $('#ddlReviewType2');
+
+    if (pFirstLoad) { return; }
+    var validateMsg = '';
+    if (isNull(ReviewYears.val())) {
+        $('.innerFilterDiv').slideDown();
+        validateMsg += 'Select Review Year! \n';
+    }
+    if (isNull(ReviewTypeKPI.val())) {
+        $('.innerFilterDiv').slideDown();
+        validateMsg += 'Select Review Type!';
+    }
+
+
+    if (validateMsg.length > 0) {
+        alert(validateMsg);
+        return false;
+    } else {
+
+        if (isNull(ReviewTypeOBJ.val())) {
+            ReviewTypeOBJ.val(ReviewTypeKPI.val());
+        }
+        return true;
+    }
+}
+
+function applyOverlay(ctx) {
+    $('#' + ctx).closest('div').before('<div class="progressdiv" id="' + ctx + 'progress" style="position:absolute;left:45%;"></div>');
+}
+
+function removeOverlay(ctx) {
+    $('#' + ctx + 'progress').remove();
+}
+
+function getbellcurvebyorganization(ctx, data, pChartOptions) {
+
+    data.isApplyCriteria = false;
+    var ctx2 = 'bellcurvebyorganizationper';
+
+    applyOverlay(ctx);
+    applyOverlay(ctx2);
+
+    postRequestD('GetBellCurveData', data, function (response) {
+
+        removeOverlay(ctx);
+        removeOverlay(ctx2);
+
+        var _d = JSON.parse(response.d);
+
+        //Bell curve on organization level (Count)
+        DrillDownChart2(ctx, _d, false, "EmployeeRefNo", "ReviewYear", "EmployeeRefNo", "count", "RatingTitle", "line", 'string', 2, '', pChartOptions);
+
+        //Bell curve on organization level (Percentage)
+        pChartOptions.isPercentage = true;
+        pChartOptions.isUseGroupByColumnFiledToCalculatePercentage = true;
+        pChartOptions.fieldToCalculatePercentage = 'ReviewYear';
+
+        DrillDownChart2(ctx2, _d, false, "EmployeeRefNo", "ReviewYear", "RecordCount", "count", "RatingTitle", "line", 'string', 2, '', pChartOptions);
+
+        pChartOptions.isPercentage = false;
+        pChartOptions.isUseGroupByColumnFiledToCalculatePercentage = false;
+        pChartOptions.fieldToCalculatePercentage = null;
+        
+
+    });
+}
+
+function getbellcurvebyorganization_Criteria(ctx, data, pChartOptions) {
+
+    data.isApplyCriteria = true;
+
+    var ctx2 = 'bellcurvebyorganizationcriteriaper';
+    var ctx3 = 'bellcurvebyregioncriteriacount';
+    var ctx4 = 'bellcurvebyregioncriteriaper';
+
+    applyOverlay(ctx);
+    applyOverlay(ctx2);
+    applyOverlay(ctx3);
+    applyOverlay(ctx4);
+
+    postRequestD('GetBellCurveData', data, function (response) {
+        
+        removeOverlay(ctx);
+        removeOverlay(ctx2);
+        removeOverlay(ctx3);
+        removeOverlay(ctx4);
+
+        var _d = JSON.parse(response.d);
+        
+        var _ad = [
+            {
+                EmployeeRefNo: '10001',
+                RatingTitle: 'A',
+                ReviewYear: '2021',
+                RecordCount: 1,
+                RegionTitle: 'Region A',
+            },
+            {
+                EmployeeRefNo: '',
+                RatingTitle: 'B',
+                ReviewYear: '2021',
+                RecordCount: 0,
+                RegionTitle: '',
+            },
+            {
+                EmployeeRefNo: '',
+                RatingTitle: 'C',
+                ReviewYear: '2021',
+                RecordCount: 0,
+                RegionTitle: '',
+            }
+        ];
+
+        //Bell curve on organization level (Count)
+        DrillDownChart2(ctx, _d, false, "EmployeeRefNo", "ReviewYear", "EmployeeRefNo", "count", "RatingTitle", "line", 'string', 2, '', pChartOptions);
+
+
+
+        //Bell curve on organization level (Percentage)
+        pChartOptions.isPercentage = true;
+        pChartOptions.isUseGroupByColumnFiledToCalculatePercentage = true;
+        pChartOptions.fieldToCalculatePercentage = 'ReviewYear';
+        
+        DrillDownChart2(ctx2, _d, false, "EmployeeRefNo", "ReviewYear", "RecordCount", "count", "RatingTitle", "line", 'string', 2, '', pChartOptions);
+
+        pChartOptions.isPercentage = false;
+        pChartOptions.isUseGroupByColumnFiledToCalculatePercentage = false;
+        pChartOptions.fieldToCalculatePercentage = null;
+
+
+        //Bell curve by region (Count)
+        //pChartOptions.isShowLegend = false;
+
+        DrillDownChart2(ctx3, _d, false, "EmployeeRefNo", jQuery('#ddlBellCurveTypeA').val(), "EmployeeRefNo", "count", "RatingTitle", "line", 'string', 2, '', pChartOptions);
+        
+        //Bell curve by region (Percentage)
+        pChartOptions.isPercentage = true;        
+        pChartOptions.isUseGroupByColumnFiledToCalculatePercentage = true;
+        pChartOptions.fieldToCalculatePercentage = 'RegionTitle';
+
+        DrillDownChart2(ctx4, _d, false, "EmployeeRefNo", jQuery('#ddlBellCurveTypeB').val(), "RecordCount", "count", "RatingTitle", "line", 'string', 2, '', pChartOptions);
+
+        pChartOptions.isPercentage = false;
+        pChartOptions.isUseGroupByColumnFiledToCalculatePercentage = false;
+        pChartOptions.fieldToCalculatePercentage = null;
+
+    });
+}
+

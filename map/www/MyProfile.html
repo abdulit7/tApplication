@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome to TimeTrax - Mobile App</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <!-- Timeline CSS -->
+    <link href="css/timeline.css" rel="stylesheet">
+    <!-- datetime -->
+    <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="css/AdminLTE.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="css/skin-blue.css">
+    <link href="css/chosen.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="js/select2/select2.css">
+    <link rel="stylesheet" href="js/noti/toastr.css">
+    <style>
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .layout{background: #fff;box-shadow: 0px 0px 20px #ddd;}
+        .lblchangeprofile{background:#eee;border-radius: 10px;}
+        .headinfo{padding: 5px;}
+        .editlefticon{text-align: right;}
+        .txt{border: none;border: 1px solid #ddd;padding: 2px 2px 2px 10px;border-radius: 5px;outline: none;}
+        hr{margin: 0;margin-bottom: 25px;margin-top: 5px;}
+        .txtRemove{border-bottom: 1px solid #F5770B;}
+        .lbldim{font-weight: normal;color: #999}
+        
+        label {    
+                margin-bottom: 0px;
+                font-weight: normal;
+                font-size: 13px;
+                color: rgba(245, 120, 11, 0.719);
+                }
+
+                input[type="text"]:disabled , textarea{
+                background: #fafafaa4;                
+                border: none;
+                border-radius: 10px;
+                padding: 14px 14px 14px 5px;
+                font-size: 16px;
+                }
+    
+                               
+                .form-group {
+                margin-bottom: 0px; 
+                }
+                
+                .field-icon {
+                float: right;
+                margin-right: 5px;
+                margin-top: -21px;
+                position: relative;
+                z-index: 2;
+                color: #d2d6de;   
+                display: none;             
+                }
+
+                .form-control[disabled] {
+                    cursor: not-allowed;
+                    background: #fafafaa4;                   
+                    border: none;
+                    border-radius: 10px;                  
+                    font-size: 14px;      
+                   
+                   
+                }
+
+                .customddl{
+                    width: 100%;
+                }
+
+         
+    </style>
+
+</head>
+
+<body class="hold-transition skin-blue fixed sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="main.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><img src="img/logo-sml.png" /></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><img src="img/logo.png" /></span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav" id="pageDropdowns">
+                        <!-- Messages: style can be found in dropdown.less-->
+
+                        <!-- Notifications: style can be found in dropdown.less -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user"></i>
+                                <script type="text/javascript" src="js/UserName.js"></script>
+
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" id="btnlogout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <!-- Tasks: style can be found in dropdown.less -->
+
+                        <!-- User Account: style can be found in dropdown.less -->
+
+
+                    </ul>
+
+
+                </div>
+            </nav>
+        </header>
+        <!-- =============================================== -->
+        <!-- Left side column. contains the sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <!--   <script type="text/javascript" src="js/mainmenu.js"></script>
+                <script type="text/javascript">
+                    $(function(){ var element = document.getElementById("mnuSurvey");
+                    element.className += " active"; });
+                </script>-->
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- =============================================== -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <section class="content">
+
+                <div class="layout">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-user"></i> Personal Inforamtion</h4>
+                        <span id="wait" style="display: none;font-size: 18px;" class="fa fa-spinner fa-spin pull-right btn"></span>
+                    </div>
+                    <div class="modal-body">
+                        <div class="headinfo">
+                            <center>
+                                <img id="pimg" name="aboutme" width="120" height="120" border="0" class="img-circle"></a>
+                                <h3 id="txtEmpNo" class="media-heading">
+                                    <small</small> </h3> <h3 id="txtName" class="media-heading">
+                                        <small</small> </h3> <h4 id="txtDesignation" class="media-heading"><small></small></h4>
+                                            <span id="ppic" class="label label-default lblchangeprofile">Change Picture
+                                                <i class="fa fa-image"></i>
+                                            </span>
+                                            <input id="file" type="file" style="display: none;">
+                            </center>
+                        </div>
+                        <!-- <div id="txtedit" class="editlefticon"><i id="editinfo" style="font-size: 18px;" class="fa fa-edit"></i><i id="btnSave" style="font-size: 18px;" class="fa fa-save"></i></div> -->
+                        <hr>
+
+
+                        <form role="form">
+
+                            <div class="form-group">
+                                <label>Father / Husband Name</label>
+                                <input id="txtFatherHusbandName" type="text" class="form-control" id="" disabled>
+                                <span data-columnname="FatherHusbandName" toggle="#txtFatherHusbandName" class="fa fa-fw fa-pencil field-icon toggle-edit"></span>
+
+                            </div>
+                            <div class="form-group">
+                                <label>NIC No.</label>
+                                <input id="txtNICNumber" type="text" class="form-control" id="" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>NIC Expiry</label>
+                                <input id="txtCNICExpiry" type="text" class="form-control" id="" disabled>
+                                <span data-columnname="CNICExpiry" data-datatype="date" toggle="#txtCNICExpiry" class="fa fa-fw fa-pencil field-icon toggle-edit"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Age</label>
+                                <input id="txtAge" type="text" class="form-control" id="" disabled>
+
+
+                            </div>
+                            <div class="form-group">
+                                <label>Birth Date</label>
+                                <input id="txtBirthDate" type="text" class="form-control" id="" disabled>
+                                <span data-columnname="BirthDate" toggle="#txtBirthDate" class="fa fa-fw fa-pencil field-icon toggle-edit"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Place Of Birth</label>
+                                <input id="txtPlaceOfBirth" type="text" class="form-control" id="" disabled>
+                                <span data-columnname="PlaceOfBirth" toggle="#txtPlaceOfBirth" class="fa fa-fw fa-pencil field-icon toggle-edit"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Gender</label>
+                                <!-- <input id="txtGender" type="text" class="form-control" id="" disabled> -->
+                                <select id="txtGender" class="form-control customddl" disabled>
+                                    <option value="0">- select -</option>
+                                </select>
+                                <span data-columnname="Sex" toggle="#txtGender" class="fa fa-fw fa-pencil field-icon toggle-edit"></span>
+
+                            </div>
+                            <div class="form-group">
+                                <label>Maritial Status</label>
+                                <!-- <input id="txtMaritialStatus" type="text" class="form-control" id="" disabled> -->
+                                <select id="txtMaritialStatus" class="form-control customddl" disabled>
+                                    <option value="0">- select -</option>
+                                </select>
+                                <span data-columnname="MaritialStatus" toggle="#txtMaritialStatus" class="fa fa-fw fa-pencil field-icon toggle-edit"></span>
+
+                            </div>
+                            <div class="form-group">
+                                <label>Religion</label>
+                                <!-- <input id="txtReligion" type="text" class="form-control" id="" disabled> -->
+                                <select id="txtReligion" class="form-control customddl" disabled>
+                                    <option value="0">- select -</option>
+                                </select>
+                                <span data-columnname="Religion" toggle="#txtReligion" class="fa fa-fw fa-pencil field-icon toggle-edit"></span>
+
+                            </div>
+                            <div class="form-group">
+                                <label>Country</label>
+                                <!-- <input id="txtCountry" type="text" class="form-control" id="" disabled> -->
+                                <select id="txtCountry" class="form-control customddl" disabled>
+                                    <option value="0">- select -</option>
+                                </select>
+                                <span data-columnname="CountryID" toggle="#txtCountry" class="fa fa-fw fa-pencil field-icon toggle-edit"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Telephone No. </label>
+                                <input id="txtTelephone" type="text" class="form-control" id="" disabled>
+                                <span data-columnname="Telephone" toggle="#txtTelephone" class="fa fa-fw fa-pencil field-icon toggle-edit"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Mobile No.</label>
+                                <input id="txtMobileNumber" type="text" class="form-control" id="" disabled>
+                                <span data-columnname="MobileNumber" toggle="#txtMobileNumber" class="fa fa-fw fa-pencil field-icon toggle-edit"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Emergency No.</label>
+                                <input id="txtEmergencyContactNo" type="text" class="form-control" id="" disabled>
+                                <span data-columnname="EmergencyContactNo" toggle="#txtEmergencyContactNo" class="fa fa-fw fa-pencil field-icon toggle-edit"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Blood Group </label>
+                                <input id="txtBloodGroup" type="text" class="form-control" id="" disabled>
+                                <span data-columnname="BloodGroup" toggle="#txtBloodGroup" class="fa fa-fw fa-pencil field-icon toggle-edit"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Personal Email</label>
+                                <input id="txtPersonalEmail" type="text" class="form-control" id="" disabled>
+                                <span data-columnname="PersonalEmail" toggle="#txtPersonalEmail" class="fa fa-fw fa-pencil field-icon toggle-edit"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Official Email</label>
+                                <input id="txtEmail" type="text" class="form-control" id="" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Web Site</label>
+                                <input id="txtURLAddress" type="text" class="form-control" id="" disabled>
+                                <span data-columnname="URLAddress" toggle="#txtURLAddress" class="fa fa-fw fa-pencil field-icon toggle-edit"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Address </label>
+                                <textarea rows="4" id="txtAddress" type="text" class="form-control" disabled></textarea>
+                                <!-- <input id="txtAddress" type="text" class="form-control" id="" disabled> -->
+                                <span data-columnname="Address" toggle="#txtAddress" class="fa fa-fw fa-pencil field-icon toggle-edit"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Permanent Address</label>
+                                <textarea rows="4" id="txtPermanentAddress" type="text" class="form-control" disabled></textarea>
+                                <!-- <input id="txtPermanentAddress" type="text" class="form-control" id="" disabled> -->
+                                <span data-columnname="PermanentAddress" toggle="#txtPermanentAddress" class="fa fa-fw fa-pencil field-icon toggle-edit"></span>
+                            </div>
+
+
+                        </form>
+
+
+                        <hr>
+                        <br>
+
+                    </div>
+                </div>
+
+            </section>
+            <!-- /.content -->
+        </div>
+    </div>
+
+
+
+    <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+
+    <script type="text/javascript" src="js/footer.js"></script>
+
+    <footer class="navbar-fixed-bottom">
+
+        <!--<div class="pull-right hidden-xs">
+                <b>Version</b> 5.1.0
+            </div>
+            <strong>Copyright &copy; <script>document.write(getYear());</script> 
+                <a href="http://EfroTech.com">EfroTech</a>.</strong> All rights reserved.-->
+        <script>                document.write(getShortCuts());</script>
+    </footer>
+    <!-- Control Sidebar -->
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+           immediately after the control sidebar -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+
+    <!-- Ajax Request Spinner -->
+    <div id="wait" style="display: none;position: fixed;top:50%;left:50%">
+        <div style="text-align:center;color:#F5770B;"><i class="fa fa-gear fa-spin" style="font-size:24px;text-align:center;"></i>
+            <div></div>
+        </div>
+    </div>
+
+    <script src="js/polyfill.js"></script>
+
+    <script src="js/jquery.js"></script>
+
+    <script src="js/jquery.signalR-2.4.1.js"></script>
+    <script src="js/SignalRHub.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+
+    <script src="js/bootstrap.js"></script>
+
+    <!-- SlimScroll -->
+
+    <script src="js/jquery.slimscroll.js"></script>
+
+    <!-- FastClick -->
+
+    <script src="js/fastclick.js"></script>
+
+    <!-- AdminLTE App -->
+    <script src="js/noti/toastr.js"></script>
+    <script src="js/app.js"></script>
+    <script type="text/javascript" src="js/mainmenu.js"></script>
+    <script src="js/moment-with-locales.js"></script>
+    <script src="js/bootstrap-datetimepicker.js"></script>
+    <script src="js/chosen.jquery.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="js/MyProfile.js" type="text/javascript" charset="utf-8"></script>
+
+
+
+    <script> $(function () { var element = document.getElementById("mnuHome"); element.className += " active"; }); </script>
+</body>
+
+</html>

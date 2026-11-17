@@ -1,0 +1,299 @@
+.dxsplControl {
+ 
+font-family: 'open_sansregular' , Arial, sans-serif;
+border: none;
+padding:0;
+}
+.dxsplPane {
+font-family: 'open_sansregular' , Arial, sans-serif;
+border: none;
+padding:0;
+}
+.dxsplVSeparator { 
+font-family: 'open_sansregular' , Arial, sans-serif;
+ background-color: #eee;
+}
+.dxpcDropDown {
+    z-index:99999;
+}
+.dxsplHSeparatorCollapsed {
+   border-left-width: 0px; 
+   border-right-width: 0px;
+}
+.dxsplVSeparatorCollapsed {
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+}
+.collapsiblePanelContainer {
+  height: 0;
+  overflow: hidden;
+}
+iframe { 
+border: none;
+padding:0;
+margin:0;
+/*min-height: 260px;
+    height: 100%;*/
+}
+h3
+{
+    
+    font-size:  100%;  /*15px;*/
+    color: #666;
+    /*text-shadow: #ffffff 0px 1px;
+    font-weight: bold;*/
+}
+.column
+{
+    background: white none repeat scroll 0% 50%;
+    margin-right: 0%;
+    float: left;
+    width:100%;
+}
+.column .dragbox
+{
+    
+    border-width :1px;
+    border-style :solid; 
+    margin: 5px 2px 20px;
+    background: #ffffff none repeat scroll 0% 50%;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-topleft: 5px;
+    position: relative;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-topright: 5px;
+    }
+.column .dragbox h2
+{
+    font-size: 12px;
+    margin: 0;
+    padding: 6px 0 0 8px;
+    color: #fff;
+    cursor: move;
+    font-weight:normal;
+     float:left; 
+}
+.dragbox-title {
+    height: 30px;
+}
+.dragbox-title span.tools {
+    float: right;
+    margin: 0px 0px 0px;
+    padding: 4px 5px 6px 10px;
+}
+.dragbox-title span.tools > a {
+    display: inline-block;
+    margin-right: 5px;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.dragbox-title span.tools > a:hover {
+    text-decoration: none;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    opacity: .7;
+}
+
+.dragbox-content
+{
+    margin: 5px;
+    background: #ffffff;
+    
+    font-size: 0.8em;
+    line-height: 1.5em;     
+}
+.column .placeholder
+{
+    border: 1px dashed #dddddd;
+    background: #f0f0f0 none repeat scroll 0% 50%;
+}
+.dragbox h2.collapse
+{
+    background: #f0f0f0 url(images/collapse.png) no-repeat scroll right top;
+}
+.dragbox h2 .configure
+{
+    background: #f0f0f0 url(images/remove-widget.png) no-repeat scroll right top;
+    font-size: 11px;
+    font-weight: normal;
+    margin-right: 30px;
+    float: right;
+}
+.success
+{
+    border: 1px solid #82ed82;
+    padding: 5px;
+    background: #d9f9e0 none repeat scroll 0% 50%;
+    color: #0060bf;
+    font-size: 12px;
+}
+.error
+{
+    border: 1px solid #82ed82;
+    padding: 5px;
+    background: #d9f9e0 none repeat scroll 0% 50%;
+    color: #d3130a;
+    font-size: 12px;
+}
+#tooltip
+{
+    border: 1px solid #fafafa;
+    padding: 5px;
+    position: absolute;
+    font-size: 9pt;
+    font-family: Arial;
+    color: #ffffff;
+    background-color: #78818e;
+    display: none;
+}
+.clsOdd
+{
+    border-style: solid;
+    border-width: 0px;
+    font-size: 10pt;
+    background-color: #fafafa;
+}
+.clsEven
+{
+    font-size: 10pt;
+    background-color: #ffffff;
+}
+
+.headingtext
+{
+    font-weight: bold;
+    font-size: 12px;
+    color: #555555;
+}
+
+/*textarea,
+input[type=text],
+input[type=file],
+.textarea
+{
+    border:1px solid #dfe1e2;   
+    box-shadow:1px 0px 1px rgba(0, 0, 0, 0.06) inset, 0 0 1px #95a2a7 inset;
+    margin:1px 0 2px;
+    padding:6px 4px;
+    font-size: 12px;
+}
+
+.combo,
+.combo2,
+.combo3,
+.combo_select
+{
+    border:1px solid #dfe1e2;
+    box-shadow:1px 0px 1px rgba(0, 0, 0, 0.06) inset, 0 0 1px #95a2a7 inset;
+    margin:1px 0 2px;
+    padding:6px 4px;
+    font-size: 12px;
+}*/
+.mycollapse
+{
+    
+}
+.myremovewidget
+{
+    background: #f0f0f0;
+    float: right;
+}
+.metro-nav {
+    /*font-family: 'open_sansregular';*/
+    
+}
+.metro-nav .metro-nav-block {
+    color: white;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-weight: 300;
+    height:112px;
+    line-height: 20px;
+    margin: 0 1% 1% 0;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    z-index: 1;
+    background-color:#eee;
+    width:100%;
+}
+
+.metro-nav .metro-nav-block i {
+    font-size: 50px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.metro-nav .metro-nav-block a {
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    height: 90%;
+    line-height: 16px;
+    overflow: hidden;
+    padding: 5px 20px;
+    position: absolute;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    width: 95%;
+    text-decoration: none;
+}
+
+.metro-nav .metro-nav-block a i {
+    transition: all 0.5s ease-in-out 0s;
+    -moz-transition: all 0.5s ease-in-out 0s;
+    -webkit-transition: all 0.5s ease-in-out 0s;
+    -o-transition: all 0.5s ease-in-out 0s;
+}
+
+.metro-nav .metro-nav-block a .info {
+    transition: all 0.4s ease-in-out 0s;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -o-transition: all 0.4s ease-in-out 0s;
+}
+
+.metro-nav .metro-nav-block a:hover i{
+    transform:rotate(83deg);
+    -moz-transform:rotate(83deg);
+    -webkit-transform:rotate(83deg);
+    -o-transform:rotate(83deg);
+    font-size: 140px;
+    opacity: 0.2;
+}
+
+.metro-nav .metro-nav-block a:hover .info {
+    transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+    font-size: 20px;
+    opacity: 0.6;
+	left: 4px;
+}
+
+.metro-nav .metro-nav-block:hover {
+    opacity: 0.8;
+}
+
+.metro-nav .metro-nav-block .info {
+    font-size: 16px;
+    position: absolute;
+    left: 90px;
+    top: 25px;
+}
+
+.metro-nav .metro-nav-block .status {
+    background-color: transparent;
+    bottom: -10px;
+    font-size: 12px;
+    left: 10px;
+    min-height: 30px;
+    position: absolute;
+}

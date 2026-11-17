@@ -1,0 +1,174 @@
+
+body {
+    background: url(../App_Themes/TimeTrax/Images/page-background.jpg);
+    font-family : 'Segoe UI' ;
+}
+.mbox{
+    background: #fafafa;
+    padding: 10px;
+    border:3px solid #fafafa;
+    height: 125px;
+    cursor: pointer;    
+    box-shadow: 0px 0px 20px #fafafa;
+   min-width:100%;
+   max-width:100%;
+    
+}
+.mbox:hover{
+    border:3px solid #333;
+}
+.dbox{
+    background: #fafafa;
+    padding: 10px;
+    border:5px solid #fff;
+    height: 120px;
+}
+.area{
+    width: 30%;
+    margin: 0 auto;
+}
+.byellow{
+    background: linear-gradient(to right,#FFEB3B,yellow);
+}
+.borange{
+    background: #FF9800;
+    background: linear-gradient(to right,#FF9800,orange);
+}
+
+.bgreen{
+    background: #4CAF50;
+    background: linear-gradient(to right,#4CAF50,green);
+}
+
+.bblue{
+    background: #2196F3;
+    background: linear-gradient(to right,#2196F3,blue);
+}
+
+.bred{
+    background: #f44336;
+    background: linear-gradient(to right,#f44336,red);
+}
+
+.arrowup{
+    transform: rotate(-90deg);
+    margin-top: 80%;
+    margin-left: -18px;
+    width: 204%;
+}
+.arrowleft{
+    margin-left: 80px;
+}
+.middlediv{
+    display:flex;
+    align-items:center;
+}
+.vertical-align-content {    
+    height:120px;
+    display:flex;
+    align-items:center;     
+  }
+  .employeecount{
+      text-align: center;      
+  }
+  .employeecount span{
+    font-size: 34px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0px 0px 5px #333;
+
+}
+.blabel{
+    color: #fff;   
+    font-weight: bold; 
+    text-shadow: 0px 0px 5px #333;
+    text-align:center;
+   font-family : 'Segoe UI';
+   word-wrap:break-word;
+}
+#gvList{
+    height: 400px;
+    overflow: auto;
+}
+.kpiLabels{
+    font-weight: bold;
+    text-align: center;
+    color: #333;   
+    font-size: 14px;
+    font-family : 'Segoe UI'; 
+}
+legend{
+    font-size: 15px;
+    background: #f5f5f5;
+    color: #333;
+    font-weight: bold;
+    padding: 4px;
+    margin: 0;
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid #f5821f;
+    border-radius: 4px 4px 0 0;
+}
+.tdpadding{
+    padding: 5px;
+}
+.pnloverlayHead{
+    background: rgba(255,255,255, 0.5);
+}
+.tdarrowright{
+    text-align: center;
+}
+.rotated{
+    transform: rotate(-90deg);
+}
+#hideShowCriteria{
+    cursor: pointer;
+
+}
+.efroheader{
+    background: #f5821f;
+    color: #fff;
+    padding: 5px;
+    font-size:12px;
+}
+
+.required {
+    border: 1px solid red;
+}
+
+.nativeddl{
+    height: auto;
+    border-radius:0;
+}
+
+.fullwidthmodal{
+    width:1250px;
+}
+
+#listcontainer{
+    width: 190%;
+}
+
+#listcontainer table tr td{
+    vertical-align: middle;
+}
+
+
+.userpic{
+    width: 50px;
+    transition: .5s;
+}
+
+.userpic:hover{
+    transform: scale(1.5);
+    transition: .5s;
+}
+
+@media screen and (max-width: 600px) {
+    .blabel{
+        font-size: 10px;
+    }
+    .fullwidthmodal{
+        width:auto;
+    }
+  }

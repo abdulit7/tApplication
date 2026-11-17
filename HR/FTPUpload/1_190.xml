@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<data>
+    <task id="3">
+        <start_date><![CDATA[2018-9-1]]></start_date>
+        <duration><![CDATA[30]]></duration>
+        <text><![CDATA[TEst 1]]></text>
+        <progress><![CDATA[0]]></progress>
+        <sortorder><![CDATA[1]]></sortorder>
+        <parent><![CDATA[0]]></parent>
+        <open>1</open>
+        <priority><![CDATA[2]]></priority>
+        <employee><![CDATA[Employee No. 16]]></employee>
+        <customer><![CDATA[EFROTECH SERVICES]]></customer>
+        <project><![CDATA[TIMETRAX.NET]]></project>
+        <estimatedduration><![CDATA[0]]></estimatedduration>
+        <actualduration><![CDATA[0]]></actualduration>
+        <AssignBy><![CDATA[Employee No. 190]]></AssignBy>
+    </task>
+</data>

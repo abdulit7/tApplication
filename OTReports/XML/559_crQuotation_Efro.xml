@@ -1,0 +1,2283 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <ObjectMst>
+    <ObjectID>559</ObjectID>
+    <ObjectTitle>Quotation Print</ObjectTitle>
+    <ObjectName />
+    <ParentObjectID>420</ParentObjectID>
+    <AssemblyName>559_crQuotation.rpt</AssemblyName>
+    <RecordType>D</RecordType>
+    <ObjectType>0</ObjectType>
+    <IsActive>true</IsActive>
+    <ObjectNature />
+    <Description />
+    <IntimationObject />
+    <IntAssemblyName />
+    <IntimationObjectID>0</IntimationObjectID>
+    <FormType xml:space="preserve"> </FormType>
+    <OrderNo>0</OrderNo>
+    <SubOrderNo>0</SubOrderNo>
+    <IsAdminMenu>false</IsAdminMenu>
+    <IsReport>true</IsReport>
+    <UniqueID />
+    <ReportLayout />
+    <PageSize>15</PageSize>
+    <DBid>5</DBid>
+    <ROD>4</ROD>
+    <IsAuto>false</IsAuto>
+    <DataSourceType>Views And Tables</DataSourceType>
+    <CompanyID>1</CompanyID>
+    <TopParentID>420</TopParentID>
+  </ObjectMst>
+  <ReportRelation>
+    <ObjectID>559</ObjectID>
+    <ReportRelationID>539</ReportRelationID>
+    <ReportMasterField>vwdb_Quotation.DestinationID</ReportMasterField>
+    <ReportForeignField>vwdb_Customer.CustomerID</ReportForeignField>
+    <JoinType>Left join</JoinType>
+    <ReportRelationExpression>Left join vwdb_Customer on vwdb_Quotation.DestinationID = vwdb_Customer.CustomerID</ReportRelationExpression>
+    <UniqueID />
+    <CompanyID>1</CompanyID>
+    <RelationType>Header</RelationType>
+  </ReportRelation>
+  <ReportRelation>
+    <ObjectID>559</ObjectID>
+    <ReportRelationID>540</ReportRelationID>
+    <ReportMasterField>vwdb_Quotation.ItemID</ReportMasterField>
+    <ReportForeignField>vwdb_Item.ItemID</ReportForeignField>
+    <JoinType>Left join</JoinType>
+    <ReportRelationExpression>Left join vwdb_Item on vwdb_Quotation.ItemID = vwdb_Item.ItemID</ReportRelationExpression>
+    <UniqueID />
+    <CompanyID>1</CompanyID>
+    <RelationType>Header</RelationType>
+  </ReportRelation>
+  <ReportRelation>
+    <ObjectID>559</ObjectID>
+    <ReportRelationID>541</ReportRelationID>
+    <ReportMasterField>vwdb_Quotation.PaymentTermID</ReportMasterField>
+    <ReportForeignField>vwdb_PaymentTerm.PaymentTermID</ReportForeignField>
+    <JoinType>Left join</JoinType>
+    <ReportRelationExpression>Left join vwdb_PaymentTerm on vwdb_Quotation.PaymentTermID = vwdb_PaymentTerm.PaymentTermID</ReportRelationExpression>
+    <UniqueID />
+    <CompanyID>1</CompanyID>
+    <RelationType>Header</RelationType>
+  </ReportRelation>
+  <ReportRelation>
+    <ObjectID>559</ObjectID>
+    <ReportRelationID>542</ReportRelationID>
+    <ReportMasterField>vwdb_Quotation.RequesterID</ReportMasterField>
+    <ReportForeignField>vwdb_Users.UserID</ReportForeignField>
+    <JoinType>Left join</JoinType>
+    <ReportRelationExpression>Left join vwdb_Users on vwdb_Quotation.RequesterID = vwdb_Users.UserID</ReportRelationExpression>
+    <UniqueID />
+    <CompanyID>1</CompanyID>
+    <RelationType>Header</RelationType>
+  </ReportRelation>
+  <ReportRelation>
+    <ObjectID>559</ObjectID>
+    <ReportRelationID>543</ReportRelationID>
+    <ReportMasterField>vwdb_Quotation.ContactID</ReportMasterField>
+    <ReportForeignField>vwdb_Contact.ContactID</ReportForeignField>
+    <JoinType>Left join</JoinType>
+    <ReportRelationExpression>Left join vwdb_Contact on vwdb_Quotation.ContactID = vwdb_Contact.ContactID</ReportRelationExpression>
+    <UniqueID />
+    <CompanyID>1</CompanyID>
+    <RelationType>Header</RelationType>
+  </ReportRelation>
+  <ReportRelation>
+    <ObjectID>559</ObjectID>
+    <ReportRelationID>544</ReportRelationID>
+    <ReportMasterField>vwdb_Quotation.DSRID</ReportMasterField>
+    <ReportForeignField>vwdb_SalesPerson.SalesPersonID</ReportForeignField>
+    <JoinType>Left join</JoinType>
+    <ReportRelationExpression>Left join vwdb_SalesPerson on vwdb_Quotation.DSRID = vwdb_SalesPerson.SalesPersonID</ReportRelationExpression>
+    <UniqueID />
+    <CompanyID>1</CompanyID>
+    <RelationType>Header</RelationType>
+  </ReportRelation>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5080</ReportFieldID>
+    <ReportFieldName>vwdb_Customer.CustomerTitle</ReportFieldName>
+    <ReportFieldTitle>CustomerTitle</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>1</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5081</ReportFieldID>
+    <ReportFieldName>vwdb_Item.ItemTitle</ReportFieldName>
+    <ReportFieldTitle>ItemTitle</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>2</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5082</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.TransactionID</ReportFieldName>
+    <ReportFieldTitle>TransactionID</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>3</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5083</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.TransactionDate</ReportFieldName>
+    <ReportFieldTitle>TransactionDate</ReportFieldTitle>
+    <Format>System.DateTime</Format>
+    <OrderNo>4</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5084</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.DestinationID</ReportFieldName>
+    <ReportFieldTitle>DestinationID</ReportFieldTitle>
+    <Format>System.Int64</Format>
+    <OrderNo>5</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5085</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.PaymentTermID</ReportFieldName>
+    <ReportFieldTitle>PaymentTermID</ReportFieldTitle>
+    <Format>System.Int64</Format>
+    <OrderNo>6</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5086</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.ItemID</ReportFieldName>
+    <ReportFieldTitle>ItemID</ReportFieldTitle>
+    <Format>System.Int64</Format>
+    <OrderNo>7</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5087</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.Quantity</ReportFieldName>
+    <ReportFieldTitle>Quantity</ReportFieldTitle>
+    <Format>System.Double</Format>
+    <OrderNo>8</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5088</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.GrossAmount</ReportFieldName>
+    <ReportFieldTitle>GrossAmount</ReportFieldTitle>
+    <Format>System.Double</Format>
+    <OrderNo>9</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5089</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.NetAmount</ReportFieldName>
+    <ReportFieldTitle>NetAmount</ReportFieldTitle>
+    <Format>System.Double</Format>
+    <OrderNo>10</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5090</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.GSTAmount</ReportFieldName>
+    <ReportFieldTitle>GSTAmount</ReportFieldTitle>
+    <Format>System.Double</Format>
+    <OrderNo>11</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5091</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.Remarks</ReportFieldName>
+    <ReportFieldTitle>Remarks</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>12</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5092</ReportFieldID>
+    <ReportFieldName>vwdb_Item.UOMTitle</ReportFieldName>
+    <ReportFieldTitle>UnitTitle</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>13</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5093</ReportFieldID>
+    <ReportFieldName>vwdb_PaymentTerm.PaymentTermTitle</ReportFieldName>
+    <ReportFieldTitle>PaymentTermTitle</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>14</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5094</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.DiscountRate</ReportFieldName>
+    <ReportFieldTitle>DiscountRate</ReportFieldTitle>
+    <Format>System.Double</Format>
+    <OrderNo>15</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5095</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.DiscountAmount</ReportFieldName>
+    <ReportFieldTitle>DiscountAmount</ReportFieldTitle>
+    <Format>System.Double</Format>
+    <OrderNo>16</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5096</ReportFieldID>
+    <ReportFieldName>vwdb_Users.UserName</ReportFieldName>
+    <ReportFieldTitle>UserName</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>17</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5097</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.Status</ReportFieldName>
+    <ReportFieldTitle>Status</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>18</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5098</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.ApprovalList</ReportFieldName>
+    <ReportFieldTitle>ApprovalList</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>19</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5099</ReportFieldID>
+    <ReportFieldName>vwdb_Customer.Address</ReportFieldName>
+    <ReportFieldTitle>Address</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>21</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5100</ReportFieldID>
+    <ReportFieldName>vwdb_Item.ItemRefNo</ReportFieldName>
+    <ReportFieldTitle>ItemRefNo</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>22</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5101</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.Rate</ReportFieldName>
+    <ReportFieldTitle>Rate</ReportFieldTitle>
+    <Format>System.Double</Format>
+    <OrderNo>23</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5102</ReportFieldID>
+    <ReportFieldName>vwdb_Contact.ContactTitle</ReportFieldName>
+    <ReportFieldTitle>ContactPerson</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>24</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5103</ReportFieldID>
+    <ReportFieldName>vwdb_Customer.ContactNumber</ReportFieldName>
+    <ReportFieldTitle>ContactNumber</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>25</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5104</ReportFieldID>
+    <ReportFieldName>vwdb_Users.UserFullName</ReportFieldName>
+    <ReportFieldTitle>UserFullName</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>26</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5105</ReportFieldID>
+    <ReportFieldName>vwdb_SalesPerson.Designation</ReportFieldName>
+    <ReportFieldTitle>Designation</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>27</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5106</ReportFieldID>
+    <ReportFieldName>vwdb_SalesPerson.MobileNo</ReportFieldName>
+    <ReportFieldTitle>PhoneNo</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>28</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5107</ReportFieldID>
+    <ReportFieldName>vwdb_SalesPerson.Email</ReportFieldName>
+    <ReportFieldTitle>Email</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>29</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5108</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.EmailText</ReportFieldName>
+    <ReportFieldTitle>EmailText</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>30</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5109</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.EmailID</ReportFieldName>
+    <ReportFieldTitle>EmailID</ReportFieldTitle>
+    <Format>System.Int32</Format>
+    <OrderNo>31</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5110</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.EmailSubject</ReportFieldName>
+    <ReportFieldTitle>EmailSubject</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>32</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5111</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.ContactID</ReportFieldName>
+    <ReportFieldTitle>ContactID</ReportFieldTitle>
+    <Format>System.Int64</Format>
+    <OrderNo>33</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5112</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.QuotationItemDescription</ReportFieldName>
+    <ReportFieldTitle>QuotationItemDescription</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>34</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5113</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.ProductBrandName</ReportFieldName>
+    <ReportFieldTitle>ProductBrandName</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>35</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5114</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.FirstRevisedQuotationId</ReportFieldName>
+    <ReportFieldTitle>FirstRevisedQuotationId</ReportFieldTitle>
+    <Format>System.Int64</Format>
+    <OrderNo>36</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5115</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.ProductTimeLine</ReportFieldName>
+    <ReportFieldTitle>ProductTimeLine</ReportFieldTitle>
+    <Format>System.Double</Format>
+    <OrderNo>37</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5116</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.DSRID</ReportFieldName>
+    <ReportFieldTitle>DSRID</ReportFieldTitle>
+    <Format>System.Int64</Format>
+    <OrderNo>38</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5117</ReportFieldID>
+    <ReportFieldName>vwdb_SalesPerson.SalesPersonName</ReportFieldName>
+    <ReportFieldTitle>SalesPersonName</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>39</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>5575</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.SpecialNote</ReportFieldName>
+    <ReportFieldTitle>SpecialNote</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>40</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>6963</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.CompanyUnitID</ReportFieldName>
+    <ReportFieldTitle>CompanyUnitID</ReportFieldTitle>
+    <Format>System.Int64</Format>
+    <OrderNo>41</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportFields>
+    <ObjectID>559</ObjectID>
+    <ReportFieldID>6964</ReportFieldID>
+    <ReportFieldName>vwdb_Quotation.CompanyUnitTitle</ReportFieldName>
+    <ReportFieldTitle>CompanyUnitTitle</ReportFieldTitle>
+    <Format>System.String</Format>
+    <OrderNo>42</OrderNo>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <IsFormula>false</IsFormula>
+    <FieldArea>PageArea</FieldArea>
+    <IsDistinct>false</IsDistinct>
+    <DateFormat>Default</DateFormat>
+    <FieldPosition>Header</FieldPosition>
+    <FieldLenght>0</FieldLenght>
+    <PaddingDirection>Left</PaddingDirection>
+    <PaddingCharacter xml:space="preserve"> </PaddingCharacter>
+    <IsDisplay>true</IsDisplay>
+    <DrillDownObjectID>0</DrillDownObjectID>
+    <ApplyOn>SQL</ApplyOn>
+  </ReportFields>
+  <ReportType1>
+    <objectID>559</objectID>
+    <ReportTypeID>494</ReportTypeID>
+    <ReportType>CrystalReport</ReportType>
+    <TableType>Simple</TableType>
+    <ChartType />
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+  </ReportType1>
+  <ReportFilter>
+    <ObjectID>559</ObjectID>
+    <ReportFilterID>1381</ReportFilterID>
+    <FilterColumn>vwdb_Quotation.TranID</FilterColumn>
+    <FilterOperator>=</FilterOperator>
+    <FilterText>{PKID1}</FilterText>
+    <ReportFilterExpression>vwdb_Quotation.TranID = '{PKID1}'</ReportFilterExpression>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <FilterType>AND</FilterType>
+    <FilterTextType>Text</FilterTextType>
+  </ReportFilter>
+  <ReportDataSource>
+    <ObjectID>559</ObjectID>
+    <ObjectDatasourceID>1214</ObjectDatasourceID>
+    <ObjectDataSourceName>vwdb_Contact</ObjectDataSourceName>
+    <DataSourceType>VIEW</DataSourceType>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <ReportType>Header</ReportType>
+  </ReportDataSource>
+  <ReportDataSource>
+    <ObjectID>559</ObjectID>
+    <ObjectDatasourceID>1215</ObjectDatasourceID>
+    <ObjectDataSourceName>vwdb_Customer</ObjectDataSourceName>
+    <DataSourceType>VIEW</DataSourceType>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <ReportType>Header</ReportType>
+  </ReportDataSource>
+  <ReportDataSource>
+    <ObjectID>559</ObjectID>
+    <ObjectDatasourceID>1216</ObjectDatasourceID>
+    <ObjectDataSourceName>vwdb_Item</ObjectDataSourceName>
+    <DataSourceType>VIEW</DataSourceType>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <ReportType>Header</ReportType>
+  </ReportDataSource>
+  <ReportDataSource>
+    <ObjectID>559</ObjectID>
+    <ObjectDatasourceID>1217</ObjectDatasourceID>
+    <ObjectDataSourceName>vwdb_PaymentTerm</ObjectDataSourceName>
+    <DataSourceType>VIEW</DataSourceType>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <ReportType>Header</ReportType>
+  </ReportDataSource>
+  <ReportDataSource>
+    <ObjectID>559</ObjectID>
+    <ObjectDatasourceID>1218</ObjectDatasourceID>
+    <ObjectDataSourceName>vwdb_Quotation</ObjectDataSourceName>
+    <DataSourceType>VIEW</DataSourceType>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <ReportType>Header</ReportType>
+  </ReportDataSource>
+  <ReportDataSource>
+    <ObjectID>559</ObjectID>
+    <ObjectDatasourceID>1219</ObjectDatasourceID>
+    <ObjectDataSourceName>vwdb_SalesPerson</ObjectDataSourceName>
+    <DataSourceType>VIEW</DataSourceType>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <ReportType>Header</ReportType>
+  </ReportDataSource>
+  <ReportDataSource>
+    <ObjectID>559</ObjectID>
+    <ObjectDatasourceID>1220</ObjectDatasourceID>
+    <ObjectDataSourceName>vwdb_Users</ObjectDataSourceName>
+    <DataSourceType>VIEW</DataSourceType>
+    <CompanyID>1</CompanyID>
+    <UniqueID />
+    <ReportType>Header</ReportType>
+  </ReportDataSource>
+  <ReportParameterCR>
+    <ObjectID>559</ObjectID>
+    <ReportParameterCRID>22</ReportParameterCRID>
+    <ParameterName>strCompName</ParameterName>
+    <ParameterValueType>GlobalParameter</ParameterValueType>
+    <ParameterValue />
+    <ParameterID>0</ParameterID>
+    <CompanyID>1</CompanyID>
+    <GlobalParameterName>CompanyName</GlobalParameterName>
+    <PassToReport>ValueField</PassToReport>
+  </ReportParameterCR>
+  <ReportParameterCR>
+    <ObjectID>559</ObjectID>
+    <ReportParameterCRID>23</ReportParameterCRID>
+    <ParameterName>strReportTitle</ParameterName>
+    <ParameterValueType>Text</ParameterValueType>
+    <ParameterValue>QUOTATION</ParameterValue>
+    <ParameterID>0</ParameterID>
+    <CompanyID>1</CompanyID>
+    <GlobalParameterName />
+    <PassToReport>ValueField</PassToReport>
+  </ReportParameterCR>
+  <ReportParameterCR>
+    <ObjectID>559</ObjectID>
+    <ReportParameterCRID>24</ReportParameterCRID>
+    <ParameterName>strReportFooterMessage</ParameterName>
+    <ParameterValueType>GlobalParameter</ParameterValueType>
+    <ParameterValue />
+    <ParameterID>0</ParameterID>
+    <CompanyID>1</CompanyID>
+    <GlobalParameterName>ReportFooterMessage</GlobalParameterName>
+    <PassToReport>ValueField</PassToReport>
+  </ReportParameterCR>
+  <ReportParameterCR>
+    <ObjectID>559</ObjectID>
+    <ReportParameterCRID>25</ReportParameterCRID>
+    <ParameterName>strUserID</ParameterName>
+    <ParameterValueType>GlobalParameter</ParameterValueType>
+    <ParameterValue />
+    <ParameterID>0</ParameterID>
+    <CompanyID>1</CompanyID>
+    <GlobalParameterName>strUserName</GlobalParameterName>
+    <PassToReport>ValueField</PassToReport>
+  </ReportParameterCR>
+  <CustomListSetup>
+    <CustomListID>5</CustomListID>
+    <CustomListTitle>Set Levels</CustomListTitle>
+    <FieldID>15</FieldID>
+    <FieldText>Level 1</FieldText>
+    <FieldValue>1</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>5</CustomListID>
+    <CustomListTitle>Set Levels</CustomListTitle>
+    <FieldID>16</FieldID>
+    <FieldText>Level 2</FieldText>
+    <FieldValue>2</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>5</CustomListID>
+    <CustomListTitle>Set Levels</CustomListTitle>
+    <FieldID>17</FieldID>
+    <FieldText>Level 3</FieldText>
+    <FieldValue>3</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>5</CustomListID>
+    <CustomListTitle>Set Levels</CustomListTitle>
+    <FieldID>18</FieldID>
+    <FieldText>Level 4</FieldText>
+    <FieldValue>4</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>5</CustomListID>
+    <CustomListTitle>Set Levels</CustomListTitle>
+    <FieldID>19</FieldID>
+    <FieldText>Level 5</FieldText>
+    <FieldValue>5</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>5</CustomListID>
+    <CustomListTitle>Set Levels</CustomListTitle>
+    <FieldID>20</FieldID>
+    <FieldText>Level 6</FieldText>
+    <FieldValue>6</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>5</CustomListID>
+    <CustomListTitle>Set Levels</CustomListTitle>
+    <FieldID>21</FieldID>
+    <FieldText>Level 7</FieldText>
+    <FieldValue>7</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>3</CustomListID>
+    <CustomListTitle>Month</CustomListTitle>
+    <FieldID>22</FieldID>
+    <FieldText>Jan</FieldText>
+    <FieldValue>1</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>3</CustomListID>
+    <CustomListTitle>Month</CustomListTitle>
+    <FieldID>23</FieldID>
+    <FieldText>Feb</FieldText>
+    <FieldValue>2</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>3</CustomListID>
+    <CustomListTitle>Month</CustomListTitle>
+    <FieldID>24</FieldID>
+    <FieldText>Mar</FieldText>
+    <FieldValue>3</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>3</CustomListID>
+    <CustomListTitle>Month</CustomListTitle>
+    <FieldID>25</FieldID>
+    <FieldText>Apr</FieldText>
+    <FieldValue>4</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>3</CustomListID>
+    <CustomListTitle>Month</CustomListTitle>
+    <FieldID>26</FieldID>
+    <FieldText>May</FieldText>
+    <FieldValue>5</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>3</CustomListID>
+    <CustomListTitle>Month</CustomListTitle>
+    <FieldID>27</FieldID>
+    <FieldText>Jun</FieldText>
+    <FieldValue>6</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>3</CustomListID>
+    <CustomListTitle>Month</CustomListTitle>
+    <FieldID>28</FieldID>
+    <FieldText>Jul</FieldText>
+    <FieldValue>7</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>3</CustomListID>
+    <CustomListTitle>Month</CustomListTitle>
+    <FieldID>29</FieldID>
+    <FieldText>Aug</FieldText>
+    <FieldValue>8</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>3</CustomListID>
+    <CustomListTitle>Month</CustomListTitle>
+    <FieldID>30</FieldID>
+    <FieldText>Sep</FieldText>
+    <FieldValue>9</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>3</CustomListID>
+    <CustomListTitle>Month</CustomListTitle>
+    <FieldID>31</FieldID>
+    <FieldText>Oct</FieldText>
+    <FieldValue>10</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>3</CustomListID>
+    <CustomListTitle>Month</CustomListTitle>
+    <FieldID>32</FieldID>
+    <FieldText>Nov</FieldText>
+    <FieldValue>11</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>3</CustomListID>
+    <CustomListTitle>Month</CustomListTitle>
+    <FieldID>33</FieldID>
+    <FieldText>Dec</FieldText>
+    <FieldValue>12</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>7</CustomListID>
+    <CustomListTitle>Trail Balance Levels</CustomListTitle>
+    <FieldID>53</FieldID>
+    <FieldText>Level 1</FieldText>
+    <FieldValue>1</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>7</CustomListID>
+    <CustomListTitle>Trail Balance Levels</CustomListTitle>
+    <FieldID>54</FieldID>
+    <FieldText>Level 2</FieldText>
+    <FieldValue>2</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>7</CustomListID>
+    <CustomListTitle>Trail Balance Levels</CustomListTitle>
+    <FieldID>55</FieldID>
+    <FieldText>Level 3</FieldText>
+    <FieldValue>3</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>7</CustomListID>
+    <CustomListTitle>Trail Balance Levels</CustomListTitle>
+    <FieldID>56</FieldID>
+    <FieldText>Level 4</FieldText>
+    <FieldValue>4</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>7</CustomListID>
+    <CustomListTitle>Trail Balance Levels</CustomListTitle>
+    <FieldID>57</FieldID>
+    <FieldText>Level 5</FieldText>
+    <FieldValue>5</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>7</CustomListID>
+    <CustomListTitle>Trail Balance Levels</CustomListTitle>
+    <FieldID>58</FieldID>
+    <FieldText>Level 6</FieldText>
+    <FieldValue>6</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>7</CustomListID>
+    <CustomListTitle>Trail Balance Levels</CustomListTitle>
+    <FieldID>59</FieldID>
+    <FieldText>Level 7</FieldText>
+    <FieldValue>7</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>8</CustomListID>
+    <CustomListTitle>QuotationType</CustomListTitle>
+    <FieldID>66</FieldID>
+    <FieldText>Quotation</FieldText>
+    <FieldValue>Q</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>8</CustomListID>
+    <CustomListTitle>QuotationType</CustomListTitle>
+    <FieldID>67</FieldID>
+    <FieldText>SLA</FieldText>
+    <FieldValue>SLA</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>9</CustomListID>
+    <CustomListTitle>No. Of Days</CustomListTitle>
+    <FieldID>75</FieldID>
+    <FieldText>89 Days</FieldText>
+    <FieldValue>89</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>6</CustomListID>
+    <CustomListTitle>Fiscal Year</CustomListTitle>
+    <FieldID>76</FieldID>
+    <FieldText>22-23</FieldText>
+    <FieldValue>22-23</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>6</CustomListID>
+    <CustomListTitle>Fiscal Year</CustomListTitle>
+    <FieldID>77</FieldID>
+    <FieldText>21-22</FieldText>
+    <FieldValue>21-22</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>6</CustomListID>
+    <CustomListTitle>Fiscal Year</CustomListTitle>
+    <FieldID>78</FieldID>
+    <FieldText>20-21</FieldText>
+    <FieldValue>20-21</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>6</CustomListID>
+    <CustomListTitle>Fiscal Year</CustomListTitle>
+    <FieldID>79</FieldID>
+    <FieldText>19-20</FieldText>
+    <FieldValue>19-20</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>4</CustomListID>
+    <CustomListTitle>Year</CustomListTitle>
+    <FieldID>80</FieldID>
+    <FieldText>2023</FieldText>
+    <FieldValue>2023</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>4</CustomListID>
+    <CustomListTitle>Year</CustomListTitle>
+    <FieldID>81</FieldID>
+    <FieldText>2022</FieldText>
+    <FieldValue>2022</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>4</CustomListID>
+    <CustomListTitle>Year</CustomListTitle>
+    <FieldID>82</FieldID>
+    <FieldText>2021</FieldText>
+    <FieldValue>2021</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>4</CustomListID>
+    <CustomListTitle>Year</CustomListTitle>
+    <FieldID>83</FieldID>
+    <FieldText>2020</FieldText>
+    <FieldValue>2020</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>4</CustomListID>
+    <CustomListTitle>Year</CustomListTitle>
+    <FieldID>84</FieldID>
+    <FieldText>2019</FieldText>
+    <FieldValue>2019</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>4</CustomListID>
+    <CustomListTitle>Year</CustomListTitle>
+    <FieldID>85</FieldID>
+    <FieldText>2018</FieldText>
+    <FieldValue>2018</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <CustomListSetup>
+    <CustomListID>4</CustomListID>
+    <CustomListTitle>Year</CustomListTitle>
+    <FieldID>86</FieldID>
+    <FieldText>2017</FieldText>
+    <FieldValue>2017</FieldValue>
+    <CompanyID>1</CompanyID>
+  </CustomListSetup>
+  <ParameterSetup>
+    <ParameterID>1</ParameterID>
+    <ParameterTitle>Cost Center</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>viwCostCenterNew</ParameterTable>
+    <ParameterDisplayMember>CostCenterTitle</ParameterDisplayMember>
+    <ParameterValueMember>CostCenterID</ParameterValueMember>
+    <ParameterFilter>IsTranActive = 1</ParameterFilter>
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>1</DBID>
+    <DefaultTextValue />
+    <SearchBy>Contains</SearchBy>
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>2</ParameterID>
+    <ParameterTitle>From Date</ParameterTitle>
+    <ParameterType>date</ParameterType>
+    <ParameterTable>0</ParameterTable>
+    <ParameterDisplayMember>0</ParameterDisplayMember>
+    <ParameterValueMember>0</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>0</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>true</IsDefaultDateValue>
+    <DefaultDateOperator>&gt;=</DefaultDateOperator>
+    <DefaultDateValue>2021-07-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>3</ParameterID>
+    <ParameterTitle>Chart of Account</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>viwChartOfAccountNew</ParameterTable>
+    <ParameterDisplayMember>Account</ParameterDisplayMember>
+    <ParameterValueMember>ChartofAccountID</ParameterValueMember>
+    <ParameterFilter>IsTranActive=1</ParameterFilter>
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>1</DBID>
+    <DefaultTextValue />
+    <SearchBy>Contains</SearchBy>
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>4</ParameterID>
+    <ParameterTitle>Employee</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>vwdb_Employee</ParameterTable>
+    <ParameterDisplayMember>EmployeeName</ParameterDisplayMember>
+    <ParameterValueMember>EmployeeID</ParameterValueMember>
+    <ParameterFilter>EmployeeID in (select * from fx_GetEmployeeIDTable('{UserID}','{CompanyPin}')) And companyid=1</ParameterFilter>
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>3</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>5</ParameterID>
+    <ParameterTitle>Year</ParameterTitle>
+    <ParameterType>custlist</ParameterType>
+    <ParameterTable>0</ParameterTable>
+    <ParameterDisplayMember>0</ParameterDisplayMember>
+    <ParameterValueMember>0</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>4</CustomListID>
+    <DBID>0</DBID>
+    <DefaultTextValue />
+    <SearchBy>Contains</SearchBy>
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>6</ParameterID>
+    <ParameterTitle>Month</ParameterTitle>
+    <ParameterType>custlist</ParameterType>
+    <ParameterTable>0</ParameterTable>
+    <ParameterDisplayMember>0</ParameterDisplayMember>
+    <ParameterValueMember>0</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>1</CustomListID>
+    <DBID>0</DBID>
+    <DefaultTextValue />
+    <SearchBy>Contains</SearchBy>
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>7</ParameterID>
+    <ParameterTitle>To Date</ParameterTitle>
+    <ParameterType>date</ParameterType>
+    <ParameterTable>0</ParameterTable>
+    <ParameterDisplayMember>0</ParameterDisplayMember>
+    <ParameterValueMember>0</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>0</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>true</IsDefaultDateValue>
+    <DefaultDateOperator>&lt;=</DefaultDateOperator>
+    <DefaultDateValue>2022-06-30T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>8</ParameterID>
+    <ParameterTitle>Division</ParameterTitle>
+    <ParameterType>list</ParameterType>
+    <ParameterTable>tblLevel4</ParameterTable>
+    <ParameterDisplayMember>Level4Name</ParameterDisplayMember>
+    <ParameterValueMember>Level4ID</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>1</DBID>
+    <DefaultTextValue />
+    <SearchBy>Contains</SearchBy>
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>9</ParameterID>
+    <ParameterTitle>Set Levels</ParameterTitle>
+    <ParameterType>custlist</ParameterType>
+    <ParameterTable>0</ParameterTable>
+    <ParameterDisplayMember>0</ParameterDisplayMember>
+    <ParameterValueMember>0</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>5</CustomListID>
+    <DBID>0</DBID>
+    <DefaultTextValue />
+    <SearchBy>Contains</SearchBy>
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>10</ParameterID>
+    <ParameterTitle>Customer ERP</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>viwCustomer</ParameterTable>
+    <ParameterDisplayMember>CustomerName</ParameterDisplayMember>
+    <ParameterValueMember>CustomerID</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>1</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>11</ParameterID>
+    <ParameterTitle>Customer TMS</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>tblCustomer</ParameterTable>
+    <ParameterDisplayMember>CustomerTitle</ParameterDisplayMember>
+    <ParameterValueMember>CustomerID</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>2</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>12</ParameterID>
+    <ParameterTitle>Customer CRM</ParameterTitle>
+    <ParameterType>list</ParameterType>
+    <ParameterTable>vwdb_Customer</ParameterTable>
+    <ParameterDisplayMember>CustomerTitle</ParameterDisplayMember>
+    <ParameterValueMember>CustomerID</ParameterValueMember>
+    <ParameterFilter>vwdb_customer.CompanyID=2</ParameterFilter>
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>5</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>13</ParameterID>
+    <ParameterTitle>Employee Code</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>vwEmployee</ParameterTable>
+    <ParameterDisplayMember>EmployeeName</ParameterDisplayMember>
+    <ParameterValueMember>EmployeeID</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>3</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>14</ParameterID>
+    <ParameterTitle>Employee TMS</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>vwEmployee</ParameterTable>
+    <ParameterDisplayMember>EmployeeName</ParameterDisplayMember>
+    <ParameterValueMember>EmployeeRefNo</ParameterValueMember>
+    <ParameterFilter>EmployeeID in (select * from fx_GetEmployeeIDTable('{UserID}','{CompanyPin}')) And companyid=1</ParameterFilter>
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>2</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>15</ParameterID>
+    <ParameterTitle>userid</ParameterTitle>
+    <ParameterType>text</ParameterType>
+    <ParameterTable>0</ParameterTable>
+    <ParameterDisplayMember>0</ParameterDisplayMember>
+    <ParameterValueMember>0</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>0</DBID>
+    <DefaultTextValue>{Userid}</DefaultTextValue>
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>16</ParameterID>
+    <ParameterTitle>Customer HD</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>tblCustomer</ParameterTable>
+    <ParameterDisplayMember>CustomerTitle</ParameterDisplayMember>
+    <ParameterValueMember>CustomerRefNo</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>3</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>17</ParameterID>
+    <ParameterTitle>Proejct HD</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>tblProject</ParameterTable>
+    <ParameterDisplayMember>ProjectTitle</ParameterDisplayMember>
+    <ParameterValueMember>ProjectID</ParameterValueMember>
+    <ParameterFilter>IsActive=1 and CompanyID=1</ParameterFilter>
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>3</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>18</ParameterID>
+    <ParameterTitle>Customer CRM Code</ParameterTitle>
+    <ParameterType>list</ParameterType>
+    <ParameterTable>vwdb_Customer</ParameterTable>
+    <ParameterDisplayMember>CustomerTitle</ParameterDisplayMember>
+    <ParameterValueMember>DestinationRefNo</ParameterValueMember>
+    <ParameterFilter>vwdb_customer.CompanyID=2</ParameterFilter>
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>5</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>19</ParameterID>
+    <ParameterTitle>Month-Table</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>tblMonth</ParameterTable>
+    <ParameterDisplayMember>MonthTitle</ParameterDisplayMember>
+    <ParameterValueMember>MonthValue</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>3</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>20</ParameterID>
+    <ParameterTitle>Company</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>tblCompany</ParameterTable>
+    <ParameterDisplayMember>CompanyTitle</ParameterDisplayMember>
+    <ParameterValueMember>CompanyID</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>11</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>21</ParameterID>
+    <ParameterTitle>Sales Person CRM</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>vwdb_SalesPerson</ParameterTable>
+    <ParameterDisplayMember>SalesPersonName</ParameterDisplayMember>
+    <ParameterValueMember>SalesPersonName</ParameterValueMember>
+    <ParameterFilter>vwdb_SalesPerson.SalesPersonID in (select * from Fx_GetSalesPersonIDsbyUser('{UserID}')) And companyid=2</ParameterFilter>
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>5</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>22</ParameterID>
+    <ParameterTitle>Sales Person ERP</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>ViwSalesPerson</ParameterTable>
+    <ParameterDisplayMember>SalesPersonName</ParameterDisplayMember>
+    <ParameterValueMember>SalesPersonID</ParameterValueMember>
+    <ParameterFilter>ViwSalesPerson.SalesPersonID in (select * from dbo.Fx_GetSalesPersonIDsbyUser('{UserID}'))</ParameterFilter>
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>1</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>23</ParameterID>
+    <ParameterTitle>Fiscal Year</ParameterTitle>
+    <ParameterType>custmultilist</ParameterType>
+    <ParameterTable>0</ParameterTable>
+    <ParameterDisplayMember>0</ParameterDisplayMember>
+    <ParameterValueMember>0</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>6</CustomListID>
+    <DBID>0</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>24</ParameterID>
+    <ParameterTitle>Customer CRM BTC</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>vwdb_Customer</ParameterTable>
+    <ParameterDisplayMember>CustomerTitle</ParameterDisplayMember>
+    <ParameterValueMember>CustomerID</ParameterValueMember>
+    <ParameterFilter>vwdb_customer.CompanyID=1</ParameterFilter>
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>12</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>25</ParameterID>
+    <ParameterTitle>As On Date</ParameterTitle>
+    <ParameterType>date</ParameterType>
+    <ParameterTable>0</ParameterTable>
+    <ParameterDisplayMember>0</ParameterDisplayMember>
+    <ParameterValueMember>0</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>0</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>26</ParameterID>
+    <ParameterTitle>Customer CRM Multilist</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>vwdb_Customer</ParameterTable>
+    <ParameterDisplayMember>CustomerTitle</ParameterDisplayMember>
+    <ParameterValueMember>CustomerID</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>5</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>27</ParameterID>
+    <ParameterTitle>Sales Person Multilist</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>vwdb_SalesPerson</ParameterTable>
+    <ParameterDisplayMember>SalesPersonName</ParameterDisplayMember>
+    <ParameterValueMember>SalesPersonID</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>12</DBID>
+    <DefaultTextValue />
+    <SearchBy>Contains</SearchBy>
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>28</ParameterID>
+    <ParameterTitle>Lead Source</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>tblStatus</ParameterTable>
+    <ParameterDisplayMember>StatusText</ParameterDisplayMember>
+    <ParameterValueMember>StatusValue</ParameterValueMember>
+    <ParameterFilter>tblStatus.FillType='tblSalesLead_LeadSource'</ParameterFilter>
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>5</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>29</ParameterID>
+    <ParameterTitle>Opportunity Status</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>tblStatus</ParameterTable>
+    <ParameterDisplayMember>StatusText</ParameterDisplayMember>
+    <ParameterValueMember>StatusValue</ParameterValueMember>
+    <ParameterFilter>tblStatus.FillType='tblHeadOpportunity_Status'</ParameterFilter>
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>5</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>30</ParameterID>
+    <ParameterTitle>Need By Date</ParameterTitle>
+    <ParameterType>text</ParameterType>
+    <ParameterTable>0</ParameterTable>
+    <ParameterDisplayMember>0</ParameterDisplayMember>
+    <ParameterValueMember>0</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>0</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>31</ParameterID>
+    <ParameterTitle>Invoice No</ParameterTitle>
+    <ParameterType>text</ParameterType>
+    <ParameterTable>0</ParameterTable>
+    <ParameterDisplayMember>0</ParameterDisplayMember>
+    <ParameterValueMember>0</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>0</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>32</ParameterID>
+    <ParameterTitle>Quotation Transaction</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>vwdb_Quotation</ParameterTable>
+    <ParameterDisplayMember>TransactionID</ParameterDisplayMember>
+    <ParameterValueMember>TranID</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>5</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>33</ParameterID>
+    <ParameterTitle>POList</ParameterTitle>
+    <ParameterType>list</ParameterType>
+    <ParameterTable>vwdb_POList</ParameterTable>
+    <ParameterDisplayMember>TransactionID</ParameterDisplayMember>
+    <ParameterValueMember>TransactionID</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>3</DBID>
+    <DefaultTextValue />
+    <SearchBy>Contains</SearchBy>
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>34</ParameterID>
+    <ParameterTitle>Supplier</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>vwdb_Supplier</ParameterTable>
+    <ParameterDisplayMember>SupplierTitle</ParameterDisplayMember>
+    <ParameterValueMember>SupplierID</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>3</DBID>
+    <DefaultTextValue />
+    <SearchBy>Contains</SearchBy>
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>35</ParameterID>
+    <ParameterTitle>PO List</ParameterTitle>
+    <ParameterType>list</ParameterType>
+    <ParameterTable>vwdb_POList</ParameterTable>
+    <ParameterDisplayMember>TransactionID</ParameterDisplayMember>
+    <ParameterValueMember>TranID</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>1</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>36</ParameterID>
+    <ParameterTitle>Month New</ParameterTitle>
+    <ParameterType>custlist</ParameterType>
+    <ParameterTable>0</ParameterTable>
+    <ParameterDisplayMember>0</ParameterDisplayMember>
+    <ParameterValueMember>0</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>3</CustomListID>
+    <DBID>0</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>37</ParameterID>
+    <ParameterTitle>Review Type</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>tblReviewType</ParameterTable>
+    <ParameterDisplayMember>ReviewTypeTitle</ParameterDisplayMember>
+    <ParameterValueMember>ReviewTypeID</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>3</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>38</ParameterID>
+    <ParameterTitle>Sales Type</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>tblSalesType</ParameterTable>
+    <ParameterDisplayMember>SalesTypeName</ParameterDisplayMember>
+    <ParameterValueMember>SalesTypeName</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>1</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>39</ParameterID>
+    <ParameterTitle>Item CRM</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>vwdb_Item</ParameterTable>
+    <ParameterDisplayMember>ItemTitle</ParameterDisplayMember>
+    <ParameterValueMember>ItemID</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>5</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>40</ParameterID>
+    <ParameterTitle>contact Multilist</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>vwdb_Contact</ParameterTable>
+    <ParameterDisplayMember>DisplayContactTitle</ParameterDisplayMember>
+    <ParameterValueMember>ContactID</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>5</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>41</ParameterID>
+    <ParameterTitle>Trail Balance Levels</ParameterTitle>
+    <ParameterType>custlist</ParameterType>
+    <ParameterTable>0</ParameterTable>
+    <ParameterDisplayMember>0</ParameterDisplayMember>
+    <ParameterValueMember>0</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>7</CustomListID>
+    <DBID>1</DBID>
+    <DefaultTextValue />
+    <SearchBy>Contains</SearchBy>
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>42</ParameterID>
+    <ParameterTitle>Division Title</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>tblLevel4</ParameterTable>
+    <ParameterDisplayMember>Level4Name</ParameterDisplayMember>
+    <ParameterValueMember>Level4Name</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>1</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>43</ParameterID>
+    <ParameterTitle>Sales Person ERP ALL</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>ViwSalesPerson</ParameterTable>
+    <ParameterDisplayMember>SalesPersonName</ParameterDisplayMember>
+    <ParameterValueMember>SalesPersonID</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>1</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>44</ParameterID>
+    <ParameterTitle>QuotationType</ParameterTitle>
+    <ParameterType>custmultilist</ParameterType>
+    <ParameterTable>0</ParameterTable>
+    <ParameterDisplayMember>0</ParameterDisplayMember>
+    <ParameterValueMember>0</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>8</CustomListID>
+    <DBID>0</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>45</ParameterID>
+    <ParameterTitle>PABX Extensions</ParameterTitle>
+    <ParameterType>multilist</ParameterType>
+    <ParameterTable>ViwExtensions</ParameterTable>
+    <ParameterDisplayMember>Extension</ParameterDisplayMember>
+    <ParameterValueMember>Extension</ParameterValueMember>
+    <ParameterFilter>Extension&gt;=300</ParameterFilter>
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>14</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>46</ParameterID>
+    <ParameterTitle>No. Of Days</ParameterTitle>
+    <ParameterType>text</ParameterType>
+    <ParameterTable>0</ParameterTable>
+    <ParameterDisplayMember>0</ParameterDisplayMember>
+    <ParameterValueMember>0</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>0</DBID>
+    <DefaultTextValue>89</DefaultTextValue>
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>47</ParameterID>
+    <ParameterTitle>Company Pin</ParameterTitle>
+    <ParameterType>text</ParameterType>
+    <ParameterTable>0</ParameterTable>
+    <ParameterDisplayMember>0</ParameterDisplayMember>
+    <ParameterValueMember>0</ParameterValueMember>
+    <ParameterFilter />
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>0</DBID>
+    <DefaultTextValue>ET</DefaultTextValue>
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <ParameterSetup>
+    <ParameterID>48</ParameterID>
+    <ParameterTitle>Company Unit (PF)</ParameterTitle>
+    <ParameterType>list</ParameterType>
+    <ParameterTable>tblCompanyUnit</ParameterTable>
+    <ParameterDisplayMember>CompanyUnitTitle</ParameterDisplayMember>
+    <ParameterValueMember>CompanyUnitID</ParameterValueMember>
+    <ParameterFilter>CompanyID=2</ParameterFilter>
+    <CompanyID>1</CompanyID>
+    <CustomListID>0</CustomListID>
+    <DBID>15</DBID>
+    <DefaultTextValue />
+    <SearchBy />
+    <IsDefaultDateValue>false</IsDefaultDateValue>
+    <DefaultDateOperator />
+    <DefaultDateValue>1900-01-01T00:00:00+05:00</DefaultDateValue>
+  </ParameterSetup>
+  <CompanyGlobalParameter>
+    <CompanyID>1</CompanyID>
+    <GlobalParameterName>CompanyName</GlobalParameterName>
+    <GlobalParameterValue>EfroTech</GlobalParameterValue>
+    <IsShowToUser>true</IsShowToUser>
+  </CompanyGlobalParameter>
+  <CompanyGlobalParameter>
+    <CompanyID>1</CompanyID>
+    <GlobalParameterName>NTN</GlobalParameterName>
+    <GlobalParameterValue>2507818-6</GlobalParameterValue>
+    <IsShowToUser>true</IsShowToUser>
+  </CompanyGlobalParameter>
+  <CompanyGlobalParameter>
+    <CompanyID>1</CompanyID>
+    <GlobalParameterName>ReportFooterMessage</GlobalParameterName>
+    <GlobalParameterValue>Powered By: EfroTech</GlobalParameterValue>
+    <IsShowToUser>true</IsShowToUser>
+  </CompanyGlobalParameter>
+  <CompanyGlobalParameter>
+    <CompanyID>1</CompanyID>
+    <GlobalParameterName>strCompAddress</GlobalParameterName>
+    <GlobalParameterValue>12- C Block 6 near karachi food Shahr-e-faisal Karachi</GlobalParameterValue>
+    <IsShowToUser>true</IsShowToUser>
+  </CompanyGlobalParameter>
+  <CompanyGlobalParameter>
+    <CompanyID>1</CompanyID>
+    <GlobalParameterName>strCompanyName</GlobalParameterName>
+    <GlobalParameterValue>EfroTech</GlobalParameterValue>
+    <IsShowToUser>true</IsShowToUser>
+  </CompanyGlobalParameter>
+  <CompanyGlobalParameter>
+    <CompanyID>1</CompanyID>
+    <GlobalParameterName>strCompanyPin</GlobalParameterName>
+    <GlobalParameterValue>ET</GlobalParameterValue>
+    <IsShowToUser>true</IsShowToUser>
+  </CompanyGlobalParameter>
+  <CompanyGlobalParameter>
+    <CompanyID>1</CompanyID>
+    <GlobalParameterName>strCompGST</GlobalParameterName>
+    <GlobalParameterValue>17-50-7415-008-73</GlobalParameterValue>
+    <IsShowToUser>true</IsShowToUser>
+  </CompanyGlobalParameter>
+  <CompanyGlobalParameter>
+    <CompanyID>1</CompanyID>
+    <GlobalParameterName>strCompNTN</GlobalParameterName>
+    <GlobalParameterValue>2507818-6</GlobalParameterValue>
+    <IsShowToUser>true</IsShowToUser>
+  </CompanyGlobalParameter>
+  <CompanyGlobalParameter>
+    <CompanyID>1</CompanyID>
+    <GlobalParameterName>strCompTel</GlobalParameterName>
+    <GlobalParameterValue>021-111-123- ERP (377)</GlobalParameterValue>
+    <IsShowToUser>true</IsShowToUser>
+  </CompanyGlobalParameter>
+  <CompanyGlobalParameter>
+    <CompanyID>1</CompanyID>
+    <GlobalParameterName>strUserName</GlobalParameterName>
+    <GlobalParameterValue>{UserName}</GlobalParameterValue>
+    <IsShowToUser>true</IsShowToUser>
+  </CompanyGlobalParameter>
+</NewDataSet>

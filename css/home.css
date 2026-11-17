@@ -1,0 +1,1177 @@
+﻿body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    background: #fff !important;
+}
+
+.box.box-solid.box-awards > .box-header {
+    color: #fff;
+    background: #6610C6;
+    background-color: #6610C6;
+}
+
+.box.box-solid.box-awards {
+    border: 1px solid #6610C6;
+}
+
+.box.box-solid.box-teal > .box-header {
+    color: #fff;
+    background: #39cccc;
+    background-color: #39cccc;
+}
+
+.box.box-solid.box-teal {
+    border: 1px solid #39cccc;
+}
+
+.box.box-solid.box-indigo > .box-header {
+    color: #fff;
+    background: #3F51B5;
+    background-color: #3F51B5;
+}
+
+.box.box-solid.box-indigo {
+    border: 1px solid #3F51B5;
+}
+
+.box.box-solid.box-zkteco > .box-header {
+    color: #fff;
+    background: #8dc63f;
+    background-color: #8dc63f;
+}
+
+.box.box-solid.box-zkteco {
+    border: 1px solid #8dc63f;
+}
+
+.bg-indigo {
+    background: #3F51B5 !important;
+}
+
+.bg-zkteco {
+    background: #8dc63f !important;
+}
+
+.bg-awards {
+    background: #6610C6 !important;
+}
+
+
+.box-header {
+    position: relative !important;
+}
+
+    .box-header > i {
+        color: #fff !important;
+    }
+
+.box-title {
+    font-size: 14px !important;
+}
+
+.commonbox {
+    height: 250px;
+    overflow: auto;
+}
+
+.hicon {
+    font-size: 34px !important;
+    /* color: #f5821f; */
+}
+
+.hiconalert {
+    color: #ef5350;
+}
+
+.hiconfav {
+    color: #FFCA28;
+}
+
+.hiconindigo {
+    color: #7986CB;
+}
+
+.hiconattendace {
+    color: #AB47BC;
+}
+
+.hiconteal {
+    color: #26A69A;
+}
+
+.hiconlime {
+    color: #DCE775;
+}
+
+.hiconbrown {
+    color: #795548;
+}
+
+.hicongreen {
+    color: #4CAF50;
+}
+
+.hiconblue {
+    color: #03A9F4;
+}
+
+.hiconcyan {
+    color: #00BCD4;
+}
+
+.hiconhelp {
+    color: #FF9800;
+}
+
+.hiconblue {
+    color: #607D8B;
+}
+
+.bgalert {
+    background: #ef5350 !important;
+}
+
+.bgfav {
+    background: #FFCA28 !important;
+}
+
+.bglime {
+    background: #DCE775 !important;
+}
+
+.bggreen {
+    background: #4CAF50 !important;
+}
+
+.bgbrown {
+    background: #795548 !important;
+}
+
+.bgblue {
+    background: #03A9F4 !important;
+}
+
+.bgcyan {
+    background: #00BCD4 !important;
+}
+
+
+
+
+
+/*  #divalerts{
+            border:2px solid  #ef5350 !important;
+        }
+        #divfavourite{            
+            border:2px solid  #FFCA28 !important;
+        }
+        #divrecent{
+            border:2px solid  #7986CB !important;
+        }
+        #divattendance{            
+            border:2px solid  #AB47BC !important;
+        }
+        #divleavebalance{
+            border:2px solid  #39cccc !important;
+        }
+        #divnotice{
+            border:2px solid  #DCE775 !important;
+        }
+        #divshortcut{
+            border:2px solid  #4CAF50 !important;
+        }
+        #divteam{
+            border:2px solid  #795548 !important;
+        }
+        #divmissing{
+            border:2px solid  #03A9F4 !important;
+        }
+        #divabsent{
+            border:2px solid  #00BCD4 !important;
+        }
+        #divhelp{
+            border:2px solid  #FF9800 !important;
+        }
+        #divpayroll{
+            border:2px solid  #607D8B !important;
+        }
+
+        }*/
+
+#divalerts:hover {
+    border: 2px solid #ddd !important;
+    /* transform: scale(1.03); */
+    /*transition: .5s ease-in-out;*/
+}
+
+#divfavourite:hover {
+    border: 2px solid #ddd !important;
+}
+
+#divrecent:hover {
+    border: 2px solid #ddd !important;
+}
+
+#divattendance:hover {
+    border: 2px solid #ddd !important;
+}
+
+#divleavebalance:hover {
+    border: 2px solid #ddd !important;
+}
+
+#divnotice:hover {
+    border: 2px solid #ddd !important;
+}
+
+#divshortcut:hover {
+    border: 2px solid #ddd !important;
+}
+
+#divteam:hover {
+    border: 2px solid #ddd !important;
+}
+
+#divmissing:hover {
+    border: 2px solid #ddd !important;
+}
+
+#divabsent:hover {
+    border: 2px solid #ddd !important;
+}
+
+#divhelp:hover {
+    border: 2px solid #ddd !important;
+}
+
+#divpayroll:hover {
+    border: 2px solid #ddd !important;
+}
+
+.boxareaattendance {
+    height: 80px !important;
+}
+
+.boxareaalert {
+}
+
+.boxareateam {
+    height: 150px;
+}
+
+.boxareafav {
+    height: 120px !important;
+}
+
+.boxarealeavebalance {
+    height: 360px !important;
+}
+
+.boxareapayroll {
+    height: 360px !important;
+}
+
+.boxrecent {
+    padding: 4px;
+    color: #666;
+    background: transparent;
+    border-left: 2px solid #7986CB;
+    cursor: pointer;
+    margin-top: 2px;
+    font-size: 12px;
+    transition: .3s ease-in-out;
+}
+
+    .boxrecent span {
+    }
+
+    .boxrecent:hover {
+        transition: .3s ease-in-out;
+        /*background: rgba(121, 135, 203, 0.39);*/
+        color: #333 !important;
+        text-shadow: 0px 0px 4px #999;
+        box-shadow: 0px 0px 4px #333;
+        border-radius: 12px;
+    }
+
+.boxnotice {
+    padding: 4px;
+}
+
+.boxnoticecontent {
+    border: 1px solid #ddd;
+    padding: 4px;
+}
+
+.teamstatus span {
+    font-size: 40px;
+}
+
+span#lblTotalPresent {
+    color: #4CAF50;
+}
+
+span#lblTotalAbsent {
+    color: #ef5350;
+}
+
+.teammember {
+    padding: 4px;
+    border-bottom: 1px solid #ddd;
+}
+
+.boxmissing {
+    padding: 8px;
+    border: 1px solid #ddd;
+    margin-top: 1%;
+    border-radius: 10px;
+}
+
+    .boxmissing:hover {
+        background: rgba(0, 0, 0, .2);
+    }
+
+.missingdate {
+    font-weight: bold;
+    font-size: 12px;
+    color: #444;
+}
+
+.alertheight {
+    transition: .4s ease-in-out;
+    height: 300px !important;
+}
+
+ul#alertsandintimations li a {
+    transition: .3s ease-in-out;
+}
+
+    ul#alertsandintimations li a:hover {
+        transition: .3s ease-in-out;
+        background: #eee !important;
+    }
+
+.btnHome {
+    /* background: transparent !important;
+            border-width: 2px !important;
+            color: #333 !important;
+            border-radius: 4px !important; */
+    background: #fff !important;
+}
+
+.btnHomeS {
+    border: 2px solid #4CAF50 !important;
+}
+
+.btnHomeD {
+    border: 2px solid #ef5350 !important;
+}
+
+.iconindiv {
+    position: absolute;
+    font-size: 100px !important;
+    color: #eee;
+    right: 4%;
+    bottom: 4%;
+    transition: .3s ease-in-out;
+}
+
+
+/* .iconclip {
+            display: none;
+            position: absolute;
+            font-size: 27px;
+            font-weight: lighter;
+            color: #eee;
+            left: 0%;
+            top: -4%;
+            transform: rotate(-44deg);
+            -webkit-text-stroke: 2px white;
+            
+        } */
+.btnrefresh {
+    color: #999;
+}
+
+.fablue {
+    color: #.81D4FA;
+}
+
+.faorange {
+    color: #FFCC80;
+}
+
+.boxarea {
+    height: 160px;
+    overflow: scroll;
+    transition: .4s ease-in-out;
+}
+/* .boxarea:hover{            
+            overflow: auto;
+        } */
+
+.divbox {
+    border: 2px solid #fff;
+    border-radius: 0px;
+    box-shadow: 2px 2px 10px #ddd;
+    padding: 6px !important;
+    transition: .5s ease-in-out;
+    background: #fff;
+}
+
+    .divbox:hover {
+        box-shadow: 2px 2px 10px #ddd;
+        /* transform: scale(1.03);         */
+    }
+
+.cardheading {
+    font-size: 14px;
+    color: #666;
+    /* border-left: 4px solid #f5821f; */
+    padding: 5px;
+    background: #ffffff; /* #f1f1f1;*/
+    border-radius: 8px;
+}
+
+    .cardheading span {
+        font-weight: 600;
+    }
+
+.iconindivhover {
+    transform: rotate(-1deg);
+    transition: .3s ease-in-out;
+    bottom: 6%;
+}
+
+
+
+/* width */
+.scroll::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+/* Track */
+.scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+.scroll::-webkit-scrollbar-thumb {
+    background: #999;
+}
+
+    /* Handle on hover */
+    .scroll::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+
+/* LeaveBalance */
+
+.panelshadow {
+    box-shadow: 0px 0px 5px #999 !important;
+    /* border-radius: 10px  !important;             */
+    position: relative !important;
+    background: transparent !important;
+}
+
+.surveytitle {
+    padding: 2px;
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-weight: bold;
+    color: #26A69A;
+    margin-bottom: 1%;
+    font-size: 15px;
+}
+
+.surveylbl {
+    color: rgb(165, 165, 165);
+    font-size: 14px;
+}
+
+.surveytxt {
+    word-break: break-word;
+    font-size: 14px;
+}
+
+.suverybtn {
+    margin-top: 10px;
+}
+
+.boldLabel {
+    color: black;
+}
+
+
+/* Search */
+
+
+
+/* style icon */
+.inner-addon .fa {
+    position: absolute;
+    padding: 5px 10px 10px 10px;
+    pointer-events: none;
+    top: 14%;
+    display: none;
+}
+
+.right-addon > input {
+    border-radius: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* align icon */
+.left-addon .fa {
+    left: 0px;
+}
+
+.right-addon .fa {
+    right: 8px;
+}
+
+/* add padding  */
+.left-addon input {
+    padding-left: 30px;
+}
+
+.right-addon input {
+    padding-right: 30px;
+}
+
+#searchBar {
+    padding: 10px !important;
+}
+
+#txtSearch {
+    width: 100% !important;
+}
+
+.panel-default {
+    border-color: transparent !important;
+}
+
+#anchorTaskTitle {
+    font-size: 12px;
+}
+
+.teaminout {
+    font-size: 12px;
+}
+
+.lblPresent {
+    color: #4CAF50 !important;
+}
+
+.lblAbsent {
+    color: #f44336 !important;
+}
+
+.lblLeave {
+    color: #607D8B !important;
+}
+
+.statusbtn {
+    width: 24%;
+    color: #fff !important;
+    border: none !important;
+    font-size: 13px;
+}
+
+.btnAll {
+    background: #212121;
+}
+
+.btnPresent {
+    background: #4CAF50;
+}
+
+.btnAbsent {
+    background: #f44336;
+}
+
+.btnLeave {
+    background: #795548;
+}
+
+.btnDisable {
+    opacity: .4;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+.balloon {
+    display: inline-block;
+    width: 100px;
+    height: 125px;
+    background: hsl(215,50%,65%);
+    border-radius: 80%;
+    position: relative;
+    box-shadow: inset -10px -10px 0 rgba(0,0,0,0.07);
+    margin: 20px 30px;
+    transition: transform 0.5s ease;
+    z-index: 10;
+    animation: balloons 4s ease-in-out infinite;
+    transform-origin: bottom center;
+    text-align: center;
+}
+
+@keyframes balloons {
+    0%,100% {
+        transform: translateY(0) rotate(-4deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(4deg);
+    }
+}
+
+
+.balloon:before {
+    content: "▲";
+    font-size: 20px;
+    color: transparent;
+    display: block;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: -12px;
+    z-index: -100;
+}
+
+/* .balloon:after {
+ display:inline-block; top:153px;
+  position:absolute;
+  height:250px;
+  width:1px;
+  margin:0 auto;
+  content:"";
+  background:rgba(255, 255, 255, 0.2); 
+} */
+
+.balloon:after {
+    display: inline-block;
+    top: 130px;
+    left: 48%;
+    position: absolute;
+    height: 250px;
+    width: 1px;
+    margin: 0 auto;
+    content: "";
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.jobanniversarybox {
+    width: 50%;
+    transform: translate(50%,50%);
+    padding: 30px;
+    background: #fff;
+    font-size: 40px;
+    position: absolute;
+    box-shadow: 0px 0px 10px #000;
+    background-image: url("../images/jobcard.png");
+    background-repeat: no-repeat;
+    backface-visibility: visible;
+    background-position: top;
+    background-size: cover;
+}
+
+.closeJobCard {
+    position: absolute;
+    top: -29px;
+    right: -28px;
+    background: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    text-align: center;
+    margin: 3px;
+    font-size: 33px;
+    border: 2px solid #333;
+}
+
+
+/* Poict Tile */
+#Policy .media img {
+    width: 50px;
+    height: 50px;
+}
+
+/* For mobile phones: */
+@media only screen and (max-width: 768px) {
+
+    .balloon {
+        width: 30px;
+        height: 40px;
+        margin: 4%;
+    }
+
+    .bletter {
+        font-size: 26px !important;
+    }
+
+    .balloon::after {
+        display: none;
+    }
+
+    #bdintim, #jaintim {
+        top: 20% !important;
+    }
+
+    .bdclose {
+        left: 50% !important;
+        top: -50px !important;
+    }
+
+    .jobanniversarybox {
+        width: 80%;
+        transform: translate(10%,50%);
+        padding: 20px;
+        background: #fff;
+        font-size: 18px;
+        position: absolute;
+        box-shadow: 0px 0px 10px #000;
+    }
+
+    .jobwishename {
+        font-size: 16px !important;
+    }
+
+    .closeJobCard {
+        position: absolute;
+        top: -18px;
+        right: -18px;
+        background: #fff;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        text-align: center;
+        margin: 3px;
+        font-size: 18px;
+        border: 2px solid #333;
+    }
+}
+
+
+
+/* .balloon:nth-child(2){ background:hsl(245,40%,65%); animation-duration:3.5s; }
+.balloon:nth-child(2):before { color:hsl(245,40%,65%);  }
+
+.balloon:nth-child(3){ background:hsl(139,50%,60%); animation-duration:3s; }
+.balloon:nth-child(3):before { color:hsl(139,30%,50%);  }
+
+.balloon:nth-child(4){ background:hsl(59,50%,58%); animation-duration:4.5s; }
+.balloon:nth-child(4):before { color:hsl(59,30%,52%);  }
+
+.balloon:nth-child(5){ background:hsl(23,55%,57%); animation-duration:5s; }
+.balloon:nth-child(5):before { color:hsl(23,44%,46%);  }
+
+.balloon:nth-child(6){ background:hsl(23,55%,57%); animation-duration:5s; }
+.balloon:nth-child(6):before { color:hsl(23,44%,46%);  } */
+
+
+.balloon1 {
+    background: hsl(23,55%,57%);
+    animation-duration: 5s;
+}
+
+.balloon2 {
+    background: rgb(205, 85, 85);
+    animation-duration: 5s;
+}
+
+.balloon3 {
+    background: rgb(205, 85, 205);
+    animation-duration: 5s;
+}
+
+.balloon4 {
+    background: hsl(23,55%,57%);
+    animation-duration: 5s;
+}
+
+.balloon5 {
+    background: rgb(127, 85, 205);
+    animation-duration: 5s;
+}
+
+.balloon6 {
+    background: rgb(85, 171, 205);
+    animation-duration: 5s;
+}
+
+.balloon7 {
+    background: rgb(147, 85, 205);
+    animation-duration: 5s;
+}
+
+.balloon8 {
+    background: rgb(205, 183, 85);
+    animation-duration: 5s;
+}
+
+.balloon9 {
+    background: rgb(105, 205, 85);
+    animation-duration: 5s;
+}
+
+.balloon10 {
+    background: rgb(205, 85, 125);
+    animation-duration: 5s;
+}
+
+.balloon11 {
+    background: rgb(191, 85, 205);
+    animation-duration: 5s;
+}
+
+.balloon12 {
+    background: rgb(85, 205, 159);
+    animation-duration: 5s;
+}
+
+.balloon13 {
+    background: rgb(205, 197, 85);
+    animation-duration: 5s;
+}
+/* 
+.balloon1:before{ color:hsl(23,44%,46%); }
+.balloon2:before{ color:hsl(23,44%,46%); }
+.balloon3:before{ color:hsl(23,44%,46%); }
+.balloon4:before{ color:hsl(23,44%,46%); }
+.balloon5:before{ color:hsl(23,44%,46%); }
+.balloon6:before{ color:hsl(23,44%,46%); }
+.balloon7:before{ color:hsl(23,44%,46%); }
+.balloon8:before{ color:hsl(23,44%,46%); }
+.balloon9:before{ color:hsl(23,44%,46%); }
+.balloon10:before{ color:hsl(23,44%,46%); }
+.balloon11:before{ color:hsl(23,44%,46%); }
+.balloon12:before{ color:hsl(23,44%,46%); }
+.balloon13:before{ color:hsl(23,44%,46%); } */
+
+#bdintim, #jaintim {
+    position: fixed;
+    top: 5%;
+    text-align: center;
+    background: transparent;
+    width: 60%;
+    left: 20%;
+}
+
+.bletter {
+    text-align: center;
+    font-size: 80px;
+    color: #fff;
+    text-shadow: 0px 0px 5px #444;
+}
+
+
+
+.bdclose {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 47%;
+    top: 0;
+    font-size: 27px;
+    text-align: center;
+    background: #fff;
+    color: #000;
+    border-radius: 100%;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.mybdimg {
+    width: 60%;
+}
+
+.eoverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+    z-index: 10000;
+}
+
+
+/* Shadow */
+
+.box h3 {
+    text-align: center;
+    position: relative;
+    top: 80px;
+}
+
+.box {
+    width: 70%;
+    height: 200px;
+    background: #FFF;
+    margin: 40px auto;
+}
+
+/*==================================================
+ * Effect 1
+ * ===============================================*/
+.effect1 {
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
+}
+
+/*==================================================
+ * Effect 2
+ * ===============================================*/
+.effect2 {
+    position: relative;
+}
+
+    .effect2:before, .effect2:after {
+        z-index: -1;
+        position: absolute;
+        content: "";
+        bottom: 15px;
+        left: 10px;
+        width: 50%;
+        top: 80%;
+        max-width: 300px;
+        background: #777;
+        -webkit-box-shadow: 0 15px 10px #777;
+        -moz-box-shadow: 0 15px 10px #777;
+        box-shadow: 0 15px 10px #777;
+        -webkit-transform: rotate(-3deg);
+        -moz-transform: rotate(-3deg);
+        -o-transform: rotate(-3deg);
+        -ms-transform: rotate(-3deg);
+        transform: rotate(-3deg);
+    }
+
+    .effect2:after {
+        -webkit-transform: rotate(3deg);
+        -moz-transform: rotate(3deg);
+        -o-transform: rotate(3deg);
+        -ms-transform: rotate(3deg);
+        transform: rotate(3deg);
+        right: 10px;
+        left: auto;
+    }
+
+/*==================================================
+ * Effect 3
+ * ===============================================*/
+.effect3 {
+    position: relative;
+}
+
+    .effect3:before {
+        z-index: -1;
+        position: absolute;
+        content: "";
+        bottom: 15px;
+        left: 10px;
+        width: 50%;
+        top: 80%;
+        max-width: 300px;
+        background: #777;
+        -webkit-box-shadow: 0 15px 10px #777;
+        -moz-box-shadow: 0 15px 10px #777;
+        box-shadow: 0 15px 10px #777;
+        -webkit-transform: rotate(-3deg);
+        -moz-transform: rotate(-3deg);
+        -o-transform: rotate(-3deg);
+        -ms-transform: rotate(-3deg);
+        transform: rotate(-3deg);
+    }
+
+/*==================================================
+ * Effect 4
+ * ===============================================*/
+.effect4 {
+    position: relative;
+}
+
+    .effect4:after {
+        z-index: -1;
+        position: absolute;
+        content: "";
+        bottom: 15px;
+        right: 10px;
+        left: auto;
+        width: 50%;
+        top: 80%;
+        max-width: 300px;
+        background: #777;
+        -webkit-box-shadow: 0 15px 10px #777;
+        -moz-box-shadow: 0 15px 10px #777;
+        box-shadow: 0 15px 10px #777;
+        -webkit-transform: rotate(3deg);
+        -moz-transform: rotate(3deg);
+        -o-transform: rotate(3deg);
+        -ms-transform: rotate(3deg);
+        transform: rotate(3deg);
+    }
+
+/*==================================================
+ * Effect 5
+ * ===============================================*/
+.effect5 {
+    position: relative;
+}
+
+    .effect5:before, .effect5:after {
+        z-index: -1;
+        position: absolute;
+        content: "";
+        bottom: 25px;
+        left: 10px;
+        width: 50%;
+        top: 80%;
+        max-width: 300px;
+        background: #777;
+        -webkit-box-shadow: 0 35px 20px #777;
+        -moz-box-shadow: 0 35px 20px #777;
+        box-shadow: 0 35px 20px #777;
+        -webkit-transform: rotate(-8deg);
+        -moz-transform: rotate(-8deg);
+        -o-transform: rotate(-8deg);
+        -ms-transform: rotate(-8deg);
+        transform: rotate(-8deg);
+    }
+
+    .effect5:after {
+        -webkit-transform: rotate(8deg);
+        -moz-transform: rotate(8deg);
+        -o-transform: rotate(8deg);
+        -ms-transform: rotate(8deg);
+        transform: rotate(8deg);
+        right: 10px;
+        left: auto;
+    }
+
+/*==================================================
+ * Effect 6
+ * ===============================================*/
+.effect6 {
+    position: relative;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+    .effect6:before, .effect6:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        -moz-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        top: 50%;
+        bottom: 0;
+        left: 10px;
+        right: 10px;
+        -moz-border-radius: 100px / 10px;
+        border-radius: 100px / 10px;
+    }
+
+    .effect6:after {
+        right: 10px;
+        left: auto;
+        -webkit-transform: skew(8deg) rotate(3deg);
+        -moz-transform: skew(8deg) rotate(3deg);
+        -ms-transform: skew(8deg) rotate(3deg);
+        -o-transform: skew(8deg) rotate(3deg);
+        transform: skew(8deg) rotate(3deg);
+    }
+
+/*==================================================
+ * Effect 7
+ * ===============================================*/
+.effect7 {
+    position: relative;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+    .effect7:before, .effect7:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        -moz-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        top: 0;
+        bottom: 0;
+        left: 10px;
+        right: 10px;
+        -moz-border-radius: 100px / 10px;
+        border-radius: 100px / 10px;
+    }
+
+    .effect7:after {
+        right: 10px;
+        left: auto;
+        -webkit-transform: skew(8deg) rotate(3deg);
+        -moz-transform: skew(8deg) rotate(3deg);
+        -ms-transform: skew(8deg) rotate(3deg);
+        -o-transform: skew(8deg) rotate(3deg);
+        transform: skew(8deg) rotate(3deg);
+    }
+
+/*==================================================
+ * Effect 8
+ * ===============================================*/
+.effect8 {
+    position: relative;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+    .effect8:before, .effect8:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        -moz-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        top: 10px;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        -moz-border-radius: 100px / 10px;
+        border-radius: 100px / 10px;
+    }
+
+    .effect8:after {
+        right: 10px;
+        left: auto;
+        -webkit-transform: skew(8deg) rotate(3deg);
+        -moz-transform: skew(8deg) rotate(3deg);
+        -ms-transform: skew(8deg) rotate(3deg);
+        -o-transform: skew(8deg) rotate(3deg);
+        transform: skew(8deg) rotate(3deg);
+    }
+
+
+.text-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 150px;
+    display: inline-block;
+}

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome to TimeTrax - Mobile App</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <!-- Timeline CSS -->
+    <link href="css/timeline.css" rel="stylesheet">
+    <!-- datetime -->
+    <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="css/AdminLTE.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="css/skin-blue.css">
+    <link href="css/chosen.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="js/select2/select2.css">
+    <link rel="stylesheet" href="js/noti/toastr.css">
+    <link rel="stylesheet" href="css/perforamncematrix.css">
+    <style>
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .panelshadow{
+            box-shadow: 0px 0px 10px #ccc;
+            border-radius: 10px;
+            border:1px solid rgba(245, 120, 11, 0.295);
+            position: relative;         
+        }
+
+
+
+        .surveytitle{
+            padding: 4px;
+            border-bottom:1px solid #ddd;
+            display: block;
+            font-weight:bold;   
+            color: #777;  
+            margin-bottom: 1%;  
+            font-size: 18px;      
+        }
+        .surveyinfo{
+            margin-top: 0%;
+            padding: 2px;
+            
+        }
+        .suveryfield{
+            margin-top: 1%;
+        }
+        .surveylbl{
+            color: rgb(165, 165, 165);
+        }
+        .surveytxt{
+            color: #333;
+        }
+       .suverybtn{
+           margin-top: 10px;
+           border-radius: 0px;
+           
+       }
+       .panel-body {
+            padding: 5px;
+        }
+    </style>
+
+</head>
+
+<body class="hold-transition skin-blue fixed sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="main.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><img src="img/logo-sml.png" /></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><img src="img/logo.png" /></span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav" id="pageDropdowns">
+                        <!-- Messages: style can be found in dropdown.less-->
+
+                        <!-- Notifications: style can be found in dropdown.less -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user"></i>
+                                <script type="text/javascript" src="js/UserName.js"></script>
+
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" id="btnlogout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <!-- Tasks: style can be found in dropdown.less -->
+
+                        <!-- User Account: style can be found in dropdown.less -->
+
+
+                    </ul>
+
+
+                </div>
+            </nav>
+        </header>
+        <!-- =============================================== -->
+        <!-- Left side column. contains the sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <!--  <script type="text/javascript" src="js/mainmenu.js"></script>
+                <script type="text/javascript">
+                    $(function(){ var element = document.getElementById("mnuAppraisal");
+                    element.className += " active"; });
+                </script>-->
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- =============================================== -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <section class="content">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span class="page-heading">Perforamce Potential Matrix</span>
+                        <a id="btnRefresh" class="btn btn-default btn-sm pull-right">
+                            <i id="hideShowCriteria" class="fa fa-chevron-down pull-right"></i>
+                        </a>
+
+                        </button>
+                        <span id="wait" style="display: none;font-size: 18px;" class="fa fa-spinner fa-spin pull-right btn"></span>
+                    </div>
+                    <div class="panel-body">
+                        <section class="content">
+                            <div class="panel-body">
+                                <form class="form-horizontal" role="form" id="criteria">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            Review Year</label>
+                                        <div class="col-sm-4">
+                                            <select class="form-control control-select nativeddl" id="ddlReviewYear">
+                                                <option value="0">- Select - </option>
+                                            </select>
+                                        </div>
+                                        <label class="col-sm-2 control-label">
+                                            Employee</label>
+                                        <div class="col-sm-4">
+                                            <select class="form-control control-select" id="ddlEmployee" multiple="multiple">
+                                                <option value="0">- Select - </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            Department</label>
+                                        <div class="col-sm-4">
+                                            <select class="form-control control-select" id="ddlDepartment" multiple="multiple">
+                                                <option value="0">- Select - </option>
+                                            </select>
+                                        </div>
+                                        <label class="col-sm-2 control-label">
+                                            Sub Department</label>
+                                        <div class="col-sm-4">
+                                            <select class="form-control control-select" id="ddlSubDepartment" multiple="multiple">
+                                                <option value="0">- Select - </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            Division</label>
+                                        <div class="col-sm-4">
+                                            <select class="form-control control-select" id="ddlDivision" multiple="multiple">
+                                                <option value="0">- Select - </option>
+                                            </select>
+                                        </div>
+                                        <label class="col-sm-2 control-label">
+                                            Function</label>
+                                        <div class="col-sm-4">
+                                            <select class="form-control control-select" id="ddlGroupLevel" multiple="multiple">
+                                                <option value="0">- Select - </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            Review Type For Perforamnce</label>
+                                        <div class="col-sm-4">
+                                            <select class="form-control control-select nativeddl" id="ddlReviewTypeKPI">
+                                                <option value="0">- Select - </option>
+                                            </select>
+                                        </div>
+                                        <label class="col-sm-2 control-label">
+                                            Review Type For Potential</label>
+                                        <div class="col-sm-4">
+                                            <select class="form-control control-select nativeddl" id="ddlReviewTypeOBJ">
+                                                <option value="0">- Select - </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-2">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <button type="button" class="btn btn-primary btn-block" id="btnShow"
+                                                v-on:click="getData()">Show</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+
+                            <div class="row" id="mainMatrix" style="display: none;">
+                                <div class="col-md-8 col-md-offset-2" style="padding-left: 0px;">
+                                    <table border="0">
+                                        <tr id="RatingTitles">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+
+                                            <td rowspan="4">
+                                                <div class="">
+                                                    <img alt="" src="img/arrowup.png" srcset=""> </img></div>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="vertical-align-content kpiLabels rotated">
+                                                    • High
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id="matrix31" class="mbox byellow">
+                                                    <div class="employeecount"><span>0</span></div>
+                                                    <div class="blabel">Poor Perforamce High Potential</div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id="matrix32" class="mbox bgreen">
+                                                    <div class="employeecount"><span>0</span></div>
+                                                    <div class="blabel">Good Perforamce High Potential</div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id="matrix33" class="mbox bblue">
+                                                    <div class="employeecount"><span>0</span></div>
+                                                    <div class="blabel">Outstanding Perforamce High Potential</div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="vertical-align-content kpiLabels rotated">
+                                                    •Moderate
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id="matrix21" class="mbox borange">
+                                                    <div class="employeecount"><span>0</span></div>
+                                                    <div class="blabel">Poor Perforamce Moderate Potenial</div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id="matrix22" class="mbox byellow">
+                                                    <div class="employeecount"><span>0</span></div>
+                                                    <div class="blabel">Good Perforamce Moderate Potenial</div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id="matrix23" class="mbox bgreen">
+                                                    <div class="employeecount"><span>0</span></div>
+                                                    <div class="blabel">Outstanding Perforamce Moderate Potenial</div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="vertical-align-content kpiLabels rotated">
+                                                    • Limited
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id="matrix11" class="mbox bred">
+                                                    <div class="employeecount"><span>0</span></div>
+                                                    <div class="blabel">Poor Perforamce Limited Potenial</div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id="matrix12" class="mbox borange">
+                                                    <div class="employeecount"><span>0</span></div>
+                                                    <div class="blabel">Good Perforamce Limited Potenial</div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id="matrix13" class="mbox byellow">
+                                                    <div class="employeecount"><span>0</span></div>
+                                                    <div class="blabel">Outstanding Perforamce Limited Potenial</div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+
+                                            </td>
+                                            <td>
+
+                                            </td>
+                                            <td>
+                                                <br />
+                                                <div class="kpiLabels">
+                                                    • Poor
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="kpiLabels">
+                                                    <br />
+                                                    • Good
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="kpiLabels">
+                                                    <br />
+                                                    • Outstanding
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="tdarrowright" colspan="4">
+                                                <div class="">
+                                                    <img src="img/arrowright.png" alt="" srcset="" width="80%" height="50px">
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+            </section>
+            <!-- /.content -->
+        </div>
+    </div>
+
+
+
+    <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog fullwidthmodal">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header efroheader">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Detail(s)</h4>
+                </div>
+                <div class="modal-body" id="gvList">
+                    <div id="listcontainer">
+
+                    </div>
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> -->
+            </div>
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="js/footer.js"></script>
+
+    <footer class="navbar-fixed-bottom">
+
+        <!--<div class="pull-right hidden-xs">
+                <b>Version</b> 5.1.0
+            </div>
+            <strong>Copyright &copy; <script>document.write(getYear());</script> 
+                <a href="http://EfroTech.com">EfroTech</a>.</strong> All rights reserved.-->
+        <script>                document.write(getShortCuts());</script>
+    </footer>
+    <!-- Control Sidebar -->
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+           immediately after the control sidebar -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+
+    <!-- Ajax Request Spinner -->
+    <div id="wait" style="display: none;position: fixed;top:50%;left:50%">
+        <div style="text-align:center;color:#F5770B;"><i class="fa fa-gear fa-spin" style="font-size:24px;text-align:center;"></i>
+            <div></div>
+        </div>
+    </div>
+
+
+    <script src="js/polyfill.js"></script>
+
+    <script src="js/jquery.js"></script>
+
+    <script src="js/jquery.signalR-2.4.1.js"></script>
+    <script src="js/SignalRHub.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+
+    <script src="js/bootstrap.js"></script>
+
+    <!-- SlimScroll -->
+
+    <script src="js/jquery.slimscroll.js"></script>
+
+    <!-- FastClick -->
+
+    <script src="js/fastclick.js"></script>
+
+    <!-- AdminLTE App -->
+    <script src="js/noti/toastr.js"></script>
+    <script src="js/app.js"></script>
+    <script type="text/javascript" src="js/mainmenu.js"></script>
+    <script src="js/moment-with-locales.js"></script>
+    <script src="js/bootstrap-datetimepicker.js"></script>
+    <script src="js/chosen.jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/select2/select2.js"></script>
+    <script src="js/PerformanceMatrix.js" type="text/javascript" charset="utf-8"></script>
+
+
+
+    <script> $(function () { var element = document.getElementById("mnuAppraisal"); element.className += " active"; }); </script>
+</body>
+
+</html>
